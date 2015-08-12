@@ -1,0 +1,74 @@
+*** Settings ***
+Library   Selenium2Library
+Suite Setup   Open Browser   ${HOMEPAGE}   ${BROWSER}
+Suite Teardown   Close All Browsers
+
+*** Variables ***
+${HOMEPAGE}   http://www.moneyhero.com.hk
+${BROWSER}   firefox
+
+
+*** Test Cases ***
+Initialize Test
+	Add Cookie       QA_AUTOMATION  			True
+	Set Selenium Timeout        3
+	Set Window Size  				1600     1200
+
+
+# MoneyHero Page Load Test - Hongkong
+# 	Go To    http://www.moneyhero.com.hk/en	
+# 	Wait Until Page Contains Element        reason-why-ii
+# 	Wait Until Page Contains Element        reason-why-fwo 
+# 	Wait Until Page Contains Element        reason-why-emc 
+# 	Wait Until Page Contains Element        css=img.stamp_img 
+
+
+MoneyMax Page Load Test - Philippines
+	Go To    http://www.moneymax.ph/
+	Element Should Contain         css=ul.breadcrumb           You are here:  Home
+	Wait Until Page Contains Element         css=nav.navbar.navbar-inverse  
+
+
+Halomoney Page Load Test - Indonesia
+	Go To    http://www.halomoney.co.id
+	Wait Until Page Contains Element  css=ul.breadcrumb
+	Element Should Contain     css=ul.breadcrumb  Anda di sini:  Home
+
+ComparaGuru Page Load Test - Mexico
+	Go To    http://www.comparaguru.com/
+	Wait Until Page Contains Element  css=img[alt="ComparaGuru"]  
+	Element Should Contain  link=Préstamo Personal  Préstamo Personal
+	Element Should Contain  link=Crédito Automotriz  Crédito Automotriz
+
+
+MoneyGuru Page Load Test - Thailand
+	Go To    http://www.moneyguru.co.th/en
+	Wait Until Page Contains Element     css=img[alt="MoneyGuru"]  
+	Element Should Contain     link=Car Insurance      Car Insurance
+	Element Should Contain     link=Credit Card      Credit Card
+	Element Should Contain     link=Personal Loan      Personal Loan
+
+
+CompareHero Page Load Test - Malaysia
+	Go To    http://www.comparehero.my/
+		
+
+
+Money101 Page Load Test - Taiwan
+	Go To    http://www.money101.com.tw/
+	Wait Until Page Contains Element      css=img[alt="Money101"]  
+	Element Should Contain      link=信用卡  信用卡
+	Element Should Contain      link=貸款  貸款
+	Element Should Contain      link=存款  存款
+
+
+
+Samlino Page Load Test - Denmark
+	Go To    http://www.samlino.dk/
+	Wait Until Page Contains Element  css=img[class='header-block__img'][alt='Samlino']
+	Page Should Contain  				Forsikring
+	Page Should Contain  			    Mobil, bredbånd og TV
+	Page Should Contain  				Penge	
+	Page Should Contain  				Nyheder
+	Page Should Contain  				Hjælp
+

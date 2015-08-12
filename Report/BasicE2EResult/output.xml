@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20150413 07:20:24.735" generator="Robot 2.8.6 (Python 2.7.3 on linux2)">
+<suite source="/home/enriquecampita/Automation/compareglobal-automation/Tests/BasicE2E.txt" id="s1" name="BasicE2E">
+<kw type="setup" name="Selenium2Library.Open Browser">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${HOMEPAGE}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20150413 07:20:24.842" level="INFO">Opening browser 'firefox' to base url 'http://www.compareasiagroup.com'</msg>
+<status status="PASS" endtime="20150413 07:20:30.746" starttime="20150413 07:20:24.842"></status>
+</kw>
+<test id="s1-t1" name="Initialize Test">
+<kw type="kw" name="Selenium2Library.Add Cookie">
+<doc>Adds a cookie to your current session.</doc>
+<arguments>
+<arg>QA_AUTOMATION</arg>
+<arg>True</arg>
+</arguments>
+<status status="PASS" endtime="20150413 07:20:30.760" starttime="20150413 07:20:30.747"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Set Selenium Timeout">
+<doc>Sets the timeout in seconds used by various keywords.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<status status="PASS" endtime="20150413 07:20:30.765" starttime="20150413 07:20:30.761"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Set Window Size">
+<doc>Sets the `width` and `height` of the current window to the specified values.</doc>
+<arguments>
+<arg>1600</arg>
+<arg>1200</arg>
+</arguments>
+<status status="PASS" endtime="20150413 07:20:30.965" starttime="20150413 07:20:30.766"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150413 07:20:30.965" critical="yes" starttime="20150413 07:20:30.746"></status>
+</test>
+<test id="s1-t2" name="Verify MoneyMax Is Loading">
+<kw type="kw" name="Selenium2Library.Open Browser">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>http://www.moneymax.ph/</arg>
+<arg>firefox</arg>
+</arguments>
+<msg timestamp="20150413 07:20:30.967" level="INFO">Opening browser 'firefox' to base url 'http://www.moneymax.ph/'</msg>
+<status status="PASS" endtime="20150413 07:20:38.243" starttime="20150413 07:20:30.967"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=ul.breadcrumb</arg>
+<arg>You are here:</arg>
+<arg>Home</arg>
+</arguments>
+<msg timestamp="20150413 07:20:38.243" level="INFO">Verifying element 'css=ul.breadcrumb' contains text 'You are here:'.</msg>
+<status status="PASS" endtime="20150413 07:20:38.299" starttime="20150413 07:20:38.243"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=nav.navbar.navbar-inverse</arg>
+</arguments>
+<status status="PASS" endtime="20150413 07:20:38.305" starttime="20150413 07:20:38.299"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150413 07:20:38.306" critical="yes" starttime="20150413 07:20:30.966"></status>
+</test>
+<test id="s1-t3" name="Verify MoneyGuru Is Loading">
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>http://www.moneyguru.co.th/en</arg>
+</arguments>
+<msg timestamp="20150413 07:20:38.307" level="INFO">Opening url 'http://www.moneyguru.co.th/en'</msg>
+<status status="PASS" endtime="20150413 07:20:41.390" starttime="20150413 07:20:38.307"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=img[alt="MoneyGuru"]</arg>
+</arguments>
+<status status="PASS" endtime="20150413 07:20:41.406" starttime="20150413 07:20:41.391"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>link=Car Insurance</arg>
+<arg>Car Insurance</arg>
+</arguments>
+<msg timestamp="20150413 07:20:41.406" level="INFO">Verifying element 'link=Car Insurance' contains text 'Car Insurance'.</msg>
+<status status="PASS" endtime="20150413 07:20:41.704" starttime="20150413 07:20:41.406"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>link=Credit Card</arg>
+<arg>Credit Card</arg>
+</arguments>
+<msg timestamp="20150413 07:20:41.705" level="INFO">Verifying element 'link=Credit Card' contains text 'Credit Card'.</msg>
+<status status="PASS" endtime="20150413 07:20:41.978" starttime="20150413 07:20:41.705"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>link=Personal Loan</arg>
+<arg>Personal Loan</arg>
+</arguments>
+<msg timestamp="20150413 07:20:41.978" level="INFO">Verifying element 'link=Personal Loan' contains text 'Personal Loan'.</msg>
+<status status="PASS" endtime="20150413 07:20:42.250" starttime="20150413 07:20:41.978"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>link=About Us</arg>
+<arg>About Us</arg>
+</arguments>
+<msg timestamp="20150413 07:20:42.251" level="INFO">Verifying element 'link=About Us' contains text 'About Us'.</msg>
+<status status="PASS" endtime="20150413 07:20:42.538" starttime="20150413 07:20:42.250"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150413 07:20:42.539" critical="yes" starttime="20150413 07:20:38.306"></status>
+</test>
+<test id="s1-t4" name="Verify Money101 Is Loading">
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>http://www.money101.com.tw/</arg>
+</arguments>
+<msg timestamp="20150413 07:20:42.540" level="INFO">Opening url 'http://www.money101.com.tw/'</msg>
+<status status="PASS" endtime="20150413 07:20:46.022" starttime="20150413 07:20:42.540"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=img[alt="Money101"]</arg>
+</arguments>
+<status status="PASS" endtime="20150413 07:20:46.032" starttime="20150413 07:20:46.022"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>link=信用卡</arg>
+<arg>信用卡</arg>
+</arguments>
+<msg timestamp="20150413 07:20:46.032" level="INFO">Verifying element 'link=信用卡' contains text '信用卡'.</msg>
+<status status="PASS" endtime="20150413 07:20:46.333" starttime="20150413 07:20:46.032"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>link=貸款</arg>
+<arg>貸款</arg>
+</arguments>
+<msg timestamp="20150413 07:20:46.333" level="INFO">Verifying element 'link=貸款' contains text '貸款'.</msg>
+<status status="PASS" endtime="20150413 07:20:46.624" starttime="20150413 07:20:46.333"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>link=存款</arg>
+<arg>存款</arg>
+</arguments>
+<msg timestamp="20150413 07:20:46.625" level="INFO">Verifying element 'link=存款' contains text '存款'.</msg>
+<status status="PASS" endtime="20150413 07:20:46.920" starttime="20150413 07:20:46.624"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>link=寬頻上網</arg>
+<arg>寬頻上網</arg>
+</arguments>
+<msg timestamp="20150413 07:20:46.920" level="INFO">Verifying element 'link=寬頻上網' contains text '寬頻上網'.</msg>
+<status status="PASS" endtime="20150413 07:20:47.212" starttime="20150413 07:20:46.920"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150413 07:20:47.213" critical="yes" starttime="20150413 07:20:42.539"></status>
+</test>
+<test id="s1-t5" name="Verify ComparaGuru Is Loading">
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>http://www.comparaguru.com/</arg>
+</arguments>
+<msg timestamp="20150413 07:20:47.214" level="INFO">Opening url 'http://www.comparaguru.com/'</msg>
+<status status="PASS" endtime="20150413 07:20:50.191" starttime="20150413 07:20:47.214"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=img[alt="ComparaGuru"]</arg>
+</arguments>
+<status status="PASS" endtime="20150413 07:20:50.210" starttime="20150413 07:20:50.191"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>link=Préstamo Personal</arg>
+<arg>Préstamo Personal</arg>
+</arguments>
+<msg timestamp="20150413 07:20:50.211" level="INFO">Verifying element 'link=Préstamo Personal' contains text 'Préstamo Personal'.</msg>
+<status status="PASS" endtime="20150413 07:20:51.629" starttime="20150413 07:20:50.211"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>link=Crédito Automotriz</arg>
+<arg>Crédito Automotriz</arg>
+</arguments>
+<msg timestamp="20150413 07:20:51.630" level="INFO">Verifying element 'link=Crédito Automotriz' contains text 'Crédito Automotriz'.</msg>
+<status status="PASS" endtime="20150413 07:20:52.145" starttime="20150413 07:20:51.629"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>link=Seguro de Autos</arg>
+<arg>Seguro de Autos</arg>
+</arguments>
+<msg timestamp="20150413 07:20:52.146" level="INFO">Verifying element 'link=Seguro de Autos' contains text 'Seguro de Autos'.</msg>
+<status status="PASS" endtime="20150413 07:20:52.539" starttime="20150413 07:20:52.146"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150413 07:20:52.539" critical="yes" starttime="20150413 07:20:47.213"></status>
+</test>
+<test id="s1-t6" name="Verify HaloMoney Is Loading">
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>http://www.halomoney.co.id</arg>
+</arguments>
+<msg timestamp="20150413 07:20:52.541" level="INFO">Opening url 'http://www.halomoney.co.id'</msg>
+<status status="PASS" endtime="20150413 07:20:54.207" starttime="20150413 07:20:52.540"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=ul.breadcrumb</arg>
+</arguments>
+<status status="PASS" endtime="20150413 07:20:54.214" starttime="20150413 07:20:54.208"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=ul.breadcrumb</arg>
+<arg>Anda di sini:</arg>
+<arg>Home</arg>
+</arguments>
+<msg timestamp="20150413 07:20:54.215" level="INFO">Verifying element 'css=ul.breadcrumb' contains text 'Anda di sini:'.</msg>
+<status status="PASS" endtime="20150413 07:20:54.242" starttime="20150413 07:20:54.214"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>p_leading</arg>
+<arg>Bandingkan Kartu Kredit, KTA dan KPR di Indonesia</arg>
+</arguments>
+<msg timestamp="20150413 07:20:54.243" level="INFO">Verifying element 'p_leading' contains text 'Bandingkan Kartu Kredit, KTA dan KPR di Indonesia'.</msg>
+<status status="PASS" endtime="20150413 07:20:54.256" starttime="20150413 07:20:54.242"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h2.box_title1</arg>
+<arg>Kartu Kredit</arg>
+</arguments>
+<msg timestamp="20150413 07:20:54.256" level="INFO">Verifying element 'css=h2.box_title1' contains text 'Kartu Kredit'.</msg>
+<status status="PASS" endtime="20150413 07:20:54.272" starttime="20150413 07:20:54.256"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>//h2[@onclick="_gaq.push(['_trackEvent', 'Links', 'Click', 'Compare Box Personal Loan']);"]</arg>
+<arg>KTA</arg>
+</arguments>
+<msg timestamp="20150413 07:20:54.272" level="INFO">Verifying element '//h2[@onclick="_gaq.push(['_trackEvent', 'Links', 'Click', 'Compare Box Personal Loan']);"]' contains text 'KTA'.</msg>
+<status status="PASS" endtime="20150413 07:20:54.287" starttime="20150413 07:20:54.272"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=a[href='http://www.halomoney.co.id/pinjaman-kpr']</arg>
+</arguments>
+<status status="PASS" endtime="20150413 07:20:54.294" starttime="20150413 07:20:54.288"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=div.btn-compare-now</arg>
+</arguments>
+<status status="PASS" endtime="20150413 07:20:54.300" starttime="20150413 07:20:54.294"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>//div[2]/div/a[2]/div</arg>
+</arguments>
+<status status="PASS" endtime="20150413 07:20:54.306" starttime="20150413 07:20:54.300"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=div.span12 &gt; h3</arg>
+<arg>Bandingkan Kartu Kredit dan KTA di Indonesia, hemat uang Anda</arg>
+</arguments>
+<msg timestamp="20150413 07:20:54.307" level="INFO">Verifying element 'css=div.span12 &gt; h3' contains text 'Bandingkan Kartu Kredit dan KTA di Indonesia, hemat uang Anda'.</msg>
+<status status="PASS" endtime="20150413 07:20:54.323" starttime="20150413 07:20:54.307"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150413 07:20:54.324" critical="yes" starttime="20150413 07:20:52.540"></status>
+</test>
+<kw type="teardown" name="Selenium2Library.Close All Browsers">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150413 07:20:54.399" starttime="20150413 07:20:54.325"></status>
+</kw>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="PASS" endtime="20150413 07:20:54.399" starttime="20150413 07:20:24.735"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="6">Critical Tests</stat>
+<stat fail="0" pass="6">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" pass="6" id="s1" name="BasicE2E">BasicE2E</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

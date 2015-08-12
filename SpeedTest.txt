@@ -1,0 +1,365 @@
+*** Settings ***
+Library   Selenium2Library
+Library   BuiltIn
+Library   String
+Library   OperatingSystem
+
+
+Suite Setup   		Open Browser   ${HOMEPAGE}   ${BROWSER}
+Suite Teardown   	Close All Browsers
+Resource          	Common/Common.txt
+
+*** Variables ***
+${HOMEPAGE}   http://www.moneyhero.com.hk/en
+# ${HOMEPAGE}   http://tools.pingdom.com
+${BROWSER}   firefox
+
+
+*** Test Cases ***
+Initialize Test
+	Common.Initialize Test
+
+
+MoneyHero Page Speed Test - Hongkong
+	[Template]  Load url and check speed
+	http://www.moneyhero.com.hk/en
+	http://www.moneyhero.com.hk/en/credit-card
+	http://www.moneyhero.com.hk/en/credit-card/faq
+	http://www.moneyhero.com.hk/en/credit-card/glossary
+	http://www.moneyhero.com.hk/en/credit-card/guide
+	http://www.moneyhero.com.hk/en/credit-card/banks
+	http://www.moneyhero.com.hk/en/credit-card/citibank
+	http://www.moneyhero.com.hk/en/credit-card/standard-chartered
+	http://www.moneyhero.com.hk/en/credit-card/american-express
+	http://www.moneyhero.com.hk/en/credit-card/china-construction-bank
+	http://www.moneyhero.com.hk/en/credit-card/bank-of-communications
+	http://www.moneyhero.com.hk/en/credit-card/hsbc
+	http://www.moneyhero.com.hk/en/credit-card/hang-seng-bank
+	http://www.moneyhero.com.hk/en/credit-card/bank-of-china-hong-kong-limited
+	http://www.moneyhero.com.hk/en/credit-card/dbs
+	http://www.moneyhero.com.hk/en/credit-card/dah-sing-bank
+	http://www.moneyhero.com.hk/en/credit-card/bank-of-east-asia
+	http://www.moneyhero.com.hk/en/credit-card/aeon
+	http://www.moneyhero.com.hk/en/credit-card/china-citic-bank
+	http://www.moneyhero.com.hk/blog/en/category/credit-cards
+	http://www.moneyhero.com.hk/en/housing-loan 
+	http://www.moneyhero.com.hk/en/personal-loan
+	http://www.moneyhero.com.hk/en/personal-loan/guide
+	http://www.moneyhero.com.hk/en/personal-accident-insurance
+	http://www.moneyhero.com.hk/en/medical-insurance
+	# http://www.moneyhero.com.hk/en/medical-insurance-quotes
+	http://www.moneyhero.com.hk/en/medical-insurance/guide
+	http://www.moneyhero.com.hk/en/travel-insurance
+	http://www.moneyhero.com.hk/en/travel-insurance/guide
+	http://www.moneyhero.com.hk/en/medical-insurance/partners
+	http://www.moneyhero.com.hk/en/medical-insurance/allianz
+	http://www.moneyhero.com.hk/en/medical-insurance/axa
+	http://www.moneyhero.com.hk/en/medical-insurance/global-health
+	http://www.moneyhero.com.hk/en/medical-insurance/alc
+	http://www.moneyhero.com.hk/en/medical-insurance/interglobal
+	http://www.moneyhero.com.hk/en/medical-insurance/globality
+	http://www.moneyhero.com.hk/en/medical-insurance/axappp
+	http://www.moneyhero.com.hk/en/medical-insurance/aetna
+	http://www.moneyhero.com.hk/en/medical-insurance/bupawho
+	http://www.moneyhero.com.hk/en/medical-insurance/william-russell
+	http://www.moneyhero.com.hk/en/medical-insurance/a+
+	http://www.moneyhero.com.hk/en/about
+	http://www.moneyhero.com.hk/en/contact-us
+	http://www.moneyhero.com.hk/en/faq
+	http://www.moneyhero.com.hk/en/product-guide
+	http://www.moneyhero.com.hk/en/careers
+	http://www.moneyhero.com.hk/en/terms
+	http://www.moneyhero.com.hk/en/glossary
+	http://www.moneyhero.com.hk/en/affiliates
+	http://www.moneyhero.com.hk/en/press
+	http://www.moneyhero.com.hk/en/sitemap
+	http://www.moneyhero.com.hk/blog/en
+
+
+MoneyMax Page Speed Test - Philippines
+	[Template]  Load url and check speed
+	http://www.moneymax.ph/
+	# http://www.moneymax.ph/credit-card
+	http://www.moneymax.ph/credit-card/faq
+	http://www.moneymax.ph/credit-card/glossary
+	http://www.moneymax.ph/credit-card/guide
+	# http://www.moneymax.ph/broadband
+	http://www.moneymax.ph/broadband/faq
+	# http://www.moneymax.ph/broadband/glossary
+	http://www.moneymax.ph/broadband/guide
+	http://www.moneymax.ph/housing-loan
+	http://www.moneymax.ph/housing-loan/faq
+	http://www.moneymax.ph/housing-loan/glossary
+	http://www.moneymax.ph/housing-loan/guide
+	http://www.moneymax.ph/personal-loan
+	http://www.moneymax.ph/personal-loan/faq
+	http://www.moneymax.ph/personal-loan/glossary
+	http://www.moneymax.ph/personal-loan/guide
+	http://www.moneymax.ph/car-insurance
+	http://www.moneymax.ph/car-insurance/faq
+	http://www.moneymax.ph/car-insurance/glossary
+	http://www.moneymax.ph/car-insurance/guide
+	http://www.moneymax.ph/blog/
+	http://www.moneymax.ph/blog/featured-articles/lifestyle/
+	http://www.moneymax.ph/blog/featured-articles/experts-talk/
+	http://www.moneymax.ph/blog/featured-articles/bloggers-speak/
+	http://www.moneymax.ph/blog/news/banking-finance/
+	http://www.moneymax.ph/blog/news/technology/
+	http://www.moneymax.ph/blog/news/local-news/
+	http://www.moneymax.ph/blog/news/world-news/
+	http://www.moneymax.ph/blog/in-depth-guides/product-overviews/
+	http://www.moneymax.ph/blog/in-depth-guides/product-reviews-tips/
+	http://www.moneymax.ph/blog/in-depth-guides/personal-finance/
+	http://www.moneymax.ph/about
+	http://www.moneymax.ph/contact-us
+	http://www.moneymax.ph/faq
+	http://www.moneymax.ph/product-guide
+	http://www.moneymax.ph/careers
+	http://www.moneymax.ph/terms
+	http://www.moneymax.ph/privacy-policy
+	http://www.moneymax.ph/glossary
+	http://www.moneymax.ph/affiliates
+	http://www.moneymax.ph/press
+	http://www.moneymax.ph/sitemap
+	http://www.moneymax.ph/country-locator
+	http://www.moneymax.ph/blog/
+
+
+
+
+
+Halomoney Page Speed Test - Indonesia
+	[Template]  Load url and check speed
+	http://www.halomoney.co.id/en
+	http://www.halomoney.co.id/en/credit-card
+	http://www.halomoney.co.id/en/credit-card/faq
+	http://www.halomoney.co.id/en/credit-card/glossary
+	http://www.halomoney.co.id/en/credit-card/guide
+	http://www.halomoney.co.id/en/credit-card/providers
+	http://www.halomoney.co.id/en/credit-card/hsbc
+	http://www.halomoney.co.id/en/credit-card/cimb-niaga
+	http://www.halomoney.co.id/en/credit-card/standard-chartered
+	http://www.halomoney.co.id/en/housing-loan
+	http://www.halomoney.co.id/en/personal-loan
+	http://www.halomoney.co.id/en/personal-loan/guide
+	http://www.halomoney.co.id/en/personal-loan/providers
+	http://www.halomoney.co.id/en/personal-loan/standard-chartered
+	http://www.halomoney.co.id/en/personal-loan/qnb-kesawan
+	http://www.halomoney.co.id/en/broadband
+	http://www.halomoney.co.id/broadband/faq
+	http://www.halomoney.co.id/en/broadband/glossary
+	http://www.halomoney.co.id/en/broadband/guide
+	http://www.halomoney.co.id/en/insurance
+	http://www.halomoney.co.id/en/personal-accident-insurance
+	# http://www.halomoney.co.id/en/medical-insurance
+	# http://www.halomoney.co.id/en/travel-insurance
+	http://www.halomoney.co.id/en/about
+	http://www.halomoney.co.id/en/contactus
+	http://www.halomoney.co.id/en/faq
+	http://www.halomoney.co.id/en/product-guide
+	http://www.halomoney.co.id/en/careers
+	http://www.halomoney.co.id/en/privacypolicy
+	http://www.halomoney.co.id/en/terms
+	http://www.halomoney.co.id/en/glossary
+	http://www.halomoney.co.id/en/affiliates
+	http://www.halomoney.co.id/en/press
+	http://www.halomoney.co.id/en/sitemap
+	http://www.halomoney.co.id/blog/en/
+
+
+
+ComparaGuru Page Speed Test - Mexico
+	[Template]  Load url and check speed
+	http://www.comparaguru.com/
+	http://www.comparaguru.com/prestamos-personales
+	http://www.comparaguru.com/prestamos-personales/guia
+	http://www.comparaguru.com/credito-automotriz
+	http://www.comparaguru.com/credito-automotriz/guia
+	http://www.comparaguru.com/nosotros
+	http://www.comparaguru.com/empleo
+	http://www.comparaguru.com/politica-de-privacidad
+	http://www.comparaguru.com/terminos-y-condiciones
+	http://www.comparaguru.com/glosario
+	http://www.comparaguru.com/afiliados
+	http://www.comparaguru.com/prensa
+	http://www.comparaguru.com/contacto
+	http://www.comparaguru.com/preguntas-frecuentes
+	http://www.comparaguru.com/guia-productos
+	http://www.comparaguru.com/sitemap
+
+
+
+
+MoneyGuru Page Speed Test - Thailand
+	[Template]  Load url and check speed
+	http://www.moneyguru.co.th/en
+	http://www.moneyguru.co.th/en/credit-card
+	http://www.moneyguru.co.th/en/credit-card/faq
+	http://www.moneyguru.co.th/en/credit-card/glossary
+	http://www.moneyguru.co.th/en/credit-card/guide
+	http://www.moneyguru.co.th/en/personal-loan
+	http://www.moneyguru.co.th/blog/
+	http://www.moneyguru.co.th/en/about
+	http://www.moneyguru.co.th/en/contact-us
+	http://www.moneyguru.co.th/en/faq
+	http://www.moneyguru.co.th/en/product-guide
+	http://www.moneyguru.co.th/en/careers
+	http://www.moneyguru.co.th/en/privacypolicy
+	http://www.moneyguru.co.th/en/terms
+	http://www.moneyguru.co.th/en/glossary
+	http://www.moneyguru.co.th/en/affiliates
+	http://www.moneyguru.co.th/en/press
+	http://www.moneyguru.co.th/en/sitemap
+	# https://www.facebook.com/moneyguru.co.th
+	# https://twitter.com/MoneyGuruTH
+	# https://plus.google.com/+MoneyguruCoThailand/posts
+	http://www.moneyguru.co.th/blog/
+	http://www.moneyguru.co.th/blog/category/financial-tips/
+	http://www.moneyguru.co.th/blog/category/news-current-events/
+	http://www.moneyguru.co.th/blog/category/lifestyle/
+	http://www.moneyguru.co.th/blog/category/entertainment/
+
+
+
+
+
+CompareHero Page Speed Test - Malaysia
+	[Template]  Load url and check speed
+	http://www.comparehero.my/
+	http://www.comparehero.my/credit-card
+	http://www.comparehero.my/credit-card/faq
+	http://www.comparehero.my/credit-card/glossary
+	http://www.comparehero.my/credit-card/guide
+	http://www.comparehero.my/broadband#mobile
+	http://www.comparehero.my/broadband/faq
+	http://www.comparehero.my/broadband/glossary
+	http://www.comparehero.my/broadband/guide
+	http://www.comparehero.my/housing-loan#all
+	http://www.comparehero.my/personal-loan#all
+	# https://www.facebook.com/CompareHero.my
+	# https://twitter.com/CompareHero_my
+	# http://www.youtube.com/CompareHero
+	# https://plus.google.com/+CompareheroMy/posts
+	http://www.comparehero.my/blog/
+	http://www.comparehero.my/about
+	http://www.comparehero.my/contact
+	http://www.comparehero.my/faq
+	http://www.comparehero.my/product-guide
+	http://www.comparehero.my/careers
+	http://www.comparehero.my/privacy
+	http://www.comparehero.my/terms
+	http://www.comparehero.my/glossary
+	http://www.comparehero.my/affiliates
+	http://www.comparehero.my/press
+	http://www.comparehero.my/sitemap
+
+
+
+
+Money101 Page Speed Test - Taiwan
+	[Template]  Load url and check speed
+	http://www.money101.com.tw/
+	http://www.money101.com.tw/信用卡
+	http://www.money101.com.tw/信用卡/信用卡申請問答
+	http://www.money101.com.tw/信用卡/信用卡常用名詞解釋
+	http://www.money101.com.tw/信用卡/信用卡使用指南
+	http://www.money101.com.tw/寬頻上網
+	http://www.money101.com.tw/寬頻上網/寬頻挑選指南
+	http://www.money101.com.tw/寬頻上網/寬頻服務業者
+	http://www.money101.com.tw/broadband/so-net
+	http://www.money101.com.tw/broadband/台灣大寬頻
+	http://www.money101.com.tw/broadband/APOL亞太電信
+	http://www.money101.com.tw/broadband/凱擘大寬頻
+	http://www.money101.com.tw/個人貸款
+	http://www.money101.com.tw/定存利率比較
+	http://www.money101.com.tw/blog/
+	# https://www.facebook.com/Money101comtw
+	# https://twitter.com/Money101comtw
+	# https://plus.google.com/104717033153218090550/posts
+	# https://www.youtube.com/user/Money101comtw
+	http://www.money101.com.tw/blog/
+	http://www.money101.com.tw/關於我們
+	http://www.money101.com.tw/聯絡我們
+	http://www.money101.com.tw/常見問題
+	http://www.money101.com.tw/徵人
+	http://www.money101.com.tw/隱私條款
+	http://www.money101.com.tw/服務條款
+	http://www.money101.com.tw/詞彙表
+	http://www.money101.com.tw/聯盟行銷
+	http://www.money101.com.tw/媒體專區
+	http://www.money101.com.tw/%E5%AA%92%E9%AB%94%E5%B0%88%E5%8D%80
+	http://www.money101.com.tw/%E7%B6%B2%E7%AB%99%E6%8C%87%E5%BC%95
+	http://www.money101.com.tw/%E7%90%86%E8%B2%A1%E5%BF%AB%E5%A0%B1
+
+
+
+Samlino Page Speed Test - Denmark
+	[Template]  Load url and check speed
+	http://www.samlino.dk/
+	http://www.samlino.dk/forbrugslaan#svar-4-timer
+	http://www.samlino.dk/forbrugslaan/guide
+	http://www.samlino.dk/forbrugslaan/ordliste
+	http://www.samlino.dk/forbrugslaan/faq
+	http://www.samlino.dk/bredbaand#fastnet
+	http://www.samlino.dk/bredbaand/guide
+	http://www.samlino.dk/bredbaand/ordliste
+	http://www.samlino.dk/bredbaand/faq
+	http://www.samlino.dk/kreditkort
+	http://www.samlino.dk/kreditkort/guide
+	http://www.samlino.dk/kreditkort/ordliste
+	http://www.samlino.dk/kreditkort/faq
+	http://www.samlino.dk/hoejrentekonto
+	http://www.samlino.dk/hoejrentekonto/guide
+	http://www.samlino.dk/hoejrentekonto/ordliste
+	http://www.samlino.dk/hoejrentekonto/faq
+	http://www.samlino.dk/bilforsikring
+	http://www.samlino.dk/bilforsikring/guide
+	http://www.samlino.dk/bilforsikring/ordliste
+	http://www.samlino.dk/bilforsikring/faq
+	http://www.samlino.dk/a-kasser/guide
+	http://www.samlino.dk/a-kasser/ordliste
+	http://www.samlino.dk/a-kasser/faq
+	http://www.samlino.dk/billaan
+	http://www.samlino.dk/billaan/guide
+	http://www.samlino.dk/billaan/ordliste
+	http://www.samlino.dk/billaan/faq	
+	http://www.samlino.dk/blog/
+	http://www.samlino.dk/om
+	http://www.samlino.dk/karriere	
+	http://www.samlino.dk/fortrolighedspolitik
+	http://www.samlino.dk/vilkaar
+	http://www.samlino.dk/ordliste
+	http://www.samlino.dk/partnere
+	http://www.samlino.dk/presse
+	http://www.samlino.dk/kontakt
+	http://www.samlino.dk/faq
+	http://www.samlino.dk/sitemap
+
+
+
+# Final Status - Passes Only When All Passed
+# 	Pass Execution If   ${Status}   Load time exceeds 4 secs.       
+# 	Fail
+ 
+*** Keywords ***
+Load url and check speed
+    [Arguments]   ${url}
+	Go To    ${url}
+	Reload Page
+    ${Lapsed}          Execute JavaScript	var t = performance.timing; return (t.loadEventEnd - t.responseEnd)/1000;
+    ${logString}    Set Variable If		${Lapsed} < 4          ${url} - Loaded in ${Lapsed} secs.          ${url} - Loaded in ${Lapsed} secs. - FAILED    
+	# ${logString}    Set Variable If		${Lapsed} < 4          ${EMPTY}         ${url} - Loaded in ${Lapsed} secs. - FAILED   
+	# Page Should Not Contain   			The page you are looking for cannot be found. 
+	Log To Console     	${logString} 
+	
+    Location Should Be         									${url} 
+	# Fail    			Load time exceeds 4 secs.
+	# Pass Execution If 	     ${Lapsed} < 4         Load time within 4secs.
+	# Run Keyword And Continue On Failure   Check LoadTime
+	# Pass Execution If 	     ${Lapsed} < 4         Load time within 4secs.  
+	# Run Keyword If   	${Lapsed} < 4      Set Status To Fail   
+
+
+Set Status To Fail
+	Convert To Boolean   ${Status}
+	Set Global Variable  ${Status}   False  

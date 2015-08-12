@@ -1,0 +1,2363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20150312 12:57:28.902" generator="Robot 2.8.6 (Python 2.7.3 on linux2)">
+<suite source="/home/enriquecampita/Automation/compareglobal-automation/Tests/testing.txt" id="s1" name="Testing">
+<kw type="setup" name="Selenium2Library.Open Browser">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${HOMEPAGE}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20150312 12:57:29.291" level="INFO">Opening browser 'firefox' to base url 'http://www.moneyhero.com.hk/en'</msg>
+<status status="PASS" endtime="20150312 12:58:00.957" starttime="20150312 12:57:29.290"></status>
+</kw>
+<test id="s1-t1" name="Initialize Test">
+<kw type="kw" name="Common.Initialize Test">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Add Cookie">
+<doc>Adds a cookie to your current session.</doc>
+<arguments>
+<arg>QA_AUTOMATION</arg>
+<arg>True</arg>
+</arguments>
+<status status="PASS" endtime="20150312 12:58:00.997" starttime="20150312 12:58:00.960"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Set Selenium Timeout">
+<doc>Sets the timeout in seconds used by various keywords.</doc>
+<arguments>
+<arg>4 seconds</arg>
+</arguments>
+<status status="PASS" endtime="20150312 12:58:01.185" starttime="20150312 12:58:00.998"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Set Window Size">
+<doc>Sets the `width` and `height` of the current window to the specified values.</doc>
+<arguments>
+<arg>1600</arg>
+<arg>1200</arg>
+</arguments>
+<status status="PASS" endtime="20150312 12:58:01.550" starttime="20150312 12:58:01.185"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Set Selenium Implicit Wait">
+<doc>Sets Selenium 2's default implicit wait in seconds and</doc>
+<arguments>
+<arg>10 seconds</arg>
+</arguments>
+<status status="PASS" endtime="20150312 12:58:04.204" starttime="20150312 12:58:01.550"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Set Browser Implicit Wait">
+<doc>Sets current browser's implicit wait in seconds.</doc>
+<arguments>
+<arg>10 seconds</arg>
+</arguments>
+<status status="PASS" endtime="20150312 12:58:04.213" starttime="20150312 12:58:04.205"></status>
+</kw>
+<status status="PASS" endtime="20150312 12:58:04.213" starttime="20150312 12:58:00.959"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150312 12:58:04.214" critical="yes" starttime="20150312 12:58:00.958"></status>
+</test>
+<test id="s1-t2" name="Verify Main Page Is Loaded">
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=div[class='header-block__top']</arg>
+</arguments>
+<status status="PASS" endtime="20150312 12:58:04.263" starttime="20150312 12:58:04.215"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=img[class='header-block__img']</arg>
+</arguments>
+<status status="PASS" endtime="20150312 12:58:04.270" starttime="20150312 12:58:04.263"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=a[class='header-cta']</arg>
+</arguments>
+<status status="PASS" endtime="20150312 12:58:04.281" starttime="20150312 12:58:04.270"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=i[class='m-icon m-icon--nav_home']</arg>
+</arguments>
+<status status="PASS" endtime="20150312 12:58:04.287" starttime="20150312 12:58:04.281"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=a[href='//www.moneyhero.com.hk/en/personal-loan/personal-instalment']</arg>
+<arg>Personal Loans</arg>
+</arguments>
+<msg timestamp="20150312 12:58:04.287" level="INFO">Verifying element 'css=a[href='//www.moneyhero.com.hk/en/personal-loan/personal-instalment']' contains text 'Personal Loans'.</msg>
+<status status="PASS" endtime="20150312 12:58:04.310" starttime="20150312 12:58:04.287"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=li[class='navi-block__item navi-block__item--arrow hidden-xs']:nth-child(4) &gt; span[class='navi-block__url js-navi-block__url']</arg>
+<arg>Money</arg>
+</arguments>
+<msg timestamp="20150312 12:58:04.311" level="INFO">Verifying element 'css=li[class='navi-block__item navi-block__item--arrow hidden-xs']:nth-child(4) &gt; span[class='navi-block__url js-navi-block__url']' contains text 'Money'.</msg>
+<status status="PASS" endtime="20150312 12:58:04.334" starttime="20150312 12:58:04.311"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=li[class='navi-block__item navi-block__item--arrow hidden-xs']:nth-child(5) &gt; span[class='navi-block__url js-navi-block__url']</arg>
+<arg>Insurance</arg>
+</arguments>
+<msg timestamp="20150312 12:58:04.335" level="INFO">Verifying element 'css=li[class='navi-block__item navi-block__item--arrow hidden-xs']:nth-child(5) &gt; span[class='navi-block__url js-navi-block__url']' contains text 'Insurance'.</msg>
+<status status="PASS" endtime="20150312 12:58:04.361" starttime="20150312 12:58:04.335"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>link=News</arg>
+</arguments>
+<status status="PASS" endtime="20150312 12:58:04.846" starttime="20150312 12:58:04.361"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>link=Help</arg>
+</arguments>
+<status status="PASS" endtime="20150312 12:58:05.319" starttime="20150312 12:58:04.847"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=a[href='//www.moneyhero.com.hk/']</arg>
+</arguments>
+<status status="PASS" endtime="20150312 12:58:05.331" starttime="20150312 12:58:05.319"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=button[class='navi-block__switch js-navi-block__switch hidden-xs']</arg>
+</arguments>
+<status status="PASS" endtime="20150312 12:58:05.348" starttime="20150312 12:58:05.331"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=section[class='hero-block js-hero-block swiper-container hidden-xs ch-landing']</arg>
+</arguments>
+<status status="PASS" endtime="20150312 12:58:05.354" starttime="20150312 12:58:05.348"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150312 12:58:05.355" critical="yes" starttime="20150312 12:58:04.214"></status>
+</test>
+<test id="s1-t3" name="Go to Insurance / Medical Insurance / Medical Inusurance Comparison Page">
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>http://www.moneyhero.com.hk/en/medical-insurance/get-quote#step1</arg>
+</arguments>
+<msg timestamp="20150312 12:58:05.362" level="INFO">Opening url 'http://www.moneyhero.com.hk/en/medical-insurance/get-quote#step1'</msg>
+<status status="PASS" endtime="20150312 12:58:05.370" starttime="20150312 12:58:05.362"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150312 12:58:05.371" critical="yes" starttime="20150312 12:58:05.356"></status>
+</test>
+<test id="s1-t4" name="Verify Health Insurance First Page Is Loaded">
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=h1[class='ch-landing__header']</arg>
+</arguments>
+<status status="PASS" endtime="20150312 12:58:08.224" starttime="20150312 12:58:05.375"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Location Should Contain">
+<doc>Verifies that current URL contains `expected`.</doc>
+<arguments>
+<arg>/medical-insurance</arg>
+</arguments>
+<msg timestamp="20150312 12:58:08.247" level="INFO">Current location contains '/medical-insurance'.</msg>
+<status status="PASS" endtime="20150312 12:58:08.247" starttime="20150312 12:58:08.224"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h1[class='ch-landing__header']</arg>
+<arg>COMPARE MEDICAL INSURANCE</arg>
+</arguments>
+<msg timestamp="20150312 12:58:08.247" level="INFO">Verifying element 'css=h1[class='ch-landing__header']' contains text 'COMPARE MEDICAL INSURANCE'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 12:58:09.026" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 12:58:09.027" starttime="20150312 12:58:08.267"></status>
+</kw>
+<msg timestamp="20150312 12:58:09.027" level="FAIL">Element 'css=h1[class='ch-landing__header']' should have contained text 'COMPARE MEDICAL INSURANCE' but its text was ''.</msg>
+<status status="FAIL" endtime="20150312 12:58:09.027" starttime="20150312 12:58:08.247"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 12:58:09.028" critical="yes" starttime="20150312 12:58:05.372">Element 'css=h1[class='ch-landing__header']' should have contained text 'COMPARE MEDICAL INSURANCE' but its text was ''.</status>
+</test>
+<test id="s1-t5" name="Click Compare Now Button In Health Insurance First Page">
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>css=a[class='btn compare-blk__btn js-compare-btn']</arg>
+</arguments>
+<msg timestamp="20150312 12:58:09.029" level="INFO">Clicking element 'css=a[class='btn compare-blk__btn js-compare-btn']'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 13:28:10.863" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 13:28:10.863" starttime="20150312 13:28:09.052"></status>
+</kw>
+<msg timestamp="20150312 13:28:10.877" level="FAIL">TimeoutException: Message: u'Timed out waiting for page load.' ; Stacktrace: 
+    at Utils.installClickListener/e&lt; (file:///tmp/tmpsEKkXY/webdriver-py-profilecopy/extensions/fxdriver@googlecode.com/components/command-processor.js:8228)
+    at WebLoadingListener/e (file:///tmp/tmpsEKkXY/webdriver-py-profilecopy/extensions/fxdriver@googlecode.com/components/command-processor.js:4120)
+    at WebLoadingListener/&lt; (file:///tmp/tmpsEKkXY/webdriver-py-profilecopy/extensions/fxdriver@googlecode.com/components/command-processor.js:4128)
+    at fxdriver.Timer.prototype.setTimeout/&lt;.notify (file:///tmp/tmpsEKkXY/webdriver-py-profilecopy/extensions/fxdriver@googlecode.com/components/command-processor.js:548) </msg>
+<status status="FAIL" endtime="20150312 13:28:10.878" starttime="20150312 12:58:09.029"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 13:28:10.878" critical="yes" starttime="20150312 12:58:09.028">TimeoutException: Message: u'Timed out waiting for page load.' ; Stacktrace: 
+    at Utils.installClickListener/e&lt; (file:///tmp/tmpsEKkXY/webdriver-py-profilecopy/extensions/fxdriver@googlecode.com/components/command-processor.js:8228)
+    at WebLoadingListener/e (file:///tmp/tmpsEKkXY/webdriver-py-profilecopy/extensions/fxdriver@googlecode.com/components/command-processor.js:4120)
+    at WebLoadingListener/&lt; (file:///tmp/tmpsEKkXY/webdriver-py-profilecopy/extensions/fxdriver@googlecode.com/components/command-processor.js:4128)
+    at fxdriver.Timer.prototype.setTimeout/&lt;.notify (file:///tmp/tmpsEKkXY/webdriver-py-profilecopy/extensions/fxdriver@googlecode.com/components/command-processor.js:548) </status>
+</test>
+<test id="s1-t6" name="Verify Step 1 Of 5 Is Loaded.">
+<kw type="kw" name="Selenium2Library.Location Should Contain">
+<doc>Verifies that current URL contains `expected`.</doc>
+<arguments>
+<arg>/medical-insurance/get-quote#step1</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 13:28:12.555" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 13:28:12.558" starttime="20150312 13:28:10.887"></status>
+</kw>
+<msg timestamp="20150312 13:28:12.560" level="FAIL">Location should have contained '/medical-insurance/get-quote#step1' but it was 'http://www.moneyhero.com.hk/en/medical-insurance'.</msg>
+<status status="FAIL" endtime="20150312 13:28:12.560" starttime="20150312 13:28:10.880"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 13:28:12.561" critical="yes" starttime="20150312 13:28:10.879">Location should have contained '/medical-insurance/get-quote#step1' but it was 'http://www.moneyhero.com.hk/en/medical-insurance'.</status>
+</test>
+<test id="s1-t7" name="Verify Step 2 Of 5 Is Loaded.">
+<kw type="kw" name="Selenium2Library.Location Should Contain">
+<doc>Verifies that current URL contains `expected`.</doc>
+<arguments>
+<arg>/medical-insurance/get-quote#step2</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 13:28:13.975" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 13:28:13.975" starttime="20150312 13:28:12.617"></status>
+</kw>
+<msg timestamp="20150312 13:28:13.975" level="FAIL">Location should have contained '/medical-insurance/get-quote#step2' but it was 'http://www.moneyhero.com.hk/en/medical-insurance'.</msg>
+<status status="FAIL" endtime="20150312 13:28:13.977" starttime="20150312 13:28:12.563"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 13:28:13.977" critical="yes" starttime="20150312 13:28:12.561">Location should have contained '/medical-insurance/get-quote#step2' but it was 'http://www.moneyhero.com.hk/en/medical-insurance'.</status>
+</test>
+<test id="s1-t8" name="Verify Step 3 Of 5 Is Loaded.">
+<kw type="kw" name="BuiltIn.Sleep">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>999</arg>
+</arguments>
+<msg timestamp="20150312 13:44:52.980" level="INFO">Slept 16 minutes 39 seconds</msg>
+<status status="PASS" endtime="20150312 13:44:52.980" starttime="20150312 13:28:13.979"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Location Should Contain">
+<doc>Verifies that current URL contains `expected`.</doc>
+<arguments>
+<arg>/medical-insurance/get-quote#step3</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 13:44:54.475" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 13:44:54.475" starttime="20150312 13:44:52.988"></status>
+</kw>
+<msg timestamp="20150312 13:44:54.476" level="FAIL">Location should have contained '/medical-insurance/get-quote#step3' but it was 'http://www.moneyhero.com.hk/en/medical-insurance'.</msg>
+<status status="FAIL" endtime="20150312 13:44:54.476" starttime="20150312 13:44:52.981"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 13:44:54.477" critical="yes" starttime="20150312 13:28:13.978">Location should have contained '/medical-insurance/get-quote#step3' but it was 'http://www.moneyhero.com.hk/en/medical-insurance'.</status>
+</test>
+<test id="s1-t9" name="Verify Step 4 Of 5 Is Loaded.">
+<kw type="kw" name="Selenium2Library.Location Should Contain">
+<doc>Verifies that current URL contains `expected`.</doc>
+<arguments>
+<arg>/medical-insurance/get-quote#step4</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 13:44:55.774" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 13:44:55.775" starttime="20150312 13:44:54.504"></status>
+</kw>
+<msg timestamp="20150312 13:44:55.775" level="FAIL">Location should have contained '/medical-insurance/get-quote#step4' but it was 'http://www.moneyhero.com.hk/en/medical-insurance'.</msg>
+<status status="FAIL" endtime="20150312 13:44:55.775" starttime="20150312 13:44:54.479"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 13:44:55.776" critical="yes" starttime="20150312 13:44:54.477">Location should have contained '/medical-insurance/get-quote#step4' but it was 'http://www.moneyhero.com.hk/en/medical-insurance'.</status>
+</test>
+<test id="s1-t10" name="Verify Step 5 Of 5 Is Loaded.">
+<kw type="kw" name="Selenium2Library.Location Should Contain">
+<doc>Verifies that current URL contains `expected`.</doc>
+<arguments>
+<arg>/medical-insurance/get-quote#step5</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 13:44:57.072" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 13:44:57.072" starttime="20150312 13:44:55.785"></status>
+</kw>
+<msg timestamp="20150312 13:44:57.073" level="FAIL">Location should have contained '/medical-insurance/get-quote#step5' but it was 'http://www.moneyhero.com.hk/en/medical-insurance'.</msg>
+<status status="FAIL" endtime="20150312 13:44:57.073" starttime="20150312 13:44:55.777"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 13:44:57.073" critical="yes" starttime="20150312 13:44:55.776">Location should have contained '/medical-insurance/get-quote#step5' but it was 'http://www.moneyhero.com.hk/en/medical-insurance'.</status>
+</test>
+<test id="s1-t11" name="Verify Health Insurance Modal Dialog Is Loaded">
+<kw type="kw" name="BuiltIn.Sleep">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>999</arg>
+</arguments>
+<msg timestamp="20150312 14:01:36.075" level="INFO">Slept 16 minutes 39 seconds</msg>
+<status status="PASS" endtime="20150312 14:01:36.075" starttime="20150312 13:44:57.075"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=div[class='modal-dialog']</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 14:01:47.381" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 14:01:47.382" starttime="20150312 14:01:46.099"></status>
+</kw>
+<msg timestamp="20150312 14:01:47.392" level="FAIL">Element 'css=div[class='modal-dialog']' did not appear in 4 seconds</msg>
+<status status="FAIL" endtime="20150312 14:01:47.392" starttime="20150312 14:01:36.076"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 14:01:47.392" critical="yes" starttime="20150312 13:44:57.074">Element 'css=div[class='modal-dialog']' did not appear in 4 seconds</status>
+</test>
+<test id="s1-t12" name="Verify Health Insurance Comparison Page Is Loaded">
+<kw type="kw" name="Selenium2Library.Reload Page">
+<doc>Simulates user reloading page.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150312 14:01:47.489" starttime="20150312 14:01:47.394"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=h1</arg>
+</arguments>
+<status status="PASS" endtime="20150312 14:02:50.013" starttime="20150312 14:01:47.489"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h1</arg>
+<arg>Compare the best Medical Insurance deals now</arg>
+</arguments>
+<msg timestamp="20150312 14:02:50.014" level="INFO">Verifying element 'css=h1' contains text 'Compare the best Medical Insurance deals now'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 14:02:51.306" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-9.png"&gt;&lt;img src="selenium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 14:02:51.306" starttime="20150312 14:02:50.037"></status>
+</kw>
+<msg timestamp="20150312 14:02:51.307" level="FAIL">Element 'css=h1' should have contained text 'Compare the best Medical Insurance deals now' but its text was 'COMPARE MEDICAL INSURANCE'.</msg>
+<status status="FAIL" endtime="20150312 14:02:51.307" starttime="20150312 14:02:50.014"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 14:02:51.307" critical="yes" starttime="20150312 14:01:47.393">Element 'css=h1' should have contained text 'Compare the best Medical Insurance deals now' but its text was 'COMPARE MEDICAL INSURANCE'.</status>
+</test>
+<test id="s1-t13" name="Go to Health Insurance Guide Page">
+<kw type="kw" name="Selenium2Library.Go Back">
+<doc>Simulates the user clicking the "back" button on their browser.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150312 14:02:51.383" starttime="20150312 14:02:51.309"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Mouse Over">
+<doc>Simulates hovering mouse over the element specified by `locator`.</doc>
+<arguments>
+<arg>css=a[class='dropdown-toggle'][href='http://www.moneyhero.com.hk/en/insurance'][data-toggle='dropdown']</arg>
+</arguments>
+<msg timestamp="20150312 14:02:51.384" level="INFO">Simulating Mouse Over on element 'css=a[class='dropdown-toggle'][href='http://www.moneyhero.com.hk/en/insurance'][data-toggle='dropdown']'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 14:03:05.949" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 14:03:05.949" starttime="20150312 14:03:04.321"></status>
+</kw>
+<msg timestamp="20150312 14:03:05.950" level="FAIL">ERROR: Element css=a[class='dropdown-toggle'][href='http://www.moneyhero.com.hk/en/insurance'][data-toggle='dropdown'] not found.</msg>
+<status status="FAIL" endtime="20150312 14:03:05.950" starttime="20150312 14:02:51.383"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 14:03:05.950" critical="yes" starttime="20150312 14:02:51.308">ERROR: Element css=a[class='dropdown-toggle'][href='http://www.moneyhero.com.hk/en/insurance'][data-toggle='dropdown'] not found.</status>
+</test>
+<test id="s1-t14" name="Verify Health Insurance Guide Page Is Loaded">
+<kw type="kw" name="Selenium2Library.Reload Page">
+<doc>Simulates user reloading page.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150312 14:03:06.048" starttime="20150312 14:03:05.952"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Page Should Not Contain">
+<doc>Verifies the current page does not contain `text`.</doc>
+<arguments>
+<arg>Loading. Please wait.</arg>
+</arguments>
+<msg timestamp="20150312 14:03:56.455" level="INFO">Current page does not contain text 'Loading. Please wait.'.</msg>
+<status status="PASS" endtime="20150312 14:03:56.455" starttime="20150312 14:03:06.049"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=h1</arg>
+</arguments>
+<status status="PASS" endtime="20150312 14:03:56.469" starttime="20150312 14:03:56.455"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h1</arg>
+<arg>Hong Kong Health Insurance Guide</arg>
+</arguments>
+<msg timestamp="20150312 14:03:56.470" level="INFO">Verifying element 'css=h1' contains text 'Hong Kong Health Insurance Guide'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 14:03:57.876" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-11.png"&gt;&lt;img src="selenium-screenshot-11.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 14:03:57.876" starttime="20150312 14:03:56.484"></status>
+</kw>
+<msg timestamp="20150312 14:03:57.876" level="FAIL">Element 'css=h1' should have contained text 'Hong Kong Health Insurance Guide' but its text was ''.</msg>
+<status status="FAIL" endtime="20150312 14:03:57.876" starttime="20150312 14:03:56.470"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 14:03:57.877" critical="yes" starttime="20150312 14:03:05.950">Element 'css=h1' should have contained text 'Hong Kong Health Insurance Guide' but its text was ''.</status>
+</test>
+<test id="s1-t15" name="Go to Health Insurance Partners Page">
+<kw type="kw" name="Selenium2Library.Go Back">
+<doc>Simulates the user clicking the "back" button on their browser.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150312 14:03:57.883" starttime="20150312 14:03:57.878"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Mouse Over">
+<doc>Simulates hovering mouse over the element specified by `locator`.</doc>
+<arguments>
+<arg>css=a[class='dropdown-toggle'][href='http://www.moneyhero.com.hk/en/insurance'][data-toggle='dropdown']</arg>
+</arguments>
+<msg timestamp="20150312 14:03:57.884" level="INFO">Simulating Mouse Over on element 'css=a[class='dropdown-toggle'][href='http://www.moneyhero.com.hk/en/insurance'][data-toggle='dropdown']'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 14:04:09.340" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-12.png"&gt;&lt;img src="selenium-screenshot-12.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 14:04:09.340" starttime="20150312 14:04:07.893"></status>
+</kw>
+<msg timestamp="20150312 14:04:09.341" level="FAIL">ERROR: Element css=a[class='dropdown-toggle'][href='http://www.moneyhero.com.hk/en/insurance'][data-toggle='dropdown'] not found.</msg>
+<status status="FAIL" endtime="20150312 14:04:09.341" starttime="20150312 14:03:57.884"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 14:04:09.341" critical="yes" starttime="20150312 14:03:57.877">ERROR: Element css=a[class='dropdown-toggle'][href='http://www.moneyhero.com.hk/en/insurance'][data-toggle='dropdown'] not found.</status>
+</test>
+<test id="s1-t16" name="Verify Health Insurance Partners Page Is Loaded">
+<kw type="kw" name="Selenium2Library.Reload Page">
+<doc>Simulates user reloading page.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150312 14:04:23.293" starttime="20150312 14:04:09.344"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Page Should Not Contain">
+<doc>Verifies the current page does not contain `text`.</doc>
+<arguments>
+<arg>Loading. Please wait</arg>
+</arguments>
+<msg timestamp="20150312 14:04:59.532" level="INFO">Current page does not contain text 'Loading. Please wait'.</msg>
+<status status="PASS" endtime="20150312 14:04:59.532" starttime="20150312 14:04:23.294"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=h1</arg>
+</arguments>
+<status status="PASS" endtime="20150312 14:04:59.540" starttime="20150312 14:04:59.533"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h1</arg>
+<arg>MONEYHERO'S HEALTH INSURANCE PARTNERS</arg>
+</arguments>
+<msg timestamp="20150312 14:04:59.541" level="INFO">Verifying element 'css=h1' contains text 'MONEYHERO'S HEALTH INSURANCE PARTNERS'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 14:05:01.209" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-13.png"&gt;&lt;img src="selenium-screenshot-13.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 14:05:01.210" starttime="20150312 14:04:59.559"></status>
+</kw>
+<msg timestamp="20150312 14:05:01.210" level="FAIL">Element 'css=h1' should have contained text 'MONEYHERO'S HEALTH INSURANCE PARTNERS' but its text was ''.</msg>
+<status status="FAIL" endtime="20150312 14:05:01.210" starttime="20150312 14:04:59.541"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 14:05:01.210" critical="yes" starttime="20150312 14:04:09.342">Element 'css=h1' should have contained text 'MONEYHERO'S HEALTH INSURANCE PARTNERS' but its text was ''.</status>
+</test>
+<test id="s1-t17" name="Go to Mortgage Page">
+<kw type="kw" name="Selenium2Library.Go Back">
+<doc>Simulates the user clicking the "back" button on their browser.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150312 14:05:01.223" starttime="20150312 14:05:01.212"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=a[href='http://www.moneyhero.com.hk/en/mortgage']</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 14:05:12.660" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-14.png"&gt;&lt;img src="selenium-screenshot-14.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 14:05:12.661" starttime="20150312 14:05:11.239"></status>
+</kw>
+<msg timestamp="20150312 14:05:12.661" level="FAIL">Element 'css=a[href='http://www.moneyhero.com.hk/en/mortgage']' did not appear in 4 seconds</msg>
+<status status="FAIL" endtime="20150312 14:05:12.661" starttime="20150312 14:05:01.228"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 14:05:12.661" critical="yes" starttime="20150312 14:05:01.211">Element 'css=a[href='http://www.moneyhero.com.hk/en/mortgage']' did not appear in 4 seconds</status>
+</test>
+<test id="s1-t18" name="Verify Mortgage Page Is Loaded">
+<kw type="kw" name="Selenium2Library.Reload Page">
+<doc>Simulates user reloading page.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150312 14:05:36.527" starttime="20150312 14:05:12.663"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Page Should Not Contain">
+<doc>Verifies the current page does not contain `text`.</doc>
+<arguments>
+<arg>Loading. Please wait.</arg>
+</arguments>
+<msg timestamp="20150312 14:06:10.239" level="INFO">Current page does not contain text 'Loading. Please wait.'.</msg>
+<status status="PASS" endtime="20150312 14:06:10.239" starttime="20150312 14:05:36.527"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=h1</arg>
+</arguments>
+<status status="PASS" endtime="20150312 14:06:10.248" starttime="20150312 14:06:10.239"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h1</arg>
+<arg>Compare the Best Housing and Mortage Loans in Hong Kong With MoneyHero</arg>
+</arguments>
+<msg timestamp="20150312 14:06:10.249" level="INFO">Verifying element 'css=h1' contains text 'Compare the Best Housing and Mortage Loans in Hong Kong With MoneyHero'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 14:06:12.284" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-15.png"&gt;&lt;img src="selenium-screenshot-15.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 14:06:12.284" starttime="20150312 14:06:10.267"></status>
+</kw>
+<msg timestamp="20150312 14:06:12.285" level="FAIL">Element 'css=h1' should have contained text 'Compare the Best Housing and Mortage Loans in Hong Kong With MoneyHero' but its text was ''.</msg>
+<status status="FAIL" endtime="20150312 14:06:12.285" starttime="20150312 14:06:10.249"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 14:06:12.285" critical="yes" starttime="20150312 14:05:12.662">Element 'css=h1' should have contained text 'Compare the Best Housing and Mortage Loans in Hong Kong With MoneyHero' but its text was ''.</status>
+</test>
+<test id="s1-t19" name="Go to Travel Insurance Page">
+<kw type="kw" name="Selenium2Library.Go Back">
+<doc>Simulates the user clicking the "back" button on their browser.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150312 14:06:12.391" starttime="20150312 14:06:12.287"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=a[href='http://www.moneyhero.com.hk/en/travel-insurance']</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 14:06:24.070" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-16.png"&gt;&lt;img src="selenium-screenshot-16.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 14:06:24.070" starttime="20150312 14:06:22.414"></status>
+</kw>
+<msg timestamp="20150312 14:06:24.070" level="FAIL">Element 'css=a[href='http://www.moneyhero.com.hk/en/travel-insurance']' did not appear in 4 seconds</msg>
+<status status="FAIL" endtime="20150312 14:06:24.070" starttime="20150312 14:06:12.392"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 14:06:24.071" critical="yes" starttime="20150312 14:06:12.286">Element 'css=a[href='http://www.moneyhero.com.hk/en/travel-insurance']' did not appear in 4 seconds</status>
+</test>
+<test id="s1-t20" name="Verify Travel Insurance Page is loaded">
+<kw type="kw" name="Selenium2Library.Reload Page">
+<doc>Simulates user reloading page.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150312 14:07:04.505" starttime="20150312 14:06:24.072"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Page Should Not Contain">
+<doc>Verifies the current page does not contain `text`.</doc>
+<arguments>
+<arg>Loading. Please wait.</arg>
+</arguments>
+<msg timestamp="20150312 14:07:43.958" level="INFO">Current page does not contain text 'Loading. Please wait.'.</msg>
+<status status="PASS" endtime="20150312 14:07:43.959" starttime="20150312 14:07:04.505"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=div[class='bread-crumb'] img[src='/assets/img/insurance/en-progress-bar-a.png']</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 14:07:55.441" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-17.png"&gt;&lt;img src="selenium-screenshot-17.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 14:07:55.441" starttime="20150312 14:07:53.969"></status>
+</kw>
+<msg timestamp="20150312 14:07:55.442" level="FAIL">Element 'css=div[class='bread-crumb'] img[src='/assets/img/insurance/en-progress-bar-a.png']' did not appear in 4 seconds</msg>
+<status status="FAIL" endtime="20150312 14:07:55.442" starttime="20150312 14:07:43.959"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 14:07:55.442" critical="yes" starttime="20150312 14:06:24.071">Element 'css=div[class='bread-crumb'] img[src='/assets/img/insurance/en-progress-bar-a.png']' did not appear in 4 seconds</status>
+</test>
+<test id="s1-t21" name="Choose Myself">
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>css=label[for='myself']</arg>
+</arguments>
+<msg timestamp="20150312 14:07:55.445" level="INFO">Clicking element 'css=label[for='myself']'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 14:08:06.772" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-18.png"&gt;&lt;img src="selenium-screenshot-18.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 14:08:06.773" starttime="20150312 14:08:05.457"></status>
+</kw>
+<msg timestamp="20150312 14:08:06.773" level="FAIL">ValueError: Element locator 'css=label[for='myself']' did not match any elements.</msg>
+<status status="FAIL" endtime="20150312 14:08:06.773" starttime="20150312 14:07:55.444"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 14:08:06.774" critical="yes" starttime="20150312 14:07:55.443">ValueError: Element locator 'css=label[for='myself']' did not match any elements.</status>
+</test>
+<test id="s1-t22" name="Select 1 for Birth Day">
+<kw type="kw" name="Selenium2Library.Select From List By Label">
+<doc>Selects `*labels` from list identified by `locator`</doc>
+<arguments>
+<arg>id=birthDayInd1</arg>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20150312 14:08:06.776" level="INFO">Selecting label(s) '1' from list 'id=birthDayInd1'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 14:08:18.362" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-19.png"&gt;&lt;img src="selenium-screenshot-19.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 14:08:18.362" starttime="20150312 14:08:16.899"></status>
+</kw>
+<msg timestamp="20150312 14:08:18.381" level="FAIL">ValueError: Element locator 'id=birthDayInd1' did not match any elements.</msg>
+<status status="FAIL" endtime="20150312 14:08:18.381" starttime="20150312 14:08:06.776"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 14:08:18.382" critical="yes" starttime="20150312 14:08:06.774">ValueError: Element locator 'id=birthDayInd1' did not match any elements.</status>
+</test>
+<test id="s1-t23" name="Select January for Birth Month">
+<kw type="kw" name="Selenium2Library.Select From List By Label">
+<doc>Selects `*labels` from list identified by `locator`</doc>
+<arguments>
+<arg>id=birthMonthInd1</arg>
+<arg>January</arg>
+</arguments>
+<msg timestamp="20150312 14:08:18.383" level="INFO">Selecting label(s) 'January' from list 'id=birthMonthInd1'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 14:08:30.020" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-20.png"&gt;&lt;img src="selenium-screenshot-20.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 14:08:30.021" starttime="20150312 14:08:28.390"></status>
+</kw>
+<msg timestamp="20150312 14:08:30.021" level="FAIL">ValueError: Element locator 'id=birthMonthInd1' did not match any elements.</msg>
+<status status="FAIL" endtime="20150312 14:08:30.022" starttime="20150312 14:08:18.383"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 14:08:30.022" critical="yes" starttime="20150312 14:08:18.382">ValueError: Element locator 'id=birthMonthInd1' did not match any elements.</status>
+</test>
+<test id="s1-t24" name="Select 2000 for Birth Year">
+<kw type="kw" name="Selenium2Library.Select From List By Label">
+<doc>Selects `*labels` from list identified by `locator`</doc>
+<arguments>
+<arg>id=birthYearInd1</arg>
+<arg>2000</arg>
+</arguments>
+<msg timestamp="20150312 14:08:30.025" level="INFO">Selecting label(s) '2000' from list 'id=birthYearInd1'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 14:08:41.359" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-21.png"&gt;&lt;img src="selenium-screenshot-21.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 14:08:41.360" starttime="20150312 14:08:40.039"></status>
+</kw>
+<msg timestamp="20150312 14:08:41.360" level="FAIL">ValueError: Element locator 'id=birthYearInd1' did not match any elements.</msg>
+<status status="FAIL" endtime="20150312 14:08:41.360" starttime="20150312 14:08:30.025"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 14:08:41.360" critical="yes" starttime="20150312 14:08:30.022">ValueError: Element locator 'id=birthYearInd1' did not match any elements.</status>
+</test>
+<test id="s1-t25" name="Select Single for trips">
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>css=label[for='single']</arg>
+</arguments>
+<msg timestamp="20150312 14:08:41.362" level="INFO">Clicking element 'css=label[for='single']'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 14:08:53.522" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-22.png"&gt;&lt;img src="selenium-screenshot-22.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 14:08:53.522" starttime="20150312 14:08:51.378"></status>
+</kw>
+<msg timestamp="20150312 14:08:53.523" level="FAIL">ValueError: Element locator 'css=label[for='single']' did not match any elements.</msg>
+<status status="FAIL" endtime="20150312 14:08:53.523" starttime="20150312 14:08:41.362"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 14:08:53.523" critical="yes" starttime="20150312 14:08:41.361">ValueError: Element locator 'css=label[for='single']' did not match any elements.</status>
+</test>
+<test id="s1-t26" name="Select American Samoa for Destination">
+<kw type="kw" name="Selenium2Library.Focus">
+<doc>Sets focus to element identified by `locator`.</doc>
+<arguments>
+<arg>id=other</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 14:09:05.123" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-23.png"&gt;&lt;img src="selenium-screenshot-23.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 14:09:05.123" starttime="20150312 14:09:03.606"></status>
+</kw>
+<msg timestamp="20150312 14:09:05.124" level="FAIL">ValueError: Element locator 'id=other' did not match any elements.</msg>
+<status status="FAIL" endtime="20150312 14:09:05.124" starttime="20150312 14:08:53.525"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 14:09:05.129" critical="yes" starttime="20150312 14:08:53.524">ValueError: Element locator 'id=other' did not match any elements.</status>
+</test>
+<test id="s1-t27" name="Verify Three Selected Destinations And Remove Two">
+<kw type="kw" name="Selenium2Library.Xpath Should Match X Times">
+<doc>Verifies that the page contains the given number of elements located by the given `xpath`.</doc>
+<arguments>
+<arg>//label[@class='tag countries-going label label-info']</arg>
+<arg>3</arg>
+</arguments>
+<msg timestamp="20150312 14:09:15.211" level="INFO">&lt;!DOCTYPE html&gt;
+&lt;!--[if IE 8]&gt;&lt;html xmlns:fb="http://ogp.me/ns/fb#" xmlns:og="http://ogp.me/ns#" lang="en-hk" class="no-js ie8 oldie"&gt; &lt;![endif]--&gt;
+&lt;!--[if gt IE 8]&gt;&lt;!--&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="en-hk" class="no-js wf-proximanovaalt-n4-active wf-proximanovaalt-n7-active wf-proximanova-n1-active wf-proximanova-n3-active wf-proximanova-n4-active wf-proximanova-n6-active wf-proximanova-n7-active wf-proximanovaalt-i4-active wf-proximanovaalt-i7-active wf-active wf-opensans-n4-inactive wf-opensans-n7-inactive" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#"&gt;&lt;!--&lt;![endif]--&gt;&lt;head&gt;
+    &lt;title&gt;
+        MoneyHero | Compare Credit Cards, Loans and Insurance    &lt;/title&gt;
+    &lt;!--This only works when placed before all other style and script elements are loaded--&gt;
+    &lt;!--[if lt IE 9]&gt;
+    &lt;script src="http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"&gt;&lt;/script&gt;
+    &lt;![endif]--&gt;
+
+    &lt;!-- Meta template --&gt;
+	
+&lt;link href="//www.moneyhero.com.hk/" hreflang="en" rel="alternate" /&gt;
+&lt;link href="//www.moneyhero.com.hk/" hreflang="zh-HK" rel="alternate" /&gt;
+
+
+&lt;link href="http://www.moneyhero.com.hk/en" rel="canonical" /&gt;
+&lt;meta charset="UTF-8" /&gt;
+&lt;!--&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt;--&gt;
+&lt;meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport" /&gt;
+&lt;meta content="telephone=no" name="format-detection" /&gt;
+&lt;meta content="public" http-equiv="Cache-control" /&gt;
+
+&lt;!--Set noindex/nofollow quote--&gt;
+
+&lt;meta content="website" property="og:type" /&gt;
+&lt;meta content="363971367079683" property="fb:app_id" /&gt; 
+&lt;meta content="http://www.moneyhero.com.hk/assets/_blue_images/og_img.jpg" property="og:image" /&gt;
+&lt;meta content="MoneyHero | Compare Credit Cards, Loans and Insurance" property="og:title" /&gt;
+&lt;meta content="www.moneyhero.com.hk/en" property="og:url" /&gt;
+&lt;meta content="MoneyHero" property="og:site_name" /&gt;
+&lt;meta content="Get the best credit card, loan, insurance and broadband offers in Hong Kong. Save money and find the best deals with MoneyHero. Try it for free!" property="og:description" /&gt;
+&lt;meta content="NOODP" name="robots" /&gt;
+&lt;meta content="" name="keywords" /&gt;
+&lt;meta content="Get the best credit card, loan, insurance and broadband offers in Hong Kong. Save money and find the best deals with MoneyHero. Try it for free!" name="description" /&gt;
+
+	
+    &lt;script src="http://dnn506yrbagrg.cloudfront.net/pages/scripts/0025/3929.js?396150" async="" type="text/javascript"&gt;&lt;/script&gt;&lt;script async="" src="//www.google-analytics.com/analytics.js"&gt;&lt;/script&gt;&lt;script type="text/javascript" async="" src="//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"&gt;&lt;/script&gt;&lt;script src="http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js" type="text/javascript" async=""&gt;&lt;/script&gt;&lt;script type="text/javascript"&gt;
+    WebFontConfig = {
+        google: { families: [ 'Open+Sans:400,700:latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })(); 
+    &lt;/script&gt;
+
+    &lt;script src="//use.typekit.net/sjf4ikq.js"&gt;&lt;/script&gt;
+    &lt;style type="text/css"&gt;.tk-proxima-nova{font-family:"proxima-nova",sans-serif;}.tk-proxima-nova-alt{font-family:"proxima-nova-alt",sans-serif;}&lt;/style&gt;&lt;link rel="stylesheet" href="http://use.typekit.net/c/3674c2/1w;proxima-nova,2,cdb:R:n1,cdj:R:n3,cdg:R:n4,cdd:R:n6,cdW:R:n7;proxima-nova-alt,2,S9j:R:i4,S9d:R:i7,S9h:R:n4,S9c:R:n7/d?3bb2a6e53c9684ffdc9a99f6195b2a6209107d27f153411aa02e79ead27a934d0fb14aaf32e4cd3a5b0ef799083cb27396c48834a0604a86712f11c03e485dd5fc32a6e14cefca66c7269b560b96c9b2c98d891fc15fab5d8bdd008080fcb20fc640d21c80dd726deef9c4e0a3913c9babe081d5825669faa04e2370909b6543f811377122d7894277eb315714be71a3559381d4877684bcdc349098e8d2ae0f3db3edd35da184ac3b4a07c5ca0c2a929fdc82d99feef8c5bc3830d81227f36a241481f0e64ed867ae3693340e3eee729745e49335eafc38e102504958108bb05acfa28bffe96067fc4d7693ca749232ae7347d2b3f570f404e49e0949a5930f7c5157ffdbc55490231a0e28758d0365569501b3934ff06e5d05ffffdc069215854d3edee3e9a8825b20cad843b42f" /&gt;&lt;script&gt;try{Typekit.load();}catch(e){}&lt;/script&gt;
+
+    &lt;!-- Start Visual Website Optimizer Asynchronous Code --&gt;
+    &lt;script type="text/javascript"&gt;
+        var _vwo_code=(function(){
+            var account_id=89604,
+                settings_tolerance=2000,
+                library_tolerance=2500,
+                use_existing_jquery=false,
+            // DO NOT EDIT BELOW THIS LINE
+                f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&amp;amp;u='+encodeURIComponent(d.URL)+'&amp;amp;r='+Math.random());var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
+    &lt;/script&gt;&lt;script src="//dev.visualwebsiteoptimizer.com/j.php?a=89604&amp;amp;u=http%3A%2F%2Fwww.moneyhero.com.hk%2Fen&amp;amp;r=0.20711193704313646" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;!-- End Visual Website Optimizer Asynchronous Code --&gt;
+    
+    &lt;link rel="publisher" href="https://plus.google.com/+MoneyheroHk" /&gt;
+    &lt;link type="image/vnd.microsoft.icon" rel="shortcut icon" href="//www.moneyhero.com.hk/assets/_blue_images/favicon.ico" /&gt;
+    
+    &lt;!-- Stylesheets --&gt;
+    &lt;link href="//www.moneyhero.com.hk/assets/static/main-085be1f.css" type="text/css" rel="stylesheet" /&gt;
+&lt;link href="//www.moneyhero.com.hk/assets/static/ie-085be1f.css" type="text/css" rel="stylesheet" /&gt;
+&lt;link href="//www.moneyhero.com.hk/assets/static/basecss-085be1f.css" type="text/css" rel="stylesheet" /&gt;
+&lt;link href="//www.moneyhero.com.hk/assets/static/homeblue-085be1f.css" type="text/css" rel="stylesheet" /&gt;
+	
+	
+	&lt;!-- MixPanel Code//Needs to load strickly right before &lt;/head&gt; --&gt;
+	&lt;script type="text/javascript"&gt;(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&amp;amp;&amp;amp;(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&amp;amp;&amp;amp;(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+	for(g=0;g&amp;lt;i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+	mixpanel.init("5f05d7882967984fcd6253c0efe4f5d7");&lt;/script&gt;
+	&lt;!-- end Mixpanel --&gt;&lt;link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;amp;subset=latin" /&gt;
+	
+	  	
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!--[if lt IE 9]&gt;
+    &lt;div class="ie-notice" style="padding: 5px 10px;"&gt;
+        &lt;p&gt;Reminder from MoneyHero.com.hk: We're sorry! You are using an outdated browser. It is limiting your browsing experience on MoneyHero.com.hk. We suggest that you upgrade your browser to the latest version (&lt;a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie" target="_blank"&gt;here&lt;/a&gt;), or use other browsers like Chrome, Safari or Firefox. Sorry for any inconvenience caused.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;![endif]--&gt;
+    
+    &lt;!-- Subheader area --&gt;
+    &lt;header class="header-block en"&gt;
+    &lt;div class="header-block__top"&gt;
+        &lt;div class="container-fluid"&gt;
+            &lt;button type="button" class="header-block__toggle js-header-block__toggle visible-xs"&gt;
+                &lt;span&gt;&lt;/span&gt;
+                &lt;span&gt;&lt;/span&gt;
+                &lt;span&gt;&lt;/span&gt;
+                &lt;label class="header-block__toggle-label"&gt;MENU&lt;/label&gt;
+            &lt;/button&gt;
+            &lt;a class="header-block__logo" href="//www.moneyhero.com.hk/en/"&gt;
+                &lt;img alt="MoneyHero" src="//www.moneyhero.com.hk/assets/beta_img/logo.png" class="header-block__img" /&gt;
+            &lt;/a&gt;
+            &lt;div class="header-block__cta"&gt;
+                &lt;a class="header-cta" href="tel:28667791"&gt;
+                    &lt;label class="header-cta__label hidden-xs"&gt;Prefer to talk?&lt;/label&gt;
+                    &lt;span title="Prefer to talk?" class="header-cta__tel hidden-xs"&gt;2866 7791&lt;/span&gt;
+                    &lt;label class="header-cta__sched hidden-xs"&gt;Mon - Fri, 9:30am - 7:00pm&lt;/label&gt;
+                    &lt;span class="header-cta__phone"&gt;
+                        &lt;i class="m-icon m-icon--phone-left"&gt;&lt;/i&gt;
+                    &lt;/span&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- ToggleClass: header-block__nav--open   --&gt;
+    &lt;nav class="header-block__nav js-header-block__nav"&gt;
+        &lt;div class="container-fluid"&gt;
+        	&lt;div class="hidden-xs col-md-3 col-sm-3 header-block__nav--fb"&gt;
+                &lt;iframe frameborder="0" scrolling="no" allowtransparency="true" style="border:none; overflow:hidden; height:21px;" src="//www.facebook.com/plugins/like.php?locale=en_GB&amp;amp;href=https%3A%2F%2Fwww.facebook.com%2FMoneyHeroHK&amp;amp;width&amp;amp;layout=button_count&amp;amp;action=like&amp;amp;show_faces=true&amp;amp;share=false&amp;amp;height=21&amp;amp;appId=363971367079683"&gt;&lt;/iframe&gt;
+          		&lt;div class="fb_share"&gt;
+          			          			&lt;a target="_blank" class="fb_share--button" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fmoneyhero.com.hk%2Fen"&gt;Share&lt;/a&gt;
+	          		&lt;div class="fb_share--count"&gt;
+			          	5	          		&lt;/div&gt;
+          		&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="col-md-9 col-sm-9 padding-0"&gt;
+	            &lt;ul class="navi-block__list"&gt;
+	                &lt;li class="navi-block__item navi-block__item--home hidden-xs"&gt;
+	                    &lt;a class="navi-block__url js-navi-block__url" href="//www.moneyhero.com.hk/en/"&gt; &lt;i class="m-icon m-icon--nav_home"&gt;&lt;/i&gt;&lt;/a&gt;
+	                &lt;/li&gt;
+                    &lt;li class="navi-block__item navi-block__item--arrow hidden-xs"&gt;
+                        &lt;a class="navi-block__url js-navi-block__url" href="//www.moneyhero.com.hk/en/personal-loan/personal-instalment"&gt;Personal Loans&lt;/a&gt;
+                    &lt;/li&gt;
+                    
+                    &lt;!-- need to fix this --&gt;
+	                &lt;div class="visible-xs"&gt;&lt;li class="navi-block__item"&gt;&lt;a class="navi-block__url js-navi-block__url" href="//www.moneyhero.com.hk/en/personal-loan/personal-instalment"&gt;Personal Loan&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-block__item navi-block__item--arrow"&gt;&lt;span class="navi-block__url js-navi-block__url"&gt;Money&lt;/span&gt;&lt;div class="navi-dropdown navi-dropdown--money"&gt;&lt;ul class="navi-inner__list"&gt;&lt;li class="navi-inner__item navi-inner__item--xs"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/credit-card"&gt;Compare Credit Cards&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/credit-card/faq"&gt;Credit Card FAQ&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/credit-card/guide"&gt;Credit Card Guide&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/credit-card/glossary"&gt;Credit Card Glossary&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/credit-card/banks"&gt;Bank/Card Issuers&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/blog/en/category/credit-card-promotions"&gt;Credit Card Latest Promotion&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul class="navi-inner__list navi-inner__list--bdr"&gt;&lt;li class="navi-inner__item navi-inner__item--xs"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/personal-loan"&gt;Compare Personal Loans&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/personal-loan/guide"&gt;Personal Loan Guide&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/personal-loan/providers"&gt;Personal Loan Providers&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul class="navi-inner__list"&gt;&lt;li class="navi-inner__item navi-inner__item--xs"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/mortgage"&gt;Compare Mortgages&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/mortgage/guide"&gt;Mortgage Guide&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/li&gt;&lt;li class="navi-block__item navi-block__item--arrow"&gt;&lt;span class="navi-block__url js-navi-block__url"&gt;Insurance&lt;/span&gt;&lt;div class="navi-dropdown navi-dropdown--insurance"&gt;&lt;ul class="navi-inner__list navi-inner__list--bdrR"&gt;&lt;li class="navi-inner__item navi-inner__item--xs"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/medical-insurance"&gt;Compare Health Insurance&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/medical-insurance/guide"&gt;Health Insurance Guide&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/medical-insurance/partners"&gt;Health Insurance Partners&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul class="navi-inner__list"&gt;&lt;li class="navi-inner__item navi-inner__item--xs"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/travel-insurance"&gt;Compare Travel Insurance&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/travel-insurance/guide"&gt;Travel Insurance Guide&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/li&gt;&lt;li class="navi-block__item"&gt;&lt;a class="navi-block__url js-navi-block__url" href="//www.moneyhero.com.hk/blog/en/"&gt;News&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-block__item navi-block__item--arrow"&gt;&lt;span class="navi-block__url js-navi-block__url"&gt;Help&lt;/span&gt;&lt;div class="navi-dropdown navi-dropdown--help"&gt;&lt;ul class="navi-inner__list"&gt;&lt;li class="navi-inner__item navi-inner__item--xs"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/help"&gt;Help hub&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/contact-us"&gt;Contact Us&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/faq"&gt;FAQ&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/about"&gt;About us&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/guide"&gt;Guides&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/li&gt;&lt;/div&gt;	                
+	                &lt;li class="navi-block__item navi-block__item--arrow hidden-xs"&gt;&lt;span class="navi-block__url js-navi-block__url"&gt;Money&lt;/span&gt;&lt;div class="navi-dropdown navi-dropdown--money"&gt;&lt;ul class="navi-inner__list"&gt;&lt;li class="navi-inner__item navi-inner__item-sdm navi-inner__item_cc"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/credit-card"&gt;Credit Card&lt;span class="navi-inner__arrow"&gt;&lt;i class="m-icon m-icon--arrow-right"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;ul class="navi-inner-second__list navi-inner-second__list-cc hide"&gt;&lt;li class="navi-inner-second__list__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/credit-card/best-deals"&gt;Credit Card Comparison&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner-second__list__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/credit-card/faq"&gt;Credit Card FAQs&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner-second__list__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/credit-card/guide"&gt;Credit Card Guide&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner-second__list__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/credit-card/glossary"&gt;Credit Card Glossary&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner-second__list__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/credit-card/banks"&gt;Bank/Card Issuers&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner-second__list__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/blog/en/category/credit-card-promotions"&gt;Credit Card Latest Promotion&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li class="navi-inner__item navi-inner__item-sdm navi-inner__item_pl"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/personal-loan"&gt;Personal Loan&lt;span class="navi-inner__arrow"&gt;&lt;i class="m-icon m-icon--arrow-right"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;ul class="navi-inner-second__list navi-inner-second__list-pl hide"&gt;&lt;li class="navi-inner-second__list__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/personal-loan/personal-instalment"&gt;Personal Loan Comparison&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner-second__list__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/personal-loan/guide"&gt;Personal Loan Guide&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner-second__list__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/personal-loan/providers"&gt;Personal Loan Providers&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li class="navi-inner__item navi-inner__item-sdm navi-inner__item_hl"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/mortgage"&gt;Mortgage&lt;span class="navi-inner__arrow"&gt;&lt;i class="m-icon m-icon--arrow-right"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;ul class="navi-inner-second__list navi-inner-second__list-hl hide"&gt;&lt;li class="navi-inner-second__list__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/mortgage/all"&gt;Mortgage Comparison&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner-second__list__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/mortgage/guide"&gt;Mortgage Guide&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;div class="navi-details"&gt;Get the best deals and save more! Choose a credit card, personal loan, or mortgage in minutes.&lt;/div&gt;&lt;/div&gt;&lt;/li&gt;&lt;li class="navi-block__item navi-block__item--arrow hidden-xs"&gt;&lt;span class="navi-block__url js-navi-block__url"&gt;Insurance&lt;/span&gt;&lt;div class="navi-dropdown navi-dropdown--insurance"&gt;&lt;ul class="navi-inner__list"&gt;&lt;li class="navi-inner__item navi-inner__item-sdm navi-inner__item_mi"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/medical-insurance"&gt;Medical Insurance&lt;span class="navi-inner__arrow"&gt;&lt;i class="m-icon m-icon--arrow-right"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;ul class="navi-inner-second__list navi-inner-second__list-mi hide"&gt;&lt;li class="navi-inner-second__list__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/medical-insurance/get-quote#step1"&gt;Medical Insurance Comparison&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner-second__list__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/medical-insurance/guide"&gt;Medical Insurance Guide&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner-second__list__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/medical-insurance/partners"&gt;Medical Insurance Partners&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li class="navi-inner__item navi-inner__item-sdm navi-inner__item_ti"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/travel-insurance"&gt;Travel Insurance&lt;span class="navi-inner__arrow"&gt;&lt;i class="m-icon m-icon--arrow-right"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;ul class="navi-inner-second__list navi-inner-second__list-ti hide"&gt;&lt;li class="navi-inner-second__list__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/travel-insurance/get-quote#step1"&gt;Travel Insurance Comparison&lt;/a&gt;&lt;/li&gt;&lt;li class="navi-inner-second__list__item"&gt;&lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/travel-insurance/guide"&gt;Travel Insurance Guide&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;div class="navi-details"&gt;Put your mind at ease with the right health or travel insurance. Apply for coverage online!&lt;/div&gt;&lt;/div&gt;&lt;/li&gt;                    &lt;li class="navi-block__item navi-block__item--arrow hidden-xs"&gt;
+                        &lt;a class="navi-block__url js-navi-block__url" href="//www.moneyhero.com.hk/blog/en/"&gt;News&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class="navi-block__item navi-block__item--arrow hidden-xs"&gt;
+                        &lt;span class="navi-block__url js-navi-block__url"&gt;Help&lt;/span&gt;
+                        &lt;div class="navi-dropdown navi-dropdown--help"&gt;
+                            &lt;ul class="navi-inner__list"&gt;
+                                &lt;li class="navi-inner__item"&gt;
+                                    &lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/help"&gt;Help Hub&lt;span class="navi-inner__arrow"&gt;&lt;i class="m-icon m-icon--arrow-right"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="navi-inner__item"&gt;
+                                    &lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/contact-us"&gt;Contact Us&lt;span class="navi-inner__arrow"&gt;&lt;i class="m-icon m-icon--arrow-right"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="navi-inner__item"&gt;
+                                    &lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/faq"&gt;FAQs&lt;span class="navi-inner__arrow"&gt;&lt;i class="m-icon m-icon--arrow-right"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="navi-inner__item"&gt;
+                                    &lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/about"&gt;About Us&lt;span class="navi-inner__arrow"&gt;&lt;i class="m-icon m-icon--arrow-right"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="navi-inner__item"&gt;
+                                    &lt;a class="navi-inner__url" href="//www.moneyhero.com.hk/en/product-guide"&gt;Product Guide&lt;span class="navi-inner__arrow"&gt;&lt;i class="m-icon m-icon--arrow-right"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;div class="navi-details"&gt;Meet the MoneyHero team! Find out how we can help you save more money everyday.&lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+
+                    &lt;li class="navi-block__item navi-block__item--lang"&gt;
+                    &lt;a href="//www.moneyhero.com.hk/" class="header__url header__quick-lang-change navi-block__url js-navi-block__url"&gt;
+                                                     &lt;i class="icon-flag icon-flag--zh"&gt;&lt;/i&gt; 繁體中文&lt;/a&gt;                    &lt;/li&gt;
+	            &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+    &lt;button class="navi-block__switch js-navi-block__switch hidden-xs"&gt;
+        &lt;span class="navi-block__switch-text"&gt;MENU&lt;/span&gt;
+
+        &lt;!-- Switch to "m-icon--arrow-down" on navigation collapsed  --&gt;
+        &lt;i class="m-icon m-icon--arrow-up"&gt;&lt;/i&gt;
+    &lt;/button&gt;
+&lt;/header&gt;
+&lt;div class="en"&gt;
+
+    &lt;!-- Hero area --&gt;
+    &lt;!-- Removing Hero Area since This is not needed on the new design    --&gt;
+    	&lt;!-- Main content area--&gt;
+    &lt;main&gt;
+        &lt;section class="hero-block--mobile visible-xs"&gt;
+    &lt;div class="container-fluid"&gt;
+        &lt;h1 class="hero-block__header"&gt;Asia's No. 1 Financial Comparison Site&lt;/h1&gt;
+        &lt;p class="hero-block__strapline"&gt;MoneyHero is your one-stop shop for comparing credit cards, loans, and insurance plans in Hong Kong. Use our powerful comparison tool to get unbiased, up-to-date information and get the best deals today.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="hero-block js-hero-block swiper-container hidden-xs ch-landing"&gt;
+    &lt;div class="hero-block__slider swiper-wrapper" style="width: 6490px; height: 300px; transform: translate3d(-2596px, 0px, 0px); transition-duration: 2s;"&gt;
+        &lt;div class="hero-block__slide hero-block__slide--bg02 swiper-slide js-ch-landing-parent" style="width: 1298px; height: 300px;"&gt;
+            &lt;div class="container-fluid"&gt;
+
+                &lt;div class="ball-block ball-block--default"&gt;
+                    &lt;h2 class="ball-block__title"&gt;FIND YOUR BEST PERSONAL LOAN&lt;/h2&gt;
+                    &lt;p class="ball-block__strapline"&gt;Compare over 50 loans and &lt;span class="strapline__green"&gt;save up to HK$34,000*&lt;/span&gt;&lt;/p&gt;
+
+                    &lt;div class="ball-block__cta"&gt;
+                        &lt;h3 class="ball-block__cta-label"&gt;What would you like to compare?&lt;/h3&gt;
+
+                        &lt;div class="bb-from__group clearfix"&gt;
+                            &lt;div class="bb-from__group-col bb-from__group-col--select"&gt;
+
+                                &lt;div class="compare-blk__select"&gt;
+                                    &lt;span class="compare-blk__select-label js-select-label"&gt;Personal Instalment&lt;/span&gt;
+                                    &lt;i class="m-icon m-icon--arrow-down"&gt;&lt;/i&gt;
+                                    &lt;select class="compare-blk__select-form js-select-form"&gt;
+                                        &lt;option selected="selected" value="en/personal-loan/personal-instalment"&gt;Personal Instalment&lt;/option&gt;
+                                        &lt;option value="en/personal-loan/tax-loan"&gt;Tax Loans&lt;/option&gt;
+                                        &lt;option value="en/personal-loan/debt-consolidation"&gt;Debt Consolidation&lt;/option&gt;
+                                        &lt;option value="en/personal-loan/credit-line"&gt;Credit Line&lt;/option&gt;
+                                    &lt;/select&gt;
+                                &lt;/div&gt;
+
+                            &lt;/div&gt;
+                            &lt;div class="bb-from__group-col bb-from__group-col--btn"&gt;
+                                &lt;a class="bb-from__cta btn btn-block btn-lg cag-btn--cta js-compare-btn" href="javascript:void(0);"&gt;
+                                    COMPARE NOW                                &lt;/a&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        
+                        &lt;p class="ball-block__note"&gt;Not sure what to do? &lt;a href="//www.moneyhero.com.hk/en/personal-loan/guide"&gt;Read Personal Loans Guide&lt;/a&gt;&lt;/p&gt;
+                        &lt;p class="ball-block__disclaimer"&gt;* Based on a HK$100,000 personal loan over 24 months&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="hero-block__slide hero-block__slide--bg01 swiper-slide js-ch-landing-parent" style="width: 1298px; height: 300px;"&gt;
+            &lt;div class="container-fluid"&gt;
+                &lt;div class="ball-block ball-block--default"&gt;
+                    &lt;h2 class="ball-block__title"&gt;FIND YOUR BEST CREDIT CARD&lt;/h2&gt;
+                    &lt;p class="ball-block__strapline"&gt;Compare over 100 cards, &lt;span class="strapline__green"&gt;receive a HK$200 Starbucks coupon *&lt;/span&gt;&lt;/p&gt;
+
+                    &lt;div class="ball-block__cta"&gt;
+                        &lt;h3 class="ball-block__cta-label"&gt;What would you like to compare?&lt;/h3&gt;
+
+                        &lt;div class="bb-from__group clearfix"&gt;
+                            &lt;div class="bb-from__group-col bb-from__group-col--select"&gt;
+
+                                &lt;div class="compare-blk__select"&gt;
+                                    &lt;span class="compare-blk__select-label js-select-label"&gt;Best Deals&lt;/span&gt;
+                                    &lt;i class="m-icon m-icon--arrow-down"&gt;&lt;/i&gt;
+                                    &lt;select class="compare-blk__select-form js-select-form"&gt;
+                                        &lt;option value="en/credit-card/all"&gt;All&lt;/option&gt;
+                                        &lt;option selected="selected" value="en/credit-card/best-deals"&gt;Best Deals&lt;/option&gt;
+                                        &lt;option value="en/credit-card/premium"&gt;Premium&lt;/option&gt;
+                                        &lt;option value="en/credit-card/contactless-payment"&gt;Contactless&lt;/option&gt;
+                                        &lt;option value="en/credit-card/dining"&gt;Dining&lt;/option&gt;
+                                        &lt;option value="en/credit-card/online-shopping"&gt;Online shopping&lt;/option&gt;
+                                        &lt;option value="en/credit-card/cashback"&gt;Cashback&lt;/option&gt;
+                                        &lt;option value="en/credit-card/airmiles"&gt;Airmiles&lt;/option&gt;
+                                    &lt;/select&gt;
+                                &lt;/div&gt;
+
+                            &lt;/div&gt;
+                            &lt;div class="bb-from__group-col bb-from__group-col--btn"&gt;
+                                &lt;a class="bb-from__cta btn btn-block btn-lg cag-btn--cta js-compare-btn" href="javascript:void(0);"&gt;
+                                    COMPARE NOW                                &lt;/a&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;p class="ball-block__note"&gt;Not sure what to do? &lt;a href="//www.moneyhero.com.hk/en/credit-card/guide"&gt;Read Credit Card FAQ&lt;/a&gt;&lt;/p&gt;
+                        &lt;p class="ball-block__disclaimer"&gt;* When you apply online with MoneyHero for a Standard Chartered WorldMiles Card.&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="hero-block__slide hero-block__slide--bg03 swiper-slide js-ch-landing-parent swiper-slide-visible swiper-slide-active" style="width: 1298px; height: 300px;"&gt;
+            &lt;div class="container-fluid"&gt;
+
+                &lt;div class="ball-block ball-block--default"&gt;
+                    &lt;h2 class="ball-block__title"&gt;GET YOUR DREAM HOME&lt;/h2&gt;
+                    &lt;p class="ball-block__strapline"&gt;Compare loans from over 50 providers and &lt;span class="strapline__green"&gt;save HK$369,259*&lt;/span&gt;&lt;/p&gt;
+
+                    &lt;div class="ball-block__cta"&gt;
+                        &lt;h3 class="ball-block__cta-label"&gt;What would you like to compare?&lt;/h3&gt;
+
+                        &lt;div class="bb-from__group clearfix"&gt;
+                            &lt;div class="bb-from__group-col bb-from__group-col--select"&gt;
+
+                                &lt;div class="compare-blk__select"&gt;
+                                    &lt;span class="compare-blk__select-label js-select-label"&gt;All&lt;/span&gt;
+                                    &lt;i class="m-icon m-icon--arrow-down"&gt;&lt;/i&gt;
+                                    &lt;select class="compare-blk__select-form js-select-form"&gt;
+                                        &lt;option selected="selected" value="en/mortgage/all"&gt;All&lt;/option&gt;
+                                        &lt;option value="en/mortgage/general-mortgage"&gt;General&lt;/option&gt;
+                                        &lt;option value="en/mortgage/deposit-linked-mortgage"&gt;Deposit Linked&lt;/option&gt;
+                                    &lt;/select&gt;
+                                &lt;/div&gt;
+
+                            &lt;/div&gt;
+                            &lt;div class="bb-from__group-col bb-from__group-col--btn"&gt;
+                                &lt;a class="bb-from__cta btn btn-block btn-lg cag-btn--cta js-compare-btn" href="javascript:void(0);"&gt;
+                                    COMPARE NOW                                &lt;/a&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;p class="ball-block__note"&gt;Not sure what to do? &lt;a href="//www.moneyhero.com.hk/en/mortgage/guide"&gt;Read Mortgage Guide&lt;/a&gt;&lt;/p&gt;
+                        &lt;p class="ball-block__disclaimer"&gt;* Based on a HK$4,000,000 loan over 25 years, 70% borrowed&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="hero-block__slide hero-block__slide--bg04 swiper-slide js-ch-landing-parent" style="width: 1298px; height: 300px;"&gt;
+            &lt;div class="container-fluid"&gt;
+
+                &lt;div class="ball-block ball-block--default"&gt;
+                    &lt;h2 class="ball-block__title"&gt;COMPARE MEDICAL INSURANCE&lt;/h2&gt;
+                    &lt;p class="ball-block__strapline"&gt;Search over 60 policies and &lt;span class="strapline__green"&gt;save up to US$100 per year*&lt;/span&gt;&lt;/p&gt;
+
+                    &lt;div class="ball-block__cta"&gt;
+                        &lt;h3 class="ball-block__cta-label"&gt;Who do you want to cover?&lt;/h3&gt;
+
+                        &lt;div class="bb-from__group clearfix"&gt;
+                            &lt;div class="bb-from__group-col bb-from__group-col--select"&gt;
+
+                                &lt;div class="compare-blk__select"&gt;
+                                    &lt;span class="compare-blk__select-label js-select-label"&gt;Myself&lt;/span&gt;
+                                    &lt;i class="m-icon m-icon--arrow-down"&gt;&lt;/i&gt;
+                                    &lt;select id="mi-insurance" name="mi-insurance" class="compare-blk__select-form js-select-form"&gt;
+                                        &lt;option selected="selected" value="1"&gt;Myself&lt;/option&gt;
+                                        &lt;option value="2"&gt;Couple&lt;/option&gt;
+                                        &lt;option value="3"&gt;Family&lt;/option&gt;
+                                    &lt;/select&gt;
+                                &lt;/div&gt;
+
+                            &lt;/div&gt;
+                            &lt;div class="bb-from__group-col bb-from__group-col--btn"&gt;
+                                &lt;a class="bb-from__cta btn btn-block btn-lg cag-btn--cta mi-insurance-btn" href="javascript:void(0);"&gt;
+                                    COMPARE NOW                                &lt;/a&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;p class="ball-block__note"&gt;Not sure what to do? &lt;a href="//www.moneyhero.com.hk/en/medical-insurance/guide"&gt;Read Health Insurance Guide&lt;/a&gt;&lt;/p&gt;
+                        &lt;p class="ball-block__disclaimer"&gt;* Based on a policy for a 36 year old male with US$500 excess, inpatient cover.&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="hero-block__slide hero-block__slide--bg05 swiper-slide js-ch-landing-parent" style="width: 1298px; height: 300px;"&gt;
+            &lt;div class="container-fluid"&gt;
+
+                &lt;div class="ball-block ball-block--default"&gt;
+                    &lt;h2 class="ball-block__title"&gt;COMPARE TRAVEL INSURANCE&lt;/h2&gt;
+                    &lt;p class="ball-block__strapline"&gt;Search over 30 policies and &lt;span class="strapline__green"&gt;save up to HK$169*&lt;/span&gt;&lt;/p&gt;
+
+                    &lt;div class="ball-block__cta"&gt;
+                        &lt;h3 class="ball-block__cta-label"&gt;Who's travelling?&lt;/h3&gt;
+
+                        &lt;div class="bb-from__group clearfix"&gt;
+                            &lt;div class="bb-from__group-col bb-from__group-col--select"&gt;
+
+                                &lt;div class="compare-blk__select"&gt;
+                                    &lt;span class="compare-blk__select-label js-select-label"&gt;Myself&lt;/span&gt;
+                                    &lt;i class="m-icon m-icon--arrow-down"&gt;&lt;/i&gt;
+                                    &lt;select id="ti-insurance" name="ti-insurance" class="compare-blk__select-form js-select-form"&gt;
+                                        &lt;option selected="selected" value="myself"&gt;Myself&lt;/option&gt;
+                                        &lt;option value="meAndChildren"&gt;Myself and children&lt;/option&gt;
+                                        &lt;option value="myfamily"&gt;My family&lt;/option&gt;
+                                        &lt;option value="group"&gt;Group&lt;/option&gt;
+                                    &lt;/select&gt;
+                                &lt;/div&gt;
+
+                            &lt;/div&gt;
+                            &lt;div class="bb-from__group-col bb-from__group-col--btn"&gt;
+                                &lt;a class="bb-from__cta btn btn-block btn-lg cag-btn--cta ti-insurance-btn" href="javascript:void(0);"&gt;
+                                    COMPARE NOW                                &lt;/a&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;p class="ball-block__note"&gt;Not sure what to do? &lt;a href="//www.moneyhero.com.hk/en/travel-insurance/guide"&gt;Read Travel Insurance Guide&lt;/a&gt;&lt;/p&gt;
+                        &lt;p class="ball-block__disclaimer"&gt;* Based on 1 traveller for a single trip to the UK without sporting activities.&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="hero-block__pagination pagination"&gt;&lt;span class="swiper-pagination-switch"&gt;&lt;/span&gt;&lt;span class="swiper-pagination-switch"&gt;&lt;/span&gt;&lt;span class="swiper-pagination-switch swiper-visible-switch swiper-active-switch"&gt;&lt;/span&gt;&lt;span class="swiper-pagination-switch"&gt;&lt;/span&gt;&lt;span class="swiper-pagination-switch"&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;span class="hero-block__move hero-block__move--left js-hero-block__move" style="display: block;"&gt;
+        &lt;i class="m-icon m-icon--chevron-left"&gt;&lt;/i&gt;
+    &lt;/span&gt;
+    &lt;span class="hero-block__move hero-block__move--right js-hero-block__move" style="display: block;"&gt;
+        &lt;i class="m-icon m-icon--chevron-right"&gt;&lt;/i&gt;
+    &lt;/span&gt;
+
+    &lt;div class="loader-position" style="opacity: 0; display: none;"&gt;
+        &lt;div class="loading-container"&gt;
+            &lt;div class="bubblingG"&gt;
+                &lt;span id="bubblingG_1"&gt;&lt;/span&gt;
+                &lt;span id="bubblingG_2"&gt;&lt;/span&gt;
+                &lt;span id="bubblingG_3"&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;div class="ch-provider js-ch-provider--homepage"&gt;
+    &lt;div class="swiper-container landing-logos provider-slider channel-swiper-logos"&gt;
+        &lt;ul class="swiper-wrapper slide-cards__list ch-provider__list clearfix" style="padding-left: 0px; padding-right: 0px; transform: translate3d(-3380px, 0px, 0px); transition-duration: 3s; width: 7020px; height: 60px;"&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Citibank" alt="Citibank" src="http://media.compargo.com/hk/companies/Citibank.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Standard Chartered Bank" alt="Standard Chartered Bank" src="http://media.compargo.com/hk/companies/SCB.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="American Express" alt="American Express" src="http://media.compargo.com/hk/companies/american_express.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="China Construction Bank (Asia)" alt="China Construction Bank (Asia)" src="http://media.compargo.com/hk/companies/China_Construction_Bank.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Standard Chartered" alt="Standard Chartered" src="http://media.compargo.com/hk/companies/SCB.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Bank of Communications" alt="Bank of Communications" src="http://media.compargo.com/hk/companies/BOCOMM.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="HSBC" alt="HSBC" src="http://media.compargo.com/hk/companies/HSBC.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Hang Seng Bank" alt="Hang Seng Bank" src="http://media.compargo.com/hk/companies/Hang_Seng.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Bank of China" alt="Bank of China" src="http://media.compargo.com/hk/companies/BOC.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="DBS" alt="DBS" src="http://media.compargo.com/hk/companies/DBS.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Dah Sing Bank" alt="Dah Sing Bank" src="http://media.compargo.com/hk/companies/Dah_Sing.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Bank of East Asia" alt="Bank of East Asia" src="http://media.compargo.com/hk/companies/BEA.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="AEON" alt="AEON" src="http://media.compargo.com/hk/companies/AEON.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="信銀國際" alt="信銀國際" src="http://media.compargo.com/hk/companies/citicbank-logo.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="ICBC Asia" alt="ICBC Asia" src="http://media.compargo.com/hk/companies/ICBC_asia.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Chong Hing Bank" alt="Chong Hing Bank" src="http://media.compargo.com/hk/companies/Chong_Hing.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Shanghai Commercial Bank" alt="Shanghai Commercial Bank" src="http://media.compargo.com/hk/companies/Shanghai_commercial_bank.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Monexo" alt="Monexo" src="http://media.compargo.com/hk/companies/Monexo.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+                        &lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Citibank" alt="Citibank" src="http://media.compargo.com/hk/companies/Citibank.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+            
+                        &lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Standard Chartered Bank" alt="Standard Chartered Bank" src="http://media.compargo.com/hk/companies/SCB.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+            
+                        &lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="American Express" alt="American Express" src="http://media.compargo.com/hk/companies/american_express.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+            
+                        &lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="China Construction Bank (Asia)" alt="China Construction Bank (Asia)" src="http://media.compargo.com/hk/companies/China_Construction_Bank.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+            
+                        &lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Standard Chartered" alt="Standard Chartered" src="http://media.compargo.com/hk/companies/SCB.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+            
+                        &lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Bank of Communications" alt="Bank of Communications" src="http://media.compargo.com/hk/companies/BOCOMM.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+            
+                        &lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="HSBC" alt="HSBC" src="http://media.compargo.com/hk/companies/HSBC.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+            
+                        &lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Hang Seng Bank" alt="Hang Seng Bank" src="http://media.compargo.com/hk/companies/Hang_Seng.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+            
+                        &lt;li class="swiper-slide ch-provider__item swiper-slide-visible swiper-slide-active"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Bank of China" alt="Bank of China" src="http://media.compargo.com/hk/companies/BOC.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+            
+                        &lt;li class="swiper-slide ch-provider__item swiper-slide-visible"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="DBS" alt="DBS" src="http://media.compargo.com/hk/companies/DBS.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+            
+                        &lt;li class="swiper-slide ch-provider__item swiper-slide-visible"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Dah Sing Bank" alt="Dah Sing Bank" src="http://media.compargo.com/hk/companies/Dah_Sing.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+            
+                        &lt;li class="swiper-slide ch-provider__item swiper-slide-visible"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Bank of East Asia" alt="Bank of East Asia" src="http://media.compargo.com/hk/companies/BEA.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+            
+                        &lt;li class="swiper-slide ch-provider__item swiper-slide-visible"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="AEON" alt="AEON" src="http://media.compargo.com/hk/companies/AEON.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+            
+                        &lt;li class="swiper-slide ch-provider__item swiper-slide-visible"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="信銀國際" alt="信銀國際" src="http://media.compargo.com/hk/companies/citicbank-logo.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+            
+                        &lt;li class="swiper-slide ch-provider__item swiper-slide-visible"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="ICBC Asia" alt="ICBC Asia" src="http://media.compargo.com/hk/companies/ICBC_asia.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+            
+                        &lt;li class="swiper-slide ch-provider__item swiper-slide-visible"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Chong Hing Bank" alt="Chong Hing Bank" src="http://media.compargo.com/hk/companies/Chong_Hing.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+            
+                        &lt;li class="swiper-slide ch-provider__item swiper-slide-visible"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Shanghai Commercial Bank" alt="Shanghai Commercial Bank" src="http://media.compargo.com/hk/companies/Shanghai_commercial_bank.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+            
+                        &lt;li class="swiper-slide ch-provider__item swiper-slide-visible"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Monexo" alt="Monexo" src="http://media.compargo.com/hk/companies/Monexo.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+            
+                    &lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Citibank" alt="Citibank" src="http://media.compargo.com/hk/companies/Citibank.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Standard Chartered Bank" alt="Standard Chartered Bank" src="http://media.compargo.com/hk/companies/SCB.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="American Express" alt="American Express" src="http://media.compargo.com/hk/companies/american_express.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="China Construction Bank (Asia)" alt="China Construction Bank (Asia)" src="http://media.compargo.com/hk/companies/China_Construction_Bank.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Standard Chartered" alt="Standard Chartered" src="http://media.compargo.com/hk/companies/SCB.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Bank of Communications" alt="Bank of Communications" src="http://media.compargo.com/hk/companies/BOCOMM.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="HSBC" alt="HSBC" src="http://media.compargo.com/hk/companies/HSBC.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Hang Seng Bank" alt="Hang Seng Bank" src="http://media.compargo.com/hk/companies/Hang_Seng.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Bank of China" alt="Bank of China" src="http://media.compargo.com/hk/companies/BOC.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="DBS" alt="DBS" src="http://media.compargo.com/hk/companies/DBS.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Dah Sing Bank" alt="Dah Sing Bank" src="http://media.compargo.com/hk/companies/Dah_Sing.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Bank of East Asia" alt="Bank of East Asia" src="http://media.compargo.com/hk/companies/BEA.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="AEON" alt="AEON" src="http://media.compargo.com/hk/companies/AEON.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="信銀國際" alt="信銀國際" src="http://media.compargo.com/hk/companies/citicbank-logo.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="ICBC Asia" alt="ICBC Asia" src="http://media.compargo.com/hk/companies/ICBC_asia.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Chong Hing Bank" alt="Chong Hing Bank" src="http://media.compargo.com/hk/companies/Chong_Hing.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Shanghai Commercial Bank" alt="Shanghai Commercial Bank" src="http://media.compargo.com/hk/companies/Shanghai_commercial_bank.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;li class="swiper-slide ch-provider__item"&gt;
+                &lt;span class="ch-provider__url" href=""&gt;
+                    &lt;img title="Monexo" alt="Monexo" src="http://media.compargo.com/hk/companies/Monexo.png" class="ch-provider__img" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;&lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="vertical-block"&gt;
+    &lt;div class="container-fluid"&gt;
+        &lt;div class="row"&gt;
+            &lt;div data-link="//www.moneyhero.com.hk/en/credit-card/best-deals" class="js-block__list  vertical-block__column"&gt;
+                &lt;div class="vertical-block__cta--mobile"&gt;
+                    &lt;h2 class="vertical-block__header"&gt;
+                        &lt;a href="//www.moneyhero.com.hk/en/credit-card/best-deals"&gt;Credit Cards&lt;/a&gt;
+                    &lt;/h2&gt;
+                    &lt;p class="vertical-block__strapline"&gt;Compare the credit cards with the best rates, deals and rewards in Hong Kong&lt;/p&gt;
+
+                    &lt;i class="m-icon m-icon--arrow-right visible-xs"&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class="vertical-block__img"&gt;
+                	&lt;i class="m-icon m-icon--creditcards"&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;!--
+                &lt;ul class="vertical-block__list js-block__list hidden-xs" data-link="//www.moneyhero.com.hk/en/credit-card/best-deals"&gt;
+                                            &lt;li class="vertical-block__item"&gt;
+                            &lt;a href="en/credit-card/best-deals" class="vertical-block__url"&gt;Credit Card Comparison&lt;/a&gt;
+                        &lt;/li&gt;
+                                            &lt;li class="vertical-block__item"&gt;
+                            &lt;a href="en/credit-card/faq" class="vertical-block__url"&gt;Credit Card FAQs&lt;/a&gt;
+                        &lt;/li&gt;
+                                            &lt;li class="vertical-block__item"&gt;
+                            &lt;a href="en/credit-card/guide" class="vertical-block__url"&gt;Credit Card Guide&lt;/a&gt;
+                        &lt;/li&gt;
+                                            &lt;li class="vertical-block__item"&gt;
+                            &lt;a href="en/credit-card/glossary" class="vertical-block__url"&gt;Credit Card Glossary&lt;/a&gt;
+                        &lt;/li&gt;
+                                            &lt;li class="vertical-block__item"&gt;
+                            &lt;a href="en/credit-card/banks" class="vertical-block__url"&gt;Bank/Card Issuers&lt;/a&gt;
+                        &lt;/li&gt;
+                                            &lt;li class="vertical-block__item"&gt;
+                            &lt;a href="blog/en/category/credit-card-promotions" class="vertical-block__url"&gt;Credit Card Latest Promotion&lt;/a&gt;
+                        &lt;/li&gt;
+                                    &lt;/ul&gt;
+                --&gt;
+                &lt;a class="vertical-block__cta hidden-xs" href="//www.moneyhero.com.hk/en/credit-card/best-deals"&gt;
+                    COMPARE CARDS                    &lt;span&gt;Takes about 10 seconds&lt;/span&gt;
+                    &lt;i class="m-icon m-icon--arrow-right"&gt;&lt;/i&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div data-link="//www.moneyhero.com.hk/en/mortgage/all" class="js-block__list vertical-block__column"&gt;
+                &lt;div class="vertical-block__cta--mobile"&gt;
+                    &lt;h2 class="vertical-block__header"&gt;
+                        &lt;a href="//www.moneyhero.com.hk/en/mortgage/all"&gt;Mortgage&lt;/a&gt;
+                    &lt;/h2&gt;
+                    &lt;p class="vertical-block__strapline"&gt;Find an affordable mortgage and invest in your family's future today&lt;/p&gt;
+
+                    &lt;i class="m-icon m-icon--arrow-right visible-xs"&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class="vertical-block__img"&gt;
+                	&lt;i class="m-icon m-icon--homeloans"&gt;&lt;/i&gt;
+ 				&lt;/div&gt;
+ 				&lt;!--
+                &lt;ul class="vertical-block__list js-block__list hidden-xs" data-link="//www.moneyhero.com.hk/en/mortgage/all"&gt;
+                                            &lt;li class="vertical-block__item"&gt;
+                            &lt;a href="en/mortgage/all" class="vertical-block__url"&gt;Mortgage Comparison&lt;/a&gt;
+                        &lt;/li&gt;
+                                            &lt;li class="vertical-block__item"&gt;
+                            &lt;a href="en/mortgage/guide" class="vertical-block__url"&gt;Mortgage Guide&lt;/a&gt;
+                        &lt;/li&gt;
+                                    &lt;/ul&gt;
+                --&gt;
+                &lt;a class="vertical-block__cta hidden-xs" href="//www.moneyhero.com.hk/en/mortgage/all"&gt;
+                    COMPARE MORTGAGES                    &lt;span&gt;Takes about 10 seconds&lt;/span&gt;
+                    &lt;i class="m-icon m-icon--arrow-right"&gt;&lt;/i&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div data-link="//www.moneyhero.com.hk/en/personal-loan/personal-instalment" class="js-block__list vertical-block__column"&gt;
+                &lt;div class="vertical-block__cta--mobile"&gt;
+                    &lt;h2 class="vertical-block__header"&gt;
+                        &lt;a href="//www.moneyhero.com.hk/en/personal-loan/personal-instalment"&gt;Personal Loans&lt;/a&gt;
+                    &lt;/h2&gt;
+                    &lt;p class="vertical-block__strapline"&gt;Choose the personal loan that suits your needs&lt;/p&gt;
+
+                    &lt;i class="m-icon m-icon--arrow-right visible-xs"&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class="vertical-block__img"&gt;
+                	&lt;i class="m-icon m-icon--personalLoans"&gt;&lt;/i&gt;
+ 				&lt;/div&gt;
+ 				&lt;!--
+                &lt;ul class="vertical-block__list js-block__list hidden-xs" data-link="//www.moneyhero.com.hk/en/personal-loan/personal-instalment"&gt;
+                                            &lt;li class="vertical-block__item"&gt;
+                            &lt;a href="en/personal-loan/personal-instalment" class="vertical-block__url"&gt;Personal Loan Comparison&lt;/a&gt;
+                        &lt;/li&gt;
+                                            &lt;li class="vertical-block__item"&gt;
+                            &lt;a href="en/personal-loan/guide" class="vertical-block__url"&gt;Personal Loan Guide&lt;/a&gt;
+                        &lt;/li&gt;
+                                            &lt;li class="vertical-block__item"&gt;
+                            &lt;a href="en/personal-loan/providers" class="vertical-block__url"&gt;Personal Loan Providers&lt;/a&gt;
+                        &lt;/li&gt;
+                                    &lt;/ul&gt;
+                --&gt;
+                &lt;a class="vertical-block__cta hidden-xs" href="//www.moneyhero.com.hk/en/personal-loan/personal-instalment"&gt;
+                    COMPARE LOANS                    &lt;span&gt;Takes about 10 seconds&lt;/span&gt;
+                    &lt;i class="m-icon m-icon--arrow-right"&gt;&lt;/i&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div data-link="//www.moneyhero.com.hk/en/travel-insurance/get-quote#step1" class="js-block__list vertical-block__column"&gt;
+                &lt;div class=" vertical-block__cta--mobile"&gt;
+                    &lt;h2 class="vertical-block__header"&gt;
+                        &lt;a href="//www.moneyhero.com.hk/en/travel-insurance/get-quote#step1"&gt;Travel Insurance&lt;/a&gt;
+                    &lt;/h2&gt;
+                    &lt;p class="vertical-block__strapline"&gt;See the world and skip the worry by getting travel insurance for your next trip&lt;/p&gt;
+
+                    &lt;i class="m-icon m-icon--arrow-right visible-xs"&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class="vertical-block__img"&gt;
+                	&lt;i class="m-icon m-icon--travelinsurance"&gt;&lt;/i&gt;
+ 				&lt;/div&gt;
+ 				&lt;!--
+                &lt;ul class="vertical-block__list js-block__list hidden-xs" data-link="//www.moneyhero.com.hk/en/travel-insurance/get-quote#step1"&gt;
+                                            &lt;li class="vertical-block__item"&gt;
+                            &lt;a href="en/travel-insurance/get-quote#step1" class="vertical-block__url"&gt;Travel Insurance Comparison&lt;/a&gt;
+                        &lt;/li&gt;
+                                            &lt;li class="vertical-block__item"&gt;
+                            &lt;a href="en/travel-insurance/guide" class="vertical-block__url"&gt;Travel Insurance Guide&lt;/a&gt;
+                        &lt;/li&gt;
+                                    &lt;/ul&gt;
+                --&gt;
+                &lt;a class="vertical-block__cta hidden-xs" href="//www.moneyhero.com.hk/en/travel-insurance/get-quote#step1"&gt;
+                    GET QUOTE                    &lt;span&gt;Takes about 50 seconds&lt;/span&gt;
+                    &lt;i class="m-icon m-icon--arrow-right"&gt;&lt;/i&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div data-link="//www.moneyhero.com.hk/en/medical-insurance/get-quote#step1" class="js-block__list vertical-block__column"&gt;            
+                &lt;div class=" vertical-block__cta--mobile"&gt;
+                    &lt;h2 class="vertical-block__header"&gt;
+                        &lt;a href="//www.moneyhero.com.hk/en/medical-insurance/get-quote#step1"&gt;Health Insurance&lt;/a&gt;
+                    &lt;/h2&gt;
+                    &lt;p class="vertical-block__strapline"&gt;Save on future medical bills with the right health insurance plan&lt;/p&gt;
+
+                    &lt;i class="m-icon m-icon--arrow-right visible-xs"&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class="vertical-block__img"&gt;
+                	&lt;i class="m-icon m-icon--healthIsurance"&gt;&lt;/i&gt;
+ 				&lt;/div&gt;				
+ 				&lt;!--
+                &lt;ul class="vertical-block__list js-block__list hidden-xs"   &gt;
+                                            &lt;li class="vertical-block__item"&gt;
+                            &lt;a href="en/medical-insurance/get-quote#step1" class="vertical-block__url"&gt;Medical Insurance Comparison&lt;/a&gt;
+                        &lt;/li&gt;
+                                            &lt;li class="vertical-block__item"&gt;
+                            &lt;a href="en/medical-insurance/guide" class="vertical-block__url"&gt;Medical Insurance Guide&lt;/a&gt;
+                        &lt;/li&gt;
+                                            &lt;li class="vertical-block__item"&gt;
+                            &lt;a href="en/medical-insurance/partners" class="vertical-block__url"&gt;Medical Insurance Partners&lt;/a&gt;
+                        &lt;/li&gt;
+                                    &lt;/ul&gt;
+                --&gt;
+                
+                &lt;a class="vertical-block__cta hidden-xs" href="//www.moneyhero.com.hk/en/medical-insurance/get-quote#step1"&gt;
+                    GET QUOTE                    &lt;span&gt;Takes about 50 seconds&lt;/span&gt;
+                    &lt;i class="m-icon m-icon--arrow-right"&gt;&lt;/i&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="why-choose-container"&gt;
+    &lt;div class="container-fluid"&gt;
+        &lt;div class="row"&gt;
+            &lt;h2 class="text-center"&gt;Why choose &lt;span class="text-green"&gt;Money&lt;/span&gt;&lt;span class="text-blue"&gt;Hero&lt;/span&gt;?&lt;/h2&gt;
+            &lt;div class="row center-block why-choose-content"&gt;
+                &lt;div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12"&gt;
+                    &lt;div class="col-md-4 col-sm-4 col-xs-4 padding-0"&gt;
+                        &lt;div class="media"&gt;
+                            &lt;div class="media-object pull-left"&gt;
+                                &lt;div class="img reason-1"&gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="clearfix visible-xs"&gt;&lt;/div&gt;
+                            &lt;div class="media-body"&gt;
+                                &lt;span&gt;
+                                    100% free                                &lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="col-md-4 col-sm-4 col-xs-4 padding-0"&gt;
+                        &lt;div class="media"&gt;
+                            &lt;div class="media-object pull-left"&gt;
+                                &lt;div class="img reason-2"&gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="clearfix visible-xs"&gt;&lt;/div&gt;
+                            &lt;div class="media-body"&gt;
+                                &lt;span&gt;
+                                    Compare quickly and easily                                &lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt; 
+                    &lt;div class="col-md-4 col-sm-4 col-xs-4 padding-0"&gt;
+                        &lt;div class="media"&gt;
+                            &lt;div class="media-object pull-left"&gt;
+                                &lt;div class="img reason-3"&gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="clearfix visible-xs"&gt;&lt;/div&gt;
+                            &lt;div class="media-body"&gt;
+                                &lt;span&gt;
+                                    100% impartial and independent                                &lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="hp-widgets hidden-xs"&gt;
+    &lt;div class="container-fluid"&gt;
+        &lt;div class="hp-widgets__about"&gt;
+            &lt;h2 class="hp-widgets__about-title"&gt;Asia's No. 1 Financial Comparison Site&lt;/h2&gt;
+            &lt;p class="hp-widgets__about-text"&gt;MoneyHero is your one-stop shop for comparing credit cards, loans, and insurance plans in Hong Kong. Use our powerful comparison tool to get unbiased, up-to-date information and get the best deals today.&lt;br /&gt;&lt;br /&gt;We think your money shouldn't go to unnecessary fees, and you shouldn't waste time looking at several different websites to find the best value for your money. We deliver simple and relevant information so you can make informed choices.&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div class="hp-widgets__blog" style="display: block;"&gt;&lt;h2 class="hp-widgets__title"&gt;Latest News - &lt;a href="http://www.moneyhero.com.hk/blog/en"&gt;Read all news&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="row"&gt;
+            &lt;div class="col-sm-3"&gt;
+            &lt;div class="news-widget"&gt;
+                &lt;a class="news-widget__cta" href="http://www.moneyhero.com.hk/blog/en/5-ways-to-earn-extra-income-during-school-holidays"&gt;
+                    &lt;img src="http://www.moneyhero.com.hk/blog/en/wp-content/uploads/sites/2/2015/03/HK_WaystoEarnIncomeforStudents-300x120.jpg" class="news-widget__img" /&gt;
+                &lt;/a&gt;
+                &lt;a class="news-widget__cta" href="http://www.moneyhero.com.hk/blog/en/5-ways-to-earn-extra-income-during-school-holidays"&gt;
+                    &lt;h3 class="news-widget__title"&gt;5 Ways to Earn Extra Income During School Holidays&lt;/h3&gt;
+                &lt;/a&gt;
+                &lt;p class="news-widget__desc"&gt;While many college students may be planning to go on vacation when the school holidays come around, others are thinking of ways to use the break as a way to earn extra income and in the process, learn new skills. If you’re part of the second group of college students, here are 5 ways to earn&lt;/p&gt;
+                &lt;a class="news-widget__cta" href="http://www.moneyhero.com.hk/blog/en/5-ways-to-earn-extra-income-during-school-holidays"&gt;
+                    READ FULL ARTICLE                    &lt;i class="m-icon m-icon--arrow-right"&gt;&lt;/i&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+            &lt;div class="col-sm-3"&gt;
+            &lt;div class="news-widget"&gt;
+                &lt;a class="news-widget__cta" href="http://www.moneyhero.com.hk/blog/en/asian-airlines-cut-fuel-surcharge-oil-price-dips"&gt;
+                    &lt;img src="http://www.moneyhero.com.hk/blog/en/wp-content/uploads/sites/2/2015/02/HK_AsianAirlinesFuelSurcharge-300x120.jpg" class="news-widget__img" /&gt;
+                &lt;/a&gt;
+                &lt;a class="news-widget__cta" href="http://www.moneyhero.com.hk/blog/en/asian-airlines-cut-fuel-surcharge-oil-price-dips"&gt;
+                    &lt;h3 class="news-widget__title"&gt;More Asian Airlines Cut Fuel Surcharge as Oil Price Dips&lt;/h3&gt;
+                &lt;/a&gt;
+                &lt;p class="news-widget__desc"&gt;Singapore Airlines is the latest Asian Airlines to announce cuts on fuel surcharges. Japan Airlines, AirAsia, Philippine Airlines, and Cebu Pacific have made earlier moves to remove fuel surcharges in response to the drop in oil prices worldwide and directives from regulators. However, the cut in fuel surcharges may not translate to huge cuts in&lt;/p&gt;
+                &lt;a class="news-widget__cta" href="http://www.moneyhero.com.hk/blog/en/asian-airlines-cut-fuel-surcharge-oil-price-dips"&gt;
+                    READ FULL ARTICLE                    &lt;i class="m-icon m-icon--arrow-right"&gt;&lt;/i&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+            &lt;div class="col-sm-3"&gt;
+            &lt;div class="news-widget"&gt;
+                &lt;a class="news-widget__cta" href="http://www.moneyhero.com.hk/blog/en/7-costly-mistakes-taking-personal-loan"&gt;
+                    &lt;img src="http://www.moneyhero.com.hk/blog/en/wp-content/uploads/sites/2/2015/02/HK_CostlyMistakesPersonalLoans-300x120.jpg" class="news-widget__img" /&gt;
+                &lt;/a&gt;
+                &lt;a class="news-widget__cta" href="http://www.moneyhero.com.hk/blog/en/7-costly-mistakes-taking-personal-loan"&gt;
+                    &lt;h3 class="news-widget__title"&gt;7 Costly Mistakes When Taking Out a Personal Loan&lt;/h3&gt;
+                &lt;/a&gt;
+                &lt;p class="news-widget__desc"&gt;At least one point in an adult’s life, we take out a loan to buy things, pay for things, or even start a business. Personal loans are a wonderful solution when you need fast cash with no collateral and a few questions asked. Sometimes, you get approved for your personal loan almost immediately. Lenders these&lt;/p&gt;
+                &lt;a class="news-widget__cta" href="http://www.moneyhero.com.hk/blog/en/7-costly-mistakes-taking-personal-loan"&gt;
+                    READ FULL ARTICLE                    &lt;i class="m-icon m-icon--arrow-right"&gt;&lt;/i&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+            &lt;div class="col-sm-3"&gt;
+            &lt;div class="news-widget"&gt;
+                &lt;a class="news-widget__cta" href="http://www.moneyhero.com.hk/blog/en/4-nian-gao-recipes-try"&gt;
+                    &lt;img src="http://www.moneyhero.com.hk/blog/en/wp-content/uploads/sites/2/2015/02/HK_NianGaoRecipes-300x120.jpg" class="news-widget__img" /&gt;
+                &lt;/a&gt;
+                &lt;a class="news-widget__cta" href="http://www.moneyhero.com.hk/blog/en/4-nian-gao-recipes-try"&gt;
+                    &lt;h3 class="news-widget__title"&gt;4 Nian Gao Recipes You Should Try&lt;/h3&gt;
+                &lt;/a&gt;
+                &lt;p class="news-widget__desc"&gt;Like lion dances or lucky red envelopes, nian gao is a time-honored tradition of Chinese New Year. Also known as “year cake,” “ti kuih,” “kuih bakul,” or “tikoy” depending on the area, this sticky cake-slash-pudding is made using glutinous rice and can serve as either a sweet dessert or savory dish. Nian gao is a&lt;/p&gt;
+                &lt;a class="news-widget__cta" href="http://www.moneyhero.com.hk/blog/en/4-nian-gao-recipes-try"&gt;
+                    READ FULL ARTICLE                    &lt;i class="m-icon m-icon--arrow-right"&gt;&lt;/i&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;&lt;/div&gt;
+
+        &lt;div class="tips-block clearfix"&gt;
+            &lt;div class="tips-block__col tips-block__col--info"&gt;
+                &lt;h2 class="tips-block__title"&gt;Free money saving tips&lt;/h2&gt;
+                &lt;p class="tips-block__text"&gt;Stay up with the latest financial news and the best money saving tips. Get access by subscribing to our newsletter&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="tips-block__col"&gt;
+                &lt;form id="newsletter" class="tips-block__form"&gt;
+                    &lt;div class="tips-block__text-wrapper"&gt;
+                        &lt;input type="email" placeholder="Type your email here..." id="email" class="tips-block__form-text" name="email" /&gt;
+                    &lt;/div&gt;
+                    &lt;div class="tips-block__btn-wrapper"&gt;
+                        &lt;button type="submit" id="subscribe" class="tips-block__form-btn"&gt;Get free access now&lt;/button&gt;
+                    &lt;/div&gt;
+                    &lt;span class="tips-block__form-note"&gt;We won’t share your email&lt;/span&gt;
+                &lt;/form&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+    &lt;/main&gt;
+	
+	&lt;!-- Footer area --&gt;
+    &lt;footer&gt;
+    &lt;div class="why-choose-container"&gt;
+    &lt;div class="container-fluid"&gt;
+        &lt;div class="row"&gt;
+            &lt;h2 class="text-center"&gt;Why choose &lt;span class="text-green"&gt;Money&lt;/span&gt;&lt;span class="text-blue"&gt;Hero&lt;/span&gt;?&lt;/h2&gt;
+            &lt;div class="row center-block why-choose-content"&gt;
+                &lt;div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12"&gt;
+                    &lt;div class="col-md-4 col-sm-4 col-xs-4 padding-0"&gt;
+                        &lt;div class="media"&gt;
+                            &lt;div class="media-object pull-left"&gt;
+                                &lt;div class="img reason-1"&gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="clearfix visible-xs"&gt;&lt;/div&gt;
+                            &lt;div class="media-body"&gt;
+                                &lt;span&gt;
+                                    100% free                                &lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="col-md-4 col-sm-4  col-xs-4 padding-0"&gt;
+                        &lt;div class="media"&gt;
+                            &lt;div class="media-object pull-left"&gt;
+                                &lt;div class="img reason-2"&gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="clearfix visible-xs"&gt;&lt;/div&gt;
+                            &lt;div class="media-body"&gt;
+                                &lt;span&gt;
+                                    Compare quickly and easily                                &lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="col-md-4 col-sm-4  col-xs-4 padding-0"&gt;
+                        &lt;div class="media"&gt;
+                            &lt;div class="media-object pull-left"&gt;
+                                &lt;div class="img reason-3"&gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="clearfix visible-xs"&gt;&lt;/div&gt;
+                            &lt;div class="media-body"&gt;
+                                &lt;span&gt;
+                                    100% impartial and independent                                &lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="cx-says"&gt;
+    &lt;div class="container-fluid width850"&gt;
+    &lt;div class="row"&gt;
+        &lt;div data-interval="false" data-ride="carousel" class="carousel slide" id="carousel-testimonial"&gt;
+            &lt;ol class="carousel-indicators hidden-xs"&gt;
+                &lt;li class="active" data-slide-to="0" data-target="#carousel-testimonial"&gt;&lt;/li&gt;
+                &lt;li data-slide-to="1" data-target="#carousel-testimonial"&gt;&lt;/li&gt;
+                &lt;li data-slide-to="2" data-target="#carousel-testimonial"&gt;&lt;/li&gt;
+                &lt;li data-slide-to="3" data-target="#carousel-testimonial"&gt;&lt;/li&gt;
+            &lt;/ol&gt;
+
+
+            &lt;div style="overflow:visible" class="swiper-container"&gt;
+                &lt;div class="swiper-wrapper"&gt;
+                    &lt;div style="overflow:visible" class="carousel-inner"&gt; 
+                            &lt;div class="item active "&gt;
+                                &lt;div class="clearfix"&gt;
+                                    &lt;div style="text-align:center;" class="col-md-2 text-center center-block"&gt;
+                                    &lt;img border="0" alt="testimonial" src="//www.moneyhero.com.hk/assets/img/testimonials/27.jpg" style="" class="img-circle user face" /&gt;
+                                &lt;/div&gt;
+                                    &lt;div class="col-md-10 center-block"&gt;
+                                    &lt;p&gt;&lt;span class="quote"&gt;“&lt;/span&gt; 
+                                        MoneyHero's easy-to-use platform allowed me to take an informed decision when looking for credit cards. :)                                        &lt;span class="quote end-quote"&gt;”&lt;/span&gt;&lt;/p&gt;
+                                    &lt;div class="hidden-xs"&gt;
+                                        &lt;div class="cx-name"&gt;&lt;span&gt;Valerie&lt;/span&gt;, Kowloon &lt;span class="stars blue"&gt;&lt;/span&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="visible-xs"&gt;
+                                        &lt;div class="text-center"&gt;&lt;span class="cx-name"&gt;Valerie&lt;/span&gt;, Kowloon &lt;span class="stars blue"&gt;&lt;/span&gt;&lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="item "&gt;
+                                &lt;div class="clearfix"&gt;
+                                    &lt;div class="col-md-2 text-center"&gt;
+                                        &lt;img border="0" alt="testimonial" src="//www.moneyhero.com.hk/assets/img/testimonials/28.jpg" class="img-circle user face" /&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="col-md-10 center-block"&gt;
+                                        &lt;p&gt;&lt;span class="quote"&gt;“&lt;/span&gt;
+                                        I have just compared 100 credit cards in less than 5 min! Thanks MoneyHero!                                        &lt;span class="quote end-quote"&gt;”&lt;/span&gt;&lt;/p&gt;
+                                        &lt;div class="hidden-xs"&gt;
+                                            &lt;div class="cx-name"&gt;&lt;span&gt;Alyssa&lt;/span&gt;, Sha Tin &lt;span class="stars blue"&gt;&lt;/span&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                        &lt;div class="visible-xs"&gt;
+                                            &lt;div class="text-center"&gt;&lt;span class="cx-name"&gt;Alyssa&lt;/span&gt;, Sha Tin &lt;span class="stars blue"&gt;&lt;/span&gt;&lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="item "&gt;
+                                &lt;div class="clearfix"&gt;
+                                    &lt;div class="col-md-2 text-center"&gt;
+                                        &lt;img border="0" alt="testimonial" src="//www.moneyhero.com.hk/assets/img/testimonials/29.jpg" class="img-circle user face" /&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="col-md-10 center-block"&gt;
+                                        &lt;p&gt;&lt;span class="quote"&gt;“&lt;/span&gt;
+                                        Now that I earn benefits- I can't stop myself from using my new credit card!&lt;span class="quote end-quote"&gt;”&lt;/span&gt;&lt;/p&gt;
+                                        &lt;div class="hidden-xs"&gt;
+                                            &lt;div class="cx-name"&gt;&lt;span&gt;Amy&lt;/span&gt;, Tsuen Wan &lt;span class="stars blue"&gt;&lt;/span&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                        &lt;div class="visible-xs"&gt;
+                                            &lt;div class="text-center"&gt;&lt;span class="cx-name"&gt;Amy&lt;/span&gt;, Tsuen Wan &lt;span class="stars blue"&gt;&lt;/span&gt;&lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="item "&gt;
+                                &lt;div class="clearfix"&gt;
+                                    &lt;div class="col-md-2 text-center"&gt;
+                                        &lt;img border="0" alt="testimonial" src="//www.moneyhero.com.hk/assets/img/testimonials/30.jpg" class="img-circle user face" /&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="col-md-10 center-block"&gt;
+                                        &lt;p&gt;&lt;span class="quote"&gt;“&lt;/span&gt;
+                                        Thanks MoneyHero for helping me choose the right credit card. Not sure I would have avoided all these hidden fees and high interest rates without you.                                        &lt;span class="quote end-quote"&gt;”&lt;/span&gt;&lt;/p&gt;
+                                        &lt;div class="hidden-xs"&gt;
+                                            &lt;div class="cx-name"&gt;&lt;span&gt;Lily&lt;/span&gt;, Kowloon &lt;span class="stars blue"&gt;&lt;/span&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                        &lt;div class="visible-xs"&gt;
+                                            &lt;div class="text-center"&gt;&lt;span class="cx-name"&gt;Lily&lt;/span&gt;, Kowloon &lt;span class="stars blue"&gt;&lt;/span&gt;&lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                      
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;a data-slide="prev" role="button" href="#carousel-testimonial" class="a-left carousel-control hidden-xs hidden-sm"&gt;
+        &lt;span aria-hidden="true" class="m-icon m-icon--chevron-left"&gt;&lt;/span&gt;
+        &lt;span class="sr-only"&gt;Previous&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a data-slide="next" role="button" href="#carousel-testimonial" class="a-right carousel-control hidden-xs hidden-sm"&gt;
+        &lt;span aria-hidden="true" class="m-icon m-icon--chevron-right"&gt;&lt;/span&gt;
+        &lt;span class="sr-only"&gt;Next&lt;/span&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+&lt;div class="seo-text-container"&gt;
+    &lt;/div&gt;
+&lt;div class="steps"&gt;
+    &lt;div class="container-fluid"&gt;
+        &lt;div class="row"&gt;
+            &lt;h2 class="text-center"&gt;Compare then buy in &lt;div class="clearfix visible-xs"&gt;&lt;/div&gt;&lt;span class="font-green"&gt;3 Easy Steps&lt;/span&gt;&lt;/h2&gt;
+            &lt;div class="text-center text-muted text-bold hidden-xs"&gt;
+                &lt;p&gt;&lt;span class="text-green"&gt;Money&lt;/span&gt;&lt;span class="text-blue"&gt;Hero&lt;/span&gt; helps you get what you need in 3 easy steps.&lt;/p&gt;
+            	&lt;p&gt;You can quote prices, and compare all the features of various products.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="text-center text-muted text-bold visible-xs"&gt;
+                &lt;p&gt;&lt;span class="text-green"&gt;Money&lt;/span&gt;&lt;span class="text-blue"&gt;Hero&lt;/span&gt;  helps you get what you need in 3 easy steps. You can quote prices, and compare all the features of various products.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="clearfix hidden-xs"&gt;
+                &lt;div class="col-md-6 col-md-offset-3 col-sm-12 col-sm-offset-0 col-xs-offset-8 col-xs-offset-2 text-center"&gt;
+                    &lt;div class="row text-muted steps-content"&gt;
+                        &lt;div class="col-md-4 col-sm-4"&gt;
+                            &lt;div class="steps-text"&gt;Step 1.&lt;/div&gt;
+                            &lt;div class="steps-img"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+                            &lt;div class="steps-subtext"&gt;Fill in a form to &lt;br /&gt; receive instant results&lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="col-md-4 col-sm-4"&gt;
+                            &lt;div class="steps-text"&gt;Step 2.&lt;/div&gt;
+                            &lt;div class="steps-img"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+                            &lt;div class="steps-subtext"&gt;Compare the &lt;br /&gt; products&lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="col-md-4 col-sm-4"&gt;
+                            &lt;div class="steps-text"&gt;Step 3.&lt;/div&gt;
+                            &lt;div class="steps-img"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+                            &lt;div class="steps-subtext"&gt;Get the best &lt;br /&gt; option for you&lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div data-ride="carousel" class="carousel slide visible-xs" id="compare-steps"&gt;
+                &lt;div class="carousel-inner text-center"&gt;
+                    &lt;div class="item"&gt;
+                        &lt;div class="steps-text"&gt;Step 1.&lt;/div&gt;
+                        &lt;div class="steps-img"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+                        &lt;div class="steps-subtext"&gt;Fill in a form to receive instant results&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="item active"&gt;
+                        &lt;div class="steps-text"&gt;Step 2.&lt;/div&gt;
+                        &lt;div class="steps-img"&gt;&lt;span class="step2"&gt;&lt;/span&gt;&lt;/div&gt;
+                        &lt;div class="steps-subtext"&gt;Compare the products&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="item"&gt;
+                        &lt;div class="steps-text"&gt;Step 3.&lt;/div&gt;
+                        &lt;div class="steps-img"&gt;&lt;span class="step3"&gt;&lt;/span&gt;&lt;/div&gt;
+                        &lt;div class="steps-subtext"&gt;Get the best option for you&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;ol class="carousel-indicators"&gt;
+                    &lt;li class="" data-slide-to="0" data-target="#compare-steps"&gt;&lt;/li&gt;
+                    &lt;li data-slide-to="1" data-target="#compare-steps" class="active"&gt;&lt;/li&gt;
+                    &lt;li data-slide-to="2" data-target="#compare-steps" class=""&gt;&lt;/li&gt;
+                &lt;/ol&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+    &lt;div class="fb_box hidden-xs"&gt;
+        &lt;iframe frameborder="0" scrolling="no" allowtransparency="true" style="border:none; overflow:hidden; width:688px; height:258px;" src="http://www.facebook.com/plugins/likebox.php?locale=en_GB&amp;amp;href=https%3A%2F%2Fwww.facebook.com%2FMoneyHeroHK&amp;amp;width=688&amp;amp;height=258&amp;amp;colorscheme=light&amp;amp;show_faces=true&amp;amp;header=false&amp;amp;stream=false&amp;amp;show_border=false&amp;amp;appId=363971367079683" class="js-fb_pile"&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+	&lt;div class="subfooter"&gt;
+    &lt;div class="subfooter-title"&gt;
+        &lt;div class="subfooter-container hidden-xs"&gt;
+            &lt;div class="col-md-12"&gt;
+                &lt;span class="footer-main-title"&gt;Asia's No. 1 Financial Comparison Site&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="visible-xs call-mob"&gt;
+            &lt;div class="call text-semibold"&gt;
+                &lt;div class="call-container"&gt;
+                    Call us for free on                    &lt;a class="phone-footer text-bold" href="tel:2866%207791"&gt;2866 7791&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="subfooter-content subfooter-container"&gt;
+        &lt;div class="col-md-3 col-sm-3  hidden-xs"&gt;
+            &lt;div style="margin-top: 10px;" class="text-bold"&gt;&lt;a href="//www.moneyhero.com.hk/en/credit-card" style="color:#fff;"&gt;Compare Credit Cards&lt;/a&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="//www.moneyhero.com.hk/en/credit-card/faq"&gt;Credit Card FAQ&lt;/a&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="//www.moneyhero.com.hk/en/credit-card/guide"&gt;Credit Card Guide&lt;/a&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="//www.moneyhero.com.hk/en/credit-card/glossary"&gt;Credit Card Glossary&lt;/a&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="//www.moneyhero.com.hk/en/credit-card/banks"&gt;Bank/Card Issuers&lt;/a&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="//www.moneyhero.com.hk/blog/en/category/credit-card-promotions"&gt;Credit Card Latest Promotion&lt;/a&gt;&lt;/div&gt;&lt;div style="margin-top: 10px;" class="text-bold"&gt;&lt;a href="//www.moneyhero.com.hk/en/personal-loan" style="color:#fff;"&gt;Compare Personal Loans&lt;/a&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="//www.moneyhero.com.hk/en/personal-loan/guide"&gt;Personal Loan Guide&lt;/a&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="//www.moneyhero.com.hk/en/personal-loan/providers"&gt;Personal Loan Providers&lt;/a&gt;&lt;/div&gt;&lt;div style="margin-top: 10px;" class="text-bold"&gt;&lt;a href="//www.moneyhero.com.hk/en/mortgage" style="color:#fff;"&gt;Compare Mortgages&lt;/a&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="//www.moneyhero.com.hk/en/mortgage/guide"&gt;Mortgage Guide&lt;/a&gt;&lt;/div&gt;&lt;div style="margin-top: 10px;" class="text-bold"&gt;&lt;a href="//www.moneyhero.com.hk/en/medical-insurance" style="color:#fff;"&gt;Health Insurance&lt;/a&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="//www.moneyhero.com.hk/en/medical-insurance/guide"&gt;Health Insurance Guide&lt;/a&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="//www.moneyhero.com.hk/en/medical-insurance/partners"&gt;Health Insurance Partners&lt;/a&gt;&lt;/div&gt;&lt;div style="margin-top: 10px;" class="text-bold"&gt;&lt;a href="//www.moneyhero.com.hk/en/travel-insurance" style="color:#fff;"&gt;Travel Insurance&lt;/a&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="//www.moneyhero.com.hk/en/travel-insurance/guide"&gt;Travel Insurance Guide&lt;/a&gt;&lt;/div&gt;&lt;div style="margin-top: 10px;" class="text-bold"&gt;&lt;a href="//www.moneyhero.com.hk/en/help" style="color:#fff;"&gt;Help&lt;/a&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="//www.moneyhero.com.hk/en/contact-us"&gt;Contact Us&lt;/a&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="//www.moneyhero.com.hk/en/faq"&gt;FAQ&lt;/a&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="//www.moneyhero.com.hk/en/about"&gt;About us&lt;/a&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="//www.moneyhero.com.hk/en/guide"&gt;Guides&lt;/a&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;div class="findout col-md-9 col-sm-9 col-xs-12"&gt;
+            &lt;div class="row"&gt;
+                &lt;div style="padding-left:26px;" class="col-md-3 col-sm-3 col-xs-12 find-out-links"&gt;
+                    &lt;div class="text-bold"&gt;
+                        Find out more                    &lt;/div&gt;
+                    &lt;div class="row"&gt;
+                                                &lt;div class="mobile-links"&gt;
+                            &lt;div class="col-md-12 col-sm-12 col-xs-6 find-links"&gt;&lt;a href="//www.moneyhero.com.hk/en/about"&gt;About Us&lt;/a&gt;&lt;/div&gt;&lt;div class="col-md-12 col-sm-12 col-xs-6 find-links"&gt;&lt;a href="//www.moneyhero.com.hk/en/contact-us"&gt;Contact Us&lt;/a&gt;&lt;/div&gt;&lt;div class="col-md-12 col-sm-12 col-xs-6 find-links"&gt;&lt;a href="//www.moneyhero.com.hk/en/faq"&gt;FAQs&lt;/a&gt;&lt;/div&gt;&lt;div class="col-md-12 col-sm-12 col-xs-6 find-links"&gt;&lt;a href="//www.moneyhero.com.hk/en/product-guide"&gt;Product Guide&lt;/a&gt;&lt;/div&gt;&lt;div class="col-md-12 col-sm-12 col-xs-6 find-links"&gt;&lt;a href="//www.moneyhero.com.hk/en/careers"&gt;Careers&lt;/a&gt;&lt;/div&gt;&lt;div class="col-md-12 col-sm-12 col-xs-6 find-links"&gt;&lt;a href="//www.moneyhero.com.hk/en/glossary"&gt;Glossary&lt;/a&gt;&lt;/div&gt;&lt;div class="col-md-12 col-sm-12 col-xs-6 find-links"&gt;&lt;a href="//www.moneyhero.com.hk/en/affiliates"&gt;Affiliates&lt;/a&gt;&lt;/div&gt;&lt;div class="col-md-12 col-sm-12 col-xs-6 find-links"&gt;&lt;a href="//www.moneyhero.com.hk/en/press"&gt;Press&lt;/a&gt;&lt;/div&gt;&lt;div class="col-md-12 col-sm-12 col-xs-6 find-links"&gt;&lt;a href="//www.moneyhero.com.hk/en/sitemap"&gt;Sitemap&lt;/a&gt;&lt;/div&gt;&lt;div class="col-md-12 col-sm-12 col-xs-6 find-links"&gt;&lt;a href="//www.moneyhero.com.hk/blog/en/"&gt;News&lt;/a&gt;&lt;/div&gt;&lt;div class="col-md-12 col-sm-12 col-xs-6 find-links"&gt;&lt;a href="//www.moneyhero.com.hk/en/terms"&gt;Terms &amp;amp; Conditions and Privacy Policy&lt;/a&gt;&lt;/div&gt;                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class="social col-md-6 col-sm-6 col-xs-12 hidden-xs"&gt;
+                    &lt;div class="social-icons mobile"&gt;
+                        &lt;div class="col-xs-12"&gt;
+                            &lt;div class="join-us"&gt;Join us on&lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="col-xs-12 social-content"&gt;
+                            &lt;a target="_blank" href="https://www.facebook.com/MoneyHeroHK" class="socialmedia fb"&gt;&lt;/a&gt;
+                            &lt;a target="_blank" href="https://plus.google.com/+MoneyheroHk" class="socialmedia gp"&gt;&lt;/a&gt;
+                            &lt;a target="_blank" href="https://www.youtube.com/channel/UCTYGL0WuH69HVlL3wFhUq3Q" class="socialmedia yt"&gt;&lt;/a&gt;
+                            &lt;a target="_blank" href="http://www.moneyhero.com.hk/blog/en" class="socialmedia blog"&gt;&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+
+                &lt;div class="social social-mobile col-md-6 col-sm-6 col-xs-12 visible-xs"&gt;
+                    &lt;div class="social-icons mobile"&gt;
+                        &lt;div class="col-xs-12"&gt;
+                            &lt;div class="hidden-sm join-us"&gt;Join us on&lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="col-xs-12 social-content"&gt;
+                            &lt;a target="_blank" href="https://www.facebook.com/MoneyHeroHK" class="socialmedia fb"&gt;&lt;/a&gt;
+                            &lt;a target="_blank" href="https://plus.google.com/+MoneyheroHk" class="socialmedia gp"&gt;&lt;/a&gt;
+                            &lt;a target="_blank" href="https://www.youtube.com/channel/UCTYGL0WuH69HVlL3wFhUq3Q" class="socialmedia yt"&gt;&lt;/a&gt;
+                            &lt;a target="_blank" href="http://www.moneyhero.com.hk/blog/en" class="socialmedia blog"&gt;&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="col-md-3 col-sm-3 col-xs-12"&gt;
+                    &lt;div class="flag-footer hidden-xs"&gt;
+                        &lt;div class="text-bold"&gt;
+                            Compare Asia                        &lt;/div&gt;
+                        &lt;div class="flag"&gt;
+                            &lt;a href="//comparehero.my"&gt;&lt;span class="malaysia"&gt;&lt;/span&gt;&lt;/a&gt;
+                            &lt;a href="//halomoney.co.id"&gt;&lt;span class="indonesia"&gt;&lt;/span&gt;&lt;/a&gt;
+                            &lt;a href="//moneyhero.com.hk"&gt;&lt;span class="hongkong"&gt;&lt;/span&gt;&lt;/a&gt;
+                            &lt;a href="//moneyguru.co.th"&gt;&lt;span class="thailand"&gt;&lt;/span&gt;&lt;/a&gt;
+                            &lt;br /&gt;
+                            &lt;a href="//moneymax.ph"&gt;&lt;span class="philippines"&gt;&lt;/span&gt;&lt;/a&gt;
+                            &lt;span class="singapore"&gt;&lt;/span&gt;
+                                                        &lt;a href="//money101.com.tw"&gt;&lt;span class="taiwan"&gt;&lt;/span&gt;&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+
+                    &lt;div class="safe-footer"&gt;
+                        &lt;div class="text-bold hidden-xs"&gt;
+                            You're in safe hands                        &lt;/div&gt;
+                        &lt;div class="safe-hands-img"&gt;
+
+                                                            &lt;a onclick='window.open("https://www.sitelock.com/verify.php?site=www.moneyhero.com.hk","SiteLock","width=600,height=600,left=160,top=170");' href="#"&gt;&lt;img src="//shield.sitelock.com/shield/www.moneyhero.com.hk" title="SiteLock" alt="website security" /&gt;&lt;/a&gt;
+                                &lt;span class="text-bold visible-xs"&gt;You're in safe hands&lt;/span&gt;
+                                                    &lt;/div&gt;
+                    &lt;/div&gt;
+
+
+
+
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="clearfix"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="footer"&gt;
+        © 2013 - 2015 MoneyHero Global Limited. All rights reserved. Use of this site constitutes acceptance of our &lt;a href="//www.moneyhero.com.hk/en/terms"&gt;Terms of Use&lt;/a&gt; and &lt;a href="//www.moneyhero.com.hk/en/terms#privacy"&gt;Privacy Policy&lt;/a&gt;.    &lt;/div&gt;
+&lt;/footer&gt;&lt;/div&gt;
+
+    
+    &lt;script type="text/javascript"&gt;
+        var page_name = "homeblue";
+        var ip_address = "122.55.1.250";
+        var iso_lang = "en";
+        var baseUrl = "//www.moneyhero.com.hk/";
+        var baseUrlWithLang = "//www.moneyhero.com.hk/en/";
+    &lt;/script&gt;
+    &lt;!-- Scripts --&gt;
+    &lt;script src="//www.moneyhero.com.hk/assets/static/main-085be1f.js" defer="defer" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="//www.moneyhero.com.hk/assets/static/main-en-085be1f.js" defer="defer" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="//www.moneyhero.com.hk/assets/static/homeblue-085be1f.js" defer="defer" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;!-- Analytics --&gt;
+    &lt;script type="text/javascript"&gt;
+        var _paq = '';
+        var _gaq = '';
+
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-45741826-1');
+        ga('require', 'displayfeatures');
+        ga('send', 'pageview');
+
+        setTimeout(function(){
+            var a = document.createElement("script");
+            var b = document.getElementsByTagName("script")[0];
+
+            a.src = document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0025/3929.js?"+Math.floor(new Date().getTime()/3600000);
+            a.async = true;
+            a.type = "text/javascript";
+            b.parentNode.insertBefore(a,b)}, 1);
+    &lt;/script&gt;
+    &lt;!--[if lt IE 9]&gt;
+        &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/0.3.0/base64.min.js"&gt;&lt;/script&gt;
+        &lt;script src="http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"&gt;&lt;/script&gt;
+        &lt;script src="//www.moneyhero.com.hk/assets/global/js/libs/selectivizr/selectivizr-min.js"&gt;&lt;/script&gt;
+        &lt;script src="//www.moneyhero.com.hk/assets/global/js/cag-compatibility.js"&gt;&lt;/script&gt;
+    &lt;![endif]--&gt;
+
+&lt;/body&gt;&lt;canvas id="fxdriver-screenshot-canvas" style="display: none;" width="1298" height="3227"&gt;&lt;/canvas&gt;&lt;/html&gt;</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 14:09:16.564" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-24.png"&gt;&lt;img src="selenium-screenshot-24.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 14:09:16.565" starttime="20150312 14:09:15.216"></status>
+</kw>
+<msg timestamp="20150312 14:09:16.565" level="FAIL">Xpath //label[@class='tag countries-going label label-info'] should have matched 3 times but matched 0 times</msg>
+<status status="FAIL" endtime="20150312 14:09:16.565" starttime="20150312 14:09:05.130"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 14:09:16.565" critical="yes" starttime="20150312 14:09:05.129">Xpath //label[@class='tag countries-going label label-info'] should have matched 3 times but matched 0 times</status>
+</test>
+<test id="s1-t28" name="Select Today for Start Day">
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>css=label[for='start-day-1']</arg>
+</arguments>
+<msg timestamp="20150312 14:09:16.567" level="INFO">Clicking element 'css=label[for='start-day-1']'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 14:09:28.471" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-25.png"&gt;&lt;img src="selenium-screenshot-25.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 14:09:28.472" starttime="20150312 14:09:26.670"></status>
+</kw>
+<msg timestamp="20150312 14:09:28.472" level="FAIL">ValueError: Element locator 'css=label[for='start-day-1']' did not match any elements.</msg>
+<status status="FAIL" endtime="20150312 14:09:28.472" starttime="20150312 14:09:16.567"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 14:09:28.472" critical="yes" starttime="20150312 14:09:16.566">ValueError: Element locator 'css=label[for='start-day-1']' did not match any elements.</status>
+</test>
+<test id="s1-t29" name="Select 2 days for End Day">
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>css=label[for='end-day-1']</arg>
+</arguments>
+<msg timestamp="20150312 14:09:28.474" level="INFO">Clicking element 'css=label[for='end-day-1']'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 14:09:39.954" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-26.png"&gt;&lt;img src="selenium-screenshot-26.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 14:09:39.954" starttime="20150312 14:09:38.514"></status>
+</kw>
+<msg timestamp="20150312 14:09:39.954" level="FAIL">ValueError: Element locator 'css=label[for='end-day-1']' did not match any elements.</msg>
+<status status="FAIL" endtime="20150312 14:09:39.954" starttime="20150312 14:09:28.474"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 14:09:39.955" critical="yes" starttime="20150312 14:09:28.473">ValueError: Element locator 'css=label[for='end-day-1']' did not match any elements.</status>
+</test>
+<test id="s1-t30" name="Select Has Sports">
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>css=label[for='hasSports']</arg>
+</arguments>
+<msg timestamp="20150312 14:09:39.957" level="INFO">Clicking element 'css=label[for='hasSports']'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 14:09:51.585" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-27.png"&gt;&lt;img src="selenium-screenshot-27.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 14:09:51.586" starttime="20150312 14:09:49.966"></status>
+</kw>
+<msg timestamp="20150312 14:09:51.586" level="FAIL">ValueError: Element locator 'css=label[for='hasSports']' did not match any elements.</msg>
+<status status="FAIL" endtime="20150312 14:09:51.586" starttime="20150312 14:09:39.956"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 14:09:51.587" critical="yes" starttime="20150312 14:09:39.955">ValueError: Element locator 'css=label[for='hasSports']' did not match any elements.</status>
+</test>
+<test id="s1-t31" name="Click Get Quotes">
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>css=button[id='get-quotes']</arg>
+</arguments>
+<msg timestamp="20150312 14:09:51.588" level="INFO">Clicking element 'css=button[id='get-quotes']'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 14:10:03.988" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-28.png"&gt;&lt;img src="selenium-screenshot-28.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 14:10:03.988" starttime="20150312 14:10:01.599"></status>
+</kw>
+<msg timestamp="20150312 14:10:03.989" level="FAIL">ValueError: Element locator 'css=button[id='get-quotes']' did not match any elements.</msg>
+<status status="FAIL" endtime="20150312 14:10:03.989" starttime="20150312 14:09:51.588"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 14:10:03.989" critical="yes" starttime="20150312 14:09:51.587">ValueError: Element locator 'css=button[id='get-quotes']' did not match any elements.</status>
+</test>
+<test id="s1-t32" name="Verify Deals count is correct - Moneyhero - EN - Travel Insurance">
+<kw type="kw" name="Selenium2Library.Wait Until Element Is Visible">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>css=span[class='total-result-count']</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 14:10:15.562" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-29.png"&gt;&lt;img src="selenium-screenshot-29.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 14:10:15.562" starttime="20150312 14:10:14.018"></status>
+</kw>
+<msg timestamp="20150312 14:10:15.563" level="FAIL">Element locator 'css=span[class='total-result-count']' did not match any elements after 4 seconds</msg>
+<status status="FAIL" endtime="20150312 14:10:15.563" starttime="20150312 14:10:03.991"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 14:10:15.563" critical="yes" starttime="20150312 14:10:03.990">Element locator 'css=span[class='total-result-count']' did not match any elements after 4 seconds</status>
+</test>
+<test id="s1-t33" name="Go to Travel Insurance Guide Page">
+<kw type="kw" name="Selenium2Library.Go Back">
+<doc>Simulates the user clicking the "back" button on their browser.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150312 14:10:15.572" starttime="20150312 14:10:15.565"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Mouse Over">
+<doc>Simulates hovering mouse over the element specified by `locator`.</doc>
+<arguments>
+<arg>css=a[href='http://www.moneyhero.com.hk/en/travel-insurance']</arg>
+</arguments>
+<msg timestamp="20150312 14:10:15.573" level="INFO">Simulating Mouse Over on element 'css=a[href='http://www.moneyhero.com.hk/en/travel-insurance']'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 14:10:26.971" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-30.png"&gt;&lt;img src="selenium-screenshot-30.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 14:10:26.972" starttime="20150312 14:10:25.594"></status>
+</kw>
+<msg timestamp="20150312 14:10:26.972" level="FAIL">ERROR: Element css=a[href='http://www.moneyhero.com.hk/en/travel-insurance'] not found.</msg>
+<status status="FAIL" endtime="20150312 14:10:26.972" starttime="20150312 14:10:15.573"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 14:10:26.973" critical="yes" starttime="20150312 14:10:15.564">ERROR: Element css=a[href='http://www.moneyhero.com.hk/en/travel-insurance'] not found.</status>
+</test>
+<test id="s1-t34" name="Verify Travel Insurance Guide Page Is Loaded">
+<kw type="kw" name="Selenium2Library.Reload Page">
+<doc>Simulates user reloading page.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150312 14:10:41.036" starttime="20150312 14:10:26.974"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h1</arg>
+<arg>Hong Kong Travel Insurance Guide</arg>
+</arguments>
+<msg timestamp="20150312 14:10:41.037" level="INFO">Verifying element 'css=h1' contains text 'Hong Kong Travel Insurance Guide'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150312 14:11:05.624" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-31.png"&gt;&lt;img src="selenium-screenshot-31.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150312 14:11:05.624" starttime="20150312 14:11:04.039"></status>
+</kw>
+<msg timestamp="20150312 14:11:05.624" level="FAIL">Element 'css=h1' should have contained text 'Hong Kong Travel Insurance Guide' but its text was ''.</msg>
+<status status="FAIL" endtime="20150312 14:11:05.625" starttime="20150312 14:10:41.037"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150312 14:11:05.625" critical="yes" starttime="20150312 14:10:26.973">Element 'css=h1' should have contained text 'Hong Kong Travel Insurance Guide' but its text was ''.</status>
+</test>
+<kw type="teardown" name="Selenium2Library.Close All Browsers">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150312 14:11:05.683" starttime="20150312 14:11:05.632"></status>
+</kw>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20150312 14:11:05.683" starttime="20150312 12:57:28.903"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="31" pass="3">Critical Tests</stat>
+<stat fail="31" pass="3">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="31" pass="3" id="s1" name="Testing">Testing</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

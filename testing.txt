@@ -1,0 +1,441 @@
+*** Settings ***
+Library   Selenium2Library
+Library   BuiltIn
+Library   String
+Library   OperatingSystem
+Library   HttpLibrary.HTTP
+Library   Collections
+# Library   MyLibrary 	200 	10
+
+
+
+
+Resource          Common/Common.txt
+
+
+
+
+Suite Setup   Open Browser   ${HOMEPAGE}   ${BROWSER}
+Suite Teardown   Close All Browsers
+
+*** Variables ***
+# ${HOMEPAGE}   http://www.money101.com.tw/
+# ${HOMEPAGE}   http://www.moneyguru.co.th/en
+${HOMEPAGE}   http://www.moneyhero.com.hk/en
+# ${HOMEPAGE}   http://staging:Sb3Cz95QvY3A92@staging.money101.com.tw
+${BROWSER}   firefox
+
+${variable}     "An example string"
+${ANOTHER_VARIABLE}      "This is pretty easy!"
+${INTEGER}       42
+${STRINGS}     ["one", "two", "kolme", "four"]
+${NUMBERS}       [1, INTEGER, 3.14]
+
+
+
+
+*** Resources ***
+
+# Getting the source code and parsing it to get elements im interested only at.
+
+# *** Test Cases *** 
+# Go To Credit Card
+# 	Wait Until Element Is Visible       link=Credit Card 
+# 	Click Element       link=Credit Card   
+# Change Deals Count To Sum of Deals with Featured.
+# 	Wait Until Element Is Visible    		css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4'] 
+# 	${DealsListJson}    Evaluate      		json.load(open("Report/dealscount.json", "r"))      json
+# 	Element Should Contain       			css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']  We found ${DealsListJson["creditcards-th"]} deals
+
+
+
+
+
+# Parse for Links
+	# Get Substring      ${Source}        href=
+	# Log  ${Source} 		 
+
+# Parse for H1
+	# ${h1}     Get Lines Containing String      ${Source}        <h1
+	# Log  H1:${h1}     WARN
+
+
+	# Evaluate   Javascript   (echo "brad")
+
+
+
+	# ${button}     Get Lines Containing String      ${Source}        <button
+	# Log  Buttons: ${button}    WARN
+	# ${text}     Get Lines Containing String      ${Source}        <p
+	# Log  Texts:${text}     WARN
+	# ${link}     Get Lines Containing String      ${Source}        <link
+	# Log  Link:${link}     WARN
+	# ${anchors}     Get Lines Containing String      ${Source}        <a
+	# Log  Anchor:${anchors}     WARN
+	# ${href}     Get Lines Matching Pattern      ${Source}        <link*href=*>
+	# # Get Line Count   comar
+	# Log  Href:${href}     WARN
+
+# Create All Page Object Map
+# 	[Template]  Create Page Object Map
+# 	button     
+# 	p     
+# 	h1      
+# 	link      
+# 	a     
+# 	selection     
+# 	text      
+
+ 	# ${Lapsed}          Execute JavaScript	var t = performance.timing; return (t.loadEventEnd - t.responseEnd)/1000;
+ 	# Sleep    999
+  # Execute JavaScript       images = @driver.find_elements(:tag_name => "img")
+
+
+	# Documentation] 	Follows a Redirect
+	# Create HTTP Context 	httpstat.us
+	# GET 	/302
+	# Response Status Code Should Equal 	302
+	# Follow Response 	 
+	# Response Body Should Contain 	generating different HTTP codes
+
+	# Verify Chat Box Is In Siamese Language 
+*** Test Cases *** 
+Initialize Test
+	Common.Initialize Test
+
+	
+
+Verify Main Page Is Loaded
+	# Verify Header Is Present
+	Wait Until Page Contains Element      css=div[class='header-block__top']
+	Wait Until Page Contains Element      css=img[class='header-block__img']
+	Wait Until Page Contains Element      css=a[class='header-cta']
+
+
+	# Verify Menu Navigation Is Complete
+	Wait Until Page Contains Element      	css=i[class='m-icon m-icon--nav_home']
+	Element Should Contain      			css=a[href='//www.moneyhero.com.hk/en/personal-loan/personal-instalment']     			Personal Loans
+	Element Should Contain      			css=li[class='navi-block__item navi-block__item--arrow hidden-xs']:nth-child(4) > span[class='navi-block__url js-navi-block__url']     			Money
+	Element Should Contain      			css=li[class='navi-block__item navi-block__item--arrow hidden-xs']:nth-child(5) > span[class='navi-block__url js-navi-block__url']     	       	Insurance
+	Wait Until Page Contains Element      	link=News
+	Wait Until Page Contains Element      	link=Help     
+	Wait Until Page Contains Element      	css=a[href='//www.moneyhero.com.hk/']
+	Wait Until Page Contains Element      	css=button[class='navi-block__switch js-navi-block__switch hidden-xs']
+
+
+	# Verify Banner Block Is Loading
+	Wait Until Page Contains Element      css=section[class='hero-block js-hero-block swiper-container hidden-xs ch-landing']
+
+
+
+
+
+Go to Insurance / Medical Insurance / Medical Inusurance Comparison Page
+# 	Mouse Over   css=li[class='navi-block__item navi-block__item--arrow hidden-xs'][5]
+# 	Mouse Over   css=a[href='//www.moneyhero.com.hk/en/medical-insurance']
+# 	Click Element   css=a[href='//www.moneyhero.com.hk/en/medical-insurance/get-quote#step1']
+	Go To  			 http://www.moneyhero.com.hk/en/medical-insurance/get-quote#step1
+
+
+
+
+Verify Health Insurance First Page Is Loaded 
+	Wait Until Page Contains Element    css=h1[class='ch-landing__header']
+	Location Should Contain     		/medical-insurance
+    Element Should Contain       		css=h1[class='ch-landing__header']         COMPARE MEDICAL INSURANCE
+	Page Should Contain					Who do you want to cover?
+	Wait Until Page Contains Element    css=select[id='wanttoinsure']
+	Wait Until Page Contains Element    css=a[class='btn compare-blk__btn js-compare-btn']
+
+
+Click Compare Now Button In Health Insurance First Page 
+	Click element     					css=a[class='btn compare-blk__btn js-compare-btn']
+
+
+
+Verify Step 1 Of 5 Is Loaded.
+	Location Should Contain     		/medical-insurance/get-quote#step1
+	Wait Until Page Contains Element   		css=div[class='steps-block__list']
+	# Xpath Should Match X Times    		//div[@class='steps-block__list']//div[@class='js-2_breadcrumbs js-breadcrumbs steps-block__item']  10
+    Element Should Contain       		css=span[class='q-block__step']         	Step 1 of 5:
+    Element Should Contain       		css=span[class='q-block__quest']        	WHO DO YOU WANT TO INSURE?
+	Wait Until Page Contains Element   	css=div[class='steps-block__list']
+	Click element     					css=a[id='1_submit']
+
+
+
+Verify Step 2 Of 5 Is Loaded.
+	Location Should Contain     		/medical-insurance/get-quote#step2
+
+    Element Should Contain       		css=span[class='q-block__step']         	Step 2 of 5:
+    Element Should Contain       		css=span[class='q-block__quest']        	What is your age and nationality?
+	Wait Until Page Contains Element   	css=input[id='age']
+	Input Text    						css=input[id='age']							12
+	Wait Until Page Contains Element   	css=select[id='nationality']
+	Select From List By Value   		css=select[id='nationality']                American
+	Wait Until Page Contains Element   	css=div[class='steps-block__list']
+	Click element     					css=a[id='2_submit']
+
+
+Verify Step 3 Of 5 Is Loaded.
+
+	Sleep   999
+	Location Should Contain     		/medical-insurance/get-quote#step3
+    Element Should Contain       		css=span[class='q-block__step']         	Step 3 of 5:
+    Element Should Contain       		css=span[class='q-block__quest']        	What do you want to cover?
+    Xpath Should Match X Times    		//li[@class='q-block__icon-items']  		4
+    Wait Until Page Contains Element   	css=input[id='age']
+
+    q-block__icon m-icon m-icon--inpatient q-block__icon--selected quest__tooltip
+	Wait Until Page Contains Element   	css=div[class='steps-block__list']
+	Click element     					css=a[id='3_submit']
+
+Verify Step 4 Of 5 Is Loaded.
+	Location Should Contain     		/medical-insurance/get-quote#step4
+    Element Should Contain       		css=span[class='q-block__step']         	Step 4 of 5:
+    Element Should Contain       		css=span[class='q-block__quest']        	 How much excess are you willing to pay?
+	Wait Until Page Contains Element   	css=div[class='steps-block__list']
+	Click element     					css=a[id='4_submit']
+
+
+Verify Step 5 Of 5 Is Loaded.
+	Location Should Contain     		/medical-insurance/get-quote#step5
+    Element Should Contain       		css=span[class='q-block__step']         	Step 5 of 5:
+    Element Should Contain       		css=span[class='q-block__quest']        	 ADDITIONAL COVERAGE OPTIONS?
+	Wait Until Page Contains Element   	css=div[class='steps-block__list']
+	Click element     					css=a[id='5_submit']
+
+
+
+Verify Health Insurance Modal Dialog Is Loaded 
+	Sleep   999
+	Wait Until Page Contains Element   		css=div[class='modal-dialog']
+	Page Should Contain        		Check prices from different medical insurers in Hong Kong, for free!	
+	Page Should Contain						By requesting quotes on this page, you have read and agree to our Terms & Conditions and that all information provided by you to us will be used and shared with a third party professional advisor, who may contact you and help you to get the best product for your needs
+	Input Text     css=input[id='fullname']    test
+	Input Text     css=input[id='email']    test@gmail.com
+	Click element     css=input[id='phone_no']
+	Input Text     	css=input[id='phone_no']    23456789
+	Click element    	css=span[class='button-checkbox bootstrap-checkbox cbo-terms pull-left'] button[class='btn clearfix btn-link btn-large']
+	# Click element   					css=button[id='ci-modal-btn']
+
+
+Verify Health Insurance Comparison Page Is Loaded 
+	Reload Page 
+	Wait Until Page Contains Element    css=h1
+    Element Should Contain       css=h1         Compare the best Medical Insurance deals now
+	Wait Until Page Contains Element    css=img[id='img_cheaper']	
+	Element Should Contain				css=div[class='cover-intro']     I require cover for:
+	Element Should Contain				css=label[for='inpatient']     	Hospital Cover 
+	Element Should Contain				css=label[for='outpatient']     Outpatient Cover
+	Element Should Contain				css=label[for='dental']     	Dental Cover
+	Element Should Contain				css=label[for='maternity']     	Maternity Cover
+	Element Should Contain				css=a[class='btn btn-link btn-small reset-filters']     Reset Filters
+	Element Should Contain				css=a[class='accordion-toggle adv_opt_pane']     		Show Advanced Options
+	Element Should Contain				css=div[id='mi-floating-need-help']     Need Help Deciding?
+	Element Should Contain				css=button[class='floating-sidebar-btn']     Call Me
+	Wait Until Page Contains Element	css=span[class='total-result-count']
+	Element Should Contain				css=span[class='total-result-count']		We found 347 deals
+	Element Should Contain				css=span[data-sort='productId']		Provider Policy 
+	Element Should Contain				css=span[data-sort='annualMaximumLimit']      Max Annual\nCover
+	Element Should Contain				css=span[data-sort='surgicalSortingVariable']		Surgical\nCover 
+	Element Should Contain				css=span[data-sort='outpatientSortingVariable']		Outpatient\nCover 
+	Element Should Contain				css=span[data-sort='dentalSortingVariable']		Dental Cover 
+	Element Should Contain				css=span[data-sort='maternitySortingVariable']		Maternity Cover 
+	Element Should Contain				css=span[data-sort='excessSort']		Excess Payable 
+	Element Should Contain				css=span[data-sort='premium']		Monthly Price 
+	Element Should Contain				css=a[class='hi-apply-btn speak_to_advisor hi-speak-to-advisor']		Speak to Advisor 
+	Element Should Contain				css=a[class='btn-compare-now goto_site hi-apply-btn']					Apply  
+	Element Should Contain				css=div[id='more-info-btn']					 Show More Info 
+	Element Should Contain				css=a[id='load-more']					 SHOW MORE MEDICAL INSURANCE DEALS 
+	Element Should Contain				css=h2					 Compare and Apply for the Best Medical Insurance in Hong Kong 
+	Xpath Should Match X Times    		//div[@class='row-fluid result']  10
+
+	Verify Header is present
+	Verify Footer is present 
+	
+
+
+
+Go to Health Insurance Guide Page
+	Go Back
+	Mouse Over   css=a[class='dropdown-toggle'][href='http://www.moneyhero.com.hk/en/insurance'][data-toggle='dropdown']
+	Click Element   css=a[href='http://www.moneyhero.com.hk/en/medical-insurance/guide']
+
+
+Verify Health Insurance Guide Page Is Loaded
+	# Verify page is loaded 
+	Reload Page 
+    Page Should Not Contain    	Loading. Please wait.
+	Wait Until Page Contains Element    css=h1
+    Element Should Contain       css=h1         Hong Kong Health Insurance Guide
+
+
+Go to Health Insurance Partners Page
+	Go Back
+	Mouse Over   css=a[class='dropdown-toggle'][href='http://www.moneyhero.com.hk/en/insurance'][data-toggle='dropdown']
+	Click Element   css=a[href='http://www.moneyhero.com.hk/en/medical-insurance/partners']
+
+
+Verify Health Insurance Partners Page Is Loaded
+	# Verify page is loaded  
+	Reload Page
+    Page Should Not Contain    Loading. Please wait
+	Wait Until Page Contains Element    css=h1
+    Element Should Contain       css=h1         MONEYHERO'S HEALTH INSURANCE PARTNERS
+
+
+Go to Mortgage Page
+	Go Back
+	Wait Until Page Contains Element      css=a[href='http://www.moneyhero.com.hk/en/mortgage']
+	Mouse Over   css=a[href='http://www.moneyhero.com.hk/en/mortgage']
+	Click Element   css=a[href='http://www.moneyhero.com.hk/en/mortgage']
+
+
+Verify Mortgage Page Is Loaded
+	# Verify page is loaded
+	Reload Page
+    Page Should Not Contain    Loading. Please wait.
+	Wait Until Page Contains Element    css=h1
+    Element Should Contain       css=h1         Compare the Best Housing and Mortage Loans in Hong Kong With MoneyHero
+	Page Should Contain    		Header
+
+
+
+Go to Travel Insurance Page
+	Go Back
+	Wait Until Page Contains Element      css=a[href='http://www.moneyhero.com.hk/en/travel-insurance']
+	Mouse Over   css=a[href='http://www.moneyhero.com.hk/en/travel-insurance']
+	Click Element   css=a[href='http://www.moneyhero.com.hk/en/travel-insurance']
+
+
+Verify Travel Insurance Page is loaded
+	# Verify page is loaded
+	Reload Page
+    Page Should Not Contain    	Loading. Please wait.
+	Wait Until Page Contains Element      css=div[class='bread-crumb'] img[src='/assets/img/insurance/en-progress-bar-a.png']
+	Wait Until Page Contains Element      css=p[class='intro']
+	Element Should Contain      css=p[class='intro']     Compare prices to find the cheapest travel insurance plan!  Please provide the following information:
+	Wait Until Element Is Visible 			css=label[for='myself']
+	Element Should Not Be Visible 			id=birthDayInd1
+	Element Should Not Be Visible 			id=birthMonthInd1
+	Element Should Not Be Visible 			id=birthYearInd1
+	Wait Until Element Is Visible 			css=label[for='start-day-1']
+	Wait Until Element Is Visible 			css=label[for='end-day-1']
+	Wait Until Element Is Visible 			css=label[for='hasSports']
+	Element Should Not Be Visible 			id=inputEmail  	
+	Wait Until Element Is Visible 			id=get-quotes
+
+Choose Myself	
+	Click Element  							css=label[for='myself']
+
+Select 1 for Birth Day 
+	Select From List By Label  		id=birthDayInd1   1
+
+Select January for Birth Month 
+	Select From List By Label  		id=birthMonthInd1   January
+
+Select 2000 for Birth Year 
+	Select From List By Label  		id=birthYearInd1   2000
+
+Select Single for trips
+	Click Element  					css=label[for='single']
+
+
+Select American Samoa for Destination
+	Focus							id=other
+	Select From List By Value  		id=other     AS
+	Select From List By Value  		id=other     PH
+	Select From List By Value  		id=other     AU
+	Select From List By Value  		id=other     SG
+
+Verify Three Selected Destinations And Remove Two
+	Xpath Should Match X Times     	//label[@class='tag countries-going label label-info']     3
+	Click Element  		css=i[class='icon icon-remove icon-white']
+	Click Element  		css=i[class='icon icon-remove icon-white']
+
+
+
+Select Today for Start Day
+	Click Element  		css=label[for='start-day-1']
+ 
+Select 2 days for End Day
+	Click Element  		css=label[for='end-day-1']
+
+Select Has Sports
+	Click Element  		css=label[for='hasSports']
+
+# Type email address
+# 	Sleep   999
+
+# 	Input Text  		id=inputEmail       	test@test.com
+
+Click Get Quotes
+	Click Element  		css=button[id='get-quotes']
+
+Verify Deals count is correct - Moneyhero - EN - Travel Insurance
+	Wait Until Element Is Visible 			css=span[class='total-result-count']
+	Wait Until Element Is Visible 			css=label
+	# Element Should Contain               These quotes meet your requirements for yourself on a single trip from Tuesday, November 4th 2014. (Change Request)
+	Element Text Should Be     	   css=label     		We found quotes for you
+
+
+
+
+
+Go to Travel Insurance Guide Page
+	Go Back
+	Mouse Over   css=a[href='http://www.moneyhero.com.hk/en/travel-insurance']
+	Click Element   css=a[href='http://www.moneyhero.com.hk/en/travel-insurance/guide']
+
+
+Verify Travel Insurance Guide Page Is Loaded
+	# Verify page is loaded
+	Reload Page
+	Element Should Contain     	   		css=h1    		Hong Kong Travel Insurance Guide
+	Xpath Should Match X Times     		//h2             6
+	Page Should Contain Link     	   	link=travel insurance coverage	
+	Page Should Contain Link     	   	link=Security Bureau’s Outbound Travel Alert website	
+	Page Should Contain Link     	   	link=compare travel insurance plans
+  Page Should Not Contain    			Loading. Please wait.
+
+
+
+
+*** Keywords ***
+
+
+Create Page Object Map
+    [Arguments]     ${ObjectName} 
+	${Source}       Get Source 
+	${Lines}     Get Lines Containing String      ${Source}        <${ObjectName}
+	${Object}      Fetch From Left         ${Lines}      >
+	${LineCount}     Get Line Count      ${Lines}
+	Log  ${ObjectName}: ${Object}\n\nTotal ${ObjectName}/s found:${LineCount}   WARN
+
+
+Verify Chat Box Is In Siamese Language
+	
+	Select Frame       css=iframe
+	Wait Until Page Contains Element       css=div[class='meshim_widget_widgets_Favicon favicon']
+	Wait Until Page Contains Element       css=div[class='button_text jx_ui_Widget']
+	Click Element       					css=div[class='button_text jx_ui_Widget'] 
+	# Unselect Frame       
+	# Select Frame       css=iframe
+	# Wait Until Page Contains Element       	css=div[class='meshim_widget_widgets_IconFont icon_font last_child']
+	Page Should Contain      		การบริการลูกค้าและตอบคำถามทั่วไป  
+	Page Should Contain      		ขออภัยในความไม่สะดวก ขณะนี้เป็นเวลานอกทำการ กรุณาฝากข้อความและหมายเลขโทรศัพท์ แล้วเจ้าหน้าที่ของเราจะติดต่อกลับไปหาท่านในช่วงเวลาทำการ   
+	# Select Frame       css=iframe
+	# Wait Until Page Contains Element       css=div[class='jx_ui_Widget']
+	# # div[class='content jx_ui_Widget']
+	# Wait Until Page Contains Element       css=iframe img[class='banner_image jx_ui_Widget']
+	# Current Frame Contains
+ 	# css=iframe div[class='jx_ui_Widget']       สงสัยอะไร \nถามได้เลยนะครับ\nเราพร้อมที่จะช่วยคุณครับ
+	# Wait Until Page Contains Element       css=iframe input[id='___$_11__input][placeholder='Type your message here']
+	# Wait Until Page Contains Element       css=iframe div[class='meshim_widget_widgets_IconFont icon_font send']
+
+
+
+Set Authentication
+	${result}     Get        ${HOMEPAGE}
+	Set Basic Auth       staging			Sb3Cz95QvY3A92

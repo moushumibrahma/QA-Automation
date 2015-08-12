@@ -1,0 +1,327 @@
+*** Settings ***
+Library   Selenium2Library
+Library   BuiltIn
+Library   String
+Suite Setup   Open Browser   ${HOMEPAGE}   ${BROWSER}
+Suite Teardown   Close All Browsers
+
+*** Variables ***
+${HOMEPAGE}   http://www.comparehero.my/
+${BROWSER}   firefox
+
+*** Resources ***
+
+
+# Getting the values on Deals found is via Postman chrome extension.  And then  get the URL from QA Report Google spreadsheet.
+
+*** Test Cases *** 
+Initialize Test
+	Add Cookie       QA_AUTOMATION  			True
+	Set Selenium Timeout        20
+	Set Window Size  				1600     1200
+
+Verify Main Page Is Loaded
+	Verify Page Is Loaded	
+	Element Should Contain              	css=h1[id='p_leading']      Malaysia's leading comparison portal!
+	Wait Until Page Contains Element		css=a[href='//www.comparehero.my/credit-card']
+	Wait Until Page Contains Element		css=a[href='//www.comparehero.my/broadband']
+	Wait Until Page Contains Element		css=div[class='other_boxes']
+	Wait Until Page Contains Element		css=a[href='//www.comparehero.my/housing-loan']
+	Wait Until Page Contains Element		css=a[href='//www.comparehero.my/credit-card#petrol']
+	Wait Until Page Contains Element		css=a[href='//www.comparehero.my/personal-loan']
+	Wait Until Page Contains Element		css=a[href='//www.comparehero.my/broadband#mobile']
+	Wait Until Page Contains Element		css=div[class='also_offer also_compare_box2']
+	Wait Until Page Contains Element		css=a[href='broadband#home']
+	Wait Until Page Contains Element		css=a[href='broadband#business']
+	Wait Until Page Contains Element		css=a[href='credit-card#premium']
+	Wait Until Page Contains Element		css=a[href='credit-card#lowinterest']
+	Wait Until Page Contains Element		css=div[class='saving_tip']
+	Wait Until Page Contains Element		css=input[id='subscribe']
+	Wait Until Page Contains Element		css=span[class='hidden-xs md-news']
+
+
+
+Go to Credit Card And Verify Deals Count	
+	Wait Until Page Contains Element		css=a[href='//www.comparehero.my/credit-card']
+	Click Element   css=a[href='//www.comparehero.my/credit-card']
+	Verify page is loaded
+    Page Should Not Contain    		Loading. Please wait.
+    Page Should Contain       		Compare and find the best credit card deals now 
+    Page Should Contain       		Show More Filters
+ 	Element Should Contain     		css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']  			We found 197 deals
+ 	${AllDeals}						Get Text              css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']
+	Wait Until Page Contains Element          css=span[data-sort='rankingMain']
+	Wait Until Page Contains Element          css=span[data-sort='RankRewards']
+	Wait Until Page Contains Element          css=span[data-sort='Rankbaltrans']
+	Wait Until Page Contains Element          css=span[data-sort='annualFee']
+	Wait Until Page Contains Element          css=span[data-sort='Ranklowinterest2']
+
+	${Sum}         Evaluate       0
+	Click Element         			 			css=li[data-attr='hasCashBack']
+	Wait Until Page Contains Element          	css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']
+ 	Element Should Contain     					css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']  			We found 89 deals
+ 	${Deal}            Get Text      css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']
+ 	${Deal}            Remove String Using Regexp            ${Deal}       	 				[a-zA-Z]*
+ 	${Sum}       								Evaluate           					${Sum} + ${Deal}
+	Click Element         			 			css=li[data-attr='hasAirMiles']
+	Wait Until Page Contains Element          	css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']
+ 	Element Should Contain     					css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']  			We found 28 deals 	
+ 	${Deal}            Get Text      css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']
+ 	${Deal}            Remove String Using Regexp            ${Deal}       	 				[a-zA-Z]*
+ 	${Sum}       								Evaluate           					${Sum} + ${Deal}
+	Click Element         			 			css=li[data-attr='interestRate']
+	Wait Until Page Contains Element          	css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']
+ 	Element Should Contain     					css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']  			We found 24 deals	
+ 	${Deal}            Get Text      css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']
+ 	${Deal}            Remove String Using Regexp            ${Deal}       	 				[a-zA-Z]*
+ 	${Sum}       								Evaluate           					${Sum} + ${Deal}
+	Click Element         			 			css=li[data-attr='balanceTransfer']
+	Wait Until Page Contains Element          	css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']
+ 	Element Should Contain     					css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']  			We found 59 deals	
+ 	${Deal}            Get Text      css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']
+ 	${Deal}            Remove String Using Regexp            ${Deal}       	 				[a-zA-Z]*
+ 	${Sum}       								Evaluate           					${Sum} + ${Deal}
+	Click Element         			 			css=li[data-attr='annualFee']
+	Wait Until Page Contains Element          	css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']
+ 	Element Should Contain     					css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']  			We found 74 deals	
+ 	${Deal}            Get Text      css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']
+ 	${Deal}            Remove String Using Regexp            ${Deal}       	 				[a-zA-Z]*
+ 	${Sum}       								Evaluate           					${Sum} + ${Deal}
+	Click Element         			 			css=li[data-attr='hasPetrolRewards']
+	Wait Until Page Contains Element          	css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']
+ 	Element Should Contain     					css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']  			We found 35 deals	
+ 	${Deal}            Get Text      css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']
+ 	${Deal}            Remove String Using Regexp            ${Deal}       	 				[a-zA-Z]*
+ 	${Sum}       								Evaluate           					${Sum} + ${Deal}
+	Click Element         			 			css=li[data-attr='premium']
+	Wait Until Page Contains Element          	css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']
+ 	Element Should Contain     					css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']  			We found 18 deals	
+ 	${Deal}            Get Text      css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']
+ 	${Deal}            Remove String Using Regexp            ${Deal}       	 				[a-zA-Z]*
+ 	${Sum}       								Evaluate           					${Sum} + ${Deal}
+
+	${AllDeals}            Remove String Using Regexp            ${AllDeals}       	 				[a-zA-Z]*
+	# Should Be Equal   						${AllDeals}     					${Sum}          
+
+
+
+Go to Broadband Page
+	Go Back
+	Wait Until Page Contains Element      css=a[href='//www.comparehero.my/broadband']
+	Click Element   css=a[href='//www.comparehero.my/broadband']
+
+
+
+Verify Broadband Page Is Loaded
+	Verify Page Is Loaded	
+    Page Should Not Contain    Loading. Please wait.
+    Page Should Contain     					Find the best Broadband bundles in Malaysia now	
+	Wait Until Page Contains Element      css=li[href='mobile']
+	Wait Until Page Contains Element      css=li[href='home']
+	Wait Until Page Contains Element      css=li[href='homeTv']
+	Wait Until Page Contains Element      css=li[href='business']
+	Element Should Contain         css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']       We found 34 deals
+
+
+Verify Broadband Deals On All Tabs
+	Wait Until Page Contains Element      css=li[href='mobile']
+	Click Element      css=li[href='mobile']
+	Element Should Contain         css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']       We found 23 deals
+	Wait Until Page Contains Element      css=li[href='homeTv']
+	Click Element      css=li[href='homeTv']
+	Element Should Contain         css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']       We found 7 deals
+	Wait Until Page Contains Element      css=li[href='business']
+	Click Element      css=li[href='business']
+	Element Should Contain         css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']       We found 8 deals
+
+
+Go to Housing Loan Page
+	Go Back
+	Wait Until Page Contains Element      css=a[href='//www.comparehero.my/housing-loan']
+	Click Element   css=a[href='//www.comparehero.my/housing-loan']
+
+
+Verify Housing Loan Page Is Loaded
+	Verify Page Is Loaded	
+	Page Should Not Contain    Loading. Please wait.
+    Page Should Contain     					Find the best housing loan plans in Malaysia now	
+	Element Should Contain         css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']       We found 45 deals
+	Wait Until Page Contains Element      css=span[data-sort='productId']
+	Wait Until Page Contains Element      css=span[data-sort='interestRate']
+	Wait Until Page Contains Element      css=span[data-sort='rankRateType']
+	Wait Until Page Contains Element      css=span[data-sort='totalCost']
+	Wait Until Page Contains Element      css=span[data-sort='initMonthlyCost']
+	Wait Until Page Contains Element      css=p[class='featured-text']
+	Wait Until Page Contains Element      css=div[class='btn-compare-now goto_site']
+
+
+
+Go to Personal Loan Page
+	Go Back
+	Wait Until Page Contains Element      css=a[href='//www.comparehero.my/personal-loan']
+	Click Element   css=a[href='//www.comparehero.my/personal-loan']
+
+Verify Personal Loan Page Is Loaded
+	Verify Page Is Loaded	
+    Page Should Not Contain    Loading. Please wait.
+	Element Should Contain         css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']       We found 19 deals
+	Wait Until Page Contains Element      css=span[data-sort='rankingMain']
+	Wait Until Page Contains Element      css=span[data-sort='computedinterestRate']
+	Wait Until Page Contains Element      css=span[data-sort='rankingLoanAmt']
+	Wait Until Page Contains Element      css=span[data-sort='computedinterestRate']
+	Wait Until Page Contains Element      css=span[data-sort='totalRepayment']
+	Wait Until Page Contains Element      css=span[data-sort='monthRepayment']
+
+
+	
+
+# Go to Blog Page
+# 	Go Back
+# 	Wait Until Page Contains Element      css=a[href='//www.comparehero.my/blog']
+# 	Click Element   css=a[href='//www.comparehero.my/blog']
+
+# Verify Blog Page Is Loaded
+#     Page Should Contain    				Malaysia's leading comparison portal!
+# 	Wait Until Page Contains Element      css=div[id='iview']    
+# 	Wait Until Page Contains Element      css=a[title='Credit Card']
+# 	Wait Until Page Contains Element      css=a[title='Broadband']
+# 	Wait Until Page Contains Element      css=a[title='News']
+# 	Wait Until Page Contains Element      css=a[title='Money Tips']
+# 	Wait Until Page Contains Element      css=a[title='Lifestyle']
+
+
+
+
+
+
+
+*** Keywords ***
+Verify page is loaded - new 
+	Wait Until Page Contains Element      css=ol[class='breadcrumb']
+	Verify footer is present page is loaded
+
+
+Verify footer is present page is loaded
+	Wait Until Page Contains Element      css=section[class='foot_head']
+	Wait Until Page Contains Element      css=div[class='row-fluid portal_listings']
+Verify footer is present page is loaded - new
+	Wait Until Page Contains Element      css=section[class='foot_head']
+	Wait Until Page Contains Element      css=div[class='row-fluid portal_listings']
+
+
+
+Verify deals count is correct
+	[Arguments]   ${link}			${dealsCountString}	
+	Go Back
+	Wait Until Page Contains Element      css=a[class='dropdown-toggle'][href='//www.moneyhero.com.hk/en/travel-insurance'][data-toggle='dropdown']
+	Mouse Over   css=a[class='dropdown-toggle'][href='//www.moneyhero.com.hk/en/travel-insurance'][data-toggle='dropdown']
+	Click Element   ${link}
+	Wait Until Page Contains     ${dealsCountString}
+
+
+Open Navigation and go to page
+	[Arguments]   ${link}	
+	Click Main navigation
+	Wait Until Page Contains Element      link=${link}
+	Click Element	link=${link}
+	Wait Until Page Contains Element      css=h2
+	Element Should Contain		css=h2		${link}
+	Verify Footer is present
+
+Change Language
+	Wait Until Element Is Visible     css=div[class='language'] a[href='//www.moneyhero.com.hk/']
+	Click Element   		css=div[class='language'] a[href='//www.moneyhero.com.hk/']
+
+
+Verify Page Is Loaded	
+	Verify Header is present
+	Verify Footer is present
+
+Click Main navigation	
+	Wait Until Page Contains Element      css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']
+	Click Element	css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']	
+
+
+
+Go to page	
+    [Arguments]   ${link}
+	Wait Until Page Contains Element      link=${link}
+	Click Element	link=${link}
+	Wait Until Page Contains Element      css=h2
+	Element Should Contain		css=h2		${link}
+
+
+Verify Header is present
+	Page Should Contain       Malaysia's Leading Comparison Portal! 
+	Wait Until Page Contains Element          css=img[src='//www.comparehero.my/assets/img/logo.png']
+	Wait Until Page Contains Element          customer_srv_no 
+	Wait Until Page Contains Element          css=span[class='icon-home icon-2x hidden-xs'] 
+	Wait Until Page Contains Element          top_mascot 
+	Wait Until Page Contains Element          css=span.icon-home.icon-2x 
+	Wait Until Page Contains Element          link=Credit Card 
+	Wait Until Page Contains Element          link=Broadband 
+	Wait Until Page Contains Element          link=Housing Loan 
+	Wait Until Page Contains Element          link=Personal Loan 
+	Wait Until Page Contains Element          link=Blog 
+	Wait Until Page Contains Element          css=div[class='row hidden-xs breadcrumb-fullspan'] 
+
+
+    
+
+
+Verify Footer is present
+    Page Should Contain    Over 80 Trusted Partners
+    Wait Until Page Contains Element		css=img[alt='OCBC Bank']
+    Wait Until Page Contains Element		css=img[alt='Standard Chartered']
+    Wait Until Page Contains Element		css=img[alt='Tune Talk']
+    Wait Until Page Contains Element		css=img[alt='Maybank']
+    Wait Until Page Contains Element		css=img[alt='Aliance Bank']
+    Wait Until Page Contains Element		css=img[alt='P1 Beyond Broadband']
+    Wait Until Page Contains Element		css=img[alt='AKPK']
+
+    Page Should Contain    See what our Customers say!
+    Wait Until Page Contains Element		css=section[id='social_share']
+    Wait Until Page Contains Element		css=a[class='social-fb']
+    Wait Until Page Contains Element		css=a[class='social-tw']
+    Wait Until Page Contains Element		css=a[class='social-yt']
+    Wait Until Page Contains Element		css=a[class='social-gp']
+    Wait Until Page Contains Element		css=a[class='social-bl']
+
+	Wait Until Page Contains Element          	css=section[class='foot_head hidden-xs']
+	Element Should Contain						css=section[class='foot_head hidden-xs']		Malaysia's Leading Comparison Portal! 
+
+	Page Should Contain       Credit Card 
+	Wait Until Page Contains Element          css=a[href='//www.comparehero.my/credit-card']
+	Wait Until Page Contains Element          css=a[href='//www.comparehero.my/credit-card/faq']
+	Wait Until Page Contains Element          css=a[href='//www.comparehero.my/credit-card/glossary']
+	Wait Until Page Contains Element          css=a[href='//www.comparehero.my/credit-card/guide']
+	Page Should Contain       Loan 
+	Wait Until Page Contains Element          css=a[href='//www.comparehero.my/personal-loan']
+	Wait Until Page Contains Element          css=a[href='//www.comparehero.my/housing-loan']
+	Page Should Contain       Broadband 
+	Wait Until Page Contains Element          css=a[href='//www.comparehero.my/broadband']
+	Wait Until Page Contains Element          css=a[href='//www.comparehero.my/broadband/glossary']
+	Wait Until Page Contains Element          css=a[href='//www.comparehero.my/broadband/faq']
+	Wait Until Page Contains Element          css=a[href='//www.comparehero.my/broadband/guide']
+
+	Wait Until Page Contains Element          css=div[class='col-md-12 footer_menu_bar']
+	Wait Until Page Contains Element          css=a[href='//www.comparehero.my/about']
+	Wait Until Page Contains Element          css=a[href='//www.comparehero.my/contact']
+	Wait Until Page Contains Element          css=a[href='//www.comparehero.my/faq']
+	Wait Until Page Contains Element          css=a[href='//www.comparehero.my/product-guide']
+	Wait Until Page Contains Element          css=a[href='//www.comparehero.my/careers']
+	Wait Until Page Contains Element          css=a[href='//www.comparehero.my/privacy']
+	Wait Until Page Contains Element          css=a[href='//www.comparehero.my/terms']
+	Wait Until Page Contains Element          css=a[href='//www.comparehero.my/glossary']
+	Wait Until Page Contains Element          css=a[href='//www.comparehero.my/affiliates']
+	Wait Until Page Contains Element          css=a[href='//www.comparehero.my/press']
+	Wait Until Page Contains Element          css=a[href='//www.comparehero.my/sitemap']
+	Wait Until Page Contains Element          css=a[href='//www.comparehero.my/blog']
+
+	Wait Until Page Contains Element          css=img[alt='Advertizing Standards in Malaysia']
+	Wait Until Page Contains Element          css=img[alt='Info Perbankan']
+	Wait Until Page Contains Element          css=img[alt='Insurance Info']
+	Wait Until Page Contains Element          css=img[alt='Malaysia Status Company']
+
+	Page Should Contain      © 2013 CompareHero Global Limited. All rights reserved. Use of this site constitutes acceptance of our Terms of Use and Privacy Policy.
+

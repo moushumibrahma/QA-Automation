@@ -1,0 +1,339 @@
+*** Settings ***
+Library   Selenium2Library
+Library   BuiltIn
+Library   String
+
+Suite Setup   Open Browser   ${HOMEPAGE}   ${BROWSER}
+Suite Teardown   Close All Browsers
+
+
+Resource          Common/Common.txt
+
+
+
+*** Variables ***
+
+
+# ${HOMEPAGE}   http://www.us-west-1.mx-v1.compareglobal.co.uk/  #Mexico 
+${HOMEPAGE}   http://www.comparaguru.com/  #Mexico 
+${BROWSER}   firefox
+
+
+
+*** Test Cases ***
+
+Initialize Test
+	Common.Initialize Test
+
+
+Verify Home Page Is Loaded
+
+	Wait Until Page Contains Element  css=div[class="header-block__top"]  
+	Wait Until Page Contains Element  css=img[class='header-block__img'][alt='ComparaGuru'] 
+	Wait Until Page Contains Element  css=a[class='header-cta'][href='tel:5550297611']  
+
+	Wait Until Page Contains Element  css=nav[class='header-block__nav js-header-block__nav'] 
+	Wait Until Page Contains Element  css=div[class='hidden-xs col-md-4 col-sm-4 header-block__nav--fb'] 
+	Wait Until Page Contains Element  css=div[class='col-md-8 col-sm-8 padding-0'] 
+
+
+	Wait Until Page Contains Element  css=i[class='m-icon m-icon--nav_home'] 
+
+
+	Wait Until Page Contains Element  css=li.navi-block__item--arrow:nth-child(3) > span:nth-child(1) 
+
+	Element Should Contain        css=li.navi-block__item--arrow:nth-child(3) > span:nth-child(1)    	Créditos
+	Element Should Contain        css=li.hidden-xs:nth-child(4) > span:nth-child(1)    					Seguros
+	Element Should Contain        css=li.navi-block__item:nth-child(5) > a:nth-child(1)					Blog
+	Element Should Contain        css=li.navi-block__item:nth-child(6) > span:nth-child(1)   			Ayuda
+
+
+	Wait Until Page Contains Element  			css=div[class='hero-block__slider swiper-wrapper']
+
+	Wait Until Page Contains Element  			css=div[class='ch-provider js-ch-provider--homepage']
+	# Xpath Should Match X Times    				//li[@class='swiper-slide ch-provider__item']     134
+
+	Verify Footer Is Present
+
+
+
+
+Go To Prestamo Personal Page
+	Mouse Over   								css=li.navi-block__item--arrow:nth-child(3) > span:nth-child(1)
+	Wait Until Page Contains Element  			link=Préstamo Personal
+	Click Element  								link=Préstamo Personal
+
+
+
+Verify Initial Prestamo Personal Page Is Loaded
+	Location Should Be         					http://www.comparaguru.com/prestamos-personales  
+	# Element Should Contain  					css=h1[class='ch-landing__header'] 					COMPARA PRÉSTAMOS PERSONALES
+	Wait Until Page Contains Element  	loan-amount  
+	Wait Until Page Contains Element  	loan-tenure 
+	Wait Until Page Contains Element  	css=a[id='searchProducts']  
+
+
+	Wait Until Page Contains Element  	css=div[id='landing-content'] 
+	Wait Until Page Contains Element  	css=a[href='prestamos-personales/financieras'] 
+	Wait Until Page Contains Element  	css=a[href='prestamos-personales/financieras'] span[class='btn btn--see-all']
+	Wait Until Page Contains Element  	css=a[href='prestamos-personales/financieras'] span[class='time__take hidden-xs']
+	Wait Until Page Contains Element  	css=a[href='prestamos-personales/prestamos-bancarios']
+	Wait Until Page Contains Element  	css=a[href='prestamos-personales/prestamos-bancarios'] span[class='btn btn--see-all']
+	Wait Until Page Contains Element  	css=a[href='prestamos-personales/prestamos-bancarios'] span[class='time__take hidden-xs']
+
+	Verify Footer Is Present
+
+Filter Result
+	# Press Key  				loan-amount     ${EMPTY}
+	# Input Text  				loan-amount     20000
+
+	Select From List By Value	css=select[id='loan-tenure']        48
+	Click Element  				css=a[id='searchProducts']
+
+
+Verify Prestamo Personal Page Is Loaded  	
+	Wait Until Keyword Succeeds      			30 secs        5 secs        Slow Page      			loan-amount  
+	Wait Until Page Contains Element  	loan-tenure 
+	Wait Until Page Contains Element  	css=button[id='searchProducts'] 
+	Wait Until Page Contains Element  	css=div[data-sort='minRate']  
+	Wait Until Page Contains Element  	css=div[data-sort='totalRepaymentSort']  
+	Wait Until Page Contains Element  	css=div[data-sort='monthlyRepaymentSort'] 
+	Wait Until Keyword Succeeds      			30 secs        5 secs        Slow Page      			css=h2[id='results-found'] 
+	Element Should Contain  			css=h2[id='results-found']       				Encontramos las mejores 1 ofertas para ti
+	Element Should Contain  			css=h1[class='masterhead-heading']  					¡OBTÉN UN PRÉSTAMO PERSONAL SIN SER CLIENTE DE UN BANCO!
+
+	Wait Until Page Contains     				¿Por qué escoger ComparaGuru?
+	Wait Until Page Contains     				Compara y elige en 3 Pasos
+	Wait Until Page Contains     				¿Qué es una SOFOM?
+	Wait Until Page Contains     				¿Cómo funcionan los préstamos personales a través de Financieras?
+	Wait Until Page Contains     				¿Por qué solicitar un préstamo personal con una Financiera?
+	Wait Until Page Contains     				¿Cómo comparar préstamos de SOFOMEs por ComparaGuru?
+
+
+
+
+	Verify Footer Is Present
+
+Go To Credito Automotriz
+	Mouse Over   								css=li.navi-block__item--arrow:nth-child(3) > span:nth-child(1)
+	Wait Until Page Contains Element  			link=Préstamo Personal
+	Click Element  link=Crédito Automotriz  
+
+Verify Credito Automotriz Page Is Loaded
+	Element Should Contain  css=h1  Encuentra un crédito automotriz
+	Wait Until Keyword Succeeds      			30 secs        5 secs        Slow Page      			loan-amount
+	Wait Until Page Contains Element  loan-amount  
+	Wait Until Page Contains Element  downpayment-amount  
+	Wait Until Page Contains Element  css=span.pull-left  
+	Wait Until Page Contains Element  link=Nuevo  
+	Wait Until Page Contains Element  css=div.col-md-12.text-center 
+	Wait Until Page Contains Element  css=div[class='hdr1 col-md-5 col-sm-5 col-xs-12'] 
+	Wait Until Page Contains Element  int_rate  
+	Wait Until Page Contains Element  totalRepaymentSort  
+	Wait Until Page Contains Element  monthlyRepaymentSort 
+	Wait Until Element Is Visible  css=div[id='results'] 
+	Wait Until Element Is Visible        load-more 	
+	Element Should Contain  			load-more  			MOSTRAR MÁS OFERTAS DE CRÉDITO AUTOMOTRIZ
+	Element Should Contain            css=div[class='hdr1 col-md-5 col-sm-5 col-xs-12']  Encontramos 11 ofertas
+
+	Verify Footer Is Present
+
+Go To Tarjetas de Crédito
+	Click Element  link=Tarjetas de Crédito 
+
+
+Verify Tarjetas de Crédito Page Is Loaded
+	Wait Until Page Contains Element     		css=h1[class='ch-landing__header']  
+	Element Should Contain  					css=h1[class='ch-landing__header']      		ENCUENTRA LA MEJOR TARJETA DE CRÉDITO	
+	# Wait Until Page Contains Element  			css=div[class='col-md-5 col-sm-4 col-xs-12 flter_lbl'] 
+	# Xpath Should Match X Times    				//li[@class='swiper-slidex slide-cards__item']     140
+
+
+
+
+
+Proceed to Results Page
+	Wait Until Page Contains Element  			css=a[class='btn compare-blk__btn js-compare-btn']
+	Click Element  								css=a[class='btn compare-blk__btn js-compare-btn']
+
+
+
+Verify Deals Count Is Correct In All Tabs1 
+	Wait Until Keyword Succeeds      			30 secs        5 secs        Slow Page      			css=li[data-value='all']			
+	Click Element  								css=li[data-value='all']         
+	Wait Until Keyword Succeeds      			30 secs        5 secs        Slow Page      			css=span[class='total-result-count'] 
+	Element Should Contain  					css=span[class='total-result-count']      		 mejores 66 ofertas
+
+Verify Deals Count Is Correct In All Tabs2
+	Click Element  								css=li[data-value='premium']         
+	Wait Until Keyword Succeeds      			30 secs        5 secs        Slow Page      			css=span[class='total-result-count'] 
+	Element Should Contain  					css=span[class='total-result-count']      		 mejores 17 ofertas
+
+Verify Deals Count Is Correct In All Tabs3
+	Click Element  								css=li[data-value='travel']         
+	Wait Until Keyword Succeeds      			30 secs        5 secs        Slow Page      			css=span[class='total-result-count'] 
+	Element Should Contain  					css=span[class='total-result-count']      		 mejores 14 ofertas
+
+Verify Deals Count Is Correct In All Tabs4
+	Click Element  								css=li[data-value='shopping']         
+	Wait Until Keyword Succeeds      			30 secs        5 secs        Slow Page      			css=span[class='total-result-count'] 
+	Element Should Contain  					css=span[class='total-result-count']      		 mejores 5 ofertas
+
+Verify Deals Count Is Correct In All Tabs5
+	Click Element  								css=li[data-value='specialty']         
+	Wait Until Keyword Succeeds      			30 secs        5 secs        Slow Page      			css=span[class='total-result-count'] 
+	Element Should Contain  					css=span[class='total-result-count']      		 mejores 8 ofertas
+
+Verify Deals Count Is Correct In All Tabs6
+	Click Element  								css=li[data-value='lowapplication']         
+	Wait Until Keyword Succeeds      			30 secs        5 secs        Slow Page      			css=span[class='total-result-count'] 
+	Element Should Contain  					css=span[class='total-result-count']      		 mejores 9 ofertas
+
+Verify Deals Count Is Correct In All Tabs7
+	Click Element  								css=li[data-value='bestdeals']         
+	Wait Until Keyword Succeeds      			30 secs        5 secs        Slow Page      			css=span[class='total-result-count'] 
+	Element Should Contain  					css=span[class='total-result-count']      		 mejores 12 ofertas
+
+
+
+
+Go To Seguro De Autos Page	
+	Click Element  link=Seguro de Autos 
+																												
+
+Verify Seguro De Autos Page Is Loaded
+	Wait Until Page Contains Element  			css=h2
+	Element Should Contain  					css=h2      		 Seguro de Auto
+	Wait Until Page Contains Element  			css=div[class='row shoutout']
+
+	Element Should Contain  					css=div[class='row shoutout'] span[class='ci-text']      		 IMPARCIAL\nINDEPENDIENTE
+
+	Element Should Contain  					css=div.ci-left > ul:nth-child(1) > li:nth-child(2) > span:nth-child(2) 				GRATIS\nSIN COMPROMISO                        
+	Element Should Contain  					css=div.ci-left > ul:nth-child(1) > li:nth-child(3) > span:nth-child(2)  				COMPARA\nFÁCIL Y RÁPIDO                        
+
+	# on hold by kams. 
+	# Wait Until Page Contains Element        css=div[class='vehicle-make']
+	# Wait Until Keyword Succeeds      			30 secs        5 secs        Slow Page      			css=div.vehicle-make > ul:nth-child(2) > li[data-item='ACURA']
+	# # Element Should Contain         				css=div[class='vehicle-make']     	Please select a year.
+	# Click Element      							css=li[data-item='2015']
+	# Element Should Contain         				css=div.ci-step-2 > span.step.show > span      MARCA
+	# Verify All Car Make Is Listed
+	# Wait Until Element Is Visible         		css=div.vehicle-make > ul:nth-child(2) > li[data-item='ACURA']
+	# Click Element      							css=div.vehicle-make > ul:nth-child(2) > li[data-item='ACURA']
+	# Element Should Contain         				css=div.ci-step-3 > span.step.show > span  					MODELO
+	# Wait Until Element Is Visible         		css=ul.model-list > li:nth-child(1) > span:nth-child(1)
+	# Click Element      							css=ul.model-list > li:nth-child(1) > span:nth-child(1)
+	# Wait Until Element Is Visible         		css=div.vehicle-submodel > ul:nth-child(2) > li:nth-child(1) > span:nth-child(1)
+	# Click Element      							css=div.vehicle-submodel > ul:nth-child(2) > li:nth-child(1) > span:nth-child(1)
+
+
+
+	# Element Should Contain         				css=div.ci-step-4 > span.step.show > span  			Trim
+	# Wait Until Element Is Visible         		css=div[class='vehicle-submodel'] > ul > li[data-item='Turbo FSI 1.4L Sportsback 1.4L Gas S-Tronic'] > span  	
+	# Click Element      							css=div[class='vehicle-submodel'] > ul > li[data-item='Turbo FSI 1.4L Sportsback 1.4L Gas S-Tronic'] > span
+
+
+
+
+
+
+# 	Element Should Contain  					css=div[class='row shoutout'] > li:nth-child(2) > span:nth-child(2)      		 GRATIS\n
+# 	SIN COMPROMISO
+# 	Element Should Contain  					css=div[class='row shoutout'] > li:nth-child(3) > span:nth-child(2)      		 COMPARA\n
+# 	FÁCIL Y RÁPIDO
+
+
+
+Go To Footer Blog Link
+	Wait Until Keyword Succeeds      			30 secs        5 secs        Slow Page      			css=div[class='col-md-3 col-sm-3 col-xs-12 find-out-links'] a[href='http://www.comparaguru.com/blog/']
+	Click Element      							css=div[class='col-md-3 col-sm-3 col-xs-12 find-out-links'] a[href='http://www.comparaguru.com/blog/']
+
+
+Verify Blog Page Is Loaded 
+	Location Should Be         					http://www.comparaguru.com/blog/    
+	Wait Until Element Is Visible         		css=div[id='iview']
+	Element Should Contain         				css=h1     			Centro de Información Financiera
+
+
+
+
+
+# Go to Car Loan Form Page
+
+
+
+
+
+# Verify Car Loan Form Page Is Loaded
+
+# 	# Element Should Contain  css=h1  Seguro de Autos - ¡Obten la mejor oferta!
+# 	Element Should Contain  css=span.landing-step1  1. Información acerca del vehículo
+# 	Element Should Contain  css=span.landing-steps  2. Información acerca de usted
+# 	Wait Until Page Contains Element  year  
+# 	Wait Until Page Contains Element  brand  
+# 	Wait Until Page Contains Element  model  
+# 	Wait Until Page Contains Element  css=#step1_submit_click > span  
+
+
+*** Keywords ***
+
+samlino
+Verify Footer Is Present
+	# Element Should Contain  //div/h2  ENCUENTRA LA MEJOR TARJETA DE CRÉDITO
+	Wait Until Page Contains Element  css=span[class='footer-main-title']
+	Wait Until Page Contains Element  css=div[class='col-md-3 col-sm-3 col-xs-12 find-out-links']
+	Wait Until Page Contains Element  css=div[class='join-us']
+	Wait Until Page Contains Element  css=a[class='socialmedia fb']
+	Wait Until Page Contains Element  css=a[class='socialmedia gp']
+	Wait Until Page Contains Element  css=a[class='socialmedia blog']
+	Wait Until Page Contains Element  css=div[class='safe-footer']
+	Wait Until Page Contains Element  css=img[src='//shield.sitelock.com/shield/www.comparaguru.com']
+	Wait Until Page Contains Element  css=div[class='footer']
+	Element Should Contain  		  css=div[class='footer']         © 2015 ComparaGuru Limited Global. Todos los derechos reservados. El uso de este sitio implica que aceptas de nuestras Condiciones de Uso y la Política de Privacidad.
+
+
+
+Table Loaded
+	Reload Page
+	Wait Until Page Contains Element  css=span[data-sort='minRate']  
+	Wait Until Page Contains Element  css=span[data-sort='RateRisk']  
+	Wait Until Page Contains Element  css=span[data-sort='totalRepaymentSort']  
+	Wait Until Page Contains Element  css=span[data-sort='monthlyRepaymentSort']  
+
+
+Verify All Car Make Is Listed
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(2) > li[data-item='ACURA']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(2) > li[data-item='ASTON MARTIN']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(2) > li[data-item='AUDI']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(2) > li[data-item='BENTLEY']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(2) > li[data-item='BMW']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(2) > li[data-item='CADILLAC']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(2) > li[data-item='CHEVROLET']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(2) > li[data-item='CHRYSLER']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(2) > li[data-item='DODGE']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(2) > li[data-item='FERRARI']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(2) > li[data-item='FIAT']
+
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(3) > li[data-item='GMOTORS']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(3) > li[data-item='HONDA']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(3) > li[data-item='HYUNDAI']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(3) > li[data-item='INFINITI']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(3) > li[data-item='JAGUAR']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(3) > li[data-item='JEEP']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(3) > li[data-item='LINCOLN']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(3) > li[data-item='LROVER']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(3) > li[data-item='MAZDA']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(3) > li[data-item='MBENZ']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(3) > li[data-item='MINI']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(3) > li[data-item='MITSUBISHI']
+
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(4) > li[data-item='NISSAN']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(4) > li[data-item='PEUGEOT']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(4) > li[data-item='PONTIAC']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(4) > li[data-item='PORSCHE']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(4) > li[data-item='RENAULT']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(4) > li[data-item='SEAT']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(4) > li[data-item='SUBARU']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(4) > li[data-item='SUZUKI']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(4) > li[data-item='TOYOTA']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(4) > li[data-item='VOLKSWAGEN']

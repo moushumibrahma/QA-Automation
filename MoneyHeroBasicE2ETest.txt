@@ -1,0 +1,811 @@
+*** Settings ***
+Library   Selenium2Library
+Library   BuiltIn
+Library   String
+Library   OperatingSystem
+
+
+Suite Setup   Open Browser   ${HOMEPAGE}   ${BROWSER}
+Suite Teardown   Close All Browsers
+Resource          Common/Common.txt
+
+*** Variables ***
+${HOMEPAGE}   http://www.moneyhero.com.hk/en
+${BROWSER}   firefox
+
+*** Resources ***
+
+
+# Getting the values on Deals found is via Postman chrome extension.  And then  get the URL from QA Report Google spreadsheet.
+# getting this values on curl now instead of the postman. 
+*** Test Cases *** 
+Initialize Test
+	Common.Initialize Test
+
+	
+
+Verify Main Page Is Loaded
+	# Verify Header Is Present
+	Wait Until Page Contains Element      css=div[class='header-block__top']
+	Wait Until Page Contains Element      css=img[class='header-block__img']
+	Wait Until Page Contains Element      css=a[class='header-cta']
+
+
+	# Verify Menu Navigation Is Complete
+	Wait Until Page Contains Element      	css=i[class='m-icon m-icon--nav_home']
+	Element Should Contain      			css=a[href='//www.moneyhero.com.hk/en/personal-loan/personal-instalment']     			Personal Loans
+	Element Should Contain      			css=li[class='navi-block__item navi-block__item--arrow hidden-xs']:nth-child(4) > span[class='navi-block__url js-navi-block__url']     			Money
+	Element Should Contain      			css=li[class='navi-block__item navi-block__item--arrow hidden-xs']:nth-child(5) > span[class='navi-block__url js-navi-block__url']     	       	Insurance
+	Wait Until Page Contains Element      	link=News
+	Wait Until Page Contains Element      	link=Help     
+	Wait Until Page Contains Element      	css=a[href='//www.moneyhero.com.hk/']
+	Wait Until Page Contains Element      	css=button[class='navi-block__switch js-navi-block__switch hidden-xs']
+
+
+	# Verify Banner Block Is Loading
+	Wait Until Page Contains Element      css=section[class='hero-block js-hero-block swiper-container hidden-xs ch-landing']
+
+
+	# Verify Provider Block Is Loading
+	Wait Until Page Contains Element      css=div[class='ch-provider js-ch-provider--homepage']
+
+
+	# Verify Vertical Block Is Loading
+	Wait Until Page Contains Element      css=div[class='vertical-block']
+	Wait Until Page Contains Element      css=a[href='//www.moneyhero.com.hk/en/credit-card']
+	Wait Until Page Contains Element      css=a[href='//www.moneyhero.com.hk/en/mortgage']
+	Wait Until Page Contains Element      css=a[href='//www.moneyhero.com.hk/en/personal-loan']
+	Wait Until Page Contains Element      css=a[href='//www.moneyhero.com.hk/en/travel-insurance']
+	Wait Until Page Contains Element      css=a[href='//www.moneyhero.com.hk/en/medical-insurance']
+
+
+	# Verify Why Choose Container Block Is Loading
+	Wait Until Page Contains Element      css=div[class='why-choose-container']
+	Wait Until Page Contains Element      css=div[class='img reason-1']
+	Wait Until Page Contains Element      css=div[class='img reason-2']
+	Wait Until Page Contains Element      css=div[class='img reason-3']
+
+
+	# Verify Footer Is Present
+	Wait Until Page Contains Element      css=div[class='cx-says']
+	Wait Until Page Contains Element      css=div[class='steps']
+	Wait Until Page Contains Element      css=div[class='fb_box hidden-xs']
+	Wait Until Page Contains Element      css=div[class='subfooter-title']
+	Wait Until Page Contains Element      css=div[class='subfooter-content subfooter-container']
+
+
+
+
+
+
+Go to Personal Loan
+	Click Element   		css=a[href='//www.moneyhero.com.hk/en/personal-loan/personal-instalment']
+
+
+Verify Personal Loan Is Loaded	
+	Location Should Contain 				en/personal-loan/personal-instalment
+	Element Should Contain    				css=h1[class='masterhead-heading']		FINANCE YOUR GOALS WITH A PERSONAL LOAN	
+	Wait Until Page Contains Element      	css=div[id='filter-panel']
+	Wait Until Page Contains Element      	css=div[id='resultcontainer']
+
+
+	# verify deals count is correct
+	# verify rows count is correct as default is 10
+
+Filter Personal Loan Result Table
+	Input Text 								css=input[id='loan-amount']    20000
+	Click Element   						css=button[id='searchProducts']
+	Element Should Contain      			css=span[class='total-result-count']         the best 14 deals
+	Input Text 								css=input[id='loan-amount']    200000
+	Select From List By Value				css=select[id='loan-tenure']        6
+	Click Element   						css=button[id='searchProducts']
+	Element Should Contain      			css=span[class='total-result-count']         the best 7 deals
+	# Input Text 								css=input[id='loan-amount']    50000
+	# Select From List By Value				css=select[id='loan-tenure']        48	
+	# Click Element   						css=button[id='searchProducts']
+	# Element Should Contain      			css=span[class='total-result-count']         the best 10 deals
+	# Select From List By Value				css=select[id='loan-tenure']        84	
+	# Click Element   						css=button[id='searchProducts']
+	# Element Should Contain      			css=span[class='total-result-count']         the best 2 deals
+
+
+Sort Personal Loan Result Table
+	Reload Page
+	Element Should Contain       	css=div.sort-menu__item:nth-child(1) > h4:nth-child(1)					Lowest Monthly\nFlat Rate
+	Element Should Contain       	css=div.sort-menu__item:nth-child(2) > h4:nth-child(1)					Total\nRepayment
+	Element Should Contain       	css=div.sort-menu__item:nth-child(3) > h4:nth-child(1)					Monthly\nRepayment
+	Click Element   		css=div[data-sort='interestRateValueSort']
+	Click Element   		css=div[data-sort='totalRepaymentSort']
+	Click Element   		css=div[data-sort='monthlyRepaymentSort']
+	Click Element   		css=div[data-sort='interestRateValueSort']
+	Click Element   		css=div[data-sort='totalRepaymentSort']
+	Click Element   		css=div[data-sort='monthlyRepaymentSort']
+
+
+
+Verify Feature Deals
+	Wait Until Page Contains Element      	css=div[id='featured_list']
+	Wait Until Page Contains Element      	css=span[class='result-item__tag result-item__tag--feat']
+	Wait Until Page Contains Element      	css=span[class='result-item__tag result-item__tag--exc']
+
+
+Expand One Offer Details From All	
+	Wait Until Page Contains Element      	css=label[class='list__label more_info_sh more-keyfeatures']
+	Click Element   						css=label[class='list__label more_info_sh more-keyfeatures'] > span[class='list__action-text']
+
+
+
+Verify Details Is Correct From All
+	Wait Until Page Contains Element      	css=div[class='more-info']
+	Wait Until Page Contains Element      	css=p[class='more-info__features']
+
+Collapse Offer Details From All
+	Click Element   						css=label[class='list__label more_info_sh more-keyfeatures'] > span[class='list__action-text']	
+
+
+# Verify URl of Last Column Is Redirecting to Non Blank Page.
+# 	# No Operation
+# 	# copy url and open directly in address bar. 
+# 	# make sure page doenst contain any ERROR or WARNING or ALERT string due to incorrect redirection.												
+
+
+# Extend Table Result To Show All Deals
+# 	# No Operation
+	# Click show all deals button at the bottom of the table while present
+	# Count number of rows and compare with expected deals. 
+																											
+											
+
+
+Go to Credit Card Page
+	Go To   			${HOMEPAGE}
+	Wait Until Page Contains Element      	css=li.navi-block__item--arrow:nth-child(4) > span:nth-child(1)
+	Element Should Contain      			css=li.navi-block__item--arrow:nth-child(4) > span:nth-child(1)         Money
+	Mouse Over   							css=li.navi-block__item--arrow:nth-child(4) > span:nth-child(1)
+	Wait Until Element Is Visible     		css=ul[class='navi-inner__list'] > li[class='navi-inner__item navi-inner__item-sdm navi-inner__item_cc'] > a[class='navi-inner__url'][href='//www.moneyhero.com.hk/en/credit-card']
+	Click Element   						css=ul[class='navi-inner__list'] > li[class='navi-inner__item navi-inner__item-sdm navi-inner__item_cc'] > a[class='navi-inner__url'][href='//www.moneyhero.com.hk/en/credit-card']
+
+
+
+Verify Credit Card Page Is Loaded
+	Location Should Contain 				/en/credit-card
+	Wait Until Page Contains Element      	css=h2[class='slide-cards__title']
+	Element Should Contain    				css=h2[class='slide-cards__title']		Not sure what Credit Card you need?	
+	Wait Until Page Contains Element      	css=div[id='landing-content']
+	Element Should Contain					css=h2[class='text-semibold font-dark-green']			Compare The Best Credit Card Deals Now
+	Wait Until Page Contains Element      	css=section[class='seo-panel']
+
+
+
+Verify Credit Card Tabs Are Correct
+	Xpath Should Match X Times    //li[@class='swiper-slide slide-cards__item hidden-xs swiper-slide-duplicate']   	8
+	Xpath Should Match X Times    //li[@class='swiper-slide slide-cards__item hidden-xs']   						3
+	Xpath Should Match X Times    //span[@class='btn btn--see-all']   												15
+
+
+Go To Credit Card Table List From Casserole
+	Click Element   			css=a[href='/en/credit-card/all']
+
+Verify All Credit Card Page Is Loaded
+	Location Should Contain 				/en/credit-card/all
+
+
+Go To Airmiles Tab
+	Click Element   			css=li[data-name='Airmiles']:nth-child(2) > a[class='tab-menu__url tab-menu__url--expand'] > span:nth-child(2)
+
+
+Verify Airmiles Credit Card Page Is Loaded
+	Location Should Contain 				/en/credit-card/airmiles
+
+
+Go To Cashback Tab
+	Click Element   			css=li[data-name='Cashback'] a[class='tab-menu__url tab-menu__url--expand']
+
+
+Verify Cashback Credit Card Page Is Loaded
+	Location Should Contain 				/en/credit-card/cashback
+
+
+# Go To Contactless Tab
+# 	Click Element   			css=li[data-name='Contactless'] a[class='tab-menu__url tab-menu__url--expand']
+
+
+# Verify Contactless Credit Card Page Is Loaded
+# 	Location Should Contain 				/en/credit-card/contactless-payment
+
+Go To Dining Tab
+	Click Element   			css=li[data-name='Dining'] a[class='tab-menu__url tab-menu__url--expand']
+
+
+Verify Dining Credit Card Page Is Loaded
+	Location Should Contain 				/en/credit-card/dining
+
+
+
+Go To Online shopping Tab
+	Click Element   			css=li[data-name='Online shopping'] a[class='tab-menu__url tab-menu__url--expand']
+
+
+Verify Online shopping Credit Card Page Is Loaded
+	Location Should Contain 				/en/credit-card/online-shopping
+
+
+
+Go To Premium shopping Tab
+	Click Element   			css=li[data-name='Premium'] a[class='tab-menu__url tab-menu__url--expand']
+
+
+Verify Premium shopping Credit Card Page Is Loaded
+	Location Should Contain 				/en/credit-card/premium
+
+
+
+
+
+Go To Best Deals Tab
+	Click Element   			css=li[data-name='Best Deals'] a[class='tab-menu__url tab-menu__url--expand']
+
+
+Verify Best Deals Credit Card Page Is Loaded
+	Location Should Contain 				/en/credit-card/best-deals
+
+
+
+
+Go Back To All Tab
+	Click Element   			css=li[data-name='All'] a[class='tab-menu__url tab-menu__url--expand']
+	Location Should Contain 				/en/credit-card/all
+
+
+No Filtering
+	Page Should Not Contain      	css=div[id='filter-panel']
+
+Verify Sorting Is Active
+
+	Element Should Contain      			css=div[data-sort='cashbackbasicsort']     	Cashback
+	Element Should Contain      			css=div[data-sort='airmilebasicsort']     	Airmiles
+	Element Should Contain      			css=div[data-sort='minIncomesort']     		Annual Salary
+
+	Click Element   			css=div[data-sort='cashbackbasicsort']
+	Click Element   			css=div[data-sort='airmilebasicsort']
+	Click Element   			css=div[data-sort='minIncomesort']
+	Click Element   			css=div[data-sort='cashbackbasicsort']
+	Click Element   			css=div[data-sort='airmilebasicsort']
+	Click Element   			css=div[data-sort='minIncomesort']
+
+
+
+
+Expand Offer Details	
+	Wait Until Page Contains Element      	css=label[class='list__label more_info_sh more-keyfeatures']
+	Click Element   						css=label[class='list__label more_info_sh more-keyfeatures'] > span[class='list__action-text']
+
+
+
+Verify Details Is Correct
+	Wait Until Page Contains Element      	css=div[class='more-info']
+	Wait Until Page Contains Element      	css=p[class='more-info__features']
+
+Collapse Offer Details
+	Click Element   						css=label[class='list__label more_info_sh more-keyfeatures'] > span[class='list__action-text']	
+
+
+
+
+
+# Get Apply Now URL and Open in tab.
+# 	# No Operation
+# 	# make sure page is loading without error.warning/alert
+
+
+
+Verify Airmiles Table Is Working
+	Click Element   						css=li[data-name='Airmiles']
+	Element Should Contain      			css=h1[class='masterhead-heading']				EARN MORE AIR MILES AS YOU SPEND!
+	Element Should Contain      			css=div[data-sort='airmilebasicsort']			Airmiles
+	Element Should Contain      			css=div[data-sort='airmileenrichmilessort']		Airmiles
+	Element Should Contain      			css=div[data-sort='airmilefeesort']				Airmiles
+
+
+Verify CashBack Table Is Working
+	Click Element   						css=li[data-name='Cashback']
+	Element Should Contain      			css=h1[class='masterhead-heading']				EARN BACK HK$ FOR EVERY HK$ YOU SPEND!
+	Element Should Contain      			css=div[data-sort='cashbackbasicsort']			Cashback
+	Element Should Contain      			css=div[data-sort='cashbackretailsort']			Cashback
+	Element Should Contain      			css=div[data-sort='minIncomesort']				Annual Salary
+
+	
+# Verify Contactless Table Is Working
+# 	Click Element   						css=li[data-name='Contactless']
+# 	Element Should Contain      			css=h1[class='masterhead-heading']				TAP AND PAY USING CONTACTLESS CARDS
+# 	Element Should Contain      			css=div[data-sort='cashbackcontactlesssort']			Cashback
+# 	Element Should Contain      			css=div[data-sort='cashbackbasicsort']			Cashback
+# 	Element Should Contain      			css=div[data-sort='minIncomesort']				Annual Salary
+
+	
+Verify Dining Table Is Working
+	Click Element   						css=li[data-name='Dining']
+	Element Should Contain      			css=h1[class='masterhead-heading']				ENJOY DINING OFFERS WITH YOUR CREDIT CARD
+	Element Should Contain      			css=div[data-sort='cashbackdiningsort']				Cashback
+	Element Should Contain      			css=div[data-sort='airmileonlineshoppingsort']		Airmiles
+	Element Should Contain      			css=div[data-sort='cashbackbasicsort']				Cashback
+
+	
+Verify Online Shopping Table Is Working
+	Click Element   						css=li[data-name='Online shopping']
+	Element Should Contain      			css=h1[class='masterhead-heading']				EARN HUGE REWARDS WHEN YOU SHOP ONLINE!
+	Element Should Contain      			css=div[data-sort='cashbackonlineshoppingsort']			Cashback
+	Element Should Contain      			css=div[data-sort='cashbackbasicsort']			Cashback
+	Element Should Contain      			css=div[data-sort='minIncomesort']				Annual Salary
+
+	
+Verify Preimum Table Is Working
+	Click Element   						css=li[data-name='Premium']			
+	Element Should Contain      			css=h1[class='masterhead-heading']				GET THE PRESTIGIOUS REWARDS YOU DESERVE!
+	Element Should Contain      			css=div[data-sort='cashbackbasicsort']			Cashback
+	Element Should Contain      			css=div[data-sort='airmilebasicsort']			Airmiles
+	Element Should Contain      			css=div[data-sort='minIncomesort']				Annual Salary
+
+
+Verify Best Deals Table Is Working
+	Click Element   						css=li[data-name='Best Deals']
+	Element Should Contain      			css=h1[class='masterhead-heading']			THE BEST CREDIT CARD DEALS IN HONG KONG
+	Element Should Contain      			css=div[data-sort='cashbackbasicsort']			Cashback
+	Element Should Contain      			css=div[data-sort='airmilebasicsort']		Airmiles
+	Element Should Contain      			css=div[data-sort='minIncomesort']				Annual Salary
+
+
+
+Go To All Tabs
+	Click Element   			css=li[data-name='All'] a[class='tab-menu__url tab-menu__url--expand']
+	Location Should Contain 				/en/credit-card/all
+
+
+Choose A Credit Card And Compare To Another Card.
+	Click Element   			css=span[class='form-radcheck__elem--visible']
+	Wait Until Page Contains Element      	css=div[class='shortlist-cards']
+	Wait Until Page Contains Element      	css=a[class='sc-block__href']	
+	Click Element   						css=a[class='sc-block__href']
+	Click Element   			css=div[class='container-fluid js-result-container']:nth-child(1) div[class='form-radcheck form-radcheck--checkbox']
+	Click Element   			css=div[class='container-fluid js-result-container']:nth-child(5) div[class='form-radcheck form-radcheck--checkbox']
+	Click Element   			css=a[class='btn btn-large btn-success pull-right btn-compare-cards']
+	Wait Until Page Contains Element      	css=div[class='modal-compare__head']	
+	Element Should Contain					css=div[class='col-sm-12 modal-compare__cols'] h3										Credit Cards Comparison   
+	Element Should Contain					css=h4[class='modal-compare__type']			Promos                                   
+	Page Should Contain     				Cashback (local spending)     
+
+
+	Wait Until Page Contains Element   			css=img[title='Standard Chartered WorldMiles Card']
+	Wait Until Page Contains Element   			css=img[title='Citibank PremierMiles Card']
+
+	Page Should Not Contain  				css=div[class='modal-compare__inner-row clearfix'] div[class='col-sm-4 modal-compare__cols']:nth-child(3)
+
+
+	Select From List By Value    			css=select[class='modal-compare__select modal-compare__select--bank']        AEON
+	Select From List By Value    			css=select[class='modal-compare__select modal-compare__select--card']        8
+
+	Click Element   							css=a[class='btn btn-lg btn-primary btn-shortlist-add']
+	Wait Until Page Contains Element   			css=div[class='modal-compare__inner-row clearfix'] div[class='col-sm-4 modal-compare__cols']:nth-child(3)
+
+	Wait Until Page Contains Element   			css=img[title='AEON Visa Credit Card']
+
+
+
+Get Out Of the Comparison Modal
+	Click Element   							css=button[class='modal-compare__close']
+
+
+Go to Credit Card Glossary Page
+	Go To   			${HOMEPAGE}	
+	Reload Page
+	Wait Until Page Contains Element      	css=li.navi-block__item--arrow:nth-child(4) > span:nth-child(1)
+	Element Should Contain      			css=li.navi-block__item--arrow:nth-child(4) > span:nth-child(1)         Money
+	Mouse Over   							css=li.navi-block__item--arrow:nth-child(4) > span:nth-child(1) 
+
+	Wait Until Element Is Visible     		css=ul[class='navi-inner__list'] > li[class='navi-inner__item navi-inner__item-sdm navi-inner__item_cc'] > a[class='navi-inner__url'][href='//www.moneyhero.com.hk/en/credit-card']
+	Mouse Over   							css=ul[class='navi-inner__list'] > li[class='navi-inner__item navi-inner__item-sdm navi-inner__item_cc'] > a[class='navi-inner__url'][href='//www.moneyhero.com.hk/en/credit-card']
+
+
+	Click Element   						css=li.navi-inner-second__list__item:nth-child(4) > a[class='navi-inner__url'][href='//www.moneyhero.com.hk/en/credit-card/glossary']
+
+
+
+Verify Credit Card Glossary Page Is Loaded
+	Go To   			${HOMEPAGE}/credit-card/glossary
+	Location Should Contain 					/en/credit-card/glossary
+	Wait Until Page Contains Element      		css=div[class='container-full header-wrapper']
+	Wait Until Page Contains Element    		css=h1
+	Element Should Contain       				css=h1         CREDIT CARD GLOSSARY OF TERMS
+	Wait Until Page Contains Element      		css=a[id='compare-btn-med']
+	Wait Until Page Contains Element      		css=a[href='/en/credit-card/guide']
+
+
+
+
+Go to Credit Card Guide Page
+# 	Go To   			${HOMEPAGE}
+	
+	Go To   			${HOMEPAGE}/credit-card/guide
+	# Reload Page
+	# Wait Until Page Contains Element      	css=li.navi-block__item--arrow:nth-child(4) > span:nth-child(1)
+	# Element Should Contain      			css=li.navi-block__item--arrow:nth-child(4) > span:nth-child(1)         Money
+	# Mouse Over   							css=li.navi-block__item--arrow:nth-child(4) > span:nth-child(1)
+	# Wait Until Element Is Visible     		css=ul[class='navi-inner__list'] > li[class='navi-inner__item navi-inner__item-sdm navi-inner__item_cc'] > a[class='navi-inner__url'][href='//www.moneyhero.com.hk/en/credit-card']
+	# Mouse Over   							css=ul[class='navi-inner__list'] > li[class='navi-inner__item navi-inner__item-sdm navi-inner__item_cc'] > a[class='navi-inner__url'][href='//www.moneyhero.com.hk/en/credit-card']
+
+	# Wait Until Element Is Visible     		ccss=ul[class='navi-inner-second__list navi-inner-second__list-cc'] > li[class='navi-inner-second__list-cc']:nth-child(3) > a[href='//www.moneyhero.com.hk/en/credit-card/guide']
+	# Click Element   						css=ul[class='navi-inner-second__list navi-inner-second__list-cc'] > li[class='navi-inner-second__list-cc']:nth-child(3) > a[href='//www.moneyhero.com.hk/en/credit-card/guide']
+
+
+Verify Credit Card Guide Page Is Loaded
+	# Verify page is loaded
+	Go To   			${HOMEPAGE}/credit-card/guide
+    Page Should Not Contain    					Loading. Please wait.
+    Location Should Contain 					/en/credit-card/guide
+	Wait Until Page Contains Element    		css=h1
+	Element Should Contain       css=h1         MONEYHERO'S GUIDE FOR CREDIT CARDS IN HONG KONG.
+	Xpath Should Match X Times    //h2  		3
+	# Xpath Should Match X Times    //h3  		3
+
+
+
+
+
+Go to Credit Card Banks Page	
+	Go Back
+	Wait Until Page Contains Element      	css=li.navi-block__item--arrow:nth-child(4) > span:nth-child(1)
+	Element Should Contain      			css=li.navi-block__item--arrow:nth-child(4) > span:nth-child(1)         Money
+	Mouse Over   							css=li.navi-block__item--arrow:nth-child(4) > span:nth-child(1)
+	Wait Until Element Is Visible     		css=ul[class='navi-inner__list'] > li[class='navi-inner__item navi-inner__item-sdm navi-inner__item_cc'] > a[class='navi-inner__url'][href='//www.moneyhero.com.hk/en/credit-card']
+	Mouse Over   							css=ul[class='navi-inner__list'] > li[class='navi-inner__item navi-inner__item-sdm navi-inner__item_cc'] > a[class='navi-inner__url'][href='//www.moneyhero.com.hk/en/credit-card']
+	Click Element   css=li.navi-inner-second__list__item:nth-child(5) > a[href='//www.moneyhero.com.hk/en/credit-card/banks']
+
+
+Verify Credit Card Banks Page Is Loaded
+	# Verify page is loaded
+	Go To   			${HOMEPAGE}/credit-card/banks
+	Reload Page
+    Location Should Contain 					/en/credit-card/banks
+    Page Should Not Contain    													Loading. Please wait.
+	Wait Until Page Contains Element    		css=h1
+	Xpath Should Match X Times       //div[@class='provider-individual']      	15
+	Element Should Contain       css=h1         								OUR CREDIT CARD PARTNERS
+	Xpath Should Match X Times    //h2  										2
+
+
+# Not sure with this one still.
+
+
+# Go to Insurance / Medical Insurance / Medical Inusurance Comparison Page
+# # 	Mouse Over   css=li[class='navi-block__item navi-block__item--arrow hidden-xs'][5]
+# # 	Mouse Over   css=a[href='//www.moneyhero.com.hk/en/medical-insurance']
+# # 	Click Element   css=a[href='//www.moneyhero.com.hk/en/medical-insurance/get-quote#step1']
+# 	Go To  			 http://www.moneyhero.com.hk/en/medical-insurance/get-quote#step1
+
+
+
+
+# Verify Health Insurance First Page Is Loaded 
+# 	Wait Until Page Contains Element    css=h1[class='ch-landing__header']
+# 	Location Should Contain     		/medical-insurance
+#     Element Should Contain       		css=h1[class='ch-landing__header']         COMPARE MEDICAL INSURANCE
+# 	Page Should Contain					Who do you want to cover?
+# 	Wait Until Page Contains Element    css=select[id='wanttoinsure']
+# 	Wait Until Page Contains Element    css=a[class='btn compare-blk__btn js-compare-btn']
+
+
+# Click Compare Now Button In Health Insurance First Page 
+# 	Click element     					css=a[class='btn compare-blk__btn js-compare-btn']
+
+
+
+# Verify Step 1 Of 5 Is Loaded.
+# 	Location Should Contain     		/medical-insurance/get-quote#step1
+# 	Wait Until Page Contains Element   		css=div[class='steps-block__list']
+# 	# Xpath Should Match X Times    		//div[@class='steps-block__list']//div[@class='js-2_breadcrumbs js-breadcrumbs steps-block__item']  10
+#     Element Should Contain       		css=span[class='q-block__step']         	Step 1 of 5:
+#     Element Should Contain       		css=span[class='q-block__quest']        	WHO DO YOU WANT TO INSURE?
+# 	Wait Until Page Contains Element   	css=div[class='steps-block__list']
+# 	Click element     					css=a[id='1_submit']
+
+
+
+# Verify Step 2 Of 5 Is Loaded.
+# 	Location Should Contain     		/medical-insurance/get-quote#step2
+
+#     Element Should Contain       		css=span[class='q-block__step']         	Step 2 of 5:
+#     Element Should Contain       		css=span[class='q-block__quest']        	What is your age and nationality?
+# 	Wait Until Page Contains Element   	css=input[id='age']
+# 	Input Text    						css=input[id='age']							12
+# 	Wait Until Page Contains Element   	css=select[id='nationality']
+# 	Select From List By Value   		css=select[id='nationality']                American
+# 	Wait Until Page Contains Element   	css=div[class='steps-block__list']
+# 	Click element     					css=a[id='2_submit']
+
+
+# Verify Step 3 Of 5 Is Loaded.
+# 	Location Should Contain     		/medical-insurance/get-quote#step3
+#     Element Should Contain       		css=span[class='q-block__step']         	Step 3 of 5:
+#     Element Should Contain       		css=span[class='q-block__quest']        	What do you want to cover?
+#     Xpath Should Match X Times    		//li[@class='q-block__icon-items']  		4
+#     Wait Until Page Contains Element   	css=input[id='age']
+
+#     q-block__icon m-icon m-icon--inpatient q-block__icon--selected quest__tooltip
+# 	Wait Until Page Contains Element   	css=div[class='steps-block__list']
+# 	Click element     					css=a[id='3_submit']
+
+# Verify Step 4 Of 5 Is Loaded.
+# 	Location Should Contain     		/medical-insurance/get-quote#step4
+#     Element Should Contain       		css=span[class='q-block__step']         	Step 4 of 5:
+#     Element Should Contain       		css=span[class='q-block__quest']        	 How much excess are you willing to pay?
+# 	Wait Until Page Contains Element   	css=div[class='steps-block__list']
+# 	Click element     					css=a[id='4_submit']
+
+
+# Verify Step 5 Of 5 Is Loaded.
+# 	Location Should Contain     		/medical-insurance/get-quote#step5
+#     Element Should Contain       		css=span[class='q-block__step']         	Step 5 of 5:
+#     Element Should Contain       		css=span[class='q-block__quest']        	 ADDITIONAL COVERAGE OPTIONS?
+# 	Wait Until Page Contains Element   	css=div[class='steps-block__list']
+# 	Click element     					css=a[id='5_submit']
+
+
+
+# Verify Health Insurance Modal Dialog Is Loaded 
+# 	Wait Until Page Contains Element   		css=div[class='modal-dialog']
+# 	Page Should Contain        		Check prices from different medical insurers in Hong Kong, for free!	
+# 	Page Should Contain						By requesting quotes on this page, you have read and agree to our Terms & Conditions and that all information provided by you to us will be used and shared with a third party professional advisor, who may contact you and help you to get the best product for your needs
+# 	Input Text     css=input[id='fullname']    test
+# 	Input Text     css=input[id='email']    test@gmail.com
+# 	Click element     css=input[id='phone_no']
+# 	Input Text     	css=input[id='phone_no']    23456789
+# 	Click element    	css=span[class='button-checkbox bootstrap-checkbox cbo-terms pull-left'] button[class='btn clearfix btn-link btn-large']
+# 	# Click element   					css=button[id='ci-modal-btn']
+
+
+# Verify Health Insurance Comparison Page Is Loaded 
+# 	Reload Page 
+# 	Wait Until Page Contains Element    css=h1
+#     Element Should Contain       css=h1         Compare the best Medical Insurance deals now
+# 	Wait Until Page Contains Element    css=img[id='img_cheaper']	
+# 	Element Should Contain				css=div[class='cover-intro']     I require cover for:
+# 	Element Should Contain				css=label[for='inpatient']     	Hospital Cover 
+# 	Element Should Contain				css=label[for='outpatient']     Outpatient Cover
+# 	Element Should Contain				css=label[for='dental']     	Dental Cover
+# 	Element Should Contain				css=label[for='maternity']     	Maternity Cover
+# 	Element Should Contain				css=a[class='btn btn-link btn-small reset-filters']     Reset Filters
+# 	Element Should Contain				css=a[class='accordion-toggle adv_opt_pane']     		Show Advanced Options
+# 	Element Should Contain				css=div[id='mi-floating-need-help']     Need Help Deciding?
+# 	Element Should Contain				css=button[class='floating-sidebar-btn']     Call Me
+# 	Wait Until Page Contains Element	css=span[class='total-result-count']
+# 	Element Should Contain				css=span[class='total-result-count']		We found 347 deals
+# 	Element Should Contain				css=span[data-sort='productId']		Provider Policy 
+# 	Element Should Contain				css=span[data-sort='annualMaximumLimit']      Max Annual\nCover
+# 	Element Should Contain				css=span[data-sort='surgicalSortingVariable']		Surgical\nCover 
+# 	Element Should Contain				css=span[data-sort='outpatientSortingVariable']		Outpatient\nCover 
+# 	Element Should Contain				css=span[data-sort='dentalSortingVariable']		Dental Cover 
+# 	Element Should Contain				css=span[data-sort='maternitySortingVariable']		Maternity Cover 
+# 	Element Should Contain				css=span[data-sort='excessSort']		Excess Payable 
+# 	Element Should Contain				css=span[data-sort='premium']		Monthly Price 
+# 	Element Should Contain				css=a[class='hi-apply-btn speak_to_advisor hi-speak-to-advisor']		Speak to Advisor 
+# 	Element Should Contain				css=a[class='btn-compare-now goto_site hi-apply-btn']					Apply  
+# 	Element Should Contain				css=div[id='more-info-btn']					 Show More Info 
+# 	Element Should Contain				css=a[id='load-more']					 SHOW MORE MEDICAL INSURANCE DEALS 
+# 	Element Should Contain				css=h2					 Compare and Apply for the Best Medical Insurance in Hong Kong 
+# 	Xpath Should Match X Times    		//div[@class='row-fluid result']  10
+
+# 	Verify Header is present
+# 	Verify Footer is present 
+	
+
+
+
+# Go to Health Insurance Guide Page
+# 	Go Back
+# 	Mouse Over   css=a[class='dropdown-toggle'][href='http://www.moneyhero.com.hk/en/insurance'][data-toggle='dropdown']
+# 	Click Element   css=a[href='http://www.moneyhero.com.hk/en/medical-insurance/guide']
+
+
+# Verify Health Insurance Guide Page Is Loaded
+# 	# Verify page is loaded 
+# 	Reload Page 
+#     Page Should Not Contain    	Loading. Please wait.
+# 	Wait Until Page Contains Element    css=h1
+#     Element Should Contain       css=h1         Hong Kong Health Insurance Guide
+
+
+# Go to Health Insurance Partners Page
+# 	Go Back
+# 	Mouse Over   css=a[class='dropdown-toggle'][href='http://www.moneyhero.com.hk/en/insurance'][data-toggle='dropdown']
+# 	Click Element   css=a[href='http://www.moneyhero.com.hk/en/medical-insurance/partners']
+
+
+# Verify Health Insurance Partners Page Is Loaded
+# 	# Verify page is loaded  
+# 	Reload Page
+#     Page Should Not Contain    Loading. Please wait
+# 	Wait Until Page Contains Element    css=h1
+#     Element Should Contain       css=h1         MONEYHERO'S HEALTH INSURANCE PARTNERS
+
+
+# Go to Mortgage Page
+# 	Go Back
+# 	Wait Until Page Contains Element      css=a[href='http://www.moneyhero.com.hk/en/mortgage']
+# 	Mouse Over   css=a[href='http://www.moneyhero.com.hk/en/mortgage']
+# 	Click Element   css=a[href='http://www.moneyhero.com.hk/en/mortgage']
+
+
+# Verify Mortgage Page Is Loaded
+# 	# Verify page is loaded
+# 	Reload Page
+#     Page Should Not Contain    Loading. Please wait.
+# 	Wait Until Page Contains Element    css=h1
+#     Element Should Contain       css=h1         Compare the Best Housing and Mortage Loans in Hong Kong With MoneyHero
+# 	Page Should Contain    		Header
+
+
+
+# Go to Travel Insurance Page
+# 	Go Back
+# 	Wait Until Page Contains Element      css=a[href='http://www.moneyhero.com.hk/en/travel-insurance']
+# 	Mouse Over   css=a[href='http://www.moneyhero.com.hk/en/travel-insurance']
+# 	Click Element   css=a[href='http://www.moneyhero.com.hk/en/travel-insurance']
+
+
+# Verify Travel Insurance Page is loaded
+# 	# Verify page is loaded
+# 	Reload Page
+#     Page Should Not Contain    	Loading. Please wait.
+# 	Wait Until Page Contains Element      css=div[class='bread-crumb'] img[src='/assets/img/insurance/en-progress-bar-a.png']
+# 	Wait Until Page Contains Element      css=p[class='intro']
+# 	Element Should Contain      css=p[class='intro']     Compare prices to find the cheapest travel insurance plan!  Please provide the following information:
+# 	Wait Until Element Is Visible 			css=label[for='myself']
+# 	Element Should Not Be Visible 			id=birthDayInd1
+# 	Element Should Not Be Visible 			id=birthMonthInd1
+# 	Element Should Not Be Visible 			id=birthYearInd1
+# 	Wait Until Element Is Visible 			css=label[for='start-day-1']
+# 	Wait Until Element Is Visible 			css=label[for='end-day-1']
+# 	Wait Until Element Is Visible 			css=label[for='hasSports']
+# 	Element Should Not Be Visible 			id=inputEmail  	
+# 	Wait Until Element Is Visible 			id=get-quotes
+
+# Choose Myself	
+# 	Click Element  							css=label[for='myself']
+
+# Select 1 for Birth Day 
+# 	Select From List By Label  		id=birthDayInd1   1
+
+# Select January for Birth Month 
+# 	Select From List By Label  		id=birthMonthInd1   January
+
+# Select 2000 for Birth Year 
+# 	Select From List By Label  		id=birthYearInd1   2000
+
+# Select Single for trips
+# 	Click Element  					css=label[for='single']
+
+
+# Select American Samoa for Destination
+# 	Focus							id=other
+# 	Select From List By Value  		id=other     AS
+# 	Select From List By Value  		id=other     PH
+# 	Select From List By Value  		id=other     AU
+# 	Select From List By Value  		id=other     SG
+
+# Verify Three Selected Destinations And Remove Two
+# 	Xpath Should Match X Times     	//label[@class='tag countries-going label label-info']     3
+# 	Click Element  		css=i[class='icon icon-remove icon-white']
+# 	Click Element  		css=i[class='icon icon-remove icon-white']
+
+
+
+# Select Today for Start Day
+# 	Click Element  		css=label[for='start-day-1']
+ 
+# Select 2 days for End Day
+# 	Click Element  		css=label[for='end-day-1']
+
+# Select Has Sports
+# 	Click Element  		css=label[for='hasSports']
+
+# # Type email address
+# # 	Sleep   999
+
+# # 	Input Text  		id=inputEmail       	test@test.com
+
+# Click Get Quotes
+# 	Click Element  		css=button[id='get-quotes']
+
+# Verify Deals count is correct - Moneyhero - EN - Travel Insurance
+# 	Wait Until Element Is Visible 			css=span[class='total-result-count']
+# 	Wait Until Element Is Visible 			css=label
+# 	# Element Should Contain               These quotes meet your requirements for yourself on a single trip from Tuesday, November 4th 2014. (Change Request)
+# 	Element Text Should Be     	   css=label     		We found quotes for you
+
+
+
+
+
+# Go to Travel Insurance Guide Page
+# 	Go Back
+# 	Mouse Over   css=a[href='http://www.moneyhero.com.hk/en/travel-insurance']
+# 	Click Element   css=a[href='http://www.moneyhero.com.hk/en/travel-insurance/guide']
+
+
+# Verify Travel Insurance Guide Page Is Loaded
+# 	# Verify page is loaded
+# 	Reload Page
+# 	Element Should Contain     	   		css=h1    		Hong Kong Travel Insurance Guide
+# 	Xpath Should Match X Times     		//h2             6
+# 	Page Should Contain Link     	   	link=travel insurance coverage	
+# 	Page Should Contain Link     	   	link=Security Bureau’s Outbound Travel Alert website	
+# 	Page Should Contain Link     	   	link=compare travel insurance plans
+#   Page Should Not Contain    			Loading. Please wait.
+
+
+
+*** Keywords ***
+
+
+
+Verify Tab Menu is present and complete
+	Wait Until Page Contains Element      css=div[id='tab_menu']
+
+
+
+
+Verify page is loaded - new 
+	Wait Until Page Contains Element      css=ol[class='breadcrumb']
+	Verify footer is present page is loaded
+
+
+
+
+
+Verify deals count is correct
+	[Arguments]   ${link}			${dealsCountString}	
+	Go Back
+	Wait Until Page Contains Element      css=a[class='dropdown-toggle'][href='//www.moneyhero.com.hk/en/travel-insurance'][data-toggle='dropdown']
+	Mouse Over   css=a[class='dropdown-toggle'][href='//www.moneyhero.com.hk/en/travel-insurance'][data-toggle='dropdown']
+	Click Element   ${link}
+	Wait Until Page Contains     ${dealsCountString}
+
+
+Open Navigation and go to page
+	[Arguments]   ${link}	
+	Click Main navigation
+	Wait Until Page Contains Element      link=${link}
+	Click Element	link=${link}
+	Wait Until Page Contains Element      css=h2
+	Element Should Contain		css=h2		${link}
+	Verify Footer is present
+
+Change Language
+	Wait Until Element Is Visible     css=div[class='language'] a[href='//www.moneyhero.com.hk/']
+	Click Element   		css=div[class='language'] a[href='//www.moneyhero.com.hk/']
+
+
+Verify Page Is Loaded	
+	Verify Header is present
+	Verify Footer is present
+
+Click Main navigation	
+	Wait Until Page Contains Element      css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']
+	Click Element	css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']	
+
+
+
+
+
+Go to page	
+    [Arguments]   ${link}
+	Wait Until Page Contains Element      link=${link}
+	Click Element	link=${link}
+	Wait Until Page Contains Element      css=h2
+	Element Should Contain		css=h2		${link}
+
+
+
+
+
+

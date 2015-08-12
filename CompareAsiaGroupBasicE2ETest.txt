@@ -1,0 +1,87 @@
+*** Settings ***
+Library   Selenium2Library
+Suite Setup   Open Browser   ${HOMEPAGE}   ${BROWSER}
+Suite Teardown   Close All Browsers
+Resource          CompareAsiaGroupPages/MainPage.txt
+Resource          CompareAsiaGroupPages/TeamPage.txt
+
+*** Variables ***
+${HOMEPAGE}   http://www.compareasiagroup.com/
+${BROWSER}   firefox
+
+
+
+*** Test Cases ***
+Mainpage - CompareAsiaGroup
+	MainPage.Verify Main Page Is Loaded
+	Wait Until Page Contains Element      css=div[id='logo']
+
+
+Open Navigation About
+	Click Main navigation
+	Go to page		About
+
+Open Navigation Team 
+	Click Main navigation
+	Go to page		Team
+
+
+Open Navigation Portfolio
+	Click Main navigation
+	Go to page		Portfolio
+
+Open Navigation Investors 
+	Click Main navigation
+	Go to page		Investors
+
+
+
+Open Navigation Partner
+	Click Main navigation
+	Go to page		Partner
+
+Open Navigation Join 
+	Click Main navigation
+	Go to page		Join
+
+
+Open Navigation Contact Us
+	Click Main navigation
+	Go to page		Contact Us
+
+Open Navigation Press 
+	Click Main navigation
+	Go to page		Press
+
+
+*** Keywords ***
+Open Navigation and go to page
+	[Arguments]   ${link}	
+	Click Main navigation
+	Wait Until Page Contains Element      link=${link}
+	Click Element	link=${link}
+	Wait Until Page Contains Element      css=h2
+	Element Should Contain		css=h2		${link}
+	Verify Footer is present
+
+
+
+# Verify main page is loaded
+	# Wait Until Page Contains      , All Rights Reserved.
+
+
+Click Main navigation	
+	Wait Until Page Contains Element      css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']
+	Click Element	css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']	
+
+Go to page	
+    [Arguments]   ${link}
+	Wait Until Page Contains Element      link=${link}
+	Click Element	link=${link}
+	Wait Until Page Contains Element      css=h2
+	Element Should Contain		css=h2		${link}
+	Verify Footer is present
+
+
+Verify Footer is present
+	Page Should Contain      © 2014 CompareAsiaGroup, All Rights Reserved. 

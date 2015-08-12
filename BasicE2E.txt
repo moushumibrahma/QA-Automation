@@ -1,0 +1,111 @@
+*** Settings ***
+Library   Selenium2Library
+Suite Setup   Open Browser   ${HOMEPAGE}   ${BROWSER}
+Suite Teardown   Close All Browsers
+
+Resource        mainpage.txt
+# Resource        SamlinoBasicE2ETest.txt
+
+
+
+
+*** Variables ***
+${HOMEPAGE}   http://www.compareasiagroup.com
+${BROWSER}   firefox
+
+
+
+
+
+
+*** Test Cases ***
+
+Initialize Test
+	Add Cookie       QA_AUTOMATION  			True
+	Set Selenium Timeout        10
+	Set Window Size  				1600     1200
+
+
+Verify MoneyMax Is Loading
+	Open Browser   http://www.moneymax.ph/   firefox
+	Element Should Contain         css=ul.breadcrumb           You are here:  Home
+	Wait Until Page Contains Element         css=nav.navbar.navbar-inverse  
+
+
+
+Verify MoneyGuru Is Loading
+	Go To   http://www.moneyguru.co.th/en
+	Wait Until Page Contains Element       css=img[alt="MoneyGuru"]  
+	Element Should Contain       link=Car Insurance  Car Insurance
+	Element Should Contain       link=Credit Card  Credit Card
+	Element Should Contain       link=Personal Loan  Personal Loan
+	Element Should Contain       link=About Us  About Us
+
+
+
+
+
+Verify Money101 Is Loading
+	Go To   http://www.money101.com.tw/   
+	Wait Until Page Contains Element      css=img[alt="Money101"]  
+	Element Should Contain      link=信用卡  信用卡
+	Element Should Contain      link=貸款  貸款
+	Element Should Contain      link=存款  存款
+	Element Should Contain      link=寬頻上網  寬頻上網
+	# Element Should Contain      link=汽車保險  汽車保險
+
+
+
+# Verify Samlino Is Loading
+# 	Go To      http://www.samlino.dk   
+# 	SamlinoBasicE2ETest.Verify Header Is Present
+# 	SamlinoBasicE2ETest.Verify Footer Is Present
+
+
+
+
+
+
+	  	  
+Verify ComparaGuru Is Loading
+	Go To   http://www.comparaguru.com/   
+	Wait Until Page Contains Element  css=img[alt="ComparaGuru"]  
+	Element Should Contain  link=Préstamo Personal  Préstamo Personal
+	Element Should Contain  link=Crédito Automotriz  Crédito Automotriz
+	Element Should Contain  link=Seguro de Autos  Seguro de Autos
+	# Element Should Contain  breadcrumb_body  Estas aquí: Inicio
+	# Element Should Contain  p_leading  Encuentra los mejores productos financieros de México
+
+
+
+
+# Verify MoneyHero Is Loading
+# 	Go To      http://www.moneyhero.com.hk/en   
+# 	Wait Until Page Contains Element          css=img[class='money-hero-logo']money
+# 	Page Should Contain       Hong Kong's leading comparison portal
+# 	Wait Until Page Contains Element          customer_srv_no 
+# 	Wait Until Page Contains Element          link=繁體中文 
+# 	Wait Until Page Contains Element          top_mascot 
+# 	Wait Until Page Contains Element          css=span.icon-home.icon-2x 
+# 	Wait Until Page Contains Element          link=Credit Card 
+# 	Wait Until Page Contains Element          link=Personal Loan 
+# 	Wait Until Page Contains Element          link=Health Insurance 
+# 	Wait Until Page Contains Element          link=Mortgage 
+# 	Wait Until Page Contains Element          link=Travel Insurance 
+# 	Wait Until Page Contains Element          css=div.row-fluid.breadcrumb-fullspan 
+
+
+
+Verify HaloMoney Is Loading
+	Go To      http://www.halomoney.co.id   
+	Wait Until Page Contains Element  css=ul.breadcrumb
+	Element Should Contain     css=ul.breadcrumb  Anda di sini:  Home
+	Element Should Contain     p_leading  Bandingkan Kartu Kredit, KTA dan KPR di Indonesia
+	Element Should Contain     css=h2.box_title1  Kartu Kredit
+	Element Should Contain     //h2[@onclick="_gaq.push(['_trackEvent', 'Links', 'Click', 'Compare Box Personal Loan']);"]  KTA
+	Wait Until Page Contains Element     	css=a[href='http://www.halomoney.co.id/pinjaman-kpr']
+	Wait Until Page Contains Element  		css=div.btn-compare-now
+	Wait Until Page Contains Element  		//div[2]/div/a[2]/div
+	Element Should Contain     css=div.span12 > h3  Bandingkan Kartu Kredit dan KTA di Indonesia, hemat uang Anda
+
+

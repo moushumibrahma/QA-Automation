@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20150430 07:53:59.000" generator="Robot 2.8.6 (Python 2.7.3 on linux2)">
+<suite source="/home/enriquecampita/Automation/compareglobal-automation/Tests/CompareAsiaGroupBasicE2ETest.txt" id="s1" name="CompareAsiaGroupBasicE2ETest">
+<kw type="setup" name="Selenium2Library.Open Browser">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${HOMEPAGE}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20150430 07:53:59.125" level="INFO">Opening browser 'firefox' to base url 'http://www.compareasiagroup.com/'</msg>
+<status status="PASS" endtime="20150430 07:54:04.789" starttime="20150430 07:53:59.124"></status>
+</kw>
+<test id="s1-t1" name="Mainpage - CompareAsiaGroup">
+<kw type="kw" name="MainPage.Verify Main Page Is Loaded">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Location Should Be">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>${MAIN PAGE}</arg>
+</arguments>
+<msg timestamp="20150430 07:54:04.797" level="INFO">Current location is 'http://www.compareasiagroup.com/'.</msg>
+<status status="PASS" endtime="20150430 07:54:04.797" starttime="20150430 07:54:04.792"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Title Should Be">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>Welcome to CompareAsiaGroup</arg>
+</arguments>
+<msg timestamp="20150430 07:54:04.806" level="INFO">Page title is 'Welcome to CompareAsiaGroup'.</msg>
+<status status="PASS" endtime="20150430 07:54:04.807" starttime="20150430 07:54:04.797"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:04.807" starttime="20150430 07:54:04.791"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=div[id='logo']</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:04.872" starttime="20150430 07:54:04.807"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 07:54:04.872" critical="yes" starttime="20150430 07:54:04.790"></status>
+</test>
+<test id="s1-t2" name="Open Navigation About">
+<kw type="kw" name="Click Main navigation">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:04.882" starttime="20150430 07:54:04.874"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']</arg>
+</arguments>
+<msg timestamp="20150430 07:54:04.882" level="INFO">Clicking element 'css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']'.</msg>
+<status status="PASS" endtime="20150430 07:54:04.962" starttime="20150430 07:54:04.882"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:04.963" starttime="20150430 07:54:04.873"></status>
+</kw>
+<kw type="kw" name="Go to page">
+<doc></doc>
+<arguments>
+<arg>About</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>link=${link}</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:05.348" starttime="20150430 07:54:04.964"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>link=${link}</arg>
+</arguments>
+<msg timestamp="20150430 07:54:05.349" level="INFO">Clicking element 'link=About'.</msg>
+<status status="PASS" endtime="20150430 07:54:06.582" starttime="20150430 07:54:05.349"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=h2</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:06.591" starttime="20150430 07:54:06.583"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h2</arg>
+<arg>${link}</arg>
+</arguments>
+<msg timestamp="20150430 07:54:06.592" level="INFO">Verifying element 'css=h2' contains text 'About'.</msg>
+<status status="PASS" endtime="20150430 07:54:06.606" starttime="20150430 07:54:06.591"></status>
+</kw>
+<kw type="kw" name="Verify Footer is present">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Page Should Contain">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>© 2014 CompareAsiaGroup, All Rights Reserved.</arg>
+</arguments>
+<msg timestamp="20150430 07:54:06.622" level="INFO">Current page contains text '© 2014 CompareAsiaGroup, All Rights Reserved.'.</msg>
+<status status="PASS" endtime="20150430 07:54:06.622" starttime="20150430 07:54:06.606"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:06.622" starttime="20150430 07:54:06.606"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:06.622" starttime="20150430 07:54:04.963"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 07:54:06.622" critical="yes" starttime="20150430 07:54:04.873"></status>
+</test>
+<test id="s1-t3" name="Open Navigation Team">
+<kw type="kw" name="Click Main navigation">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:06.629" starttime="20150430 07:54:06.624"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']</arg>
+</arguments>
+<msg timestamp="20150430 07:54:06.630" level="INFO">Clicking element 'css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']'.</msg>
+<status status="PASS" endtime="20150430 07:54:06.694" starttime="20150430 07:54:06.629"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:06.694" starttime="20150430 07:54:06.623"></status>
+</kw>
+<kw type="kw" name="Go to page">
+<doc></doc>
+<arguments>
+<arg>Team</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>link=${link}</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:06.984" starttime="20150430 07:54:06.695"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>link=${link}</arg>
+</arguments>
+<msg timestamp="20150430 07:54:06.985" level="INFO">Clicking element 'link=Team'.</msg>
+<status status="PASS" endtime="20150430 07:54:09.260" starttime="20150430 07:54:06.984"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=h2</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:09.268" starttime="20150430 07:54:09.260"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h2</arg>
+<arg>${link}</arg>
+</arguments>
+<msg timestamp="20150430 07:54:09.269" level="INFO">Verifying element 'css=h2' contains text 'Team'.</msg>
+<status status="PASS" endtime="20150430 07:54:09.282" starttime="20150430 07:54:09.269"></status>
+</kw>
+<kw type="kw" name="Verify Footer is present">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Page Should Contain">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>© 2014 CompareAsiaGroup, All Rights Reserved.</arg>
+</arguments>
+<msg timestamp="20150430 07:54:09.302" level="INFO">Current page contains text '© 2014 CompareAsiaGroup, All Rights Reserved.'.</msg>
+<status status="PASS" endtime="20150430 07:54:09.302" starttime="20150430 07:54:09.283"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:09.302" starttime="20150430 07:54:09.282"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:09.302" starttime="20150430 07:54:06.695"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 07:54:09.302" critical="yes" starttime="20150430 07:54:06.623"></status>
+</test>
+<test id="s1-t4" name="Open Navigation Portfolio">
+<kw type="kw" name="Click Main navigation">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:09.310" starttime="20150430 07:54:09.304"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']</arg>
+</arguments>
+<msg timestamp="20150430 07:54:09.310" level="INFO">Clicking element 'css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']'.</msg>
+<status status="PASS" endtime="20150430 07:54:09.377" starttime="20150430 07:54:09.310"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:09.377" starttime="20150430 07:54:09.303"></status>
+</kw>
+<kw type="kw" name="Go to page">
+<doc></doc>
+<arguments>
+<arg>Portfolio</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>link=${link}</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:13.944" starttime="20150430 07:54:09.378"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>link=${link}</arg>
+</arguments>
+<msg timestamp="20150430 07:54:13.944" level="INFO">Clicking element 'link=Portfolio'.</msg>
+<status status="PASS" endtime="20150430 07:54:16.172" starttime="20150430 07:54:13.944"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=h2</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:17.759" starttime="20150430 07:54:16.173"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h2</arg>
+<arg>${link}</arg>
+</arguments>
+<msg timestamp="20150430 07:54:17.759" level="INFO">Verifying element 'css=h2' contains text 'Portfolio'.</msg>
+<status status="PASS" endtime="20150430 07:54:17.798" starttime="20150430 07:54:17.759"></status>
+</kw>
+<kw type="kw" name="Verify Footer is present">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Page Should Contain">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>© 2014 CompareAsiaGroup, All Rights Reserved.</arg>
+</arguments>
+<msg timestamp="20150430 07:54:17.829" level="INFO">Current page contains text '© 2014 CompareAsiaGroup, All Rights Reserved.'.</msg>
+<status status="PASS" endtime="20150430 07:54:17.830" starttime="20150430 07:54:17.799"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:17.830" starttime="20150430 07:54:17.799"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:17.830" starttime="20150430 07:54:09.378"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 07:54:17.830" critical="yes" starttime="20150430 07:54:09.303"></status>
+</test>
+<test id="s1-t5" name="Open Navigation Investors">
+<kw type="kw" name="Click Main navigation">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:17.848" starttime="20150430 07:54:17.832"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']</arg>
+</arguments>
+<msg timestamp="20150430 07:54:17.849" level="INFO">Clicking element 'css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']'.</msg>
+<status status="PASS" endtime="20150430 07:54:17.941" starttime="20150430 07:54:17.848"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:17.941" starttime="20150430 07:54:17.831"></status>
+</kw>
+<kw type="kw" name="Go to page">
+<doc></doc>
+<arguments>
+<arg>Investors</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>link=${link}</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:18.462" starttime="20150430 07:54:17.942"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>link=${link}</arg>
+</arguments>
+<msg timestamp="20150430 07:54:18.463" level="INFO">Clicking element 'link=Investors'.</msg>
+<status status="PASS" endtime="20150430 07:54:19.678" starttime="20150430 07:54:18.462"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=h2</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:19.686" starttime="20150430 07:54:19.678"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h2</arg>
+<arg>${link}</arg>
+</arguments>
+<msg timestamp="20150430 07:54:19.686" level="INFO">Verifying element 'css=h2' contains text 'Investors'.</msg>
+<status status="PASS" endtime="20150430 07:54:19.700" starttime="20150430 07:54:19.686"></status>
+</kw>
+<kw type="kw" name="Verify Footer is present">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Page Should Contain">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>© 2014 CompareAsiaGroup, All Rights Reserved.</arg>
+</arguments>
+<msg timestamp="20150430 07:54:19.715" level="INFO">Current page contains text '© 2014 CompareAsiaGroup, All Rights Reserved.'.</msg>
+<status status="PASS" endtime="20150430 07:54:19.715" starttime="20150430 07:54:19.701"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:19.715" starttime="20150430 07:54:19.701"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:19.715" starttime="20150430 07:54:17.942"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 07:54:19.715" critical="yes" starttime="20150430 07:54:17.831"></status>
+</test>
+<test id="s1-t6" name="Open Navigation Partner">
+<kw type="kw" name="Click Main navigation">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:19.723" starttime="20150430 07:54:19.717"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']</arg>
+</arguments>
+<msg timestamp="20150430 07:54:19.723" level="INFO">Clicking element 'css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']'.</msg>
+<status status="PASS" endtime="20150430 07:54:19.789" starttime="20150430 07:54:19.723"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:19.790" starttime="20150430 07:54:19.716"></status>
+</kw>
+<kw type="kw" name="Go to page">
+<doc></doc>
+<arguments>
+<arg>Partner</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>link=${link}</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:20.099" starttime="20150430 07:54:19.791"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>link=${link}</arg>
+</arguments>
+<msg timestamp="20150430 07:54:20.100" level="INFO">Clicking element 'link=Partner'.</msg>
+<status status="PASS" endtime="20150430 07:54:21.097" starttime="20150430 07:54:20.099"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=h2</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:21.106" starttime="20150430 07:54:21.097"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h2</arg>
+<arg>${link}</arg>
+</arguments>
+<msg timestamp="20150430 07:54:21.107" level="INFO">Verifying element 'css=h2' contains text 'Partner'.</msg>
+<status status="PASS" endtime="20150430 07:54:21.121" starttime="20150430 07:54:21.106"></status>
+</kw>
+<kw type="kw" name="Verify Footer is present">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Page Should Contain">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>© 2014 CompareAsiaGroup, All Rights Reserved.</arg>
+</arguments>
+<msg timestamp="20150430 07:54:21.136" level="INFO">Current page contains text '© 2014 CompareAsiaGroup, All Rights Reserved.'.</msg>
+<status status="PASS" endtime="20150430 07:54:21.136" starttime="20150430 07:54:21.122"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:21.136" starttime="20150430 07:54:21.121"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:21.137" starttime="20150430 07:54:19.790"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 07:54:21.137" critical="yes" starttime="20150430 07:54:19.716"></status>
+</test>
+<test id="s1-t7" name="Open Navigation Join">
+<kw type="kw" name="Click Main navigation">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:21.144" starttime="20150430 07:54:21.139"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']</arg>
+</arguments>
+<msg timestamp="20150430 07:54:21.144" level="INFO">Clicking element 'css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']'.</msg>
+<status status="PASS" endtime="20150430 07:54:21.209" starttime="20150430 07:54:21.144"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:21.209" starttime="20150430 07:54:21.138"></status>
+</kw>
+<kw type="kw" name="Go to page">
+<doc></doc>
+<arguments>
+<arg>Join</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>link=${link}</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:21.542" starttime="20150430 07:54:21.210"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>link=${link}</arg>
+</arguments>
+<msg timestamp="20150430 07:54:21.543" level="INFO">Clicking element 'link=Join'.</msg>
+<status status="PASS" endtime="20150430 07:54:23.760" starttime="20150430 07:54:21.542"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=h2</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:23.769" starttime="20150430 07:54:23.760"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h2</arg>
+<arg>${link}</arg>
+</arguments>
+<msg timestamp="20150430 07:54:23.769" level="INFO">Verifying element 'css=h2' contains text 'Join'.</msg>
+<status status="PASS" endtime="20150430 07:54:23.783" starttime="20150430 07:54:23.769"></status>
+</kw>
+<kw type="kw" name="Verify Footer is present">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Page Should Contain">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>© 2014 CompareAsiaGroup, All Rights Reserved.</arg>
+</arguments>
+<msg timestamp="20150430 07:54:23.802" level="INFO">Current page contains text '© 2014 CompareAsiaGroup, All Rights Reserved.'.</msg>
+<status status="PASS" endtime="20150430 07:54:23.802" starttime="20150430 07:54:23.783"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:23.802" starttime="20150430 07:54:23.783"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:23.802" starttime="20150430 07:54:21.209"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 07:54:23.802" critical="yes" starttime="20150430 07:54:21.137"></status>
+</test>
+<test id="s1-t8" name="Open Navigation Contact Us">
+<kw type="kw" name="Click Main navigation">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:23.810" starttime="20150430 07:54:23.804"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']</arg>
+</arguments>
+<msg timestamp="20150430 07:54:23.811" level="INFO">Clicking element 'css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']'.</msg>
+<status status="PASS" endtime="20150430 07:54:23.877" starttime="20150430 07:54:23.810"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:23.877" starttime="20150430 07:54:23.803"></status>
+</kw>
+<kw type="kw" name="Go to page">
+<doc></doc>
+<arguments>
+<arg>Contact Us</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>link=${link}</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:24.893" starttime="20150430 07:54:23.878"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>link=${link}</arg>
+</arguments>
+<msg timestamp="20150430 07:54:24.894" level="INFO">Clicking element 'link=Contact Us'.</msg>
+<status status="PASS" endtime="20150430 07:54:29.737" starttime="20150430 07:54:24.894"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=h2</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:30.415" starttime="20150430 07:54:29.738"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h2</arg>
+<arg>${link}</arg>
+</arguments>
+<msg timestamp="20150430 07:54:30.416" level="INFO">Verifying element 'css=h2' contains text 'Contact Us'.</msg>
+<status status="PASS" endtime="20150430 07:54:30.446" starttime="20150430 07:54:30.416"></status>
+</kw>
+<kw type="kw" name="Verify Footer is present">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Page Should Contain">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>© 2014 CompareAsiaGroup, All Rights Reserved.</arg>
+</arguments>
+<msg timestamp="20150430 07:54:30.490" level="INFO">Current page contains text '© 2014 CompareAsiaGroup, All Rights Reserved.'.</msg>
+<status status="PASS" endtime="20150430 07:54:30.490" starttime="20150430 07:54:30.447"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:30.490" starttime="20150430 07:54:30.446"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:30.490" starttime="20150430 07:54:23.877"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 07:54:30.491" critical="yes" starttime="20150430 07:54:23.803"></status>
+</test>
+<test id="s1-t9" name="Open Navigation Press">
+<kw type="kw" name="Click Main navigation">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:30.500" starttime="20150430 07:54:30.492"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']</arg>
+</arguments>
+<msg timestamp="20150430 07:54:30.500" level="INFO">Clicking element 'css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']'.</msg>
+<status status="PASS" endtime="20150430 07:54:30.640" starttime="20150430 07:54:30.500"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:30.640" starttime="20150430 07:54:30.491"></status>
+</kw>
+<kw type="kw" name="Go to page">
+<doc></doc>
+<arguments>
+<arg>Press</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>link=${link}</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:31.164" starttime="20150430 07:54:30.641"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>link=${link}</arg>
+</arguments>
+<msg timestamp="20150430 07:54:31.165" level="INFO">Clicking element 'link=Press'.</msg>
+<status status="PASS" endtime="20150430 07:54:32.668" starttime="20150430 07:54:31.164"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=h2</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:32.693" starttime="20150430 07:54:32.668"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h2</arg>
+<arg>${link}</arg>
+</arguments>
+<msg timestamp="20150430 07:54:32.694" level="INFO">Verifying element 'css=h2' contains text 'Press'.</msg>
+<status status="PASS" endtime="20150430 07:54:32.708" starttime="20150430 07:54:32.693"></status>
+</kw>
+<kw type="kw" name="Verify Footer is present">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Page Should Contain">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>© 2014 CompareAsiaGroup, All Rights Reserved.</arg>
+</arguments>
+<msg timestamp="20150430 07:54:32.725" level="INFO">Current page contains text '© 2014 CompareAsiaGroup, All Rights Reserved.'.</msg>
+<status status="PASS" endtime="20150430 07:54:32.725" starttime="20150430 07:54:32.709"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:32.725" starttime="20150430 07:54:32.709"></status>
+</kw>
+<status status="PASS" endtime="20150430 07:54:32.726" starttime="20150430 07:54:30.640"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 07:54:32.726" critical="yes" starttime="20150430 07:54:30.491"></status>
+</test>
+<kw type="teardown" name="Selenium2Library.Close All Browsers">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150430 07:54:32.788" starttime="20150430 07:54:32.728"></status>
+</kw>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="PASS" endtime="20150430 07:54:32.789" starttime="20150430 07:53:59.000"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="9">Critical Tests</stat>
+<stat fail="0" pass="9">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" pass="9" id="s1" name="CompareAsiaGroupBasicE2ETest">CompareAsiaGroupBasicE2ETest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20150414 06:18:27.758" generator="Robot 2.8.6 (Python 2.7.3 on linux2)">
+<suite source="/home/enriquecampita/Automation/compareglobal-automation/Tests/ComparaGuruBasicE2ETest.txt" id="s1" name="ComparaGuruBasicE2ETest">
+<kw type="setup" name="Selenium2Library.Open Browser">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${HOMEPAGE}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<status status="FAIL" endtime="20150414 06:18:28.119" starttime="20150414 06:18:28.118"></status>
+</kw>
+<test id="s1-t1" name="Initialize Test">
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150414 06:18:28.120" critical="yes" starttime="20150414 06:18:28.119">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t2" name="Verify Home Page Is Loaded">
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150414 06:18:28.121" critical="yes" starttime="20150414 06:18:28.120">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t3" name="Go To Prestamo Personal Page">
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150414 06:18:28.122" critical="yes" starttime="20150414 06:18:28.121">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t4" name="Verify Initial Prestamo Personal Page Is Loaded">
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150414 06:18:28.123" critical="yes" starttime="20150414 06:18:28.122">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t5" name="Filter Result">
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150414 06:18:28.123" critical="yes" starttime="20150414 06:18:28.123">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t6" name="Verify Prestamo Personal Page Is Loaded">
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150414 06:18:28.124" critical="yes" starttime="20150414 06:18:28.124">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t7" name="Go To Credito Automotriz">
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150414 06:18:28.125" critical="yes" starttime="20150414 06:18:28.125">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t8" name="Verify Credito Automotriz Page Is Loaded">
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150414 06:18:28.126" critical="yes" starttime="20150414 06:18:28.126">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t9" name="Go To Tarjetas de Crédito">
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150414 06:18:28.127" critical="yes" starttime="20150414 06:18:28.127">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t10" name="Verify Tarjetas de Crédito Page Is Loaded">
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150414 06:18:28.128" critical="yes" starttime="20150414 06:18:28.127">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t11" name="Proceed to Results Page">
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150414 06:18:28.129" critical="yes" starttime="20150414 06:18:28.128">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t12" name="Verify Deals Count Is Correct In All Tabs1">
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150414 06:18:28.130" critical="yes" starttime="20150414 06:18:28.129">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t13" name="Verify Deals Count Is Correct In All Tabs2">
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150414 06:18:28.131" critical="yes" starttime="20150414 06:18:28.130">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t14" name="Verify Deals Count Is Correct In All Tabs3">
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150414 06:18:28.132" critical="yes" starttime="20150414 06:18:28.131">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t15" name="Verify Deals Count Is Correct In All Tabs4">
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150414 06:18:28.133" critical="yes" starttime="20150414 06:18:28.132">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t16" name="Verify Deals Count Is Correct In All Tabs5">
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150414 06:18:28.134" critical="yes" starttime="20150414 06:18:28.133">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t17" name="Verify Deals Count Is Correct In All Tabs6">
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150414 06:18:28.135" critical="yes" starttime="20150414 06:18:28.134">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t18" name="Verify Deals Count Is Correct In All Tabs7">
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150414 06:18:28.136" critical="yes" starttime="20150414 06:18:28.135">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t19" name="Go To Seguro De Autos Page">
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150414 06:18:28.137" critical="yes" starttime="20150414 06:18:28.136">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t20" name="Verify Seguro De Autos Page Is Loaded">
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150414 06:18:28.138" critical="yes" starttime="20150414 06:18:28.137">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t21" name="Go To Footer Blog Link">
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150414 06:18:28.139" critical="yes" starttime="20150414 06:18:28.138">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t22" name="Verify Blog Page Is Loaded">
+<errors>
+<msg timestamp="20150414 06:18:28.140" level="ERROR">Unexpected error: IOError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  None</msg>
+</errors>
+</robot>

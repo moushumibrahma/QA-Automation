@@ -1,0 +1,357 @@
+*** Settings ***
+Library   Selenium2Library
+Library   BuiltIn
+Library   String
+
+
+Suite Setup   Open Browser   ${HOMEPAGE}   ${BROWSER}
+Suite Teardown   Close All Browsers
+Resource          Common/Common.txt
+
+
+*** Variables ***
+${HOMEPAGE}   http://www.halomoney.co.id
+${BROWSER}   firefox
+
+
+
+*** Test Cases ***
+
+Initialize Test
+	Common.Initialize Test
+
+
+
+Verify Home Page Is Loaded
+	Verify Header Is Present
+	Wait Until Page Contains Element         css=img[class='pull-right'][src='http://www.halomoney.co.id/assets/img/moneyhero_cc1.png']
+	Element Should Contain     css=h1  Bandingkan Kartu Kredit, KTA dan KPR di Indonesia
+
+
+
+Go To Kredit Page
+	Click Element     link=Kartu Kredit
+
+
+Verify Kredit Page Is Loaded
+	Element Should Contain     css=h1[class='masterhead-heading']  				TEMUKAN KARTU KREDIT DENGAN PROMO TERBAIK DI INDONESIA
+	
+	Wait Until Page Contains Element  css=li[class='text-center active'][data-value='bestdeal']
+	Wait Until Page Contains Element  css=li[class='text-center'][data-value='premium']
+	Wait Until Page Contains Element  css=li[class='text-center'][data-value='dining']
+	Wait Until Page Contains Element  css=li[class='text-center'][data-value='airmiles']
+	Wait Until Page Contains Element  css=li[class='text-center'][data-value='cashback']
+	Wait Until Page Contains Element  css=li[class='text-center'][data-value='1stcard']
+	Wait Until Page Contains Element  css=li[class='text-center'][data-value='all']
+
+
+
+	Wait Until Page Contains Element  css=div[data-sort='default']
+	Wait Until Page Contains Element  css=div[data-sort='rewardSort']
+	Wait Until Page Contains Element  css=div[data-sort='minIncomesort']
+	Wait Until Page Contains Element  css=div[data-sort='annfeeSort']
+
+
+
+	# Wait Until Page Contains Element  css=div[id='results']
+	# Wait Until Page Contains Element  css=label[class='list__label more_info_sh more-keyfeatures']
+	# Xpath Should Match X Times    		//div[@class='container-fluid']     58
+
+
+
+Verify Kredit Tab Count Is Correct
+	Wait Until Page Contains Element  		css=li[class='text-center']
+	Xpath Should Match X Times    			//li[@class='text-center active']     1
+	Xpath Should Match X Times    			//li[@class='text-center']     6
+
+
+
+
+	Wait Until Page Contains Element  css=li[class='text-center active'][data-value='bestdeal']
+	Wait Until Page Contains Element  css=li[class='text-center'][data-value='premium']
+	Wait Until Page Contains Element  css=li[class='text-center'][data-value='dining']
+	Wait Until Page Contains Element  css=li[class='text-center'][data-value='airmiles']
+	Wait Until Page Contains Element  css=li[class='text-center'][data-value='cashback']
+	Wait Until Page Contains Element  css=li[class='text-center'][data-value='1stcard']
+	Wait Until Page Contains Element  css=li[class='text-center'][data-value='all']
+
+
+
+# Verify Kredit Page Tabs Is Loaded With Correct Rows Count1
+# 	Click Element      css=li[class='text-center active'][data-value='bestdeal']
+# 	# Element Should Contain     		results-found  				Kami menemukan 11 penawaran
+# 	Wait Until Page Contains Element  	css=h1
+# 	Element Should Contain     			css=h1  					TEMUKAN KARTU KREDIT DENGAN PROMO TERBAIK DI INDONESIA
+
+# 	Wait Until Page Contains Element  css=div[data-sort='default']
+# 	Wait Until Page Contains Element  css=div[data-sort='cashbackSort']
+# 	Wait Until Page Contains Element  css=div[data-sort='rewardSort']
+# 	Wait Until Page Contains Element  css=div[data-sort='airmilesSort']
+
+# 	Wait Until Page Contains Element  	css=h1
+# 	Verify Table Rows Count Is Complete  64 
+
+
+# Verify Kredit Page Tabs Is Loaded With Correct Rows Count2
+# 	Click Element      css=li[class='text-center'][data-value='premium']
+# 	# Element Should Contain     		results-found  				Kami menemukan 11 penawaran
+# 	Wait Until Page Contains Element  	css=h1
+# 	Element Should Contain     			css=h1  					DAPATKAN KEISTIMEWAAN VIP DENGAN KARTU KREDIT PREMIUM
+
+# 	Wait Until Page Contains Element  css=div[data-sort='default']
+# 	Wait Until Page Contains Element  css=div[data-sort='airmilesSort']
+# 	Wait Until Page Contains Element  css=div[data-sort='rewardSort']
+# 	Wait Until Page Contains Element  css=div[data-sort='creditLimit']
+
+# 	Verify Table Rows Count Is Complete  64
+	
+
+# Verify Kredit Page Tabs Is Loaded With Correct Rows Count3
+# 	Click Element      css=li[class='text-center'][data-value='dining']
+# 	# Element Should Contain     		results-found  				Kami menemukan 11 penawaran
+# 	Wait Until Page Contains Element  	css=h1
+# 	Element Should Contain     			css=h1  					DAPATKAN REWARD DINING DENGAN KARTU KREDIT ANDA
+
+# 	Wait Until Page Contains Element  css=div[data-sort='default']
+# 	Wait Until Page Contains Element  css=div[data-sort='rewardSort']
+# 	Wait Until Page Contains Element  css=div[data-sort='cashbackSort']
+# 	Wait Until Page Contains Element  css=div[data-sort='annfeeSort']
+
+# 	Verify Table Rows Count Is Complete  70
+	
+
+# Verify Kredit Page Tabs Is Loaded With Correct Rows Count4
+# 	Click Element      css=li[class='text-center'][data-value='airmiles']
+# 	# Element Should Contain     		results-found  				Kami menemukan 11 penawaran
+# 	Wait Until Page Contains Element  	css=h1
+# 	Element Should Contain     			css=h1  					DAPATKAN AIR MILES SEKARANG
+
+# 	Wait Until Page Contains Element  css=div[data-sort='default']
+# 	Wait Until Page Contains Element  css=div[data-sort='airmilesSort']
+# 	Wait Until Page Contains Element  css=div[data-sort='cashbackSort']
+# 	Wait Until Page Contains Element  css=div[data-sort='rewardSort']
+
+# 	Verify Table Rows Count Is Complete  70
+	
+
+# Verify Kredit Page Tabs Is Loaded With Correct Rows Count5
+# 	Click Element      css=li[class='text-center'][data-value='cashback']
+# 	# Element Should Contain     		results-found  				Kami menemukan 11 penawaran
+# 	Wait Until Page Contains Element  	css=h1
+# 	Element Should Contain     			css=h1  					DAPATKAN CASHBACK DARI KARTU KREDIT ANDA
+
+# 	Wait Until Page Contains Element  css=div[data-sort='default']
+# 	Wait Until Page Contains Element  css=div[data-sort='cashbackSort']
+# 	Wait Until Page Contains Element  css=div[data-sort='rewardSort']
+# 	Wait Until Page Contains Element  css=div[data-sort='annfeeSort']
+
+# 	Verify Table Rows Count Is Complete  43
+	
+
+# Verify Kredit Page Tabs Is Loaded With Correct Rows Count6
+# 	Click Element      css=li[class='text-center'][data-value='1stcard']
+# 	# Element Should Contain     		results-found  				Kami menemukan 11 penawaran
+# 	Wait Until Page Contains Element  	css=h1
+# 	Element Should Contain     			css=h1  					DAFTAR KARTU KREDIT PERTAMA ANDA
+
+# 	Wait Until Page Contains Element  css=div[data-sort='default']
+# 	Wait Until Page Contains Element  css=div[data-sort='rewardSort']
+# 	Wait Until Page Contains Element  css=div[data-sort='annfeeSort']
+# 	Wait Until Page Contains Element  css=div[data-sort='minIncomesort']
+
+# 	Verify Table Rows Count Is Complete  43
+	
+
+# Verify Kredit Page Tabs Is Loaded With Correct Rows Count7
+# 	Click Element      css=li[class='text-center'][data-value='all']
+# 	# Element Should Contain     		results-found  				Kami menemukan 11 penawaran
+# 	Wait Until Page Contains Element  	css=h1
+# 	Element Should Contain     			css=h1  					DAFTAR KARTU KREDIT HARI INI
+
+# 	Wait Until Page Contains Element  css=div[data-sort='default']
+# 	Wait Until Page Contains Element  css=div[data-sort='cashbackSort']
+# 	Wait Until Page Contains Element  css=div[data-sort='rewardSort']
+# 	Wait Until Page Contains Element  css=div[data-sort='annfeeSort']
+
+# 	Verify Table Rows Count Is Complete  70
+	
+
+
+
+
+
+
+
+
+
+Go To Home Page
+	Wait Until Page Contains Element     css=i[class='fa fa-home']
+	Click Element     css=i[class='fa fa-home']
+	Wait Until Page Contains Element  	css=h1
+	Element Should Contain     			css=h1  					Bandingkan Kartu Kredit, KTA dan KPR di Indonesia
+	Verify Header Is Present
+
+
+Go To KTA Page
+	Wait Until Page Contains Element     link=KTA
+	Wait Until Page Contains Element  	css=h1
+	Element Should Contain     			css=h1  					Bandingkan Kartu Kredit, KTA dan KPR di Indonesia
+	Click Element     link=KTA
+
+
+Verify KTA Page Is Loaded
+	Wait Until Page Contains Element  	css=h1
+	Element Should Contain     			css=h1  			BANDINGKAN KTA DI INDONESIA
+	Wait Until Page Contains Element        				css=span[id='results-found']
+
+	# Wait Until Page Contains Element  css=div.slider-track
+	# Wait Until Page Contains Element  //div[@'collapseOne']/div/form/div/div/div[3]/div[2]/div/div
+	# Wait Until Keyword Succeeds      			30 secs        2 secs        Slow Page      			icon-pl-all 
+
+
+	Wait Until Page Contains Element        				css=div[id='tab_menu']
+	Wait Until Page Contains Element        				css=li[data-name='Semua']
+	Wait Until Page Contains Element        				css=li[data-name='Cicilan Tetap']
+	Wait Until Page Contains Element        				css=li[data-name='Overdraft']
+
+
+
+	Wait Until Page Contains Element        				css=div[id='filter_menu']
+	Page Should Contain          							Jumlah Pinjaman : 
+	Wait Until Page Contains Element        				css=div[class='filter-slider-container']
+	Wait Until Page Contains Element        				css=input[id='loan-amount-text']
+	Page Should Contain          							Lama Pinjaman :  
+	Wait Until Page Contains Element        				css=div[class='filter-slider-container']
+	Wait Until Page Contains Element        				css=label[class='editable-label']
+
+
+	Element Text Should Be        				css=span[class='beta-dd more-info-text more-info-text-flter']   									Untuk hasil yang lebih akurat, tolong berikan sedikit informasi mengenai diri Anda    		
+
+
+	# Wait Until Page Contains Element  link=Select Lender (All)
+	# Wait Until Page Contains Element  link=Sembunyikan Filter
+	# Wait Until Page Contains Element  link=Set Ulang Filter
+	# Wait Until Page Contains Element  icon-pl-all
+	# Wait Until Page Contains Element  icon-pl-feepage
+	# Wait Until Page Contains Element  icon-pl-fastloanprocess
+	# Wait Until Page Contains Element  icon-pl-cashback
+	Element Should Contain     css=div[data-sort='monthly_interest_rate']     Suku Bunga per Bulan
+	Element Should Contain     css=div[data-sort='totalRepayment']  		Total Pembayaran
+	Element Should Contain     css=div[data-sort='monthRepayment']  		Cicilan per Bulan
+	Wait Until Page Contains Element        				css=div[class='result container-fluid']:nth-child(10)
+	Element Should Contain     css=span[id='results-found']          		Kami menemukan 14 penawaran
+	# Element Should Contain     backToTopVertical  		TO TOP
+
+	Page Should Contain          							Bergabunglah dengan kami di
+	Wait Until Page Contains Element  css=a[class='socialmedia fb']
+	Wait Until Page Contains Element  css=a[class='socialmedia tw']
+	Wait Until Page Contains Element  css=a[class='socialmedia blog']
+
+Verify KTA Tab Count Is Correct
+
+	Xpath Should Match X Times    //div[@id='tab_menu']//li[@class='text-center active']     1
+	Xpath Should Match X Times    //div[@id='tab_menu']//li[@class='text-center']     2
+
+
+Verify KTA All Page Is Loaded
+	Click Element        				css=li[data-name='Semua']
+	Wait Until Page Contains Element  	css=h1
+	Element Should Contain     			css=h1  					BANDINGKAN KTA DI INDONESIA
+	Wait Until Page Contains Element  css=span[id='results-found']
+	Element Should Contain     css=span[id='results-found']  Kami menemukan 14 penawaran
+
+Verify KTA Fixed Installment Page Is Loaded
+	Click Element    					css=li[data-name='Cicilan Tetap']
+	Wait Until Page Contains Element  	css=h1
+	Element Should Contain     			css=h1  					BANDINGKAN KTA DI INDONESIA
+	Wait Until Page Contains Element  css=span[id='results-found']
+	Element Should Contain     css=span[id='results-found']  Kami menemukan 13 penawaran
+
+Verify KTA Fast Loan Process Page Is Loaded
+	Click Element    					css=li[data-name='Overdraft']
+	Wait Until Page Contains Element  	css=h1
+	Element Should Contain     			css=h1  					BANDINGKAN KTA DI INDONESIA
+	Wait Until Page Contains Element  css=span[id='results-found']
+	Element Should Contain     css=span[id='results-found']  Kami menemukan 1 penawaran
+
+
+
+Click Home Icon
+	Wait Until Page Contains Element     	css=i[class='fa fa-home']
+	Click Element     						css=i[class='fa fa-home']
+	Wait Until Page Contains Element  	css=h1
+	Element Should Contain     			css=h1  					Bandingkan Kartu Kredit, KTA dan KPR di Indonesia
+
+
+Go To KPR Page
+	Wait Until Element Is Visible 				css=a[href='http://www.halomoney.co.id/pinjaman-kpr']
+	Click Element     css=a[href='http://www.halomoney.co.id/pinjaman-kpr']
+
+
+
+Verify KPR Tab Count Is Correct
+	Xpath Should Match X Times    //div[@id='tab_menu']//li[@class='text-center']     0
+
+
+Verify KPR Page Is Loaded
+	Wait Until Page Contains Element  css=h1
+	Element Should Contain     css=h1  Bandingkan Pinjaman KPR di Indonesia
+	# Element Should Contain     deals-num  Kami menemukan 17 penawaran
+	# Element Should Contain     load-more  Tampilkan tawaran pinjaman lainnya
+
+Go To Blog Page
+	Click Element     link=Blog
+
+
+Verify Blog Tab Count Is Correct
+	Xpath Should Match X Times    //div[@id='tab_menu']//li[@class='text-center']     0
+
+
+Verify Blog Page Is Loaded
+	Wait Until Page Contains Element  	css=h1
+	Element Should Contain     			css=h1  					Situs Perbandingan Terdepan di Indonesia!
+	Wait Until Page Contains Element		css=ul.breadcrumb
+	Element Should Contain     css=ul.breadcrumb  Anda di sini: Home >
+	Element Should Contain     css=a[title="Kartu Kredit"]  KARTU KREDIT
+	# Element Should Contain     link=News  News
+	Element Should Contain     link=Investasi  Investasi
+	Element Should Contain     link=Karir  Karir
+	Element Should Contain     link=Infografis  Infografis
+	Element Should Contain     css=#recent-posts-2 > h3.widget-title > span  			TULISAN TERAKHIR
+	Element Should Contain     css=#recent-comments-2 > h3.widget-title > span  		KOMENTAR TERAKHIR
+	Element Should Contain     css=#archives-2 > h3.widget-title > span  				ARSIP
+	Element Should Contain     css=#categories-2 > h3.widget-title > span  				KATEGORI
+
+
+
+
+
+*** Keywords ***
+
+Verify Header Is Present
+	Wait Until Page Contains Element  css=ul.breadcrumb
+	Element Should Contain     css=ul.breadcrumb  Anda di sini:  Home
+	Element Should Contain     p_leading  Bandingkan Kartu Kredit, KTA dan KPR di Indonesia
+	Element Should Contain     css=h2.box_title1  Kartu Kredit
+	Element Should Contain     //h2[@onclick="_gaq.push(['_trackEvent', 'Links', 'Click', 'Compare Box Personal Loan']);"]  KTA
+	Wait Until Page Contains Element     	css=a[href='http://www.halomoney.co.id/pinjaman-kpr']
+	Wait Until Page Contains Element  		css=div.btn-compare-now
+	Wait Until Page Contains Element  		//div[2]/div/a[2]/div
+	Element Should Contain     css=div.span12 > h3  Bandingkan Kartu Kredit dan KTA di Indonesia, hemat uang Anda
+
+
+
+Slow Page
+	[Arguments]    ${elementName}
+	Reload Page
+	Wait Until Element Is Visible        ${elementName}
+
+
+
+Verify Table Rows Count Is Complete
+	[Arguments]   	${DealsCount}
+	No Operation
+
+	# Wait Until Page Contains Element  css=div[id='results']
+	# Wait Until Page Contains Element  css=label[class='list__label more_info_sh more-keyfeatures']
+	# Xpath Should Match X Times    		//div[@class='container-fluid']     ${DealsCount}

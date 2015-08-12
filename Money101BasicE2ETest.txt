@@ -1,0 +1,314 @@
+*** Settings ***
+Library   Selenium2Library
+Library   BuiltIn
+Library   String
+
+
+Suite Setup   Open Browser   ${HOMEPAGE}   ${BROWSER}
+Suite Teardown   Close All Browsers
+Resource          Common/Common.txt
+
+*** Variables ***
+${HOMEPAGE}   http://www.money101.com.tw/
+${BROWSER}   firefox
+
+
+
+*** Test Cases ***
+Initialize Test
+	Common.Initialize Test
+
+Verify Home Page Is Loaded
+	Wait Until Page Contains Element      css=img[alt="Money101"]  
+	Element Should Contain      link=信用卡  		信用卡
+	Element Should Contain      link=貸款  		貸款
+	Element Should Contain      link=存款  		存款
+	Element Should Contain      link=寬頻上網 		 寬頻上網
+	# Element Should Contain      link=汽車保險  		汽車保險
+	Element Should Contain      link=部落格  		部落格
+	Element Should Contain      css=ul.breadcrumb  你的位置:  主頁
+	Element Should Contain      p_leading  			台灣最專業的金融商品比較網
+	# Element Should Contain      p_leading2  			本周已有133693位客戶通過比較而找到最適合自己的產品.
+	Wait Until Page Contains Element       css=div.btn-compare-now  
+	Wait Until Page Contains Element       //div[2]/div/div/div/a[2]/div  
+	Wait Until Page Contains Element       css=div.box_services_link  
+	Wait Until Page Contains Element       //div/div/div/div/div[2]/div/div/div/a[2]/div  
+	Wait Until Page Contains Element       //div[2]/div/div/div/div/a[2]/div  
+	Wait Until Page Contains Element       //div[2]/div[2]/div/div/div/a[2]/div  
+	Wait Until Page Contains Element       link=意外保險  
+	Wait Until Page Contains Element       css=a.social-fb > span  
+	Wait Until Page Contains Element       css=a.social-yt > span  
+	Wait Until Page Contains Element       css=a.social-gp > span  
+	Wait Until Page Contains Element       css=a.social-bl > span  
+	Element Should Contain      css=section.foot_head.hidden-xs > div.container-fluid.sec_grp > div.row > div.col-md-12 > p  台灣最專業的金融產品比較網
+
+Go To Credit Card Page 
+	Click Element       link=信用卡  
+
+Verify Credit Card Page Is Loaded 
+	# Wait Until Page Contains Element       link=挑選銀行  
+	# Wait Until Page Contains Element       link=發卡商  
+	# Wait Until Page Contains Element       css=label.radio-inline  
+	# Wait Until Page Contains Element       grossIncomeText 
+	# Wait Until Page Contains Element       link=重設篩選器  
+	# Wait Until Page Contains Element       link=隱藏篩選器  
+	Wait Until Page Contains Element       icon-cc-cashback 
+	Wait Until Page Contains Element       icon-cc-petrol  
+	Wait Until Page Contains Element       icon-cc-movie  
+	Wait Until Page Contains Element       icon-cc-airmiles   
+	Wait Until Page Contains Element       icon-cc-shopping 
+	Wait Until Page Contains Element       icon-cc-easycard   
+	Wait Until Page Contains Element       icon-cc-premium  
+	Wait Until Page Contains Element       icon-cc-all 
+	# Wait Until Page Contains Element       icon-cc-grocery  
+	# Wait Until Page Contains Element       icon-cc-points  
+	# Wait Until Page Contains Element       icon-cc-parking  
+	# Wait Until Page Contains Element       icon-cc-airport-parking  page
+	# Wait Until Page Contains Element       icon-cc-airport-pickup  
+	# Wait Until Page Contains Element       icon-cc-airport-lounge  
+	# Wait Until Page Contains Element       load-more  
+	Element Should Contain      css=span.target1 				 						國內現金回饋 
+	Element Should Contain      css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']     	我們找到 24 個結果
+	# Element Should Contain      css=span[data-sort='maximumPoints'] 		 			國外現金回饋 	
+	# Element Should Contain      css=span[class='target1'] 								主卡年費
+
+
+
+
+# Verify CashBack Deals Count	
+# 	Reload Page
+# 	Wait Until Keyword Succeeds      			30 secs        10 secs        Slow Page    			icon-cc-cashback
+# 	Click Element       icon-cc-cashback  
+# 	Wait Until Page Contains Element       css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']
+# 	Element Should Contain      css=span.target1 				 						國內現金回饋 
+# 	Element Should Contain      css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']  我們找到 23 個結果
+
+
+# Verify Petrol Deals Count
+# 	Reload Page
+# 	Wait Until Keyword Succeeds      			30 secs        10 secs        Slow Page    			icon-cc-petrol
+# 	Click Element       icon-cc-petrol 
+# 	Wait Until Keyword Succeeds      			30 secs        5 secs        Slow Page No Reload    			css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']
+# 	Wait Until Page Contains Element       css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']
+# 	Element Should Contain      css=span.target1 				 						重點優惠 
+# 	Element Should Contain      css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']  我們找到 16 個結果
+
+
+# Verify Movie Deals Count
+# 	Reload Page
+# 	Wait Until Keyword Succeeds      			30 secs        10 secs        Slow Page    			icon-cc-movie
+# 	Click Element       icon-cc-movie 
+# 	Wait Until Page Contains Element       css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5'] 
+# 	Element Should Contain      css=span.target1 				 						重點優惠 
+# 	Element Should Contain      css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']  我們找到 15 個結果
+
+
+# Verify Airmiles Deal Count
+# 	Reload Page
+# 	Wait Until Keyword Succeeds      			30 secs        10 secs        Slow Page    			icon-cc-airmiles
+# 	Click Element       icon-cc-airmiles 
+# 	Wait Until Page Contains Element       css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']
+# 	Element Should Contain      css=span.target1 				 						重點優惠 
+# 	Element Should Contain      css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']     我們找到 14 個結果
+
+
+# Verify Shopping Deals Count
+# 	Reload Page
+# 	Click Element       icon-cc-shopping
+# 	Wait Until Page Contains Element       css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5'] 
+# 	Element Should Contain      css=span.target1 				 						重點優惠 
+# 	Element Should Contain      css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']  我們找到 28 個結果
+# 	# Verify Table Rows Equals Deals Count       22  		1
+
+
+
+# Verify Easycard Deals Count
+# 	Reload Page
+# 	Click Element       icon-cc-easycard  
+# 	Wait Until Page Contains Element       css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']
+# 	Element Should Contain      css=span.target1 				 						重點優惠 
+# 	Element Should Contain      css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']  我們找到 13 個結果
+
+
+
+# Verify Premium Deals Count
+# 	Reload Page
+# 	Click Element       icon-cc-premium 
+# 	Wait Until Page Contains Element       css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5'] 
+# 	Element Should Contain      css=span.target1 				 						現金回饋 
+# 	Element Should Contain      css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']  我們找到 24 個結果
+
+# Verify All Deals Count
+# 	Reload Page
+# 	Click Element       icon-cc-all  	
+# 	# Wait Until Page Contains Element       load-more  
+# 	Wait Until Element Is Visible 			       css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']
+# 	Element Should Contain      css=span.target1 				 						重點優惠 
+# 	${DealsListJson}    Evaluate      json.load(open("Report/dealscount.json", "r"))       json
+# 	# # ${DealsListJson}                 ${DealsListJson}
+# 	# # ${DealsListJson}     ${DealsListJson} + 2
+# 	# ${AllDealsCountl}    Convert To Integer         ${DealsListJson["creditcards-tw"]}
+# 	# ${AllDealsCountl}		Evaluate      ${AllDealsCountl}  + 2
+# 	# Element Should Contain      css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']  我們找到 ${DealsListJson["creditcards-tw"]} 個結果
+# 	Element Should Contain      css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']  我們找到 102 個結果
+
+	# Verify Table Rows Equals Deals Count       ${DealsListJson["creditcards-tw"]}  		7
+
+
+
+# Verify Grocery Deals Count
+# 	Click Element       icon-cc-grocery
+# 	Wait Until Page Contains Element       css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']  
+# 	Element Should Contain      css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']  我們找到 8 個結果
+
+
+# Verify Points Deals Count
+# 	Click Element       icon-cc-points 
+# 	Wait Until Page Contains Element       css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5'] 
+# 	Element Should Contain      css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']  我們找到 15 個結果
+
+
+# Verify Parking Deals Count
+# 	Click Element       icon-cc-parking 
+# 	Wait Until Page Contains Element       css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5'] 
+# 	Element Should Contain      css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']     我們找到 28 個結果
+
+# Verify Airport Parking Deals Count
+# 	Click Element       icon-cc-airport-parking
+# 	Wait Until Page Contains Element       css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']  
+# 	Element Should Contain      css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']    我們找到 72 個結果
+
+# Verify Airport Pickup Deals Count
+# 	Click Element       icon-cc-airport-pickup 
+# 	Wait Until Page Contains Element       css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5'] 
+# 	Element Should Contain      css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']     我們找到 35 個結果
+
+# Verify Airport Lounge Deals Count
+# 	Click Element       icon-cc-airport-lounge
+# 	Wait Until Page Contains Element       css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']  
+# 	Element Should Contain      css=div[class='hdr1 col-md-5 col-sm-5 col-xs-5']      我們找到 41 個結果
+
+
+
+
+Go To Personal Loan Page
+	Click Element       link=貸款  
+
+Verify Personal Loan Page Is Loaded
+	Wait Until Page Contains Element      	css=h1  
+	Element Should Contain      			css=h1      立刻找到台灣最適合你的信用貸款
+	Wait Until Page Contains Element       	css=div[id='accordion_adv_options']
+	Element Should Contain      			css=span[class='pull-left']      我想要申請：
+	Wait Until Page Contains Element       	css=div[class='slider slider-horizontal']
+	Wait Until Page Contains Element       	css=select[id='loanTenure']
+	Wait Until Page Contains Element       	css=a[class='btn combo dropdown-toggle combo_box']
+	Wait Until Page Contains Element       	css=a[class='btn btn-link btn-small reset-filters']
+	Wait Until Page Contains Element       	css=a[class='accordion-toggle adv_opt_pane filterBlockButton']
+	Element Should Contain      			css=div[class='hdr1 col-md-7 col-sm-7 col-xs-5']      我們找到 18 個方案
+
+
+
+Verify Personal Loan Page Table Headers Are Complete
+	Wait Until Page Contains Element       	css=span[id='icon-no-limit']
+	Wait Until Page Contains Element       	css=span[id='icon-public-servant']
+	Wait Until Page Contains Element       	css=span[id='icon-original-clients']
+	Wait Until Page Contains Element       	css=span[id='icon-professionals']
+	Wait Until Page Contains Element       	css=span[id='icon-student']
+
+
+
+
+Go To Deposit Page
+	Click Element       link=存款  
+
+Verify Deposit Page Is Loaded
+	Wait Until Page Contains Element      	css=h1  
+	Element Should Contain      			css=h1      立刻找到台灣最適合你的定存方案
+	Wait Until Page Contains Element       	css=div[class='slider slider-horizontal']
+	Wait Until Page Contains Element       	css=a[class='btn btn-link btn-small reset-filters']
+
+
+Verify Deposit Page Table Headers Are Complete
+	Wait Until Page Contains Element       	css=span[id='icon-usd']
+	Wait Until Page Contains Element       	css=span[id='icon-rmb']
+	Wait Until Page Contains Element       	css=span[id='icon-ntd']
+	Wait Until Page Contains Element       	css=span[id='icon-others']
+	Wait Until Page Contains Element       	css=span[id='icon-all']
+
+
+Verify Deposit Table Deals Counts Are Correct
+	Element Should Contain      			css=div[class='hdr1 col-md-7 col-sm-7 col-xs-5']      我們找到 10 個方案
+	Click Element       css=span[id='icon-rmb']  
+	Wait Until Page Contains Element       	css=div[class='hdr1 col-md-7 col-sm-7 col-xs-5']
+	Element Should Contain      			css=div[class='hdr1 col-md-7 col-sm-7 col-xs-5']      我們找到 13 個方案
+	Click Element       css=span[id='icon-ntd']  
+	Wait Until Page Contains Element       	css=div[class='hdr1 col-md-7 col-sm-7 col-xs-5']
+	Element Should Contain      			css=div[class='hdr1 col-md-7 col-sm-7 col-xs-5']      我們找到 4 個方案
+	Click Element       css=span[id='icon-others'] 
+	Wait Until Page Contains Element       	css=div[class='hdr1 col-md-7 col-sm-7 col-xs-5']
+	Element Should Contain      			css=div[class='hdr1 col-md-7 col-sm-7 col-xs-5']      我們找到 13 個方案
+	Click Element       css=span[id='icon-all']  
+	Wait Until Page Contains Element       	css=div[class='hdr1 col-md-7 col-sm-7 col-xs-5']
+	Element Should Contain      			css=div[class='hdr1 col-md-7 col-sm-7 col-xs-5']      我們找到 40 個方案
+
+
+
+
+
+
+
+
+
+Go To Broadband Page
+	Click Element       link=寬頻上網  
+
+
+Verify Broadband Page Is Loaded
+	Wait Until Page Contains Element      	css=h1  
+	Element Should Contain      			css=h1      立刻找到台灣最適合你的寬頻上網
+
+
+Verify Broadband Page Table Headers Are Complete
+	Wait Until Page Contains Element       	css=span[id='icon-bb-broadband']
+	Wait Until Page Contains Element       	css=span[id='icon-bb-tv']
+
+
+Verify Broadband Table Deals Counts Are Correct
+	Click Element       css=span[id='icon-bb-broadband'] 
+	# Click Element       css=ca[class='email_cm_close close']
+	Wait Until Page Contains Element       	css=a[id='load-more']
+	Page Should Contain   			98 個方案
+	# Wait Until Page Contains Element       	css=div[class='hdr1 col-md-4 col-sm-5 col-xs-5']
+	# Element Should Contain      			css=div[class='hdr1 col-md-4 col-sm-5 col-xs-5']       我們找到 98 個方案
+	Click Element       css=span[id='icon-bb-tv']  
+	Wait Until Page Contains Element       	css=a[id='load-more']
+	Page Should Contain   			26 個方案
+	# Wait Until Page Contains Element       	css=div[class='hdr1 col-md-7 col-sm-7 col-xs-5']
+	# Element Should Contain      			css=div[class='hdr1 col-md-7 col-sm-7 col-xs-5']      我們找到 26 個方案
+
+
+
+
+Go To Blog Page
+	Click Element       link=部落格  
+
+
+
+Verify Blog Page Is Loaded
+	Wait Until Page Contains Element      	css=h1[id='p_leading']   
+	Element Should Contain      			css=h1[id='p_leading']      幫消費者省時、省力、省錢的優質好文
+	Wait Until Page Contains Element      	css=input[id="s"][placeholder="Search..."]	
+	Wait Until Page Contains Element      	css=a[href="http://www.money101.com.tw/信用卡"]	
+	Wait Until Page Contains Element      	css=a[href="http://www.money101.com.tw/個人貸款"]	
+	Wait Until Page Contains Element      	css=a[href="http://www.money101.com.tw/寬頻上網"]
+
+	Wait Until Page Contains Element      	css=a[title="信用卡"][href="http://www.money101.com.tw/blog/category/credit-cards/"]	
+	Wait Until Page Contains Element      	css=a[title="如何理財"][href="http://www.money101.com.tw/blog/category/finance/"]	
+	Wait Until Page Contains Element      	css=a[title="科技生活"][href="http://www.money101.com.tw/blog/category/technology/"]	
+	Wait Until Page Contains Element      	css=a[title="職場成功"][href="http://www.money101.com.tw/blog/category/career/"]	
+	Wait Until Page Contains Element      	css=a[title="省錢秘訣"][href="http://www.money101.com.tw/blog/category/money-saving/"]	
+
+
+
+*** Keywords ***
+

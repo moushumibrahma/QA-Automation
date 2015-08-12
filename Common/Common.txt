@@ -1,0 +1,109 @@
+*** Settings ***
+Library   Selenium2Library
+Library   BuiltIn
+Library   String
+Library   OperatingSystem
+Library   HttpLibrary.HTTP
+Library   Collections
+
+
+
+
+
+*** Variables ***s
+${BROWSER}        	Firefox
+${USERNAME} 		test.compare01@gmail.com
+${PASSWORD} 		Compare01
+
+
+
+*** Variables ***
+
+
+@{DevSamlino}  					http://dev.samlino.dk	  			dev				kP679EtGLwuSk8
+@{StaSamlino}  					http://staging.samlino.dk			staging			W26u8KpfJ6Ru24
+@{BetMoneyHero}  				http://beta.moneyhero.com.hk		beta			s3ZKbH9qUU3r29
+@{DevMoneyHero}  				http://dev.moneyhero.com.hk			dev				e7XP7x9CktGWbp
+@{StaMoneyHero}  				http://staging.moneyhero.com.hk		staging			rPg3477m7nKqZ5
+@{DevHalomoney}  				http://dev.halomoney.co.id			dev				d7BCd4xg6Y44nU
+@{StaHalomoney}  				http://staging.halomoney.co.id		staging			U6cb48xgG6Yvp6
+@{DevComparaguru}  				http://dev.comparaguru.com			dev				RnC598JNm77MUs
+@{StaComparaguru}  				http://staging.comparaguru.com		staging			NcW59GL9t8NnBa
+@{DevComparehero}  				http://dev.comparehero.my			dev				uT6w8EBAwTv83M
+@{StaComparehero}  				http://staging.comparehero.my		staging			a2bDtA46Zz2GJj
+@{BetMoneymax}  				http://beta.moneymax.ph				beta			Ay69m5zEEmMHSR
+@{DevMoneymax}  				http://dev.moneymax.ph				dev				ux9H6d7ZKjhcP2
+@{StaMoneymax}  				http://staging.moneymax.ph			staging			u5ZGZ9FBeY2cte
+@{DevMoneyguru}  				http://dev.moneyguru.co.th			dev				n75Rm72fM9JA7c
+@{StaMoneyguru}  				http://staging.moneyguru.co.th		staging			QmE6vVCHRSEAqx
+@{DevMoney101}  				http://dev.money101.com.tw			dev				nT93JuD85U4HjF
+@{StaMoney101}  				http://staging.money101.com.tw		staging			Sb3Cz95QvY3A92
+
+
+
+
+*** Keywords ***
+Initialize Test
+    Add Cookie       QA_AUTOMATION              True
+    Set Selenium Timeout        	4 seconds
+    Set Window Size                 1600     1200
+    Set Selenium Implicit Wait     	10 seconds
+	Set Browser Implicit Wait    	10 seconds
+
+
+Basic Authentication
+	
+	# get the url then concatinate usr:pwd@ after http://
+
+
+Verify Table Rows Equals Deals Count 
+	[Arguments]   	${DealsCount}  ${ClickLoadMoreXTimes}
+	# NOTE: Table loads another 10 rows so you need to consider that on your computaition
+	# ${ClickLoadMoreXTimes}       Evaluate      Math.ceil(${DealsCount}/10)
+	# ${status} 	${value} = 	Run Keyword And Ignore Error 	Verify Load All Button Is Present
+	# Run Keyword If 	'${status}' == 'PASS' 				Click Load All Button
+	Repeat Keyword       ${ClickLoadMoreXTimes}       Click Load All Button
+	Xpath Should Match X Times    //div[@class='row-fluid result']     ${DealsCount}
+
+
+Verify Load All Button Is Present
+	Wait Until Page Contains Element  			css=a[id='load-more']
+
+Click Load All Button	
+	Click Element    		css=a[id='load']
+
+
+Grab Deals Count Value In Json File
+   ${DealsListJson}    Evaluate      json.load(open("Report/dealscount.json", "r"))      json
+   Return From Keyword    ${DealsListJson}
+
+   # Return ${DealsListJson}
+   # Should Be Equal As Numbers      39      ${DealsCount["healthinsurance-hk"]}
+
+
+
+Testing Staging or Prod.
+	Identify url if its staging
+		Identify url then 
+		ask for what server to execute to. 
+		use the normal if its the prod
+		use the appended url if not.
+		
+
+Open Site On Different Server.
+	Log To Console       @{DevSamlino}[0] 
+	${NewUrl}				Replace String Using Regexp			@{DevSamlino}[0]       //      //@{DevSamlino}[1]:@{DevSamlino}[2]@
+	Open Browser   ${NewUrl}      ${BROWSER}  
+
+
+
+Slow Page
+	[Arguments]    ${elementName}
+	Reload Page
+	Wait Until Element Is Visible        ${elementName}
+
+
+ 
+Slow Page No Reload
+	[Arguments]    ${elementName}
+	Wait Until Element Is Visible        ${elementName}

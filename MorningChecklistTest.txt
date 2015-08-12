@@ -1,0 +1,261 @@
+*** Settings ***
+Library   Selenium2Library
+Suite Setup   Open Browser   ${HOMEPAGE}   ${BROWSER}
+Suite Teardown   Close All Browsers
+
+*** Variables ***
+${HOMEPAGE}   http://www.compareasiagroup.com
+${BROWSER}   firefox
+
+# Getting the values on Deals found is via Postman chrome extension.  And then  get the URL from QA Report Google spreadsheet.
+
+*** Test Cases ***
+Initialize Test
+	Add Cookie       QA_AUTOMATION  			True
+	Set Selenium Timeout        5
+	Maximize Browser Window
+
+	
+Morning Checklist - Moneyhero - EN
+	Open Browser   http://www.moneyhero.com.hk/en   ${BROWSER}
+	Maximize browser window
+
+
+Verify Deals count is correct - Moneyhero - EN - Credit Card
+	Wait Until Element Is Visible     css=a[href='//www.moneyhero.com.hk/en/credit-card']
+	Click Element   		css=a[href='//www.moneyhero.com.hk/en/credit-card']
+	Page Should Not Contain    Loading. Please wait.
+	Wait Until Page Contains Element     css=span.ng-binding.total-result-count > label
+	Element Text Should Be     	css=span.ng-binding.total-result-count > label		We found 54 deals
+
+Verify Deals count is correct - Moneyhero - EN - Personal Loan
+	Go Back		   	
+	Click Element  		css=a[href='//www.moneyhero.com.hk/en/personal-loan']	
+	Wait Until Page Contains Element     css=#results-found > label
+	Element Text Should Be     	css=#results-found > label     		We found 18 deals
+	Click Element  		css=li[data-url='tax-loan']	
+	Wait Until Page Contains Element     css=#results-found > label
+	Element Text Should Be     	css=#results-found > label     		We found 16 deals
+	Click Element  		css=li[data-url='debt-consolidation']	
+	Wait Until Page Contains Element     css=#results-found > label
+	Element Text Should Be     	css=#results-found > label     		We found 11 deals
+	Click Element  		css=li[data-url='credit-line']	
+	Wait Until Page Contains Element     css=#results-found > label
+	Element Text Should Be     	css=#results-found > label     		We found 15 deals
+
+
+
+
+Go to Health insurance page
+	Go Back		   	
+	Click Element  		link=Health Insurance
+
+Verify page is loaded with header
+	Wait Until Page Contains     International Health Insurance
+
+Insure Myself	
+	Wait Until Page Contains Element     css=label[for='insureType1']
+	Click Element  		css=label[for='insureType1']
+
+Type age
+	Input Text  		css=input[id='txtYourAge']       25
+
+Choose American as Nationality
+	# Click Element  		css=b[role='presentation'] 
+	Wait Until Page Contains Element     css=select[id='txtYourNationality'] option[value='American']
+	Select From List By Value       css=select[id='txtYourNationality']			American
+
+Choose Outpatient cover
+	Click Element  		css=label[for='checkboxCover2']
+
+Choose zero excess
+	Click Element  		css=label[for='excessType1']
+
+Choose Private room Additional Coverage option
+	Click Element  		css=label[for='extrasType1']
+
+Select Terms and Conditions
+	Click Element  		css=button.get-quotes
+	Wait Until Page Contains			You must agree to our Terms & Conditions to continue
+	Click Element  		css=input[name=terms]
+	Click Element  		css=button.get-quotes
+
+Input Details to pop up form	
+	Wait Until Element Is Visible 			css=div.modal-dialog
+	Wait Until Page Contains Element			id=fullname
+	Input Text  		id=fullname       	Test
+	Input Text  		id=email       		test@test.com
+	Input Text  		id=phone_no       	12345678
+	Click Element  		id=ci-modal-btn
+
+Verify Deals count is correct - Moneyhero - EN - Health Insurance
+	Element Text Should Be     	css=span.total-result-count > label     		We found 51 deals
+
+Go to Travel Insurance page
+	Go Back		   	
+	Click Element  		css=a[href='//www.moneyhero.com.hk/en/travel-insurance']
+
+Verify Travel Insurance page is loaded
+	Wait Until Element Is Visible 			css=label[for='myself']
+	Wait Until Element Is Visible 			id=birthDayInd1
+	Wait Until Element Is Visible 			id=birthMonthInd1
+	Wait Until Element Is Visible 			id=birthYearInd1
+	Wait Until Element Is Visible 			css=label[for='start-day-1']
+	Wait Until Element Is Visible 			css=label[for='end-day-1']
+	Wait Until Element Is Visible 			css=label[for='hasSports']
+	Wait Until Element Is Visible 			id=inputEmail
+	Wait Until Element Is Visible 			id=get-quotes
+
+Choose Myself	
+	Click Element  							css=label[for='myself']
+
+Select 1 for Birth Day 
+	Select From List By Label  		id=birthDayInd1   1
+
+Select January for Birth Month 
+	Select From List By Label  		id=birthMonthInd1   January
+
+Select 2000 for Birth Year 
+	Select From List By Label  		id=birthYearInd1   2000
+
+Select Single for trips
+	Click Element  		css=label[for='single']
+
+
+Select American Samoa for Destination
+	Focus							id=other
+	Select From List By Value  		id=other     AS
+	# Select From List By Value  		id=other     PH
+	# Select From List By Value  		id=other     AU
+	# Select From List By Value  		id=other     SG
+
+Select Today for Start Day
+	Click Element  		css=label[for='start-day-1']
+
+Select 2 days for End Day
+	Click Element  		css=label[for='end-day-1']
+
+Select Has Sports
+	Click Element  		css=label[for='hasSports']
+
+Type email address
+	Input Text  		id=inputEmail       	test@test.com
+
+Click Get Quotes
+	Click Element  		id=get-quotes
+
+Verify Deals count is correct - Moneyhero - EN - Travel Insurance
+	Wait Until Element Is Visible 			css=p[id='total-found']
+	Wait Until Element Is Visible 			css=label
+	# Element Should Contain               These quotes meet your requirements for yourself on a single trip from Tuesday, November 4th 2014. (Change Request)
+	Element Text Should Be     	   css=label     		We found 8 quotes for you
+
+
+Morning Checklist - Moneyhero - ZH
+	Open Browser   http://www.moneyhero.com.hk   ${BROWSER}
+	Maximize browser window
+
+
+# 	Credit Cards
+# 	Personal Loans
+# 	Health Insurance
+# 	Travel Insurance
+
+# Morning Checklist - Comparehero
+# 	Credit Cards
+# 	Broadband
+# 	Personal Loans
+# 	Home Loans
+
+# Morning Checklist - Moneymax
+# 	Credit Card
+# 	Broadband
+# 	Home Loans
+# 	Car Insurance
+# 	Personal Loans
+# Morning Checklist - Halomoney
+# 	Credit Cards
+# 	Home Loans
+# 	Personal Loans
+
+
+# Morning Checklist - Moneyguru
+# 	Credit Cards
+# 	Personal Loans
+
+# Morning Checklist - Money101
+# 	Credit Cards
+# 	Broadband
+# 	Personal Loans
+# 	Personal Savings/Deposit rate comparison
+
+# Morning Checklist - Samlino
+# 	Credit Cards
+# 	Broadband
+# 	Personal Loans
+# 	Home Loans
+# 	Mortgage Loans
+# 	Cooperative Loans
+# 	Deposit Account / Hojrentekonto
+# 	unemployment fund / A-kasser
+# 	Car Loans/billaan
+# 	Car Insurance
+
+
+
+
+# Morning Checklist - Comparaguru
+# 	Personal Loan
+# 	Car Loan
+
+
+
+
+
+
+
+*** Keywords ***
+
+
+Verify deals count is correct
+	[Arguments]   ${link}			${dealsCountString}	
+	Go Back
+	Wait Until Page Contains Element      css=a[class='dropdown-toggle'][href='//www.moneyhero.com.hk/en/travel-insurance'][data-toggle='dropdown']
+	Mouse Over   css=a[class='dropdown-toggle'][href='//www.moneyhero.com.hk/en/travel-insurance'][data-toggle='dropdown']
+	Click Element   ${link}
+	Wait Until Page Contains     ${dealsCountString}
+
+
+Open Navigation and go to page
+	[Arguments]   ${link}	
+	Click Main navigation
+	Wait Until Page Contains Element      link=${link}
+	Click Element	link=${link}
+	Wait Until Page Contains Element      css=h2
+	Element Should Contain		css=h2		${link}
+	Verify Footer is present
+
+Change Language
+	Wait Until Element Is Visible     css=div[class='language'] a[href='//www.moneyhero.com.hk/']
+	Click Element   		css=div[class='language'] a[href='//www.moneyhero.com.hk/']
+
+
+
+Verify main page is loaded
+	Wait Until Page Contains      , All Rights Reserved.
+
+
+Click Main navigation	
+	Wait Until Page Contains Element      css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']
+	Click Element	css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']	
+
+Go to page	
+    [Arguments]   ${link}
+	Wait Until Page Contains Element      link=${link}
+	Click Element	link=${link}
+	Wait Until Page Contains Element      css=h2
+	Element Should Contain		css=h2		${link}
+
+
+Verify Footer is present
+	Page Should Contain      © 2014 CompareAsiaGroup, All Rights Reserved. 

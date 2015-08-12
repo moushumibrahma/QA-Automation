@@ -1,0 +1,1414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20150430 13:37:43.656" generator="Robot 2.8.6 (Python 2.7.3 on linux2)">
+<suite source="/home/enriquecampita/Automation/compareglobal-automation/Tests/SamlinoBasicE2ETest.txt" id="s1" name="SamlinoBasicE2ETest">
+<kw type="setup" name="Selenium2Library.Open Browser">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${HOMEPAGE}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20150430 13:37:43.934" level="INFO">Opening browser 'firefox' to base url 'http://www.samlino.dk'</msg>
+<status status="PASS" endtime="20150430 13:37:47.340" starttime="20150430 13:37:43.934"></status>
+</kw>
+<test id="s1-t1" name="Initialize Test">
+<kw type="kw" name="Common.Initialize Test">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Add Cookie">
+<doc>Adds a cookie to your current session.</doc>
+<arguments>
+<arg>QA_AUTOMATION</arg>
+<arg>True</arg>
+</arguments>
+<status status="PASS" endtime="20150430 13:37:47.348" starttime="20150430 13:37:47.343"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Set Selenium Timeout">
+<doc>Sets the timeout in seconds used by various keywords.</doc>
+<arguments>
+<arg>4 seconds</arg>
+</arguments>
+<status status="PASS" endtime="20150430 13:37:47.353" starttime="20150430 13:37:47.348"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Set Window Size">
+<doc>Sets the `width` and `height` of the current window to the specified values.</doc>
+<arguments>
+<arg>1600</arg>
+<arg>1200</arg>
+</arguments>
+<status status="PASS" endtime="20150430 13:37:47.361" starttime="20150430 13:37:47.353"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Set Selenium Implicit Wait">
+<doc>Sets Selenium 2's default implicit wait in seconds and</doc>
+<arguments>
+<arg>10 seconds</arg>
+</arguments>
+<status status="PASS" endtime="20150430 13:37:47.366" starttime="20150430 13:37:47.361"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Set Browser Implicit Wait">
+<doc>Sets current browser's implicit wait in seconds.</doc>
+<arguments>
+<arg>10 seconds</arg>
+</arguments>
+<status status="PASS" endtime="20150430 13:37:47.371" starttime="20150430 13:37:47.366"></status>
+</kw>
+<status status="PASS" endtime="20150430 13:37:47.372" starttime="20150430 13:37:47.342"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 13:37:47.372" critical="yes" starttime="20150430 13:37:47.341"></status>
+</test>
+<test id="s1-t2" name="Verify Main Page Is Loaded">
+<kw type="kw" name="Verify Header Is Present">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${FirstMenu}</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:37:57.557" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:37:57.557" starttime="20150430 13:37:57.380"></status>
+</kw>
+<msg timestamp="20150430 13:37:57.558" level="FAIL">Element 'css=li[class='navi-block__item navi-block__item--home hidden-xs']:nth-child(1)' did not appear in 4 seconds</msg>
+<status status="FAIL" endtime="20150430 13:37:57.558" starttime="20150430 13:37:47.374"></status>
+</kw>
+<status status="FAIL" endtime="20150430 13:37:57.558" starttime="20150430 13:37:47.373"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:37:57.558" critical="yes" starttime="20150430 13:37:47.372">Element 'css=li[class='navi-block__item navi-block__item--home hidden-xs']:nth-child(1)' did not appear in 4 seconds</status>
+</test>
+<test id="s1-t3" name="Click Main Menu Links">
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${FirstMenu}</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:38:07.760" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:38:07.760" starttime="20150430 13:38:07.575"></status>
+</kw>
+<msg timestamp="20150430 13:38:07.760" level="FAIL">Element 'css=li[class='navi-block__item navi-block__item--home hidden-xs']:nth-child(1)' did not appear in 4 seconds</msg>
+<status status="FAIL" endtime="20150430 13:38:07.760" starttime="20150430 13:37:57.560"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:38:07.761" critical="yes" starttime="20150430 13:37:57.559">Element 'css=li[class='navi-block__item navi-block__item--home hidden-xs']:nth-child(1)' did not appear in 4 seconds</status>
+</test>
+<test id="s1-t4" name="Go To Folsikring/Akkase/Akkase Page.">
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=li.navi-inner-second__list__item &gt; a.navi-inner__url</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:38:17.949" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:38:17.949" starttime="20150430 13:38:17.773"></status>
+</kw>
+<msg timestamp="20150430 13:38:17.949" level="FAIL">Element 'css=li.navi-inner-second__list__item &gt; a.navi-inner__url' did not appear in 4 seconds</msg>
+<status status="FAIL" endtime="20150430 13:38:17.949" starttime="20150430 13:38:07.762"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:38:17.949" critical="yes" starttime="20150430 13:38:07.761">Element 'css=li.navi-inner-second__list__item &gt; a.navi-inner__url' did not appear in 4 seconds</status>
+</test>
+<test id="s1-t5" name="Verify Folsikring/Akkase/Akkase Page Is Loading">
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=h1</arg>
+</arguments>
+<status status="PASS" endtime="20150430 13:38:17.989" starttime="20150430 13:38:17.951"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h1</arg>
+<arg>Sammenlign a-kasser gratis i dag</arg>
+</arguments>
+<msg timestamp="20150430 13:38:17.990" level="INFO">Verifying element 'css=h1' contains text 'Sammenlign a-kasser gratis i dag'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:38:18.174" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:38:18.174" starttime="20150430 13:38:18.001"></status>
+</kw>
+<msg timestamp="20150430 13:38:18.175" level="FAIL">Element 'css=h1' should have contained text 'Sammenlign a-kasser gratis i dag' but its text was 'Server not found'.</msg>
+<status status="FAIL" endtime="20150430 13:38:18.175" starttime="20150430 13:38:17.990"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:38:18.175" critical="yes" starttime="20150430 13:38:17.950">Element 'css=h1' should have contained text 'Sammenlign a-kasser gratis i dag' but its text was 'Server not found'.</status>
+</test>
+<test id="s1-t6" name="Go To Forsikring/Akasser/Guide... Page">
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${HOMEPAGE}/a-kasser/guide</arg>
+</arguments>
+<msg timestamp="20150430 13:38:18.177" level="INFO">Opening url 'http://www.samlino.dk/a-kasser/guide'</msg>
+<status status="PASS" endtime="20150430 13:38:18.216" starttime="20150430 13:38:18.177"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 13:38:18.216" critical="yes" starttime="20150430 13:38:18.176"></status>
+</test>
+<test id="s1-t7" name="Verify Forsikring/Akasser/Guide... Page Is Loaded">
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h1</arg>
+<arg>A-kasse guiden - Sådan finder du den bedste</arg>
+</arguments>
+<msg timestamp="20150430 13:38:18.218" level="INFO">Verifying element 'css=h1' contains text 'A-kasse guiden - Sådan finder du den bedste'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:38:18.407" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:38:18.407" starttime="20150430 13:38:18.233"></status>
+</kw>
+<msg timestamp="20150430 13:38:18.408" level="FAIL">Element 'css=h1' should have contained text 'A-kasse guiden - Sådan finder du den bedste' but its text was 'Server not found'.</msg>
+<status status="FAIL" endtime="20150430 13:38:18.408" starttime="20150430 13:38:18.217"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:38:18.408" critical="yes" starttime="20150430 13:38:18.216">Element 'css=h1' should have contained text 'A-kasse guiden - Sådan finder du den bedste' but its text was 'Server not found'.</status>
+</test>
+<test id="s1-t8" name="Go To Forsikring/Akasser/Ordliste til a-kasser Page">
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${HOMEPAGE}/a-kasser/ordliste</arg>
+</arguments>
+<msg timestamp="20150430 13:38:18.410" level="INFO">Opening url 'http://www.samlino.dk/a-kasser/ordliste'</msg>
+<status status="PASS" endtime="20150430 13:38:18.445" starttime="20150430 13:38:18.409"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 13:38:18.445" critical="yes" starttime="20150430 13:38:18.408"></status>
+</test>
+<test id="s1-t9" name="Verify Forsikring/Akasser/Ordliste til a-kasser Page Is Loaded">
+<kw type="kw" name="BuiltIn.Sleep">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20150430 13:38:28.448" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" endtime="20150430 13:38:28.448" starttime="20150430 13:38:18.447"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${HOMEPAGE}/a-kasser/ordliste</arg>
+</arguments>
+<msg timestamp="20150430 13:38:28.448" level="INFO">Opening url 'http://www.samlino.dk/a-kasser/ordliste'</msg>
+<status status="PASS" endtime="20150430 13:38:28.484" starttime="20150430 13:38:28.448"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Sleep">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20150430 13:38:38.486" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" endtime="20150430 13:38:38.486" starttime="20150430 13:38:28.485"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${HOMEPAGE}/a-kasser/ordliste</arg>
+</arguments>
+<msg timestamp="20150430 13:38:38.486" level="INFO">Opening url 'http://www.samlino.dk/a-kasser/ordliste'</msg>
+<status status="PASS" endtime="20150430 13:38:38.523" starttime="20150430 13:38:38.486"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Location Should Contain">
+<doc>Verifies that current URL contains `expected`.</doc>
+<arguments>
+<arg>/a-kasser/ordliste</arg>
+</arguments>
+<msg timestamp="20150430 13:38:38.530" level="INFO">Current location contains '/a-kasser/ordliste'.</msg>
+<status status="PASS" endtime="20150430 13:38:38.530" starttime="20150430 13:38:38.523"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h1</arg>
+<arg>Ordliste til a-kasse</arg>
+</arguments>
+<msg timestamp="20150430 13:38:38.531" level="INFO">Verifying element 'css=h1' contains text 'Ordliste til a-kasse'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:38:38.717" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:38:38.717" starttime="20150430 13:38:38.544"></status>
+</kw>
+<msg timestamp="20150430 13:38:38.717" level="FAIL">Element 'css=h1' should have contained text 'Ordliste til a-kasse' but its text was 'Server not found'.</msg>
+<status status="FAIL" endtime="20150430 13:38:38.717" starttime="20150430 13:38:38.531"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:38:38.718" critical="yes" starttime="20150430 13:38:18.445">Element 'css=h1' should have contained text 'Ordliste til a-kasse' but its text was 'Server not found'.</status>
+</test>
+<test id="s1-t10" name="Go To Forsikring/Akasser/FAQ til a-kasser Page">
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${HOMEPAGE}/a-kasser/faq</arg>
+</arguments>
+<msg timestamp="20150430 13:38:38.719" level="INFO">Opening url 'http://www.samlino.dk/a-kasser/faq'</msg>
+<status status="PASS" endtime="20150430 13:38:38.754" starttime="20150430 13:38:38.719"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 13:38:38.755" critical="yes" starttime="20150430 13:38:38.718"></status>
+</test>
+<test id="s1-t11" name="Verify Forsikring/Akasser/FAQ til a-kasser Page Is Loaded">
+<kw type="kw" name="Selenium2Library.Location Should Contain">
+<doc>Verifies that current URL contains `expected`.</doc>
+<arguments>
+<arg>/a-kasser/faq</arg>
+</arguments>
+<msg timestamp="20150430 13:38:38.762" level="INFO">Current location contains '/a-kasser/faq'.</msg>
+<status status="PASS" endtime="20150430 13:38:38.762" starttime="20150430 13:38:38.756"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h1</arg>
+<arg>FAQ til a-kasse</arg>
+</arguments>
+<msg timestamp="20150430 13:38:38.763" level="INFO">Verifying element 'css=h1' contains text 'FAQ til a-kasse'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:38:38.952" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:38:38.952" starttime="20150430 13:38:38.776"></status>
+</kw>
+<msg timestamp="20150430 13:38:38.952" level="FAIL">Element 'css=h1' should have contained text 'FAQ til a-kasse' but its text was 'Server not found'.</msg>
+<status status="FAIL" endtime="20150430 13:38:38.952" starttime="20150430 13:38:38.763"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:38:38.952" critical="yes" starttime="20150430 13:38:38.755">Element 'css=h1' should have contained text 'FAQ til a-kasse' but its text was 'Server not found'.</status>
+</test>
+<test id="s1-t12" name="Go To Forsikring/Akasser/Oversigt over a-kasser Page">
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${HOMEPAGE}/a-kasser/Oversigt-over-a-kasser</arg>
+</arguments>
+<msg timestamp="20150430 13:38:38.954" level="INFO">Opening url 'http://www.samlino.dk/a-kasser/Oversigt-over-a-kasser'</msg>
+<status status="PASS" endtime="20150430 13:38:38.990" starttime="20150430 13:38:38.954"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 13:38:38.990" critical="yes" starttime="20150430 13:38:38.953"></status>
+</test>
+<test id="s1-t13" name="Verify Forsikring/Akasser/Oversigt over a-kasser Page Is Loaded">
+<kw type="kw" name="Selenium2Library.Location Should Contain">
+<doc>Verifies that current URL contains `expected`.</doc>
+<arguments>
+<arg>/a-kasser/Oversigt-over-a-kasser</arg>
+</arguments>
+<msg timestamp="20150430 13:38:38.998" level="INFO">Current location contains '/a-kasser/Oversigt-over-a-kasser'.</msg>
+<status status="PASS" endtime="20150430 13:38:38.998" starttime="20150430 13:38:38.991"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h1</arg>
+<arg>Samlinos a-kasse oversigt</arg>
+</arguments>
+<msg timestamp="20150430 13:38:38.999" level="INFO">Verifying element 'css=h1' contains text 'Samlinos a-kasse oversigt'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:38:39.187" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:38:39.188" starttime="20150430 13:38:39.012"></status>
+</kw>
+<msg timestamp="20150430 13:38:39.188" level="FAIL">Element 'css=h1' should have contained text 'Samlinos a-kasse oversigt' but its text was 'Server not found'.</msg>
+<status status="FAIL" endtime="20150430 13:38:39.188" starttime="20150430 13:38:38.999"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:38:39.188" critical="yes" starttime="20150430 13:38:38.990">Element 'css=h1' should have contained text 'Samlinos a-kasse oversigt' but its text was 'Server not found'.</status>
+</test>
+<test id="s1-t14" name="Go To Folsikring/Bilforsikring/Bilforsikring Page">
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>link=Bilforsikring</arg>
+<arg>Bilforsikring</arg>
+</arguments>
+<msg timestamp="20150430 13:38:39.190" level="INFO">Verifying element 'link=Bilforsikring' contains text 'Bilforsikring'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:38:49.380" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-9.png"&gt;&lt;img src="selenium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:38:49.380" starttime="20150430 13:38:49.206"></status>
+</kw>
+<msg timestamp="20150430 13:38:49.380" level="FAIL">ValueError: Element locator 'link=Bilforsikring' did not match any elements.</msg>
+<status status="FAIL" endtime="20150430 13:38:49.380" starttime="20150430 13:38:39.190"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:38:49.381" critical="yes" starttime="20150430 13:38:39.189">ValueError: Element locator 'link=Bilforsikring' did not match any elements.</status>
+</test>
+<test id="s1-t15" name="Verify Folsikring/Bilforsikring/Bilforsikring Page Is Loaded">
+<kw type="kw" name="Selenium2Library.Reload Page">
+<doc>Simulates user reloading page.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150430 13:38:49.417" starttime="20150430 13:38:49.382"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h1</arg>
+<arg>Få 3 gode tilbud på din bilforsikring!</arg>
+</arguments>
+<msg timestamp="20150430 13:38:49.418" level="INFO">Verifying element 'css=h1' contains text 'Få 3 gode tilbud på din bilforsikring!'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:38:49.622" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:38:49.622" starttime="20150430 13:38:49.433"></status>
+</kw>
+<msg timestamp="20150430 13:38:49.623" level="FAIL">Element 'css=h1' should have contained text 'Få 3 gode tilbud på din bilforsikring!' but its text was 'Server not found'.</msg>
+<status status="FAIL" endtime="20150430 13:38:49.623" starttime="20150430 13:38:49.418"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:38:49.623" critical="yes" starttime="20150430 13:38:49.381">Element 'css=h1' should have contained text 'Få 3 gode tilbud på din bilforsikring!' but its text was 'Server not found'.</status>
+</test>
+<test id="s1-t16" name="Go To Bilforsikring Form Page">
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=a[href='//www.samlino.dk/bilforsikring/registrering']</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:38:59.807" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-11.png"&gt;&lt;img src="selenium-screenshot-11.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:38:59.808" starttime="20150430 13:38:59.634"></status>
+</kw>
+<msg timestamp="20150430 13:38:59.808" level="FAIL">Element 'css=a[href='//www.samlino.dk/bilforsikring/registrering']' did not appear in 4 seconds</msg>
+<status status="FAIL" endtime="20150430 13:38:59.808" starttime="20150430 13:38:49.624"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:38:59.808" critical="yes" starttime="20150430 13:38:49.623">Element 'css=a[href='//www.samlino.dk/bilforsikring/registrering']' did not appear in 4 seconds</status>
+</test>
+<test id="s1-t17" name="Input Details On Bilforsikring Form Page 1">
+<kw type="kw" name="BuiltIn.Wait Until Keyword Succeeds">
+<doc>Waits until the specified keyword succeeds or the given timeout expires.</doc>
+<arguments>
+<arg>30 secs</arg>
+<arg>5 secs</arg>
+<arg>Slow Page</arg>
+<arg>css=select[id='brand']</arg>
+</arguments>
+<kw type="kw" name="Common.Slow Page">
+<doc></doc>
+<arguments>
+<arg>css=select[id='brand']</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Reload Page">
+<doc>Simulates user reloading page.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150430 13:38:59.845" starttime="20150430 13:38:59.811"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Element Is Visible">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementName}</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:39:10.056" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-12.png"&gt;&lt;img src="selenium-screenshot-12.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:39:10.056" starttime="20150430 13:39:09.863"></status>
+</kw>
+<msg timestamp="20150430 13:39:10.056" level="FAIL">Element locator 'css=select[id='brand']' did not match any elements after 4 seconds</msg>
+<status status="FAIL" endtime="20150430 13:39:10.057" starttime="20150430 13:38:59.845"></status>
+</kw>
+<status status="FAIL" endtime="20150430 13:39:10.057" starttime="20150430 13:38:59.810"></status>
+</kw>
+<kw type="kw" name="Common.Slow Page">
+<doc></doc>
+<arguments>
+<arg>css=select[id='brand']</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Reload Page">
+<doc>Simulates user reloading page.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150430 13:39:15.098" starttime="20150430 13:39:15.063"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Element Is Visible">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementName}</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:39:25.302" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-13.png"&gt;&lt;img src="selenium-screenshot-13.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:39:25.302" starttime="20150430 13:39:25.115"></status>
+</kw>
+<msg timestamp="20150430 13:39:25.302" level="FAIL">Element locator 'css=select[id='brand']' did not match any elements after 4 seconds</msg>
+<status status="FAIL" endtime="20150430 13:39:25.302" starttime="20150430 13:39:15.098"></status>
+</kw>
+<status status="FAIL" endtime="20150430 13:39:25.302" starttime="20150430 13:39:15.062"></status>
+</kw>
+<kw type="kw" name="Common.Slow Page">
+<doc></doc>
+<arguments>
+<arg>css=select[id='brand']</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Reload Page">
+<doc>Simulates user reloading page.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150430 13:39:30.344" starttime="20150430 13:39:30.309"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Element Is Visible">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementName}</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:39:40.544" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-14.png"&gt;&lt;img src="selenium-screenshot-14.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:39:40.544" starttime="20150430 13:39:40.363"></status>
+</kw>
+<msg timestamp="20150430 13:39:40.544" level="FAIL">Element locator 'css=select[id='brand']' did not match any elements after 4 seconds</msg>
+<status status="FAIL" endtime="20150430 13:39:40.544" starttime="20150430 13:39:30.345"></status>
+</kw>
+<status status="FAIL" endtime="20150430 13:39:40.545" starttime="20150430 13:39:30.308"></status>
+</kw>
+<msg timestamp="20150430 13:39:40.545" level="FAIL">Timeout 30 seconds exceeded. The last error was: Element locator 'css=select[id='brand']' did not match any elements after 4 seconds</msg>
+<status status="FAIL" endtime="20150430 13:39:40.545" starttime="20150430 13:38:59.810"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:39:40.546" critical="yes" starttime="20150430 13:38:59.809">Timeout 30 seconds exceeded. The last error was: Element locator 'css=select[id='brand']' did not match any elements after 4 seconds</status>
+</test>
+<test id="s1-t18" name="Verify Bilforsikring Form Page 2 Is Loaded">
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=input[id='tel']</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:39:50.735" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-15.png"&gt;&lt;img src="selenium-screenshot-15.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:39:50.735" starttime="20150430 13:39:50.558"></status>
+</kw>
+<msg timestamp="20150430 13:39:50.736" level="FAIL">Element 'css=input[id='tel']' did not appear in 4 seconds</msg>
+<status status="FAIL" endtime="20150430 13:39:50.736" starttime="20150430 13:39:40.547"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:39:50.736" critical="yes" starttime="20150430 13:39:40.546">Element 'css=input[id='tel']' did not appear in 4 seconds</status>
+</test>
+<test id="s1-t19" name="Input Details On Bilforsikring Form Page 2">
+<kw type="kw" name="Selenium2Library.Input Text">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>css=input[id='tel']</arg>
+<arg>6612345</arg>
+</arguments>
+<msg timestamp="20150430 13:39:50.738" level="INFO">Typing text '6612345' into text field 'css=input[id='tel']'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:40:00.924" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-16.png"&gt;&lt;img src="selenium-screenshot-16.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:40:00.924" starttime="20150430 13:40:00.749"></status>
+</kw>
+<msg timestamp="20150430 13:40:00.924" level="FAIL">ValueError: Element locator 'css=input[id='tel']' did not match any elements.</msg>
+<status status="FAIL" endtime="20150430 13:40:00.924" starttime="20150430 13:39:50.737"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:40:00.925" critical="yes" starttime="20150430 13:39:50.736">ValueError: Element locator 'css=input[id='tel']' did not match any elements.</status>
+</test>
+<test id="s1-t20" name="Go To Folsikring/Bilforsikring/Guide til bilforsikring Page">
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${HOMEPAGE}/bilforsikring/guide</arg>
+</arguments>
+<msg timestamp="20150430 13:40:00.926" level="INFO">Opening url 'http://www.samlino.dk/bilforsikring/guide'</msg>
+<status status="PASS" endtime="20150430 13:40:00.963" starttime="20150430 13:40:00.926"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 13:40:00.964" critical="yes" starttime="20150430 13:40:00.925"></status>
+</test>
+<test id="s1-t21" name="Verify Folsikring/Bilforsikring/Bilforsikring - Den komplette guide Page Is Loaded">
+<kw type="kw" name="Selenium2Library.Location Should Contain">
+<doc>Verifies that current URL contains `expected`.</doc>
+<arguments>
+<arg>/bilforsikring/guide</arg>
+</arguments>
+<msg timestamp="20150430 13:40:00.971" level="INFO">Current location contains '/bilforsikring/guide'.</msg>
+<status status="PASS" endtime="20150430 13:40:00.971" starttime="20150430 13:40:00.965"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Title Should Be">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>Guide til den bedste bilforsikring efter dit behov</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:40:01.149" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-17.png"&gt;&lt;img src="selenium-screenshot-17.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:40:01.149" starttime="20150430 13:40:00.976"></status>
+</kw>
+<msg timestamp="20150430 13:40:01.150" level="FAIL">Title should have been 'Guide til den bedste bilforsikring efter dit behov' but was 'Problem loading page'</msg>
+<status status="FAIL" endtime="20150430 13:40:01.150" starttime="20150430 13:40:00.971"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:40:01.150" critical="yes" starttime="20150430 13:40:00.964">Title should have been 'Guide til den bedste bilforsikring efter dit behov' but was 'Problem loading page'</status>
+</test>
+<test id="s1-t22" name="Go To Folsikring/Bilforsikring/Bilforsikrings ordliste Page">
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${HOMEPAGE}/bilforsikring/ordliste</arg>
+</arguments>
+<msg timestamp="20150430 13:40:01.152" level="INFO">Opening url 'http://www.samlino.dk/bilforsikring/ordliste'</msg>
+<status status="PASS" endtime="20150430 13:40:01.187" starttime="20150430 13:40:01.151"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Sleep">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20150430 13:40:11.189" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" endtime="20150430 13:40:11.189" starttime="20150430 13:40:01.188"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${HOMEPAGE}/bilforsikring/ordliste</arg>
+</arguments>
+<msg timestamp="20150430 13:40:11.189" level="INFO">Opening url 'http://www.samlino.dk/bilforsikring/ordliste'</msg>
+<status status="PASS" endtime="20150430 13:40:11.226" starttime="20150430 13:40:11.189"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Sleep">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20150430 13:40:21.227" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" endtime="20150430 13:40:21.227" starttime="20150430 13:40:11.226"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${HOMEPAGE}/bilforsikring/ordliste</arg>
+</arguments>
+<msg timestamp="20150430 13:40:21.228" level="INFO">Opening url 'http://www.samlino.dk/bilforsikring/ordliste'</msg>
+<status status="PASS" endtime="20150430 13:40:21.266" starttime="20150430 13:40:21.228"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 13:40:21.266" critical="yes" starttime="20150430 13:40:01.150"></status>
+</test>
+<test id="s1-t23" name="Verify Folsikring/Bilforsikring/Bilforsikrings ordliste Page Is Loaded">
+<kw type="kw" name="Selenium2Library.Location Should Contain">
+<doc>Verifies that current URL contains `expected`.</doc>
+<arguments>
+<arg>/bilforsikring/ordliste</arg>
+</arguments>
+<msg timestamp="20150430 13:40:21.273" level="INFO">Current location contains '/bilforsikring/ordliste'.</msg>
+<status status="PASS" endtime="20150430 13:40:21.273" starttime="20150430 13:40:21.267"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Title Should Be">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>Bilforsikrings ordliste | Samlinos samlede oversigt</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:40:21.455" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-18.png"&gt;&lt;img src="selenium-screenshot-18.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:40:21.455" starttime="20150430 13:40:21.278"></status>
+</kw>
+<msg timestamp="20150430 13:40:21.455" level="FAIL">Title should have been 'Bilforsikrings ordliste | Samlinos samlede oversigt' but was 'Problem loading page'</msg>
+<status status="FAIL" endtime="20150430 13:40:21.456" starttime="20150430 13:40:21.273"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:40:21.456" critical="yes" starttime="20150430 13:40:21.266">Title should have been 'Bilforsikrings ordliste | Samlinos samlede oversigt' but was 'Problem loading page'</status>
+</test>
+<test id="s1-t24" name="Go To Folsikring/Bilforsikring/FAQ til bilforsikring Page">
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${HOMEPAGE}/bilforsikring/faq</arg>
+</arguments>
+<msg timestamp="20150430 13:40:21.458" level="INFO">Opening url 'http://www.samlino.dk/bilforsikring/faq'</msg>
+<status status="PASS" endtime="20150430 13:40:21.493" starttime="20150430 13:40:21.457"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 13:40:21.493" critical="yes" starttime="20150430 13:40:21.456"></status>
+</test>
+<test id="s1-t25" name="Verify Folsikring/Bilforsikring/FAQ til bilforsikring Page Is Loaded">
+<kw type="kw" name="Selenium2Library.Location Should Contain">
+<doc>Verifies that current URL contains `expected`.</doc>
+<arguments>
+<arg>/bilforsikring/faq</arg>
+</arguments>
+<msg timestamp="20150430 13:40:21.501" level="INFO">Current location contains '/bilforsikring/faq'.</msg>
+<status status="PASS" endtime="20150430 13:40:21.501" starttime="20150430 13:40:21.494"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Title Should Be">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>Bilforsikrings FAQ | Samlinos spørgsmål og svar</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:40:21.687" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-19.png"&gt;&lt;img src="selenium-screenshot-19.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:40:21.687" starttime="20150430 13:40:21.506"></status>
+</kw>
+<msg timestamp="20150430 13:40:21.687" level="FAIL">Title should have been 'Bilforsikrings FAQ | Samlinos spørgsmål og svar' but was 'Problem loading page'</msg>
+<status status="FAIL" endtime="20150430 13:40:21.687" starttime="20150430 13:40:21.501"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:40:21.687" critical="yes" starttime="20150430 13:40:21.493">Title should have been 'Bilforsikrings FAQ | Samlinos spørgsmål og svar' but was 'Problem loading page'</status>
+</test>
+<test id="s1-t26" name="Go To Mobil, bredbånd og TV/Bredbånd+TV/Bredbånd+TV Page">
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${HOMEPAGE}/bredbaand</arg>
+</arguments>
+<msg timestamp="20150430 13:40:21.689" level="INFO">Opening url 'http://www.samlino.dk/bredbaand'</msg>
+<status status="PASS" endtime="20150430 13:40:21.726" starttime="20150430 13:40:21.689"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 13:40:21.726" critical="yes" starttime="20150430 13:40:21.688"></status>
+</test>
+<test id="s1-t27" name="Go to Broadband Page">
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${HOMEPAGE}/bredbaand#fastnet</arg>
+</arguments>
+<msg timestamp="20150430 13:40:21.727" level="INFO">Opening url 'http://www.samlino.dk/bredbaand#fastnet'</msg>
+<status status="PASS" endtime="20150430 13:40:21.734" starttime="20150430 13:40:21.727"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${HOMEPAGE}/bredbaand#fastnet</arg>
+</arguments>
+<msg timestamp="20150430 13:40:21.735" level="INFO">Opening url 'http://www.samlino.dk/bredbaand#fastnet'</msg>
+<status status="PASS" endtime="20150430 13:40:21.741" starttime="20150430 13:40:21.735"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${HOMEPAGE}/bredbaand#fastnet</arg>
+</arguments>
+<msg timestamp="20150430 13:40:21.741" level="INFO">Opening url 'http://www.samlino.dk/bredbaand#fastnet'</msg>
+<status status="PASS" endtime="20150430 13:40:21.748" starttime="20150430 13:40:21.741"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 13:40:21.749" critical="yes" starttime="20150430 13:40:21.726"></status>
+</test>
+<test id="s1-t28" name="Input Details in Form">
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h1</arg>
+<arg>Gratis sammenligning af bredbånd</arg>
+</arguments>
+<msg timestamp="20150430 13:40:21.750" level="INFO">Verifying element 'css=h1' contains text 'Gratis sammenligning af bredbånd'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:40:21.940" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-20.png"&gt;&lt;img src="selenium-screenshot-20.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:40:21.940" starttime="20150430 13:40:21.763"></status>
+</kw>
+<msg timestamp="20150430 13:40:21.941" level="FAIL">Element 'css=h1' should have contained text 'Gratis sammenligning af bredbånd' but its text was 'Server not found'.</msg>
+<status status="FAIL" endtime="20150430 13:40:21.941" starttime="20150430 13:40:21.750"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:40:21.941" critical="yes" starttime="20150430 13:40:21.749">Element 'css=h1' should have contained text 'Gratis sammenligning af bredbånd' but its text was 'Server not found'.</status>
+</test>
+<test id="s1-t29" name="Verify Broadband Page panel section is present">
+<kw type="kw" name="Selenium2Library.Wait Until Element Is Visible">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>css=h1</arg>
+</arguments>
+<status status="PASS" endtime="20150430 13:40:21.953" starttime="20150430 13:40:21.942"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h1</arg>
+<arg>Gratis sammenligning af bredbånd</arg>
+</arguments>
+<msg timestamp="20150430 13:40:21.954" level="INFO">Verifying element 'css=h1' contains text 'Gratis sammenligning af bredbånd'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:40:22.142" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-21.png"&gt;&lt;img src="selenium-screenshot-21.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:40:22.142" starttime="20150430 13:40:21.964"></status>
+</kw>
+<msg timestamp="20150430 13:40:22.143" level="FAIL">Element 'css=h1' should have contained text 'Gratis sammenligning af bredbånd' but its text was 'Server not found'.</msg>
+<status status="FAIL" endtime="20150430 13:40:22.143" starttime="20150430 13:40:21.953"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:40:22.143" critical="yes" starttime="20150430 13:40:21.941">Element 'css=h1' should have contained text 'Gratis sammenligning af bredbånd' but its text was 'Server not found'.</status>
+</test>
+<test id="s1-t30" name="Verify Broadband Page Slider Defaults Are Correct">
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=div[id='accordion_adv_options'] div[class='col-md-4 col-sm-12 col-xs-12 form-horizontal'] div[class='col-md-8 col-sm-8 col-xs-12'] div[class='slider-handle round'][style='left: 25%;']</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:40:32.329" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-22.png"&gt;&lt;img src="selenium-screenshot-22.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:40:32.329" starttime="20150430 13:40:32.153"></status>
+</kw>
+<msg timestamp="20150430 13:40:32.330" level="FAIL">Element 'css=div[id='accordion_adv_options'] div[class='col-md-4 col-sm-12 col-xs-12 form-horizontal'] div[class='col-md-8 col-sm-8 col-xs-12'] div[class='slider-handle round'][style='left: 25%;']' did not appear in 4 seconds</msg>
+<status status="FAIL" endtime="20150430 13:40:32.330" starttime="20150430 13:40:22.144"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:40:32.330" critical="yes" starttime="20150430 13:40:22.143">Element 'css=div[id='accordion_adv_options'] div[class='col-md-4 col-sm-12 col-xs-12 form-horizontal'] div[class='col-md-8 col-sm-8 col-xs-12'] div[class='slider-handle round'][style='left: 25%;']' did not appear in 4 seconds</status>
+</test>
+<test id="s1-t31" name="Go To Mobilabonnement Page">
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>link=Mobilabonnement</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:40:42.514" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-23.png"&gt;&lt;img src="selenium-screenshot-23.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:40:42.515" starttime="20150430 13:40:42.339"></status>
+</kw>
+<msg timestamp="20150430 13:40:42.515" level="FAIL">Element 'link=Mobilabonnement' did not appear in 4 seconds</msg>
+<status status="FAIL" endtime="20150430 13:40:42.515" starttime="20150430 13:40:32.331"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:40:42.515" critical="yes" starttime="20150430 13:40:32.330">Element 'link=Mobilabonnement' did not appear in 4 seconds</status>
+</test>
+<test id="s1-t32" name="Verify Mobilabonnement Page Slider Defaults Are Correct">
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=div[id='accordion_adv_options'] div[class='col-md-6 col-sm-12 col-xs-12 form-horizontal'] div[class='col-md-5 col-sm-8 col-xs-12'] div[class='slider-handle round'][style='left: 80%;']</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:40:52.698" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-24.png"&gt;&lt;img src="selenium-screenshot-24.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:40:52.698" starttime="20150430 13:40:52.523"></status>
+</kw>
+<msg timestamp="20150430 13:40:52.699" level="FAIL">Element 'css=div[id='accordion_adv_options'] div[class='col-md-6 col-sm-12 col-xs-12 form-horizontal'] div[class='col-md-5 col-sm-8 col-xs-12'] div[class='slider-handle round'][style='left: 80%;']' did not appear in 4 seconds</msg>
+<status status="FAIL" endtime="20150430 13:40:52.699" starttime="20150430 13:40:42.517"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:40:52.699" critical="yes" starttime="20150430 13:40:42.516">Element 'css=div[id='accordion_adv_options'] div[class='col-md-6 col-sm-12 col-xs-12 form-horizontal'] div[class='col-md-5 col-sm-8 col-xs-12'] div[class='slider-handle round'][style='left: 80%;']' did not appear in 4 seconds</status>
+</test>
+<test id="s1-t33" name="Go To Mobilabonnement Post Paid Tab Page">
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>css=span[id="icon-postpaid-logo"]</arg>
+</arguments>
+<msg timestamp="20150430 13:40:52.701" level="INFO">Clicking element 'css=span[id="icon-postpaid-logo"]'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:41:02.915" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-25.png"&gt;&lt;img src="selenium-screenshot-25.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:41:02.915" starttime="20150430 13:41:02.716"></status>
+</kw>
+<msg timestamp="20150430 13:41:02.916" level="FAIL">ValueError: Element locator 'css=span[id="icon-postpaid-logo"]' did not match any elements.</msg>
+<status status="FAIL" endtime="20150430 13:41:02.916" starttime="20150430 13:40:52.700"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:41:02.916" critical="yes" starttime="20150430 13:40:52.699">ValueError: Element locator 'css=span[id="icon-postpaid-logo"]' did not match any elements.</status>
+</test>
+<test id="s1-t34" name="Verify Mobilabonnement Post Paid Tab Page Is Loaded">
+<kw type="kw" name="Selenium2Library.Reload Page">
+<doc>Simulates user reloading page.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150430 13:41:02.954" starttime="20150430 13:41:02.917"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Wait Until Keyword Succeeds">
+<doc>Waits until the specified keyword succeeds or the given timeout expires.</doc>
+<arguments>
+<arg>30 secs</arg>
+<arg>5 secs</arg>
+<arg>Slow Page</arg>
+<arg>css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']</arg>
+</arguments>
+<kw type="kw" name="Common.Slow Page">
+<doc></doc>
+<arguments>
+<arg>css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Reload Page">
+<doc>Simulates user reloading page.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150430 13:41:03.001" starttime="20150430 13:41:02.955"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Element Is Visible">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementName}</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:41:13.199" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-26.png"&gt;&lt;img src="selenium-screenshot-26.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:41:13.199" starttime="20150430 13:41:13.016"></status>
+</kw>
+<msg timestamp="20150430 13:41:13.199" level="FAIL">Element locator 'css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']' did not match any elements after 4 seconds</msg>
+<status status="FAIL" endtime="20150430 13:41:13.199" starttime="20150430 13:41:03.002"></status>
+</kw>
+<status status="FAIL" endtime="20150430 13:41:13.200" starttime="20150430 13:41:02.954"></status>
+</kw>
+<kw type="kw" name="Common.Slow Page">
+<doc></doc>
+<arguments>
+<arg>css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Reload Page">
+<doc>Simulates user reloading page.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150430 13:41:18.240" starttime="20150430 13:41:18.206"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Element Is Visible">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementName}</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:41:28.429" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-27.png"&gt;&lt;img src="selenium-screenshot-27.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:41:28.429" starttime="20150430 13:41:28.249"></status>
+</kw>
+<msg timestamp="20150430 13:41:28.429" level="FAIL">Element locator 'css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']' did not match any elements after 4 seconds</msg>
+<status status="FAIL" endtime="20150430 13:41:28.429" starttime="20150430 13:41:18.240"></status>
+</kw>
+<status status="FAIL" endtime="20150430 13:41:28.429" starttime="20150430 13:41:18.205"></status>
+</kw>
+<kw type="kw" name="Common.Slow Page">
+<doc></doc>
+<arguments>
+<arg>css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Reload Page">
+<doc>Simulates user reloading page.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150430 13:41:33.470" starttime="20150430 13:41:33.435"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Element Is Visible">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementName}</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:41:43.656" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-28.png"&gt;&lt;img src="selenium-screenshot-28.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:41:43.657" starttime="20150430 13:41:43.480"></status>
+</kw>
+<msg timestamp="20150430 13:41:43.657" level="FAIL">Element locator 'css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']' did not match any elements after 4 seconds</msg>
+<status status="FAIL" endtime="20150430 13:41:43.657" starttime="20150430 13:41:33.470"></status>
+</kw>
+<status status="FAIL" endtime="20150430 13:41:43.657" starttime="20150430 13:41:33.434"></status>
+</kw>
+<msg timestamp="20150430 13:41:43.657" level="FAIL">Timeout 30 seconds exceeded. The last error was: Element locator 'css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']' did not match any elements after 4 seconds</msg>
+<status status="FAIL" endtime="20150430 13:41:43.658" starttime="20150430 13:41:02.954"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:41:43.658" critical="yes" starttime="20150430 13:41:02.916">Timeout 30 seconds exceeded. The last error was: Element locator 'css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']' did not match any elements after 4 seconds</status>
+</test>
+<test id="s1-t35" name="Go To Billån Page">
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>link=Billån</arg>
+<arg>Billån</arg>
+</arguments>
+<msg timestamp="20150430 13:41:43.659" level="INFO">Verifying element 'link=Billån' contains text 'Billån'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:41:53.845" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-29.png"&gt;&lt;img src="selenium-screenshot-29.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:41:53.845" starttime="20150430 13:41:53.670"></status>
+</kw>
+<msg timestamp="20150430 13:41:53.845" level="FAIL">ValueError: Element locator 'link=Billån' did not match any elements.</msg>
+<status status="FAIL" endtime="20150430 13:41:53.845" starttime="20150430 13:41:43.659"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:41:53.846" critical="yes" starttime="20150430 13:41:43.658">ValueError: Element locator 'link=Billån' did not match any elements.</status>
+</test>
+<test id="s1-t36" name="Verify Billån Page Is Loaded">
+<kw type="kw" name="Selenium2Library.Reload Page">
+<doc>Simulates user reloading page.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150430 13:41:53.881" starttime="20150430 13:41:53.847"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Reload Page">
+<doc>Simulates user reloading page.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150430 13:41:53.916" starttime="20150430 13:41:53.881"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h1</arg>
+<arg>Find det billigste billån i dag</arg>
+</arguments>
+<msg timestamp="20150430 13:41:53.917" level="INFO">Verifying element 'css=h1' contains text 'Find det billigste billån i dag'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:41:54.109" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-30.png"&gt;&lt;img src="selenium-screenshot-30.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:41:54.110" starttime="20150430 13:41:53.930"></status>
+</kw>
+<msg timestamp="20150430 13:41:54.110" level="FAIL">Element 'css=h1' should have contained text 'Find det billigste billån i dag' but its text was 'Server not found'.</msg>
+<status status="FAIL" endtime="20150430 13:41:54.110" starttime="20150430 13:41:53.917"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:41:54.110" critical="yes" starttime="20150430 13:41:53.846">Element 'css=h1' should have contained text 'Find det billigste billån i dag' but its text was 'Server not found'.</status>
+</test>
+<test id="s1-t37" name="Go To Forbrugslån Page">
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>link=Forbrugslån</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:42:04.292" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-31.png"&gt;&lt;img src="selenium-screenshot-31.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:42:04.292" starttime="20150430 13:42:04.118"></status>
+</kw>
+<msg timestamp="20150430 13:42:04.293" level="FAIL">Element 'link=Forbrugslån' did not appear in 4 seconds</msg>
+<status status="FAIL" endtime="20150430 13:42:04.293" starttime="20150430 13:41:54.112"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:42:04.293" critical="yes" starttime="20150430 13:41:54.111">Element 'link=Forbrugslån' did not appear in 4 seconds</status>
+</test>
+<test id="s1-t38" name="Verify Forbrugslån Page Slider Defaults Are Correct">
+<kw type="kw" name="BuiltIn.Wait Until Keyword Succeeds">
+<doc>Waits until the specified keyword succeeds or the given timeout expires.</doc>
+<arguments>
+<arg>30 secs</arg>
+<arg>5 secs</arg>
+<arg>Slow Page</arg>
+<arg>css=input[id='loan-amount'][value='20.000']</arg>
+</arguments>
+<kw type="kw" name="Common.Slow Page">
+<doc></doc>
+<arguments>
+<arg>css=input[id='loan-amount'][value='20.000']</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Reload Page">
+<doc>Simulates user reloading page.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150430 13:42:04.331" starttime="20150430 13:42:04.296"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Element Is Visible">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementName}</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:42:14.529" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-32.png"&gt;&lt;img src="selenium-screenshot-32.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:42:14.529" starttime="20150430 13:42:14.347"></status>
+</kw>
+<msg timestamp="20150430 13:42:14.530" level="FAIL">Element locator 'css=input[id='loan-amount'][value='20.000']' did not match any elements after 4 seconds</msg>
+<status status="FAIL" endtime="20150430 13:42:14.530" starttime="20150430 13:42:04.331"></status>
+</kw>
+<status status="FAIL" endtime="20150430 13:42:14.530" starttime="20150430 13:42:04.295"></status>
+</kw>
+<kw type="kw" name="Common.Slow Page">
+<doc></doc>
+<arguments>
+<arg>css=input[id='loan-amount'][value='20.000']</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Reload Page">
+<doc>Simulates user reloading page.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150430 13:42:19.571" starttime="20150430 13:42:19.536"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Element Is Visible">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementName}</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:42:29.762" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-33.png"&gt;&lt;img src="selenium-screenshot-33.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:42:29.762" starttime="20150430 13:42:29.580"></status>
+</kw>
+<msg timestamp="20150430 13:42:29.762" level="FAIL">Element locator 'css=input[id='loan-amount'][value='20.000']' did not match any elements after 4 seconds</msg>
+<status status="FAIL" endtime="20150430 13:42:29.763" starttime="20150430 13:42:19.572"></status>
+</kw>
+<status status="FAIL" endtime="20150430 13:42:29.763" starttime="20150430 13:42:19.535"></status>
+</kw>
+<kw type="kw" name="Common.Slow Page">
+<doc></doc>
+<arguments>
+<arg>css=input[id='loan-amount'][value='20.000']</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Reload Page">
+<doc>Simulates user reloading page.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150430 13:42:34.804" starttime="20150430 13:42:34.768"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Element Is Visible">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementName}</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:42:44.996" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-34.png"&gt;&lt;img src="selenium-screenshot-34.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:42:44.996" starttime="20150430 13:42:44.815"></status>
+</kw>
+<msg timestamp="20150430 13:42:44.996" level="FAIL">Element locator 'css=input[id='loan-amount'][value='20.000']' did not match any elements after 4 seconds</msg>
+<status status="FAIL" endtime="20150430 13:42:44.996" starttime="20150430 13:42:34.805"></status>
+</kw>
+<status status="FAIL" endtime="20150430 13:42:44.997" starttime="20150430 13:42:34.767"></status>
+</kw>
+<msg timestamp="20150430 13:42:44.997" level="FAIL">Timeout 30 seconds exceeded. The last error was: Element locator 'css=input[id='loan-amount'][value='20.000']' did not match any elements after 4 seconds</msg>
+<status status="FAIL" endtime="20150430 13:42:44.997" starttime="20150430 13:42:04.294"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:42:44.997" critical="yes" starttime="20150430 13:42:04.293">Timeout 30 seconds exceeded. The last error was: Element locator 'css=input[id='loan-amount'][value='20.000']' did not match any elements after 4 seconds</status>
+</test>
+<test id="s1-t39" name="Verify Forbrugslån Page Is Loading">
+<kw type="kw" name="BuiltIn.Sleep">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20150430 13:42:54.999" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" endtime="20150430 13:42:55.000" starttime="20150430 13:42:44.998"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Reload Page">
+<doc>Simulates user reloading page.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150430 13:42:55.035" starttime="20150430 13:42:55.000"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=h1</arg>
+</arguments>
+<status status="PASS" endtime="20150430 13:42:55.043" starttime="20150430 13:42:55.036"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h1</arg>
+<arg>LÅN TIL DET DU ØNSKER MED ET ONLINE LÅN</arg>
+</arguments>
+<msg timestamp="20150430 13:42:55.044" level="INFO">Verifying element 'css=h1' contains text 'LÅN TIL DET DU ØNSKER MED ET ONLINE LÅN'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:42:55.233" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-35.png"&gt;&lt;img src="selenium-screenshot-35.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:42:55.233" starttime="20150430 13:42:55.057"></status>
+</kw>
+<msg timestamp="20150430 13:42:55.234" level="FAIL">Element 'css=h1' should have contained text 'LÅN TIL DET DU ØNSKER MED ET ONLINE LÅN' but its text was 'Server not found'.</msg>
+<status status="FAIL" endtime="20150430 13:42:55.234" starttime="20150430 13:42:55.044"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:42:55.234" critical="yes" starttime="20150430 13:42:44.997">Element 'css=h1' should have contained text 'LÅN TIL DET DU ØNSKER MED ET ONLINE LÅN' but its text was 'Server not found'.</status>
+</test>
+<test id="s1-t40" name="Go To Kreditkort Page">
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>link=Kreditkort</arg>
+<arg>Kreditkort</arg>
+</arguments>
+<msg timestamp="20150430 13:42:55.236" level="INFO">Verifying element 'link=Kreditkort' contains text 'Kreditkort'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:43:05.418" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-36.png"&gt;&lt;img src="selenium-screenshot-36.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:43:05.418" starttime="20150430 13:43:05.242"></status>
+</kw>
+<msg timestamp="20150430 13:43:05.419" level="FAIL">ValueError: Element locator 'link=Kreditkort' did not match any elements.</msg>
+<status status="FAIL" endtime="20150430 13:43:05.419" starttime="20150430 13:42:55.235"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:43:05.419" critical="yes" starttime="20150430 13:42:55.234">ValueError: Element locator 'link=Kreditkort' did not match any elements.</status>
+</test>
+<test id="s1-t41" name="Verify Kreditkort Page Is Loaded">
+<kw type="kw" name="BuiltIn.Sleep">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20150430 13:43:15.421" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" endtime="20150430 13:43:15.422" starttime="20150430 13:43:05.421"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Reload Page">
+<doc>Simulates user reloading page.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150430 13:43:15.458" starttime="20150430 13:43:15.422"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h1</arg>
+<arg>Sammenlign kreditkort gratis i dag</arg>
+</arguments>
+<msg timestamp="20150430 13:43:15.458" level="INFO">Verifying element 'css=h1' contains text 'Sammenlign kreditkort gratis i dag'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:43:15.652" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-37.png"&gt;&lt;img src="selenium-screenshot-37.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:43:15.652" starttime="20150430 13:43:15.473"></status>
+</kw>
+<msg timestamp="20150430 13:43:15.652" level="FAIL">Element 'css=h1' should have contained text 'Sammenlign kreditkort gratis i dag' but its text was 'Server not found'.</msg>
+<status status="FAIL" endtime="20150430 13:43:15.652" starttime="20150430 13:43:15.458"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:43:15.653" critical="yes" starttime="20150430 13:43:05.419">Element 'css=h1' should have contained text 'Sammenlign kreditkort gratis i dag' but its text was 'Server not found'.</status>
+</test>
+<test id="s1-t42" name="Go To Højrentekonto Page">
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>link=Højrentekonto</arg>
+<arg>Højrentekonto</arg>
+</arguments>
+<msg timestamp="20150430 13:43:15.654" level="INFO">Verifying element 'link=Højrentekonto' contains text 'Højrentekonto'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:43:25.839" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-38.png"&gt;&lt;img src="selenium-screenshot-38.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:43:25.839" starttime="20150430 13:43:25.666"></status>
+</kw>
+<msg timestamp="20150430 13:43:25.839" level="FAIL">ValueError: Element locator 'link=Højrentekonto' did not match any elements.</msg>
+<status status="FAIL" endtime="20150430 13:43:25.839" starttime="20150430 13:43:15.654"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:43:25.840" critical="yes" starttime="20150430 13:43:15.653">ValueError: Element locator 'link=Højrentekonto' did not match any elements.</status>
+</test>
+<test id="s1-t43" name="Verify Højrentekonto Page Is Loaded">
+<kw type="kw" name="Selenium2Library.Reload Page">
+<doc>Simulates user reloading page.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150430 13:43:25.875" starttime="20150430 13:43:25.841"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h1</arg>
+<arg>Find den bedste højrentekonto - Gratis</arg>
+</arguments>
+<msg timestamp="20150430 13:43:25.876" level="INFO">Verifying element 'css=h1' contains text 'Find den bedste højrentekonto - Gratis'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:43:26.063" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-39.png"&gt;&lt;img src="selenium-screenshot-39.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:43:26.063" starttime="20150430 13:43:25.890"></status>
+</kw>
+<msg timestamp="20150430 13:43:26.063" level="FAIL">Element 'css=h1' should have contained text 'Find den bedste højrentekonto - Gratis' but its text was 'Server not found'.</msg>
+<status status="FAIL" endtime="20150430 13:43:26.063" starttime="20150430 13:43:25.876"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:43:26.064" critical="yes" starttime="20150430 13:43:25.840">Element 'css=h1' should have contained text 'Find den bedste højrentekonto - Gratis' but its text was 'Server not found'.</status>
+</test>
+<test id="s1-t44" name="Verify Højrentekonto Page Slider Defaults Are Correct">
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=div[id='accordion_adv_options'] div[class='col-md-6 col-sm-12 col-xs-12 form-horizontal'] div[class='col-md-9 col-sm-9 col-xs-12'] div[class='slider-handle round'][style='left: 24.2424%;']</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 13:43:36.258" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-40.png"&gt;&lt;img src="selenium-screenshot-40.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 13:43:36.258" starttime="20150430 13:43:36.077"></status>
+</kw>
+<msg timestamp="20150430 13:43:36.258" level="FAIL">Element 'css=div[id='accordion_adv_options'] div[class='col-md-6 col-sm-12 col-xs-12 form-horizontal'] div[class='col-md-9 col-sm-9 col-xs-12'] div[class='slider-handle round'][style='left: 24.2424%;']' did not appear in 4 seconds</msg>
+<status status="FAIL" endtime="20150430 13:43:36.259" starttime="20150430 13:43:26.065"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 13:43:36.259" critical="yes" starttime="20150430 13:43:26.064">Element 'css=div[id='accordion_adv_options'] div[class='col-md-6 col-sm-12 col-xs-12 form-horizontal'] div[class='col-md-9 col-sm-9 col-xs-12'] div[class='slider-handle round'][style='left: 24.2424%;']' did not appear in 4 seconds</status>
+</test>
+<kw type="teardown" name="Selenium2Library.Close All Browsers">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150430 13:43:36.287" starttime="20150430 13:43:36.264"></status>
+</kw>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20150430 13:43:36.287" starttime="20150430 13:37:43.657"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="34" pass="10">Critical Tests</stat>
+<stat fail="34" pass="10">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="34" pass="10" id="s1" name="SamlinoBasicE2ETest">SamlinoBasicE2ETest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

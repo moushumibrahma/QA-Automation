@@ -1,0 +1,32 @@
+*** Settings ***
+Library           Selenium2Library
+
+
+*** Variables ***
+${BROWSER}        Firefox
+
+
+*** Keywords ***
+Verify Header Is Present
+    Wait Until Page Contains Element  link=Bredbånd
+    Wait Until Page Contains Element  link=Mobilabonnement  
+    Wait Until Page Contains Element  link=A-kasser
+    Wait Until Page Contains Element  link=Bilforsikring
+    Wait Until Page Contains Element  link=Billån
+    Wait Until Page Contains Element  link=Forbrugslån
+    Wait Until Page Contains Element  link=Kreditkort
+    Wait Until Page Contains Element  css=div[class='col-md-4 col-sm-6 privacypolicy-wrapper']>a[href='/fortrolighedspolitik']
+
+Verify Footer Is Present
+    Wait Until Page Contains Element           css=footer
+    Element Should Contain                  css=div.heading-title2 > div.heading-customers_title  Udvalgte samarbejdspartnere
+    Wait Until Page Contains Element           css=img.img-featured-pic
+    Wait Until Page Contains Element           //img[@alt='santander']
+    Wait Until Page Contains Element           //img[@alt='oister']
+    # Wait Until Page Contains Element           //img[@alt='GEMoneyBank']
+    Wait Until Page Contains Element           //img[@alt='vardia']
+    # Wait Until Page Contains Element           //img[@alt='codan']
+    Wait Until Page Contains Element           css=a.social-fb > span
+    Wait Until Page Contains Element           css=a.social-tw > span
+    Wait Until Page Contains Element           css=a.social-gp > span
+    Wait Until Page Contains Element           css=a.social-bl > span

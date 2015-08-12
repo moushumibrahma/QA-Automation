@@ -1,0 +1,48 @@
+*** Settings ***
+Library           Selenium2Library
+
+
+*** Variables ***
+${BROWSER}        Firefox
+${DELAY}          0
+${MAIN PAGE}	  http://www.compareasiagroup.com/
+
+*** Keywords 
+Open Browser To Login Page
+    Open Browser    ${MAIN PAGE}    ${BROWSER}
+    Maximize Browser Window
+    Set Selenium Speed    ${DELAY}
+    Verify Main Page is Loaded
+
+
+Verify Main Page Is Loaded
+    Location Should Be    ${MAIN PAGE}
+    Title Should Be    Welcome to CompareAsiaGroup
+
+Go To Main Page
+    Go To    ${MAIN PAGE}
+    Verify Main Page Is Loaded
+
+Input Username
+    [Arguments]    ${username}
+    Input Text    username_field    ${username}
+
+Input Password
+    [Arguments]    ${password}
+    Input Text    password_field    ${password}
+
+Submit Credentials
+    Click Button    login_button
+
+
+
+def greet_many(names):
+    for name in names:
+        print 'Hello %s' % name
+
+def count_up(limit):
+    for num in range(1, limit+1):
+        if num == limit:
+            print 'bye!'
+        else:
+            print num

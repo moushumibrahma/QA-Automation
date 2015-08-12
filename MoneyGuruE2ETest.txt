@@ -1,0 +1,293 @@
+*** Settings ***
+Library   Selenium2Library
+Suite Setup   Open Browser   ${HOMEPAGE}   ${BROWSER}
+Suite Teardown   Close All Browsers
+
+Resource          Common/Common.txt
+*** Variables ***
+${HOMEPAGE}   http://www.moneyguru.co.th/en
+${BROWSER}   firefox
+
+
+
+*** Test Cases ***
+Initialize Test
+	Add Cookie       QA_AUTOMATION  			True
+	Set Selenium Timeout        10
+	Set Window Size  				1600     1200
+
+	
+Verify Home Page Is Loaded
+	Wait Until Page Contains Element       css=img[alt="MoneyGuru"]  
+	Element Should Contain       link=Car Insurance  Car Insurance
+	Element Should Contain       link=Credit Card  Credit Card
+	Element Should Contain       link=Personal Loan  Personal Loan
+	Element Should Contain       link=About Us  About Us
+	Element Should Contain       p_leading  Thailand’s Leading Financial Comparison Portal
+	Wait Until Page Contains Element       css=div.btn-compare-now  
+	Wait Until Page Contains Element       //div[2]/div/div/div/a[2]/div  
+	Page Should Contain         			  	Access comprehensive information on credit cards, personal loans, and car insurance: 
+	Page Should Contain         			  	Find answers to frequently asked questions on key financial products in Thailand: 
+	Page Should Contain         			  	Make an informed choice by understanding important financial terms: 
+	Wait Until Page Contains Element       css=a[href='//www.moneyguru.co.th/en/credit-card/guide']
+	Wait Until Page Contains Element       css=a[href='//www.moneyguru.co.th/en/personal-loan']
+	Wait Until Page Contains Element       css=a[href='//www.moneyguru.co.th/en/car-insurance/guide']
+	Wait Until Page Contains Element       css=a[href='//www.moneyguru.co.th/en/credit-card/faq']
+	Wait Until Page Contains Element       css=a[href='//www.moneyguru.co.th/en/personal-loan']
+	Wait Until Page Contains Element       css=a[href='//www.moneyguru.co.th/en/car-insurance/faq']
+	Wait Until Page Contains Element       css=a[href='//www.moneyguru.co.th/en/credit-card/glossary']
+	Wait Until Page Contains Element       css=a[href='//www.moneyguru.co.th/en/personal-loan']
+	Wait Until Page Contains Element       css=a[href='//www.moneyguru.co.th/en/car-insurance/glossary']
+	# Verify Chat Box Is In Siamese Language 
+
+
+	# Element Should Contain       css=div[class='container sec_grp'] div[class='col-md-4 col-sm-6 col-xs-12 hidden-xs hstuff']:nth-child[2] h3[class='1liner']       Glossary
+	# Element Should Contain       css=li.box_links > a  Credit Card
+	# Element Should Contain       xpath=(//a[contains(text(),'Personal Loan')])[3]  Personal Loan
+	# Element Should Contain       xpath=(//a[contains(text(),'Credit Card')])[7]  Credit Card
+	# Element Should Contain       xpath=(//a[contains(text(),'Personal Loan')])[4]  Personal Loan
+	# Element Should Contain       css=div[class='col-sm-12']:nth-child(1) > h1:nth-child(1)     Compare Products in Thailand and Save Money Instantly with MoneyGuru
+	Wait Until Page Contains Element       css=a.social-fb > span  
+	Wait Until Page Contains Element       css=a.social-tw > span  
+	Wait Until Page Contains Element       css=a.social-gp > span  
+	Wait Until Page Contains Element       css=a.social-bl > span  
+	Wait Until Page Contains Element       css=section.foot_head.hidden-xs > div.container.sec_grp > div.row > div.col-md-12 > p  
+
+
+# Go To Car Insurance
+# 	Click Element       link=Car Insurance  
+
+# Verify Car Insurance Page is Loaded
+# 	Wait Until Page Contains Element       css=h2  
+# 	# Element Should Contain       css=div.choose-car > h6  			I drive a...  
+
+# Input Car Details
+# 	Wait Until Keyword Succeeds      			30 secs        5 secs        Slow Page      			css=ul[class='visible-md visible-lg']>li[data-item='2014']
+# 	Click Element      							css=ul[class='visible-md visible-lg']>li[data-item='2014']
+# 	Wait Until Keyword Succeeds      			30 secs        5 secs        Slow Page No Reload      			css=div.vehicle-make > ul:nth-child(2) > li 
+# 	Wait Until Element Is Visible         		css=div[class='car-selector'] > div[class='ci-second-steps']
+# 	Element Should Contain         				css=div[class='car-selector'] > div[class='ci-second-steps']      	Brand
+# 	Wait Until Page Contains Element         	css=div.vehicle-make > ul:nth-child(2) > li[data-item='BMW']
+# 	Click Element      							css=div.vehicle-make > ul:nth-child(2) > li[data-item='BMW']
+# 	Element Should Contain         				css=div[class='car-selector'] > div[class='ci-second-steps']     	Model
+# 	Wait Until Element Is Visible         		css=div[class='vehicle-model'] > ul:nth-child(2) > li[data-item='116i'] > span
+# 	Click Element         						css=div.vehicle-model > ul:nth-child(2) > li[data-item='116i'] > span
+# 	Wait Until Keyword Succeeds      			30 secs        5 secs        Slow Page No Reload      			css=div[class='car-selector'] > div[class='ci-second-steps']	
+# 	Wait Until Page Contains Element         	css=div[class='vehicle-submodel'] > ul > li[data-cartrim='Hatch 4dr Steptronic 8sp RWD 1.6iTT (CBU,M Sport)']
+# 	Element Should Contain         				css=div[class='car-selector'] > div[class='ci-second-steps']  			Trim 
+# 	Wait Until Element Is Visible      			css=div[class='vehicle-submodel'] > ul > li[data-cartrim='Hatch 4dr Steptronic 8sp RWD 1.6iTT (CBU,M Sport)']
+# 	Click Element      							css=div[class='vehicle-submodel'] > ul > li[data-cartrim='Hatch 4dr Steptronic 8sp RWD 1.6iTT (CBU,M Sport)']
+
+	
+
+
+
+
+# Verify Province Registration Section Is Loaded
+# 	Wait Until Element Is Visible         		css=div[class='wizard-car-model']
+# 	Element Should Contain     					css=div[class='wizard-car-model']			 I drive a... 2014 BMW 116i Hatch 4dr Steptronic 8sp RWD 1.6iTT (CBU,M Sport) (Change car) 
+# 	Page Should Contain         				Province of Registration
+# 	Wait Until Element Is Visible         		css=label[for='location-bangkok-metro']
+# 	Wait Until Element Is Visible         		css=label[for='location-upcountry']
+# 	Click Element         						css=label[for='location-bangkok-metro']
+
+
+
+# Verify Usage Form Section Is Loaded
+# 	Wait Until Element Is Visible         		css=label[for='usage-personal']
+# 	Wait Until Element Is Visible         		css=label[for='usage-commercial']
+# 	Element Should Contain     					css=div[class='wizard-car-model']			 I drive a... 2014 BMW 116i Hatch 4dr Steptronic 8sp RWD 1.6iTT (CBU,M Sport) (Change car) 
+# 	Page Should Contain         				2014 BMW 116i Hatch 4dr Steptronic 8sp RWD 1.6iTT (CBU,M Sport)
+# 	Page Should Contain         				Usage
+# 	Click Element       						css=label[for='usage-personal']        
+
+
+
+# Verify Compulsory Section Is Loaded
+# 	Wait Until Element Is Visible         		css=div[class='wizard-car-model']
+# 	Element Should Contain     					css=div[class='wizard-car-model']			 I drive a... 2014 BMW 116i Hatch 4dr Steptronic 8sp RWD 1.6iTT (CBU,M Sport) (Change car) 
+# 	Page Should Contain         				Compulsory
+# 	Wait Until Element Is Visible         		css=label[for='compulsory-yes']
+# 	Wait Until Element Is Visible         		css=label[for='compulsory-no']
+# 	Click Element         						css=label[for='compulsory-yes']
+
+
+
+
+
+
+
+# Verify Counters Are Displayed
+# 	# Page Should Contain                         Our Car Insurance Expert Dada is finding the best\noffers for you and your vehicle  
+# 	Page Should Contain         			  	Insurance products
+# 	Page Should Contain         				Insurance carriers
+# 	Page Should Contain         				Matches found
+# 	Wait Until Element Is Visible        		css=i[class='check animated bounceIn']
+
+
+# Input Contact Details In Modal
+# 	Wait Until Element Is Visible				css=div[class='ci-modal__content']
+# 	Wait Until Element Is Visible				css=div[class='ci-modal__header clearfix']
+# 	Wait Until Element Is Visible				css=img[src='/assets/img/carinsurance/Elements/Shield.png']
+# 	Wait Until Element Is Visible         		css=input[id='fullname']
+# 	Wait Until Element Is Visible         		css=div.ci-modal__form-row > #email
+# 	Input Text     								css=input[id='fullname']     							test
+# 	Input Text  								css=div.ci-modal__form-row > #email  		test@gmail.com
+# 	Input Text  								css=input[id='tel_no']  									+668234567890 
+# 	Click Element       						css=button[class='btn btn-block btn-lg btn-warning cc-modal-submit-btn'] 
+
+
+
+
+# Verify Car Details Are Correct
+# 	Page Should Contain         			  	Car Insurance
+# 	Page Should Contain         				Find and Compare the Best Car Insurance Deals Now!
+# 	Page Should Contain         				YOUR CAR DETAILS
+# 	Page Should Contain         				RESULTS
+# 	Wait Until Element Is Visible         		css=div[class='wizard-car-model']
+# 	Element Should Contain     					css=div[class='wizard-car-model']			 I drive a... 2014 BMW 116i Hatch 4dr Steptronic 8sp RWD 1.6iTT (CBU,M Sport) (Change car) 
+# 	Page Should Contain         				2014 BMW 116i Hatch 4dr Steptronic 8sp RWD 1.6iTT (CBU,M Sport)
+
+
+
+
+
+# Verify Car Insurance Deals Page Is Loaded
+# 	Wait Until Element Is Visible			css=h1.vertical_h1
+# 	Element Should Contain       css=h1[class='vertical_h1']      	Find and Compare the Best Car Insurance Deals Now! 
+# 	Wait Until Keyword Succeeds      			30 secs        5 secs        Slow Page      			css=strong		
+# 	Element Should Contain       css=strong  						Insurance Class  
+# 	Wait Until Element Is Visible       link=All   
+# 	Wait Until Element Is Visible       css=a[class='btn combo dropdown-toggle combo_box insurer-filter']  
+# 	Wait Until Page Contains Element       css=div[class='filter-yes-no']    
+# 	Element Should Contain       css=div[class='col-md-4 col-sm-4 col-xs-12 flter_lbl']  Additional Coverage
+# 	Wait Until Page Contains Element       css=label[for='additionalCoverageFiretheft']    
+# 	Wait Until Page Contains Element       css=label[for='additionalCoverageFlood'] 
+# 	Wait Until Page Contains Element       css=label[for='additionalCoverageDealerGarage']   
+# 	Wait Until Page Contains Element       link=Select Insurers      
+# 	# Element Should Contain       //div[@'collapseOne']/div/div/div[3]/div[2]/div  Service  
+# 	# Element Should Contain       //div[@'collapseOne']/div/div/div[3]/div[2]/div[2]/div/label  Roadside Assistance  
+# 	# Element Should Contain       //div[@'collapseOne']/div/div/div[3]/div[2]/div[2]/div[2]/label  Home Assistance  
+# 	# Element Should Contain       //div[@'collapseOne']/div/div/div[3]/div[2]/div[2]/div[3]/label  In-car Property Coverage  
+#  	Element Should Contain  				css=div[class='hdr1 col-md-8 col-sm-5 col-xs-4']   We found 703 deals 
+
+
+Go To Credit Card
+	Wait Until Element Is Visible       link=Credit Card 
+	Click Element       link=Credit Card   
+
+Verify Credit Card Page Is Loaded 
+	Element Should Contain       css=h1.vertical_h1  			Find and Compare the Best Credit Card Deals Now!  
+	Wait Until Page Contains Element       link=Select Banks     
+	Wait Until Page Contains Element       link=Card Provider    
+	Wait Until Page Contains Element       monthlyIncomeText    
+	Wait Until Page Contains Element       icon-cc-shopping    
+	Wait Until Page Contains Element       icon-cc-superstore    
+	Wait Until Page Contains Element       icon-cc-airmiles    
+	Wait Until Page Contains Element       icon-cc-travel    
+	Wait Until Page Contains Element       icon-cc-petrol    
+	Wait Until Page Contains Element       icon-cc-cashback    
+	Wait Until Page Contains Element       icon-cc-specialty    
+	Wait Until Page Contains Element       icon-cc-premium    
+	Wait Until Page Contains Element       icon-cc-all     
+	Wait Until Page Contains Element       rewardssort    
+	Wait Until Page Contains Element       annualfeesort    
+	Wait Until Page Contains Element       interestperiodsort    
+	Wait Until Element Is Visible    		css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']
+	Element Should Contain       css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']  We found 222 deals 
+
+
+Verify Superstore Deals
+	Page Should Not Contain          css=div[class='progress-bar']
+	Click Element       icon-cc-superstore 
+	Wait Until Element Is Visible    		css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']   
+	Element Should Contain       css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']   We found 4 deals  
+
+Verify Airmiles Deals
+	Page Should Not Contain          css=div[class='progress-bar']
+	Click Element       icon-cc-airmiles  
+	Wait Until Element Is Visible    		css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']  
+	Element Should Contain       css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']  We found 148 deals  
+
+Verify Travel Deals
+	Page Should Not Contain          css=div[class='progress-bar']  
+	Click Element       icon-cc-travel
+	Wait Until Element Is Visible    		css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']  
+	Element Should Contain       css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']  We found 30 deals  
+
+Verify Petrol Deals
+	Page Should Not Contain          css=div[class='progress-bar']
+	Click Element       icon-cc-petrol 
+	Wait Until Element Is Visible    		css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']   
+	Element Should Contain       css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']  We found 44 deals  
+
+Verify Cashback Deals
+	Page Should Not Contain          css=div[class='progress-bar'] 
+	Click Element       icon-cc-cashback 
+	Wait Until Element Is Visible    		css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']  
+	Element Should Contain       css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']  We found 16 deals  
+
+Verify Specialty Deals
+	Page Should Not Contain          css=div[class='progress-bar']
+	Click Element       icon-cc-specialty 
+	Wait Until Element Is Visible    		css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']   
+	Element Should Contain       css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']  We found 125 deals  
+
+Verify Premium Deals
+	Page Should Not Contain          css=div[class='progress-bar']
+	Click Element       icon-cc-premium 
+	Wait Until Element Is Visible    		css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']   
+	Element Should Contain       css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']  We found 9 deals 
+
+Verify All Deals 
+	Page Should Not Contain          css=div[class='progress-bar'] 
+	Click Element       icon-cc-all  
+	Wait Until Element Is Visible    		css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4'] 
+	${DealsListJson}    Evaluate      json.load(open("Report/dealscount.json", "r"))      json
+	Element Should Contain       css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']  We found ${DealsListJson["creditcards-th"]} deals
+
+
+Go To Personal Loan Page
+	Click Element       link=Personal Loan    
+
+Verify Personal Loan Page Is Loaded
+	Element Should Contain       css=h1.vertical_h1   			Best Interest Rates for Personal Loans in Thailand 
+	Wait Until Page Contains Element       loan-amount    
+	Wait Until Page Contains Element       tenure-amount    
+	Wait Until Page Contains Element       link=All Loan Providers    
+	Wait Until Page Contains Element       monthly-income    
+	Wait Until Page Contains Element       css=div.slider-track    
+	Wait Until Page Contains Element       css=label.salary-btn    
+	Wait Until Page Contains Element       css=input[id='employmentTypeSelfEmployed']    
+	Wait Until Page Contains Element       link=Hide Filters    
+	Wait Until Page Contains Element       icon_pl_installment_loans    
+	Wait Until Page Contains Element       css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']  
+	Element Should Contain       			css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']  We found 10 deals       
+
+Go To About Us Page
+	Click Element       link=About Us    
+
+Verify About Us Page Is Loaded
+	Element Should Contain       css=h1  About Us  
+	Element Should Contain       css=h2  What We Do  
+	# Element Should Contain       //div[@'aboutus']/h2[2]  Compare Global Group  
+	Element Should Contain       css=h4  Compare Asia Group
+
+
+
+
+*** Keywords ***
+
+Verify Chat Box Is In Siamese Language 
+	# Page Should Contain      		ส่งข้อความถึงเรา  
+	Select Frame       css=iframe
+	Wait Until Page Contains Element       css=div[class='meshim_widget_widgets_Favicon favicon']
+	Wait Until Page Contains Element       css=div[class='button_text jx_ui_Widget']
+	Click Element       					css=div[class='button_text jx_ui_Widget'] 
+	Page Should Contain      		การบริการลูกค้าและตอบคำถามทั่วไป  
+	Page Should Contain      		ขออภัยในความไม่สะดวก ขณะนี้เป็นเวลานอกทำการ กรุณาฝากข้อความและหมายเลขโทรศัพท์ แล้วเจ้าหน้าที่ของเราจะติดต่อกลับไปหาท่านในช่วงเวลาทำการ  
+
+
+Slow Page No Reload
+	[Arguments]    ${elementName}
+	Wait Until Element Is Visible        ${elementName}

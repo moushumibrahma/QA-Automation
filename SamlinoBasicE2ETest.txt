@@ -1,0 +1,651 @@
+*** Settings ***
+Library   Selenium2Library
+Suite Setup   	Open Browser   ${HOMEPAGE}   ${BROWSER}
+Suite Teardown   Close All Browsers
+Resource          SamlinoPages/Common.txt
+Resource          Common/Common.txt
+
+*** Variables ***
+${HOMEPAGE}   http://www.samlino.dk
+${BROWSER}   firefox
+
+#Menu links
+${FirstMenu}      	css=li[class='navi-block__item navi-block__item--home hidden-xs']:nth-child(1)
+${SecondMenu}      	css=li[class='navi-block__item navi-block__item--arrow hidden-xs']:nth-child(3)
+${ThirdMenu}      	css=li[class='navi-block__item navi-block__item--arrow hidden-xs']:nth-child(4) > span
+${FourthMenu}      	css=li[class='navi-block__item navi-block__item--arrow hidden-xs']:nth-child(5) > span
+${FifthMenu}      	css=li[class='navi-block__item navi-block__item--arrow hidden-xs']:nth-child(6) > a
+${SixthMenu}      	css=li[class='navi-block__item navi-block__item--arrow hidden-xs']:nth-child(7) > span
+${SeventhMenu}      css=li[class='navi-block__item navi-block__item--lang hidden-xs'] 
+
+
+
+
+*** Test Cases ***
+Initialize Test
+	Common.Initialize Test
+
+
+Verify Main Page Is Loaded
+	Verify Header Is Present
+	Wait Until Page Contains Element           css=p[class='cookies-info-message-static']
+	# Element Should Contain                     css=h1  			Gratis, uafhængig og hurtig markedssammenligning!
+	Wait Until Page Contains Element           css=div[class='hero-block__slider swiper-wrapper']
+	Wait Until Page Contains Element           css=div[class='ch-provider js-ch-provider--homepage']
+	Wait Until Page Contains Element           css=div[class='container-fluid']
+	Wait Until Page Contains Element           css=div[class='why-choose-container']
+	Wait Until Page Contains Element           css=div[class='hp-widgets hidden-xs']
+	Wait Until Page Contains Element           css=div[class='container-fluid']
+	Verify Footer Is Present
+
+
+
+Click Main Menu Links	
+	Wait Until Page Contains Element      	${FirstMenu}
+	Click Element  							${FirstMenu}
+	Wait Until Page Contains Element      	${SecondMenu} 
+	Click Element  							${SecondMenu}
+	Wait Until Page Contains Element      	${ThirdMenu} 
+	Click Element  							${ThirdMenu}
+	Wait Until Page Contains Element      	${FourthMenu} 
+	Click Element  							${FourthMenu}
+	Wait Until Page Contains Element   		${FifthMenu} 
+	Click Element  							${FifthMenu}
+	Wait Until Page Contains Element      	${SixthMenu} 
+	Click Element  							${SixthMenu}
+
+
+
+Go To Folsikring/Akkase/Akkase Page.
+	# Element Should Contain                link=A-kasser  A-kasser
+	# Click Element  						link=A-kasser
+	Wait Until Page Contains Element         css=li.navi-inner-second__list__item > a.navi-inner__url 
+	Wait Until Page Contains Element         link=Guide til a-kasser 
+	Wait Until Page Contains Element         link=Ordliste til a-kasser 
+	Wait Until Page Contains Element         link=FAQ til a-kasser 
+	Wait Until Page Contains Element         link=Oversigt over a-kasser 
+	# Click Element          					 css=li.navi-inner-second__list__item > a.navi-inner__url 
+	Go to 									${HOMEPAGE}/a-kasser
+
+
+
+Verify Folsikring/Akkase/Akkase Page Is Loading
+	Wait Until Page Contains Element         	css=h1 
+	Element Should Contain                  	css=h1 								Sammenlign a-kasser gratis i dag
+	# Location Should Be     						${HOMEPAGE}/a-kasser
+	Wait Until Page Contains Element         	css=span.filterBlockButton 
+	Click Element          					 	css=div.col-md-12.text-center 
+	Wait Until Page Contains Element         	headOrganisation 
+	Wait Until Page Contains Element         	location 
+	Wait Until Page Contains Element         	segmentation 
+	Wait Until Page Contains Element         	icon-uf-all 
+	Wait Until Page Contains Element         	icon-uf-union 
+	Wait Until Page Contains Element         	load-more 
+
+	Verify Footer Is Present
+
+
+
+Go To Forsikring/Akasser/Guide... Page
+	Go To 									${HOMEPAGE}/a-kasser/guide
+
+
+
+Verify Forsikring/Akasser/Guide... Page Is Loaded
+	Element Should Contain                      css=h1 					A-kasse guiden - Sådan finder du den bedste
+	Element Should Contain                      css=h2 					Hvad skal jeg bruge en a-kasse til?
+	Element Should Contain                      //h2[2]						 		Hvordan får jeg ret til dagpenge?
+	Element Should Contain                      //h2[3] 							Hvad sker der, hvis jeg ikke er medlem af en a-kasse?
+	Element Should Contain                      //h2[4] 							Kan studerende få ret til dagpenge?
+	Element Should Contain                      //h2[5] 							Hvad skal jeg overveje, når jeg vælger a-kasse?
+	Element Should Contain                      //h2[6] 							Hvad skal jeg bruge min a-kasse til, udover at få dagpenge?
+	Element Should Contain                      //h2[7] 							Hvad så med fagforening?
+
+
+Go To Forsikring/Akasser/Ordliste til a-kasser Page
+	Go To  							${HOMEPAGE}/a-kasser/ordliste
+
+
+Verify Forsikring/Akasser/Ordliste til a-kasser Page Is Loaded
+	Sleep   10
+	Go To  							${HOMEPAGE}/a-kasser/ordliste
+	Sleep   10
+	Go To  							${HOMEPAGE}/a-kasser/ordliste
+	Location Should Contain     			 		/a-kasser/ordliste 
+	Element Should Contain                       css=h1 			Ordliste til a-kasse
+	Element Should Contain                       css=h2 			Anciennitet
+	Element Should Contain                       //h2[2] 						Beskæftigelseskravet
+	Element Should Contain                       //h2[3] 						Dagpengesats
+	Element Should Contain                       //h2[4] 						Den danske model
+	Element Should Contain                       //h2[5] 						Dimittendsats
+	Element Should Contain                       //h2[6] 						Efterløn
+	Element Should Contain                       //h2[7] 						Efterlønsbidrag
+	Element Should Contain                       //h2[8] 						Hovedorganisationer
+	Element Should Contain                       css=h3 			LO-området
+	Element Should Contain                       //h3[2] 			AC-området
+	Element Should Contain                       //h3[3] 			FTF-området
+	Element Should Contain                       //h3[4] 			Uden hovedorganisation
+	Element Should Contain                       //h2[9] 						Fuldtids / deltidsforsikret
+	Element Should Contain                       //h2[10]			 			Karensperiode
+	Element Should Contain                       //h2[11]			 			Karantæne
+	Element Should Contain                       //h2[12]			 			Kontingent
+	Element Should Contain                       //h3[5] 			Statsbidrag
+	Element Should Contain                       //h3[6] 			ATP
+	Element Should Contain                       //h3[7] 			Administrationsbidrag
+	Element Should Contain                       //h2[13]			 			Ledig / Arbejdssøgende
+	Element Should Contain                       //h2[14]			 			Lønsikring / Lønforsikring
+	Element Should Contain                       //h2[15]			 			Selvforskyldt ledighed
+	Element Should Contain                       //h2[15]			 			Selvforskyldt ledighed
+	Element Should Contain                       //h2[16]			 			Ydelseskort / dagpengekort
+
+
+Go To Forsikring/Akasser/FAQ til a-kasser Page
+	Go To  							${HOMEPAGE}/a-kasser/faq
+ 
+
+Verify Forsikring/Akasser/FAQ til a-kasser Page Is Loaded
+	Location Should Contain 					  /a-kasser/faq 
+	Element Should Contain                        css=h1 				FAQ til a-kasse
+	Element Should Contain                        css=h2  				Hvad skal der til for at opnå retten til dagpenge?
+	Element Should Contain                        //h2[2] 			 				Hvad er en karensperiode?
+	Element Should Contain                        //h2[3] 			 				Hvad er et efterlønsbidrag?
+	Element Should Contain                        //h2[4] 			 				Har jeg ret til dagpenge, hvis jeg selv siger op?
+	Element Should Contain                        //h2[5] 			 				Får jeg samme dagpengebeløb ligegyldigt hvilken a-kasse jeg er medlem af?
+	Element Should Contain                        //h2[6] 			 				Hvilke fordele og ulemper er der ved at samle sin a-kasse og fagforening hos samme aktør?
+	Element Should Contain                        //h2[7] 			 				Bør jeg købe en lønsikring?
+	Element Should Contain                        css=h3  				Hvilke tilfælde er man ikke berretiget til lønsikring?
+	Element Should Contain                        //h2[8] 			 				Hvordan finder jeg den bedste a-kasse til mit behov?
+
+
+
+
+
+
+
+
+
+Go To Forsikring/Akasser/Oversigt over a-kasser Page
+	Go To  							${HOMEPAGE}/a-kasser/Oversigt-over-a-kasser
+
+
+
+Verify Forsikring/Akasser/Oversigt over a-kasser Page Is Loaded
+	Location Should Contain 				 							/a-kasser/Oversigt-over-a-kasser 
+	Element Should Contain 					css=h1 						Samlinos a-kasse oversigt
+	Element Should Contain 					css=h2      				Er du allerede medlem af en a-kasse eller betaler du til lønsikring?
+	Element Should Contain 					css=h2      				Er du allerede medlem af en a-kasse eller betaler du til lønsikring?
+	Wait Until Page Contains Element         	 	link=Sammenlign A-kasser 
+	Wait Until Page Contains Element         	 	xpath=(//a[contains(text(),'Sammenlign A-kasser')])[2] 
+
+
+
+
+
+
+
+Go To Folsikring/Bilforsikring/Bilforsikring Page
+	Element Should Contain                  link=Bilforsikring  Bilforsikring
+	Click Element  link=Bilforsikring
+
+
+Verify Folsikring/Bilforsikring/Bilforsikring Page Is Loaded
+	Reload Page
+	Element Should Contain                  	css=h1  									Få 3 gode tilbud på din bilforsikring!
+	Element Should Contain                  	css=label[for='license_plate']  					Start med at indtaste din nummerplade
+	Wait Until Page Contains Element           css=img[class='img-responsive']
+	Wait Until Page Contains Element           	css=a[href='//www.samlino.dk/bilforsikring/registrering']
+	Wait Until Page Contains Element           	css=div[class='row testimonial_container']
+	Element Should Contain           			css=span[class='banner-text']					 Sådan fungerer det
+
+	# Wait Until Page Contains Element           css=img[src='//www.samlino.dk/assets/img/CI/step1_grey.png']
+	# Wait Until Page Contains Element           css=img[src='//www.samlino.dk/assets/img/CI/step2_grey.png']
+	# Wait Until Page Contains Element           css=img[src='//www.samlino.dk/assets/img/CI/step3_grey.png']
+
+	# Element Should Contain           			css=div[class='btn-compare-now center-text subheader-button']					 Få 3 tilbud nu!
+	# Common.Verify Footer Is Present
+
+
+
+Go To Bilforsikring Form Page
+	Wait Until Page Contains Element           	css=a[href='//www.samlino.dk/bilforsikring/registrering']
+	Click Element  								css=a[href='//www.samlino.dk/bilforsikring/registrering']
+
+
+Input Details On Bilforsikring Form Page 1
+	Wait Until Keyword Succeeds      			30 secs        5 secs        Slow Page      			css=select[id='brand']
+	Select From List By Value        		css=select[id='brand']	    		Alfa Romeo
+	Wait Until Page Contains Element  		css=select[id='model'] option[value='145']
+	Select From List By Value    			css=select[id='model']     				145
+	Wait Until Page Contains Element  		css=select[id='motor'] option[value='0,9']
+	Select From List By Value    			css=select[id='motor'] 					0,9   
+	Wait Until Page Contains Element  		css=select[id='year'] option[value='2014']
+	Select From List By Value    			css=select[id='year']    			 2014
+	# Wait Until Page Contains Element  		css=select[id='vehicle'] option[value='Andet']    #defaulted in system.
+	# Select From List By Value    			css=select[id='vehicle'] 			Andet 
+
+
+	Input Text    							css=input[id='license_plate']        TL12342
+	# Click Element      						css=div[id='step2error'] span[class='pull-right basic-txt']  # its expanded initially already.
+	Input Text    							css=input[id='km']        		20
+	Input Text    							css=input[id='age']        		20
+	Input Text    							css=input[id='car_no']        	20
+	Click Element      						css=div[id='step1_submit_click']
+
+
+Verify Bilforsikring Form Page 2 Is Loaded
+	Wait Until Page Contains Element     	css=input[id='tel']
+	Wait Until Page Contains Element     	css=input[id='name']
+	Wait Until Page Contains Element     	css=input[id='email']
+	Wait Until Page Contains Element     	css=input[id='zipcode']
+	Wait Until Page Contains Element     	css=input[id='road_no']
+	Wait Until Page Contains Element     	css=input[value='Ejet hus'][name='accomodation']
+
+	Wait Until Page Contains Element     	css=div[id='step2_back_click']
+	Wait Until Page Contains Element     	css=div[id='step2_submit_click']
+	
+Input Details On Bilforsikring Form Page 2
+	Input Text     	css=input[id='tel']			6612345
+	Input Text     	css=input[id='name']      	test test
+	Input Text     	css=input[id='tel']			6612345
+	Input Text     	css=input[id='email'] 		test@gmail.com
+	Input Text     	css=input[id='zipcode']		1234
+	Input Text     	css=input[id='road_no']		52
+	Click Element     	css=input[value='Ejet hus'][name='accomodation']
+
+
+	# Click Element      						css=div[id='step4error'] span[class='pull-right basic-txt']# its expanded initially already.
+	Wait Until Page Contains Element  		css=select[id='info1']
+	Wait Until Page Contains Element  		css=select[id='info1'] option[value='Vardia']
+	Select From List By Value    			css=select[id='info1']    			 Vardia
+	Wait Until Page Contains Element  		css=select[id='info1'] option[value='Runa']
+	Select From List By Value    			css=select[id='info1']    			 Runa
+	Wait Until Page Contains Element  		css=select[id='info1'] option[value='Topdanmark']
+	Select From List By Value    			css=select[id='info1']    			 	Topdanmark
+	Input Text  							css=input[id='info2']        			TestInfo2
+	Click Element    						css=input[value='Ja']    
+	Wait Until Page Contains Element  		css=select[id='info4'] option[value='Ved ikke']
+	Select From List By Value    			css=select[id='info4']    			 	Ved ikke
+	Click Element							css=button[class='btn clearfix btn-link chk_large']
+	Click Element							css=label[class='tandc'] span[class='button-checkbox bootstrap-checkbox']
+	Click Element							css=div[id='step2_submit_click']
+
+
+
+# Verify Details On Final Filter Is Correct
+
+
+
+
+
+
+
+Go To Folsikring/Bilforsikring/Guide til bilforsikring Page
+	Go To  							${HOMEPAGE}/bilforsikring/guide
+
+
+Verify Folsikring/Bilforsikring/Bilforsikring - Den komplette guide Page Is Loaded
+	Location Should Contain 				 					/bilforsikring/guide 
+	Title Should Be 											Guide til den bedste bilforsikring efter dit behov 
+	Element Should Contain 					css=h1 								Bilforsikring - Den komplette guide
+	Element Should Contain 					css=h2 								Hvad er en bilforsikring?
+	Element Should Contain 					//h2[2] 										Hvad er en ansvarsforsikring?
+	Element Should Contain 					//h2[3] 										Hvad er en kaskoforsikring?
+	Element Should Contain 					//h2[4] 										Hvad er selvrisiko?
+	Element Should Contain 					//h2[5] 										Hvordan vælger jeg den rette selvrisiko?
+	Element Should Contain 					//h2[5] 										Hvordan vælger jeg den rette selvrisiko?
+	Element Should Contain 					//h2[6] 										Hvordan finder jeg den billigste bilforsikring?
+	Element Should Contain 					//h2[7] 										Hvad afgør prisen på min bilforsikring?
+	Element Should Contain 					css=h3 								Disse faktorer gør din bilforsikring dyr:
+	Element Should Contain 					//h3[2] 							Disse faktorer gør din bilforsikring billig:
+	Element Should Contain 					//h2[8] 										Billig bilforsikring til unge?
+	Element Should Contain 					//h3[3] 							Køb en brugt bil til en billig pris.
+	Element Should Contain 					//h3[4]				 				Køb en lille og økonomisk bil.
+	Element Should Contain 					//h3[5] 							Undersøg markedet grundigt.
+
+
+
+
+
+
+Go To Folsikring/Bilforsikring/Bilforsikrings ordliste Page
+	Go To  							${HOMEPAGE}/bilforsikring/ordliste
+	Sleep  10
+	Go To  							${HOMEPAGE}/bilforsikring/ordliste
+	Sleep  10
+	Go To  							${HOMEPAGE}/bilforsikring/ordliste
+
+
+Verify Folsikring/Bilforsikring/Bilforsikrings ordliste Page Is Loaded
+	Location Should Contain 				 					/bilforsikring/ordliste
+	Title Should Be 						Bilforsikrings ordliste | Samlinos samlede oversigt 
+	Element Should Contain 					css=h1   			Ordliste Bilforsikring
+	Element Should Contain 					css=h2 			Ansvarsforsikring
+	Element Should Contain 					//h2[2] 			Anciennitet
+	Element Should Contain 					//h2[3] 			Bilka bule
+	Element Should Contain 					//h2[4] 			Delkaskoforsikring
+	Element Should Contain 					//h2[5] 			Fastpræmie
+	Element Should Contain 					//h2[6] 			Forsikringspræmie
+	Element Should Contain 					//h2[7] 			Førerpladsdækning
+	Element Should Contain 					//h2[8] 			Glasskadedækning
+	Element Should Contain 					//h2[9] 			Kaskoforsikring
+	Element Should Contain 					//h2[10]			 Selvrisiko
+	Element Should Contain 					//h2[11]			 Trinbilist
+	Element Should Contain 					//h2[12]			 Parkeringsskade
+
+
+
+
+Go To Folsikring/Bilforsikring/FAQ til bilforsikring Page
+	Go To  							${HOMEPAGE}/bilforsikring/faq
+
+Verify Folsikring/Bilforsikring/FAQ til bilforsikring Page Is Loaded
+	Location Should Contain 				 					/bilforsikring/faq 
+	Title Should Be 						Bilforsikrings FAQ | Samlinos spørgsmål og svar 
+	Element Should Contain 					css=h1 			FAQ til Bilforsikring
+	Element Should Contain 					css=h2 			Hvad koster en bilforsikring?
+	Element Should Contain 					//h2[2] 			Hvordan får jeg den billigste bilforsikring?
+	Element Should Contain 					//h2[3] 			Kan jeg beregne prisen på min bilforsikring online?
+	Element Should Contain 					//h2[4] 			Hvad bestemmer prisen på min bilforsikring?
+	Element Should Contain 					//h2[5] 			Hvor får unge den billigste forsikring?
+	Element Should Contain 					//h2[6] 			Hvordan sammenligner jeg priser på bilforsikringer?
+	Element Should Contain 					//h2[7] 			Hvad er en selvrisiko?
+	Element Should Contain 					//h2[8] 			Hvad er en kaskoforsikring?
+	Element Should Contain 					//h2[9] 			Hvad er en elitebilist?
+	Element Should Contain 					//h2[10]			 Hvad er anciennitet?
+
+
+
+
+
+Go To Mobil, bredbånd og TV/Bredbånd+TV/Bredbånd+TV Page
+	Go To  							${HOMEPAGE}/bredbaand 
+
+ 
+# Verify Mobil, bredbånd og TV/Bredbånd+TV/Bredbånd+TV Page Is Loaded 
+# 	Reload Page
+# 	Location Should Contain 				 /bredbaand#fastnet
+# 	Reload Page
+# 	Title Should Be 						Sammenlign priser på bredbånd og mobilt bredbånd | Samlino 
+# 	Element Should Contain 					css=h1 				Gratis sammenligning af bredbånd
+# 	Wait Until Page Contains Element 			zipcode 
+# 	Wait Until Page Contains Element 			tel 
+# 	Element Should Contain 					btn-show-results 				Vis resultater nu
+# 	Wait Until Page Contains Element 		xpath=(//button[@type='button'])[2] 
+# 	Wait Until Page Contains Element 		link=Vilkår og Betingelser 
+# 	Element Should Contain 					css=h2.text-center 				Hvorfor vælge Samlino.dk?
+# 	Element Should Contain 					css=div.cx-steps > div.container-fluid > div.row > h2.text-center 			Sammenlign og køb i tre lette trin
+# 	Element Should Contain 					css=h2.text-semibold.font-dark-green 				Bredbåndsløsning - Hvordan finder jeg den bedste?
+# 	# Element Should Contain 					link=Faktorer du skal overveje når du vælger bredbånd 				Faktorer du skal overveje når du vælger bredbånd
+# 	Element Should Contain 					css=h3 						De forskellige typer af løsninger:
+# 	Wait Until Page Contains Element 		link=Hvilket bredbånd skal du vælge? 
+# 	Element Should Contain 					css=u 					Dækning og hastighed
+# 	# Element Should Contain 					//div[@'seo-panel-2']/div/h3[2]/u 				Gebyrer og bindingsperiode
+# 	# Element Should Contain 					//div[@'seo-panel-2']/div/h3[3]/u 					Dataloft
+
+
+
+# Go To Mobil, bredbånd og TV/Bredbånd+TV/Guide til bredbånd Page
+# Go To Mobil, bredbånd og TV/Bredbånd+TV/Ordliste til bredbånd Page
+# Go To Mobil, bredbånd og TV/Bredbånd+TV/FAQ til bredbånd Page
+# Go To Mobil, bredbånd og TV/Bredbånd+TV/Bredbåndsudbydere Page
+
+
+
+
+
+# Go To Mobil, bredbånd og TV/Mobilabonnement/Mobilabonnement Page
+# Go To Mobil, bredbånd og TV/Mobilabonnement/Guide til mobilabonnementer Page
+# Go To Mobil, bredbånd og TV/Mobilabonnement/Ordliste til mobilabonnementer Page
+# Go To Mobil, bredbånd og TV/Mobilabonnement/FAQ til mobilabonnementer Page
+
+
+
+
+Go to Broadband Page
+	Go To  							${HOMEPAGE}/bredbaand#fastnet
+	Go To  							${HOMEPAGE}/bredbaand#fastnet
+	Go To  							${HOMEPAGE}/bredbaand#fastnet
+
+
+
+Input Details in Form 
+	Element Should Contain                      css=h1  				Gratis sammenligning af bredbånd
+	Wait Until Element Is Visible              	css=input[id='zipcode']
+	Input Text    								css=input[id='zipcode']    			1129
+	Wait Until Element Is Visible              	css=input[id='tel']
+	Input Text    								css=input[id='tel']    			20202020
+	Wait Until Element Is Visible              	css=button[class='btn clearfix btn-link chk_large']
+	Click Element    							css=button[class='btn clearfix btn-link chk_large']  
+	Click Element    							css=button[id='btn-show-results']  
+
+
+
+
+Verify Broadband Page panel section is present 
+	Wait Until Element Is Visible              css=h1
+	Element Should Contain                     css=h1  				Gratis sammenligning af bredbånd
+	Wait Until Element Is Visible              css=div[class='slider-track']
+	# Wait Until Element Is Visible           css=div[class='slider-track']:nth-child(2)
+
+	
+	Wait Until Page Contains Element           link=Vælg Udbyder
+	Wait Until Page Contains Element           css=span[id=icon-bb-home]
+	Wait Until Page Contains Element           css=span[id=icon-bb-mobile]
+	Wait Until Page Contains Element           css=span[id=icon-bb-tv]
+	Wait Until Page Contains Element           css=span[class=total-result-count]
+	Wait Until Page Contains Element           css=span[data-sort='max_speed_download']
+	Wait Until Page Contains Element           css=span[data-sort='contractLength']
+	Wait Until Page Contains Element           css=span[data-sort='upfrontCost']
+	Wait Until Page Contains Element           css=span[data-sort='monthlyCost']
+	# Common.Verify Footer Is Present
+
+
+Verify Broadband Page Slider Defaults Are Correct
+	Wait Until Page Contains Element     		css=div[id='accordion_adv_options'] div[class='col-md-4 col-sm-12 col-xs-12 form-horizontal'] div[class='col-md-8 col-sm-8 col-xs-12'] div[class='slider-handle round'][style='left: 25%;']
+	Element Should Contain          			css=span[class='currency-label-loan-amount']    	5 GB eller derover	
+	Wait Until Page Contains Element           	css=div[id='accordion_adv_options'] div[class='col-md-4 col-sm-12 col-xs-12 form-horizontal'] div[class='col-md-8 col-sm-8 col-xs-12'] div[class='slider-handle round'][style='left: 33.3333%;']
+	Element Should Contain          			css=div[id='accordion_adv_options'] div[class='col-md-4 col-sm-12 col-xs-12 form-horizontal'] div[class='row']:nth-child(3) div[class='col-md-8 col-sm-8 col-xs-12'] span[class='currency-label-loan-amount']   	 10 Mbit/s eller mere 
+
+
+
+
+
+
+
+Go To Mobilabonnement Page
+	Wait Until Page Contains Element           link=Mobilabonnement
+	Click Element  link=Mobilabonnement
+
+
+
+
+# Verify Mobilabonnement Page Is Loaded
+# removing after experiencing this issue. 
+# UnexpectedAlertPresentException: Alert Text: To display this page, Firefox must send information that will repeat any action (such as a search or order confirmation) that was performed earlier.
+# <super: <class 'WebDriverException'>, <UnexpectedAlertPresentException object>>
+# 	Reload Page
+# 	Reload Page
+# 	Wait Until Page Contains Element           css=h1
+# 	Element Should Contain                     css=h1  				Find det billigste mobilabonnement
+# 	Wait Until Page Contains Element           css=div.slider-handle.round
+# 	# Wait Until Page Contains Element           //div[@'collapseOne']/div/div/div/div[2]/div[2]/div/div/div[2]
+# 	Wait Until Page Contains Element           css=label.switch-small
+# 	Wait Until Page Contains Element           id=option1
+# 	Wait Until Page Contains Element           id=option2
+# 	Wait Until Page Contains Element           optionnull
+# 	Wait Until Page Contains Element           css=span.filterBlockButton
+# 	Wait Until Page Contains Element           icon-prepaid-logo
+# 	# Wait Until Page Contains Element           icon-postpaid-logo
+# 	# Page Should Not Contain       			Vi fandt 0 tilbud
+# 	Element Should Contain                  css=span[data-sort='contractLength']  Binding
+# 	Element Should Contain                  css=span[data-sort='upfrontCost']  Oprettelse
+# 	Element Should Contain                  css=span[data-sort='monthlyCost']  Pris pr. måned
+# 	Element Should Contain                  css=span[id='sortingValue'][data-sort='minCost']  Pris 1. måned
+# 	Element Should Contain                  css=div[class='btn-compare-now visit-provider site_redirect']  BESØG
+# 	# Element Should Contain                  css=div[class='btn btn-primary btn-compare-now goto_site promo']  Bestil i dag og få mere taletid og data!
+# 	Element Should Contain                  load-more  VIS FLERE MOBILABONNEMENTER
+# 	# Element Should Contain                  css=div.heading-title2 > div.heading-customers_title  Udvalgte samarbejdspartnere
+# 	# Common.Verify Footer Is Present
+
+
+ 	
+
+Verify Mobilabonnement Page Slider Defaults Are Correct
+	Wait Until Page Contains Element     		css=div[id='accordion_adv_options'] div[class='col-md-6 col-sm-12 col-xs-12 form-horizontal'] div[class='col-md-5 col-sm-8 col-xs-12'] div[class='slider-handle round'][style='left: 80%;']
+	Element Should Contain          			css=span[class='currency-label-loan-amount']    	 8 timer pr. måned	
+	Wait Until Page Contains Element           	css=div[id='accordion_adv_options'] div[class='col-md-6 col-sm-12 col-xs-12 form-horizontal'] div[class='col-md-5 col-sm-8 col-xs-12'] div[class='slider-handle round'][style='left: 50%;']
+	Element Should Contain          			css=div[id='accordion_adv_options'] div[class='col-md-6 col-sm-12 col-xs-12 form-horizontal'] div[class='row']:nth-child(2) div[class='col-md-5 col-sm-8 col-xs-12'] span[class='currency-label-loan-amount']   	  5 GB pr. måned
+
+
+
+Go To Mobilabonnement Post Paid Tab Page
+	Click Element          					css=span[id="icon-postpaid-logo"]
+
+
+Verify Mobilabonnement Post Paid Tab Page Is Loaded
+	Reload Page
+	Wait Until Keyword Succeeds      			30 secs        5 secs        Slow Page      			css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']
+	Element Should Contain                  css=span[data-sort='contractLength']  Binding
+	Element Should Contain                  css=span[data-sort='upfrontCost']  Oprettelse
+	Element Should Contain                  css=span[data-sort='monthlyCost']  Pris pr. måned
+	Element Should Contain                  css=span[id='sortingValue'][data-sort='minCost']  Pris 1. måned
+	Element Should Contain                  css=div[class='btn-compare-now visit-provider site_redirect']  BESØG
+
+	Element Should Contain                  css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']  Vi fandt 22 tilbud
+	# Page Should Not Contain                  load-more  
+	# Common.Verify Footer Is Present
+
+
+
+
+Go To Billån Page
+	Element Should Contain                  link=Billån  Billån
+	Click Element  link=Billån
+
+Verify Billån Page Is Loaded
+	Reload Page
+	Reload Page
+	Element Should Contain                  css=h1  Find det billigste billån i dag
+	Element Should Contain                  css=span.landing-steps  Dine Valg
+	Element Should Contain                  css=span[class='landing-steps']:nth-child(2)  Dine Resultater
+	Wait Until Page Contains Element           input1
+	Wait Until Page Contains Element           input2
+	Wait Until Page Contains Element           input3
+	Wait Until Page Contains Element           input4
+	Wait Until Page Contains Element           css=button.landing-button
+	Verify Footer Is Present
+
+
+Go To Forbrugslån Page
+	Wait Until Page Contains Element           link=Forbrugslån
+	Click Element  link=Forbrugslån
+
+
+
+Verify Forbrugslån Page Slider Defaults Are Correct
+	Wait Until Keyword Succeeds      			30 secs        5 secs        Slow Page      			css=input[id='loan-amount'][value='20.000']
+	Wait Until Page Contains Element     		css=input[id='loan-amount'][value='20.000']
+	Element Should Contain          			css=select[id='loan-tenure']   	   30 mdr. 
+
+
+
+
+Verify Forbrugslån Page Is Loading
+	Sleep   10
+	Reload Page   
+	Wait Until Page Contains Element           css=h1
+	Element Should Contain                     css=h1      LÅN TIL DET DU ØNSKER MED ET ONLINE LÅN   
+	# Wait Until Page Contains Element           css=div.slider-handle.round
+	Wait Until Keyword Succeeds      			30 secs        5 secs        Slow Page No Reload  			css=div[id='tab-menu-dropdown'] li[data-name='Online lån']
+	Wait Until Page Contains Element           css=div[id='tab-menu-dropdown']>li[data-name='Online Lån'] 
+	Wait Until Page Contains Element           css=div[id='tab-menu-dropdown']>li[data-name='Kviklån'] 
+	Wait Until Page Contains Element           css=div[id='tab-menu-dropdown']>li[data-name='Din bank'] 
+
+	Element Should Contain                  css=div[data-sort='lowestMonthlyFlatRate']   Rentesats
+	Element Should Contain                  css=div[data-sort='computedLaprAverage']   ÅOP
+	Element Should Contain                  css=div[data-sort='computedMrpymentAverage']  Månedlig ydelse
+
+	Click Element  								css=div[id='tab-menu-dropdown']>li[data-name='Online lån']
+	Wait Until Page Contains Element           	css=h1
+	Element Should Contain                  	css=h1      LÅN TIL DET DU ØNSKER MED ET Online lån
+	Click Element  								css=div[id='tab-menu-dropdown']>li[data-name='Kviklån']
+	Wait Until Page Contains Element           	css=h1
+	Element Should Contain                  	css=h1      LÅN TIL DET DU ØNSKER MED ET kviklån
+	Click Element  								css=div[id='tab-menu-dropdown']>li[data-name='Din bank']
+	Wait Until Page Contains Element           	css=h1
+	Element Should Contain                  	css=h1      LÅN TIL DET DU ØNSKER MED ET Banklån
+
+	# Verify Footer Is Present
+
+Go To Kreditkort Page
+	Element Should Contain                  link=Kreditkort  Kreditkort
+	Click Element  link=Kreditkort
+
+Verify Kreditkort Page Is Loaded
+	Sleep   10
+	Reload Page
+	Element Should Contain                  css=h1  		Sammenlign kreditkort gratis i dag
+	# Element Should Contain                  link=Vælg bank  Vælg bank
+	# Element Should Contain                  link=Vælg kortudbyder  Vælg kortudbyder
+	# Element Should Contain                  css=div.radio-inline.radioselectbox > label  Kreditkort
+	# Element Should Contain                  css=span.filterBlockButton  Skjul
+	# Wait Until Page Contains Element           icon-cc-all
+	# Wait Until Page Contains Element           icon-cc-airmiles
+	# Wait Until Page Contains Element           icon-cc-premiumcom
+	# Wait Until Page Contains Element           icon-cc-business
+	Element Should Contain                  css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']  	Vi fandt 19 tilbud
+	Element Should Contain                  css=span[data-sort='Kortet indeholder']    			Kortet indeholder
+	Element Should Contain                  css=span[data-sort='annualFeeAfterFirst']    		Årligt gebyr
+	Verify Footer Is Present
+
+
+Go To Højrentekonto Page
+	Element Should Contain                  link=Højrentekonto  Højrentekonto
+	Click Element  link=Højrentekonto
+
+Verify Højrentekonto Page Is Loaded
+	Reload Page
+	Element Should Contain                  css=h1  		Find den bedste højrentekonto - Gratis
+	Element Should Contain                  css=label[for='optionnull'] 		Alle
+	Element Should Contain                  css=label[for='option2']  		Uden
+	Element Should Contain                  css=label[for='option1']			Med
+	Element Should Contain                  css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']  		Vi fandt 15 tilbud
+	Element Should Contain                  css=span.no-hover  		Antal år
+	Element Should Contain                  css=span[data-sort='anunualRate']  		Rentesats
+	Element Should Contain                  css=span[data-sort='loanAmountSort']    		Tilbagebetalt beløb
+	Element Should Contain                  load-more  		VIS FLERE HØJRENTEKONTO DEALS
+	Verify Footer Is Present
+
+
+
+Verify Højrentekonto Page Slider Defaults Are Correct
+	Wait Until Page Contains Element     		css=div[id='accordion_adv_options'] div[class='col-md-6 col-sm-12 col-xs-12 form-horizontal'] div[class='col-md-9 col-sm-9 col-xs-12'] div[class='slider-handle round'][style='left: 24.2424%;']
+	Element Should Contain          			css=span[class='currency-label-loan-amount']    	  250.000 kr. 	
+	Wait Until Page Contains Element           	css=div[id='accordion_adv_options'] div[class='col-md-6 col-sm-12 col-xs-12 form-horizontal'] div:nth-child(2) div[class='col-md-9 col-sm-9 col-xs-12'] div[class='slider-handle round'][style='left: 0%;']
+	Element Should Contain          			css=span[class='currency-label']   	   1 år 
+
+
+
+
+*** Keywords ***
+Verify Header Is Present
+	Wait Until Page Contains Element      	${FirstMenu}
+	Wait Until Page Contains Element      	${SecondMenu} 
+	Wait Until Page Contains Element      	${ThirdMenu} 
+	Wait Until Page Contains Element      	${FourthMenu} 
+	Wait Until Page Contains Element   		${FifthMenu} 
+	Wait Until Page Contains Element      	${SixthMenu} 
+
+
+
+Verify Footer Is Present
+	Wait Until Page Contains Element           css=footer
+	Element Should Contain                  	css=span[class='footer-main-title']           Danmarks førende finansielle sammenligningsportal
+
+	Wait Until Page Contains Element           css=div[class='findout col-md-9 col-sm-9 col-xs-12']
+	Wait Until Page Contains Element           css=div[class='col-md-3 col-sm-3 col-xs-12 find-out-links']
+	Wait Until Page Contains Element           css=div[class='col-xs-12 social-content']
+	Wait Until Page Contains Element           css=a[class='socialmedia fb']
+	Wait Until Page Contains Element           css=a[class='socialmedia gp']
+	Wait Until Page Contains Element           css=a[class='socialmedia yt']
+	Wait Until Page Contains Element           css=a[class='socialmedia blog']

@@ -1,0 +1,35 @@
+*** Settings ***
+Library           Selenium2Library
+
+
+*** Variables ***
+${BROWSER}        Firefox
+${DELAY}          0
+${MAIN PAGE}	  http://compareasiagroup.com
+
+*** Keywords ***
+Open Browser To Login Page
+    Open Browser    ${MAIN PAGE}    ${BROWSER}
+    Maximize Browser Window
+    Set Selenium Speed    ${DELAY}
+    Verify Main Page is Loaded
+
+Verify Main Page Is Loaded
+    Location Should Be    ${MAIN PAGE}
+    Title Should Be    Main page
+
+Go To Main Page
+    Go To    ${MAIN PAGE}
+    Verify Main Page Is Loaded
+
+Input Username
+    [Arguments]    ${username}
+    Input Text    username_field    ${username}
+
+Input Password
+    [Arguments]    ${password}
+    Input Text    password_field    ${password}
+
+Submit Credentials
+    Click Button    login_button
+

@@ -1,0 +1,401 @@
+*** Settings ***
+Library   Selenium2Library
+Library   BuiltIn
+Library   String
+Library   OperatingSystem
+
+
+Suite Setup   Open Browser   ${HOMEPAGE}   ${BROWSER}
+Suite Teardown   Close All Browsers
+Resource          Common/Common.txt
+
+*** Variables ***
+${HOMEPAGE}   http://www.moneymax.ph/
+${BROWSER}   firefox
+
+
+
+
+# Getting the values on Deals found is via Postman chrome extension.  And then  get the URL from QA Report Google spreadsheet.
+
+*** Test Cases ***
+Initialize Test
+	Common.Initialize Test
+	
+Verify Home Page Is Loaded
+	Set Selenium Implicit Wait    				20
+	Maximize browser window
+	Element Should Contain         css=ul.breadcrumb           You are here:  Home
+	Wait Until Page Contains Element         css=nav.navbar.navbar-inverse  
+
+Go To Car Insurance 
+	Click Element      link=Car Insurance
+	Title Should Be         Car Insurance Philippines | Get Free Quotes at MoneyMax.ph
+	# Element Should Contain         css=ul.breadcrumb  		You are here: Home  Car Insurance  Car Insurance Comparison
+	Element Should Contain         css=div.ci-second-choose > div > h6  I drive a...
+	Element Should Contain         css=span.step.show  1 Year
+	Wait Until Page Contains Element         css=li[data-item='2014']
+
+Input Details For My Car Details
+	Title Should Be  						Car Insurance Philippines | Get Free Quotes at MoneyMax.ph
+	Wait Until Page Contains Element        css=div[class='vehicle-make']
+	Wait Until Keyword Succeeds      			30 secs        5 secs        Slow Page No Reload      			css=li[data-item='2015']
+	# Element Should Contain         				css=div[class='vehicle-make']     	Please select a year.
+	Click Element      							css=li[data-item='2015']
+	Wait Until Keyword Succeeds      			30 secs        5 secs        Slow Page No Reload      			css=div.ci-second-options.hidden-phone > div.vehicle-make > ul > li > span
+	Element Should Contain         				css=div.ci-step-2 > span:nth-child(1) > span:nth-child(2)      	Make
+	Verify All Car Make Is Listed
+	Wait Until Element Is Visible         		css=div.vehicle-make:nth-child(1) > ul:nth-child(1) > li:nth-child(1) > span:nth-child(1)
+	Click Element      							css=div.vehicle-make:nth-child(1) > ul:nth-child(1) > li:nth-child(1) > span:nth-child(1)
+	Element Should Contain         				css=div.ci-step-3 > span:nth-child(1) > span:nth-child(2) 			  	Model
+	Wait Until Element Is Visible         		css=div[class='vehicle-model'] > ul > li[data-item='1 M'] > span
+	Click Element      							css=div[class='vehicle-model'] > ul > li[data-item='1 M'] > span
+
+	Wait Until Element Is Visible         		css=div[class='vehicle-submodel'] > ul > li[data-item='COUPE 3.0 6 SPD A/T'] > span
+	Click Element      							css=div[class='vehicle-submodel'] > ul > li[data-item='COUPE 3.0 6 SPD A/T'] > span
+
+	# Element Should Contain         				css=div.ci-step-4 > span.step.show > span  			Trim
+	# Wait Until Element Is Visible         		css=div[class='vehicle-submodel'] > ul > li[data-item='Turbo FSI 1.4L Sportsback 1.4L Gas S-Tronic'] > span  	
+	# Click Element      							css=div[class='vehicle-submodel'] > ul > li[data-item='Turbo FSI 1.4L Sportsback 1.4L Gas S-Tronic'] > span
+
+
+Verify Car Details Are Correct
+	Page Should Contain         			  	Car Insurance
+	Wait Until Element Is Visible         		css=div[class='wizard-car-model']
+	Element Should Contain     					css=div[class='wizard-car-model']			I drive a 2015 BMW 1 M COUPE 3.0 6 SPD A/T (Change Car)
+	Page Should Contain         				2015 BMW 1 M COUPE 3.0 6 SPD A/T
+
+
+Input User Details
+	Title Should Be  							Car Insurance Philippines | Get Free Quotes at MoneyMax.ph
+	Element Should Contain         				css=b  		Where are you located?
+	Element Should Contain         				css=div.radio-cont > span  Luzon
+	Click Element      							css=div.radio-cont > label[for='location-luzon']
+	Wait Until Element Is Visible         		css=label[for='usage-personal']
+	Click Element      							css=label[for='usage-personal']
+	Wait Until Element Is Visible         		css=label[for='coverage-yes']
+	Click Element      							css=label[for='coverage-yes']
+	# Click Element      							css=label.radio > label
+	# Click Element      							css=label[for='coveragesub-yes']
+	# Element Should Contain         				css=div.wizard-step-4 > div.wizard-step > span  What type of coverages are you looking for?
+	# Element Should Contain         				ci-wizard-btn  GET QUOTES
+	# Click Element      							css=button[id='ci-wizard-btn']
+
+
+Verify System Is Searching
+	Page Should Contain         				We are on our way finding the best insurance for you. One moment please...
+	Page Should Contain         				Insurance Products
+	Page Should Contain         				Insurance Carriers
+	Page Should Contain         				Matches Found
+	
+
+
+Input User Contact Details
+	Title Should Be  							Car Insurance Philippines | Get Free Quotes at MoneyMax.ph
+	Wait Until Element Is Visible         		id=fullname
+	Wait Until Element Is Visible         		id=email
+	Wait Until Element Is Visible         		css=div.flag.ph
+	Wait Until Element Is Visible         		id=phone_no
+	Wait Until Element Is Visible      			id=ci-modal-btn
+	Input Text     								id=fullname     test
+	Input Text  								id=email  		test@gmail.com
+	Click Element      							id=phone_no
+	Input Text  								id=phone_no  		1234567890
+	Element Should Contain         				id=ci-modal-btn  SHOW FREE RESULTS
+	Click Element      							id=ci-modal-btn
+
+
+# View Car Insurance Application Deals Page Results
+# 	Wait Until Keyword Succeeds      			10 secs        2 secs        Slow Page      			css=div[id='header_results_1']>div>div>h2 
+# 	Title Should Be  							Car Insurance Philippines | Get Free Quotes at MoneyMax.ph
+# 	Element Should Contain         				css=div[id='header_results_1']>div>div>h2     		Apply for Car Insurance in the Philippines
+# 	Wait Until Element Is Visible  				css=div[class='header_text']
+# 	Wait Until Element Is Visible  				css=img[id='img_cheaper'][src='//www.moneymax.ph//assets/img/get_it_cheaper.png']
+# 	Wait Until Element Is Visible  				css=div[id='ci-filter']
+# 	Wait Until Element Is Visible				css=div[id='deals-num']
+# 	Element Should Contain         				css=span.accordion-toggle  Location
+# 	Element Should Contain         				css=div.ci-text > span  		Where are you located?
+# 	Element Should Contain         				css=div[class='accordion-group']:nth-child(2) span[href='#collapse2']  		Usage
+# 	Element Should Contain         css=span.pull-left  		Tell us about how you use
+# 	Element Should Contain         css=div[class='accordion-group']:nth-child(3) span  Coverage Preference
+# 	Element Should Contain         css=#collapse3 > div.accordion-inner > div.ci-text     Is your car mortgaged?
+# 	Element Should Contain         				css=div[id='deals-num']  			We found 15 deals
+# 	Element Should Contain         css=div[class='row-fluid ci-result-header']>div[class='span3 text-center cover_type_header']      Cover Type
+# 	Element Should Contain         css=div[class='row-fluid ci-result-header']>div[class='span3 found_search_box text-center annual_premium_header']  Annual Premium
+# 	# removed as per OB-383 [PH] CI - remove "Monthly Premium" column in search results
+# 	# Element Should Contain         css=div[class='row-fluid ci-result-header']>div[class='span2 found_search_box text-center month_premium_header']  Monthly Premium
+# 	Element Should Contain         css=div[class='row result_item']>div[class='span2 ci-buy']>button[class='btn-compare-now btn-ci goto_site']  Apply Now
+# 	Element Should Contain        css=div[class='row result_item']>div[class='span2 ci-buy']>button[class='btn btn-primary btn-ci ci-more-info-btn']  Show More Info
+# 	Element Should Contain         css=a[id='load-more']  SHOW MORE PRODUCTS
+
+
+Go Back To Home Page
+	# Title Should Be  							Car Insurance Philippines | Get Free Quotes at MoneyMax.ph
+	Wait Until Page Contains Element         css=span.icon-home.icon-2x
+	Click Element          css=span.icon-home.icon-2x
+	Element Should Contain         css=ul.breadcrumb  You are here:  Home
+	Element Should Contain         link=Credit Cards  Credit Cards
+
+
+Go To Credit Card Page
+	# Title Should Be  							Car Insurance Philippines | Get Free Quotes at MoneyMax.ph
+	Click Element          link=Credit Cards
+
+
+
+Verify Credit Card Page Is Loaded
+	# Title Should Be  							Car Insurance Philippines | Get Free Quotes at MoneyMax.ph
+	Wait Until Page Contains Element         icon-cc-low-interest
+	Wait Until Page Contains Element         icon-cc-0-bal-trans
+	Wait Until Page Contains Element         icon-cc-cashback
+	Wait Until Page Contains Element         icon-cc-points
+	Wait Until Page Contains Element         icon-cc-airmiles
+	Wait Until Page Contains Element         icon-cc-petrol
+	Element Should Contain         css=li[name="Shopping"] > div  Shopping
+	Wait Until Page Contains Element         icon-cc-premium
+	Element Should Contain         more-info-btn-7088  Show more info
+	Element Should Contain         load-more  SHOW MORE CREDIT CARD DEALS
+	Element Should Contain         css=span.ng-binding.total-result-count  17 deals
+	Element Should Contain         css=h3  Get the Best Credit Card in the Philippines
+
+Verify Social Site Links Are Present In Footer
+	# Title Should Be  							Car Insurance Philippines | Get Free Quotes at MoneyMax.ph
+	Wait Until Page Contains Element         css=a.social-fb > span
+	Wait Until Page Contains Element         css=a.social-tw > span
+	Wait Until Page Contains Element         css=a.social-yt > span
+	Wait Until Page Contains Element         css=a.social-gp > span
+	Wait Until Page Contains Element         css=a.social-bl > span
+
+
+
+
+
+Proceed To Broadband Page
+	# Title Should Be  							Car Insurance Philippines | Get Free Quotes at MoneyMax.ph
+	Wait Until Page Contains Element         css=span.icon-home.icon-2x
+	Click Element          css=span.icon-home.icon-2x
+	Element Should Contain         css=ul.breadcrumb  You are here:  Home
+	Element Should Contain         link=Broadband  Broadband
+
+Go To Broadband Page
+	# Title Should Be  							Car Insurance Philippines | Get Free Quotes at MoneyMax.ph
+	Click Element          link=Broadband
+
+Verify Broadband Page Is Loaded
+	# Title Should Be  							Car Insurance Philippines | Get Free Quotes at MoneyMax.ph
+	Element Should Contain         css=h1  Find the best Broadband bundles in the Philippines now
+	Wait Until Page Contains Element         icon-bb-home
+	Element Should Contain         css=li[name="Home"] > div  Home
+	Element Should Contain         css=li[name="Home + Phone"] > div  Home + Phone
+	Element Should Contain         css=li[name="Home + TV"] > div  Home + TV
+	Element Should Contain         css=li[name="Mobile"] > div  Mobile
+	Element Should Contain         id=deals-num  We found 26 deals
+	Element Should Contain         css=div[class='row-fluid'] span[data-sort='contractLength']  Contract
+	Element Should Contain         css=div[class='row-fluid'] span[data-sort='kbps']  Speed
+	Element Should Contain         css=div[class='row-fluid'] span[data-sort='dataValue']  Data
+	Element Should Contain         css=div[class='row-fluid'] span[data-sort='monthlyCost']  Monthly Cost
+	Element Should Contain         css=button[class='moreFeesBtn btn btn-mini btn-primary']  More fees
+	Element Should Contain         css=a[id=load-more]  SHOW MORE BROADBAND DEALS
+
+Go To BroadBand Phone Tab Results
+	Click Element      id=icon-bb-phone
+	Element Should Contain         id=deals-num  We found 30 deals
+	# Verify Table Rows Equals Deals Count       30  		2
+
+Go To BroadBand TV Tab Results
+	# Title Should Be  							Car Insurance Philippines | Get Free Quotes at MoneyMax.ph
+	Click Element      id=icon-bb-tv
+	Element Should Contain         id=deals-num  We found 9 deals
+
+Go To BroadBand Mobile Tab Results
+	# Title Should Be  							Car Insurance Philippines | Get Free Quotes at MoneyMax.ph
+	Click Element      id=icon-bb-mobile
+	Element Should Contain         id=deals-num  We found 34 deals
+	# Verify Table Rows Equals Deals Count       34  		3
+
+
+
+Search For Housing Loans
+	# Title Should Be  							Car Insurance Philippines | Get Free Quotes at MoneyMax.ph
+	Wait Until Page Contains Element              css=span.icon-home.icon-2x
+	Click Element         css=span.icon-home.icon-2x
+	Wait Until Page Contains Element              	link=Broadband
+	Click Element          							link=Broadband
+	Wait Until Page Contains Element		css=form[id='emailCaptureModalForm']
+	Click Element							css=a[class='email_cm_close close']
+	Element Should Contain              css=li.disabled.showHere  You are here:
+	Element Should Contain              link=Housing Loans  Housing Loans
+	Click Element         				link=Housing Loans
+	Element Should Contain              css=h1  			Compare Housing Loan Rates
+	Element Should Contain              css=span.ng-binding.total-result-count  19 deals							
+	Wait Until Page Contains Element              css=span[data-sort='interestrate']   
+	Wait Until Page Contains Element              css=span[data-sort='totalcost']  
+	Wait Until Page Contains Element              css=span[data-sort='monthlycost']  
+	Element Should Contain              load-more  SHOW MORE HOUSING LOAN DEALS
+	Element Should Contain              css=h3  Housing Loans in the Philippines
+
+
+
+Go To Personal Loans Page
+	# Title Should Be  							Car Insurance Philippines | Get Free Quotes at MoneyMax.ph
+	Wait Until Page Contains Element              css=span.icon-home.icon-2x
+	Click Element         css=span.icon-home.icon-2x
+	Click Element         link=Personal Loans
+
+
+Verify Personal Loans Page Is Loaded
+	# Title Should Be  							Car Insurance Philippines | Get Free Quotes at MoneyMax.ph
+	Element Should Contain              css=h1  Apply for Personal Loan in the Philippines
+	Wait Until Page Contains Element              css=span[data-sort='interestrate']   
+	Wait Until Page Contains Element              css=span[data-sort='totalcost']  
+	Wait Until Page Contains Element              css=span[data-sort='monthlycost']
+	Element Should Contain              load-more  SHOW MORE PERSONAL LOAN DEALS
+	Element Should Contain              css=h3  Get a Personal Loan in the Philippines
+	Element Should Contain              css=span.ng-binding.total-result-count  14 deals
+
+
+
+# Search For Personal Loan
+# 	Sleep 			999
+
+
+Verify Get Informed Page Is Loaded.	
+	# Title Should Be  							Car Insurance Philippines | Get Free Quotes at MoneyMax.ph
+	Wait Until Page Contains Element              css=span.icon-home.icon-2x
+	Click Element         css=span.icon-home.icon-2x
+	Click Element         link=Get Informed
+	Element Should Contain              css=ul.breadcrumb    You are here: Home >
+	Element Should Contain              p_leading    Philippines' leading comparison portal!
+	Wait Until Page Contains Element              					css=a[title="Personal Finance"] 
+	Wait Until Page Contains Element              			css=a[title="General News"]  
+	Wait Until Page Contains Element              		  	css=a[title="Product Overviews"]     
+	Wait Until Page Contains Element              			css=a[title="Lifestyle"]          
+	Wait Until Page Contains Element              			css=h3.widget-title > span        
+	Wait Until Page Contains Element              			mc4wp_email
+	Wait Until Page Contains Element              			mc4wp_button
+	Wait Until Page Contains Element              css=#recent-posts-5 > h3.widget-title > span  
+	Wait Until Page Contains Element              css=#text-3 > h3.widget-title > span  
+	Wait Until Page Contains Element              css=div.span12.text-center > p  
+	Wait Until Page Contains Element              css=section.foot_head > p  
+
+
+
+Go To Car Insurance FAQ Page.
+	Mouse Over          css=a[class='dropdown-toggle'][href='//www.moneymax.ph/car-insurance']
+	Wait Until Element Is Visible            		css=a[class='new-dropdown-link'][href='//www.moneymax.ph/car-insurance/faq'] 
+	Click Element       			css=a[class='new-dropdown-link'][href='//www.moneymax.ph/car-insurance/faq']
+
+
+
+Verify Car Insurance FAQ Page Is Loaded.	
+	Wait Until Element Is Visible            		css=h1
+	Element Should Contain    css=h1   	       Frequently Asked Questions About Car Insurance
+	Title Should Be  							Car Insurance Pricing, Coverage and Claims | MoneyMax.ph
+
+
+Go To Car Insurance Glossary Page.
+	Mouse Over          css=a[class='dropdown-toggle'][href='//www.moneymax.ph/car-insurance']
+	Wait Until Element Is Visible            		css=a[class='new-dropdown-link'][href='//www.moneymax.ph/car-insurance/faq'] 
+	Click Element       			css=a[class='new-dropdown-link'][href='//www.moneymax.ph/car-insurance/glossary']
+
+Verify Car Insurance Glossary Page Is Loaded.
+	Wait Until Element Is Visible            		css=h1
+	Element Should Contain    css=h1   	       Car Insurance Glossary
+	Title Should Be  							Car Insurance Policies Definition of Terms | MoneyMax.ph
+
+
+
+Go To Car Insurance Guide Page.
+	Mouse Over          css=a[class='dropdown-toggle'][href='//www.moneymax.ph/car-insurance']
+	Wait Until Element Is Visible            		css=a[class='new-dropdown-link'][href='//www.moneymax.ph/car-insurance/faq'] 
+	Click Element       			css=a[class='new-dropdown-link'][href='//www.moneymax.ph/car-insurance/guide']
+
+
+Verify Car Insurance Guide Page Is Loaded.
+	Wait Until Element Is Visible            		css=h1
+	Element Should Contain    css=h1   	       Everything You Need to Know About Car Insurance in the Philippines
+	Title Should Be  							Car Insurance Application and Payment Guide | MoneyMax.ph
+
+
+
+
+
+
+*** Keywords ***
+
+Verify deals count is correct
+	[Arguments]   ${link}			${dealsCountString}
+	Go Back
+	Wait Until Page Contains Element      css=a[class='dropdown-toggle'][href='//www.moneyhero.com.hk/en/travel-insurance'][data-toggle='dropdown']
+	Mouse Over   css=a[class='dropdown-toggle'][href='//www.moneyhero.com.hk/en/travel-insurance'][data-toggle='dropdown']
+	Click Element   ${link}
+	Wait Until Page Contains     ${dealsCountString}
+
+
+Open Navigation and go to page
+	[Arguments]   ${link}
+	Click Main navigation
+	Wait Until Page Contains Element      link=${link}
+	Click Element	link=${link}
+	Wait Until Page Contains Element      css=h2
+	Element Should Contain		css=h2		${link}
+	Verify Footer is present
+
+Change Language
+	Wait Until Element Is Visible     css=div[class='language'] a[href='//www.moneyhero.com.hk/']
+	Click Element   		css=div[class='language'] a[href='//www.moneyhero.com.hk/']
+
+
+
+
+Main Page Is Loaded
+	Wait Until Page Contains      , All Rights Reserved.
+
+Verify Page Is Loaded
+	Wait Until Page Contains      , All Rights Reserved.
+
+Click Main navigation
+	Wait Until Page Contains Element      css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']
+	Click Element	css=div[id='inner-header'] div[class='menu-responsive'] span[class='mobile-menu pixicon pixicon-list']
+
+Go to page
+    [Arguments]   ${link}
+	Wait Until Page Contains Element      link=${link}
+	Click Element	link=${link}
+	Wait Until Page Contains Element      css=h2
+	Element Should Contain		css=h2		${link}
+
+Verify Footer is present
+	Page Should Contain      © 2014 CompareAsiaGroup, All Rights Reserved. 	
+
+
+Verify All Car Make Is Listed
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul > li[data-item='BMW']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul > li[data-item='CHEVROLET']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul > li[data-item='FORD']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul > li[data-item='FOTON']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul > li[data-item='HONDA']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul > li[data-item='HYUNDAI']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul > li[data-item='ISUZU']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul > li[data-item='KIA']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul > li[data-item='MAZDA']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul > li[data-item='MITSUBISHI']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul > li[data-item='NISSAN']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul > li[data-item='SUZUKI']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul > li[data-item='TOYOTA']
+	Wait Until Page Contains Element         	css=div.vehicle-make > ul > li[data-item='VOLVO']
+
+# Verify Page Credit Card Page Is Loaded
+# 		Wait Until Page Contains Element      ${HEADERFIRSTLAYER}
+# 		Wait Until Page Contains Element      ${HEADERSECONDLAYER}
+# 		Wait Until Page Contains Element      ${MAINMENU}
+# 		Wait Until Page Contains Element      ${BREADCRUMBS}
+# 		Wait Until Page Contains Element      ${BANNER}
+# 		Wait Until Page Contains Element      ${TAB}
+# 		Wait Until Page Contains Element      ${RESULTSTABLE}
+# 		Wait Until Page Contains Element      ${FOOTER}
+# 		Wait Until Page Contains Element      ${WHYCHOOSESECTION}
+# 		Wait Until Page Contains Element      ${CUSTOMERSHARE}
+# 		Wait Until Page Contains Element      ${SOCIALSITES}
+
+

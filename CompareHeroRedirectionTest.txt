@@ -1,0 +1,56 @@
+*** Settings ***
+Library   Selenium2Library
+Suite Setup   Open Browser   ${HOMEPAGE}   ${BROWSER}
+Suite Teardown   Close All Browsers
+
+*** Variables ***
+${HOMEPAGE}   http://www.moneyhero.com.hk/en
+${BROWSER}   firefox
+
+
+# Taken from https://docs.google.com/a/novafabrik.com/spreadsheets/d/113YGpgAuAgIZkH46UDRd4KOFre3QrbNl2n6JTwbbiPc/edit#gid=848781210
+
+*** Test Cases *** 
+Initialize Test
+	Add Cookie       QA_AUTOMATION  			True
+	Set Selenium Timeout        10
+	Set Window Size  				1600     1200
+
+
+
+Go To MY URLs And Verify Correct Redirections
+	[Template] 		Verify Redirection Is Correct
+	http://www.comparehero.my/blog/wp-content/plugins/comparehero_ad_rotator_1.3/img/ch_housing_loan.jpg%5Cu0026size=128.4KB%5Cu0026p=personal%20loan%20insurance%5Cu0026oid=5585faeea06f7035b7ad67a5524f9dce%5Cu0026ni=21%5Cu0026no=39%5Cu0026tab=organic%5Cu0026sigi=12tlvb5u4%5Cu0026sigt=12vt9fhm1%5Cu0026tt=...%20loan%20insurance%20internet%20lifestyle%20money%20tips%20news%20personal%20loan%5Cu0026u=fb		http://www.comparehero.my/
+	http://www.comparehero.my/blogmobile		http://www.comparehero.my/blog/
+			
+			
+	http://www.comparehero.my/credit-card/bank-accounts/comparison		http://www.comparehero.my/credit-card
+	http://www.comparehero.my/credit-card/bank-accounts/comparison?accountType=currentaccount		http://www.comparehero.my/credit-card
+	http://www.comparehero.my/credit-card/bank-accounts/comparison?accountType=savingsaccount&depositAmount=		http://www.comparehero.my/credit-card
+	http://www.comparehero.my/credit-card/credit-cards-comparison		http://www.comparehero.my/credit-card
+	http://www.comparehero.my/credit-card/credit-cards-faq		http://www.comparehero.my/credit-card/faq
+	http://www.comparehero.my/credit-card/credit-cards-guide		http://www.comparehero.my/credit-card/guide
+	http://www.comparehero.my/credit-card/debit-cards-glossary		http://www.comparehero.my/credit-card/glossary
+	http://www.comparehero.my/credit-card/deposit/current-account		http://www.comparehero.my/blog/part-1-savings-account-finding-the-most-competitive-account-2/
+	http://www.comparehero.my/credit-card/insurance/medical-insurance		http://www.comparehero.my/blog/medical-insurance-introduction-for-malaysians/
+	http://www.comparehero.my/credit-card/insurance/personal-accident-insurance		http://www.comparehero.my/blog/personal-accident-introduction/
+	http://www.comparehero.my/credit-card/medical-insurance-glossary		http://www.comparehero.my/blog/medical-insurance-introduction-for-malaysians/
+	http://www.comparehero.my/credit-card/personal-accident-insurance-guide		http://www.comparehero.my/blog/personal-accident-introduction/
+	http://www.comparehero.my/credit-card/savings-account-glossary		http://www.comparehero.my/blog/part-1-savings-account-finding-the-most-competitive-account-2/
+	http://www.comparehero.my/credit-card/travel-insurance-glossary		http://www.comparehero.my/blog/travel-insurance-5-policy-benefits-explained/
+			
+			
+	http://www.comparehero.my/in		http://www.comparehero.my/
+	http://www.comparehero.my/index.php/personal-loan		http://www.comparehero.my/personal-loan
+
+
+
+
+*** Keywords ***
+Verify Redirection Is Correct
+	[Arguments]   	${link}			${Redirection}	
+	Go To 				${link} 
+	Reload Page
+	Location Should Be       ${Redirection} 
+
+

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20150430 15:52:22.802" generator="Robot 2.8.6 (Python 2.7.3 on linux2)">
+<suite source="/home/enriquecampita/Automation/compareglobal-automation/Tests/BasicE2E.txt" id="s1" name="BasicE2E">
+<kw type="setup" name="Selenium2Library.Open Browser">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${HOMEPAGE}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20150430 15:52:22.909" level="INFO">Opening browser 'firefox' to base url 'http://www.compareasiagroup.com'</msg>
+<status status="PASS" endtime="20150430 15:52:26.151" starttime="20150430 15:52:22.909"></status>
+</kw>
+<test id="s1-t1" name="Initialize Test">
+<kw type="kw" name="Selenium2Library.Add Cookie">
+<doc>Adds a cookie to your current session.</doc>
+<arguments>
+<arg>QA_AUTOMATION</arg>
+<arg>True</arg>
+</arguments>
+<status status="PASS" endtime="20150430 15:52:26.158" starttime="20150430 15:52:26.152"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Set Selenium Timeout">
+<doc>Sets the timeout in seconds used by various keywords.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<status status="PASS" endtime="20150430 15:52:26.163" starttime="20150430 15:52:26.158"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Set Window Size">
+<doc>Sets the `width` and `height` of the current window to the specified values.</doc>
+<arguments>
+<arg>1600</arg>
+<arg>1200</arg>
+</arguments>
+<status status="PASS" endtime="20150430 15:52:26.169" starttime="20150430 15:52:26.163"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 15:52:26.169" critical="yes" starttime="20150430 15:52:26.152"></status>
+</test>
+<test id="s1-t2" name="Verify MoneyMax Is Loading">
+<kw type="kw" name="Selenium2Library.Open Browser">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>http://www.moneymax.ph/</arg>
+<arg>firefox</arg>
+</arguments>
+<msg timestamp="20150430 15:52:26.171" level="INFO">Opening browser 'firefox' to base url 'http://www.moneymax.ph/'</msg>
+<status status="PASS" endtime="20150430 15:52:29.706" starttime="20150430 15:52:26.171"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=ul.breadcrumb</arg>
+<arg>You are here:</arg>
+<arg>Home</arg>
+</arguments>
+<msg timestamp="20150430 15:52:29.707" level="INFO">Verifying element 'css=ul.breadcrumb' contains text 'You are here:'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 15:52:29.796" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 15:52:29.796" starttime="20150430 15:52:29.712"></status>
+</kw>
+<msg timestamp="20150430 15:52:29.796" level="FAIL">ValueError: Element locator 'css=ul.breadcrumb' did not match any elements.</msg>
+<status status="FAIL" endtime="20150430 15:52:29.796" starttime="20150430 15:52:29.706"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 15:52:29.797" critical="yes" starttime="20150430 15:52:26.170">ValueError: Element locator 'css=ul.breadcrumb' did not match any elements.</status>
+</test>
+<test id="s1-t3" name="Verify MoneyGuru Is Loading">
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>http://www.moneyguru.co.th/en</arg>
+</arguments>
+<msg timestamp="20150430 15:52:29.798" level="INFO">Opening url 'http://www.moneyguru.co.th/en'</msg>
+<status status="PASS" endtime="20150430 15:52:29.836" starttime="20150430 15:52:29.798"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=img[alt="MoneyGuru"]</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 15:52:39.971" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 15:52:39.971" starttime="20150430 15:52:39.888"></status>
+</kw>
+<msg timestamp="20150430 15:52:39.971" level="FAIL">Element 'css=img[alt="MoneyGuru"]' did not appear in 10 seconds</msg>
+<status status="FAIL" endtime="20150430 15:52:39.971" starttime="20150430 15:52:29.836"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 15:52:39.971" critical="yes" starttime="20150430 15:52:29.797">Element 'css=img[alt="MoneyGuru"]' did not appear in 10 seconds</status>
+</test>
+<test id="s1-t4" name="Verify Money101 Is Loading">
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>http://www.money101.com.tw/</arg>
+</arguments>
+<msg timestamp="20150430 15:52:39.973" level="INFO">Opening url 'http://www.money101.com.tw/'</msg>
+<status status="PASS" endtime="20150430 15:52:40.008" starttime="20150430 15:52:39.972"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=img[alt="Money101"]</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 15:52:50.144" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 15:52:50.144" starttime="20150430 15:52:50.060"></status>
+</kw>
+<msg timestamp="20150430 15:52:50.144" level="FAIL">Element 'css=img[alt="Money101"]' did not appear in 10 seconds</msg>
+<status status="FAIL" endtime="20150430 15:52:50.144" starttime="20150430 15:52:40.008"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 15:52:50.145" critical="yes" starttime="20150430 15:52:39.972">Element 'css=img[alt="Money101"]' did not appear in 10 seconds</status>
+</test>
+<test id="s1-t5" name="Verify ComparaGuru Is Loading">
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>http://www.comparaguru.com/</arg>
+</arguments>
+<msg timestamp="20150430 15:52:50.146" level="INFO">Opening url 'http://www.comparaguru.com/'</msg>
+<status status="PASS" endtime="20150430 15:52:50.182" starttime="20150430 15:52:50.145"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=img[alt="ComparaGuru"]</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 15:53:00.353" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 15:53:00.353" starttime="20150430 15:53:00.257"></status>
+</kw>
+<msg timestamp="20150430 15:53:00.353" level="FAIL">Element 'css=img[alt="ComparaGuru"]' did not appear in 10 seconds</msg>
+<status status="FAIL" endtime="20150430 15:53:00.354" starttime="20150430 15:52:50.182"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 15:53:00.354" critical="yes" starttime="20150430 15:52:50.145">Element 'css=img[alt="ComparaGuru"]' did not appear in 10 seconds</status>
+</test>
+<test id="s1-t6" name="Verify HaloMoney Is Loading">
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>http://www.halomoney.co.id</arg>
+</arguments>
+<msg timestamp="20150430 15:53:00.355" level="INFO">Opening url 'http://www.halomoney.co.id'</msg>
+<status status="PASS" endtime="20150430 15:53:00.392" starttime="20150430 15:53:00.355"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=ul.breadcrumb</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 15:53:10.527" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 15:53:10.527" starttime="20150430 15:53:10.447"></status>
+</kw>
+<msg timestamp="20150430 15:53:10.528" level="FAIL">Element 'css=ul.breadcrumb' did not appear in 10 seconds</msg>
+<status status="FAIL" endtime="20150430 15:53:10.528" starttime="20150430 15:53:00.392"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 15:53:10.528" critical="yes" starttime="20150430 15:53:00.354">Element 'css=ul.breadcrumb' did not appear in 10 seconds</status>
+</test>
+<kw type="teardown" name="Selenium2Library.Close All Browsers">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150430 15:53:10.568" starttime="20150430 15:53:10.530"></status>
+</kw>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20150430 15:53:10.568" starttime="20150430 15:52:22.803"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="5" pass="1">Critical Tests</stat>
+<stat fail="5" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="5" pass="1" id="s1" name="BasicE2E">BasicE2E</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

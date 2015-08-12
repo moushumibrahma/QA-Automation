@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20150430 07:58:49.870" generator="Robot 2.8.6 (Python 2.7.3 on linux2)">
+<suite source="/home/enriquecampita/Automation/compareglobal-automation/Tests/MoneyGuruE2ETest.txt" id="s1" name="MoneyGuruE2ETest">
+<kw type="setup" name="Selenium2Library.Open Browser">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${HOMEPAGE}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20150430 07:58:50.082" level="INFO">Opening browser 'firefox' to base url 'http://www.moneyguru.co.th/en'</msg>
+<status status="PASS" endtime="20150430 07:58:56.060" starttime="20150430 07:58:50.081"></status>
+</kw>
+<test id="s1-t1" name="Initialize Test">
+<kw type="kw" name="Selenium2Library.Add Cookie">
+<doc>Adds a cookie to your current session.</doc>
+<arguments>
+<arg>QA_AUTOMATION</arg>
+<arg>True</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:58:56.069" starttime="20150430 07:58:56.062"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Set Selenium Timeout">
+<doc>Sets the timeout in seconds used by various keywords.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:58:56.077" starttime="20150430 07:58:56.070"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Set Window Size">
+<doc>Sets the `width` and `height` of the current window to the specified values.</doc>
+<arguments>
+<arg>1600</arg>
+<arg>1200</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:58:56.136" starttime="20150430 07:58:56.078"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 07:58:56.136" critical="yes" starttime="20150430 07:58:56.061"></status>
+</test>
+<test id="s1-t2" name="Verify Home Page Is Loaded">
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=img[alt="MoneyGuru"]</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:58:56.179" starttime="20150430 07:58:56.138"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>link=Car Insurance</arg>
+<arg>Car Insurance</arg>
+</arguments>
+<msg timestamp="20150430 07:58:56.179" level="INFO">Verifying element 'link=Car Insurance' contains text 'Car Insurance'.</msg>
+<status status="PASS" endtime="20150430 07:58:56.453" starttime="20150430 07:58:56.179"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>link=Credit Card</arg>
+<arg>Credit Card</arg>
+</arguments>
+<msg timestamp="20150430 07:58:56.453" level="INFO">Verifying element 'link=Credit Card' contains text 'Credit Card'.</msg>
+<status status="PASS" endtime="20150430 07:58:56.727" starttime="20150430 07:58:56.453"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>link=Personal Loan</arg>
+<arg>Personal Loan</arg>
+</arguments>
+<msg timestamp="20150430 07:58:56.728" level="INFO">Verifying element 'link=Personal Loan' contains text 'Personal Loan'.</msg>
+<status status="PASS" endtime="20150430 07:58:57.004" starttime="20150430 07:58:56.728"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>link=About Us</arg>
+<arg>About Us</arg>
+</arguments>
+<msg timestamp="20150430 07:58:57.004" level="INFO">Verifying element 'link=About Us' contains text 'About Us'.</msg>
+<status status="PASS" endtime="20150430 07:58:57.277" starttime="20150430 07:58:57.004"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>p_leading</arg>
+<arg>Thailand’s Leading Financial Comparison Portal</arg>
+</arguments>
+<msg timestamp="20150430 07:58:57.284" level="INFO">Verifying element 'p_leading' contains text 'Thailand’s Leading Financial Comparison Portal'.</msg>
+<status status="PASS" endtime="20150430 07:58:57.301" starttime="20150430 07:58:57.277"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=div.btn-compare-now</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:58:57.306" starttime="20150430 07:58:57.301"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>//div[2]/div/div/div/a[2]/div</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:58:57.312" starttime="20150430 07:58:57.307"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Page Should Contain">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>Access comprehensive information on credit cards, personal loans, and car insurance:</arg>
+</arguments>
+<msg timestamp="20150430 07:58:57.327" level="INFO">Current page contains text 'Access comprehensive information on credit cards, personal loans, and car insurance:'.</msg>
+<status status="PASS" endtime="20150430 07:58:57.327" starttime="20150430 07:58:57.313"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Page Should Contain">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>Find answers to frequently asked questions on key financial products in Thailand:</arg>
+</arguments>
+<msg timestamp="20150430 07:58:57.349" level="INFO">Current page contains text 'Find answers to frequently asked questions on key financial products in Thailand:'.</msg>
+<status status="PASS" endtime="20150430 07:58:57.349" starttime="20150430 07:58:57.327"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Page Should Contain">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>Make an informed choice by understanding important financial terms:</arg>
+</arguments>
+<msg timestamp="20150430 07:58:57.366" level="INFO">Current page contains text 'Make an informed choice by understanding important financial terms:'.</msg>
+<status status="PASS" endtime="20150430 07:58:57.366" starttime="20150430 07:58:57.350"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=a[href='//www.moneyguru.co.th/en/credit-card/guide']</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:58:57.376" starttime="20150430 07:58:57.366"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=a[href='//www.moneyguru.co.th/en/personal-loan']</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:58:57.381" starttime="20150430 07:58:57.376"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=a[href='//www.moneyguru.co.th/en/car-insurance/guide']</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:58:57.387" starttime="20150430 07:58:57.382"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=a[href='//www.moneyguru.co.th/en/credit-card/faq']</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:58:57.394" starttime="20150430 07:58:57.388"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=a[href='//www.moneyguru.co.th/en/personal-loan']</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:58:57.400" starttime="20150430 07:58:57.394"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=a[href='//www.moneyguru.co.th/en/car-insurance/faq']</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:58:57.408" starttime="20150430 07:58:57.400"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=a[href='//www.moneyguru.co.th/en/credit-card/glossary']</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:58:57.415" starttime="20150430 07:58:57.409"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=a[href='//www.moneyguru.co.th/en/personal-loan']</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:58:57.423" starttime="20150430 07:58:57.415"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=a[href='//www.moneyguru.co.th/en/car-insurance/glossary']</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:58:57.433" starttime="20150430 07:58:57.424"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=a.social-fb &gt; span</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:58:57.442" starttime="20150430 07:58:57.433"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=a.social-tw &gt; span</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:58:57.453" starttime="20150430 07:58:57.442"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=a.social-gp &gt; span</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:58:57.464" starttime="20150430 07:58:57.453"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=a.social-bl &gt; span</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:58:57.470" starttime="20150430 07:58:57.465"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=section.foot_head.hidden-xs &gt; div.container.sec_grp &gt; div.row &gt; div.col-md-12 &gt; p</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:58:57.477" starttime="20150430 07:58:57.470"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 07:58:57.477" critical="yes" starttime="20150430 07:58:56.137"></status>
+</test>
+<test id="s1-t3" name="Go To Credit Card">
+<kw type="kw" name="Selenium2Library.Wait Until Element Is Visible">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>link=Credit Card</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:58:57.744" starttime="20150430 07:58:57.479"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>link=Credit Card</arg>
+</arguments>
+<msg timestamp="20150430 07:58:57.744" level="INFO">Clicking element 'link=Credit Card'.</msg>
+<status status="PASS" endtime="20150430 07:59:01.193" starttime="20150430 07:58:57.744"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 07:59:01.193" critical="yes" starttime="20150430 07:58:57.478"></status>
+</test>
+<test id="s1-t4" name="Verify Credit Card Page Is Loaded">
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h1.vertical_h1</arg>
+<arg>Find and Compare the Best Credit Card Deals Now!</arg>
+</arguments>
+<msg timestamp="20150430 07:59:01.195" level="INFO">Verifying element 'css=h1.vertical_h1' contains text 'Find and Compare the Best Credit Card Deals Now!'.</msg>
+<status status="PASS" endtime="20150430 07:59:01.216" starttime="20150430 07:59:01.195"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>link=Select Banks</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 07:59:12.228" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 07:59:12.229" starttime="20150430 07:59:11.547"></status>
+</kw>
+<msg timestamp="20150430 07:59:12.239" level="FAIL">Element 'link=Select Banks' did not appear in 10 seconds</msg>
+<status status="FAIL" endtime="20150430 07:59:12.239" starttime="20150430 07:59:01.216"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 07:59:12.239" critical="yes" starttime="20150430 07:59:01.194">Element 'link=Select Banks' did not appear in 10 seconds</status>
+</test>
+<test id="s1-t5" name="Verify Superstore Deals">
+<kw type="kw" name="Selenium2Library.Page Should Not Contain">
+<doc>Verifies the current page does not contain `text`.</doc>
+<arguments>
+<arg>css=div[class='progress-bar']</arg>
+</arguments>
+<msg timestamp="20150430 07:59:12.503" level="INFO">Current page does not contain text 'css=div[class='progress-bar']'.</msg>
+<status status="PASS" endtime="20150430 07:59:12.504" starttime="20150430 07:59:12.241"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>icon-cc-superstore</arg>
+</arguments>
+<msg timestamp="20150430 07:59:12.504" level="INFO">Clicking element 'icon-cc-superstore'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 07:59:13.163" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 07:59:13.163" starttime="20150430 07:59:12.510"></status>
+</kw>
+<msg timestamp="20150430 07:59:13.164" level="FAIL">ValueError: Element locator 'icon-cc-superstore' did not match any elements.</msg>
+<status status="FAIL" endtime="20150430 07:59:13.164" starttime="20150430 07:59:12.504"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 07:59:13.164" critical="yes" starttime="20150430 07:59:12.240">ValueError: Element locator 'icon-cc-superstore' did not match any elements.</status>
+</test>
+<test id="s1-t6" name="Verify Airmiles Deals">
+<kw type="kw" name="Selenium2Library.Page Should Not Contain">
+<doc>Verifies the current page does not contain `text`.</doc>
+<arguments>
+<arg>css=div[class='progress-bar']</arg>
+</arguments>
+<msg timestamp="20150430 07:59:13.356" level="INFO">Current page does not contain text 'css=div[class='progress-bar']'.</msg>
+<status status="PASS" endtime="20150430 07:59:13.356" starttime="20150430 07:59:13.165"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>icon-cc-airmiles</arg>
+</arguments>
+<msg timestamp="20150430 07:59:13.356" level="INFO">Clicking element 'icon-cc-airmiles'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 07:59:14.037" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 07:59:14.037" starttime="20150430 07:59:13.363"></status>
+</kw>
+<msg timestamp="20150430 07:59:14.037" level="FAIL">ValueError: Element locator 'icon-cc-airmiles' did not match any elements.</msg>
+<status status="FAIL" endtime="20150430 07:59:14.037" starttime="20150430 07:59:13.356"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 07:59:14.038" critical="yes" starttime="20150430 07:59:13.164">ValueError: Element locator 'icon-cc-airmiles' did not match any elements.</status>
+</test>
+<test id="s1-t7" name="Verify Travel Deals">
+<kw type="kw" name="Selenium2Library.Page Should Not Contain">
+<doc>Verifies the current page does not contain `text`.</doc>
+<arguments>
+<arg>css=div[class='progress-bar']</arg>
+</arguments>
+<msg timestamp="20150430 07:59:14.236" level="INFO">Current page does not contain text 'css=div[class='progress-bar']'.</msg>
+<status status="PASS" endtime="20150430 07:59:14.236" starttime="20150430 07:59:14.039"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>icon-cc-travel</arg>
+</arguments>
+<msg timestamp="20150430 07:59:14.236" level="INFO">Clicking element 'icon-cc-travel'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 07:59:14.918" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 07:59:14.918" starttime="20150430 07:59:14.243"></status>
+</kw>
+<msg timestamp="20150430 07:59:14.919" level="FAIL">ValueError: Element locator 'icon-cc-travel' did not match any elements.</msg>
+<status status="FAIL" endtime="20150430 07:59:14.919" starttime="20150430 07:59:14.236"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 07:59:14.919" critical="yes" starttime="20150430 07:59:14.038">ValueError: Element locator 'icon-cc-travel' did not match any elements.</status>
+</test>
+<test id="s1-t8" name="Verify Petrol Deals">
+<kw type="kw" name="Selenium2Library.Page Should Not Contain">
+<doc>Verifies the current page does not contain `text`.</doc>
+<arguments>
+<arg>css=div[class='progress-bar']</arg>
+</arguments>
+<msg timestamp="20150430 07:59:15.117" level="INFO">Current page does not contain text 'css=div[class='progress-bar']'.</msg>
+<status status="PASS" endtime="20150430 07:59:15.117" starttime="20150430 07:59:14.920"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>icon-cc-petrol</arg>
+</arguments>
+<msg timestamp="20150430 07:59:15.118" level="INFO">Clicking element 'icon-cc-petrol'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 07:59:15.892" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 07:59:15.893" starttime="20150430 07:59:15.124"></status>
+</kw>
+<msg timestamp="20150430 07:59:15.893" level="FAIL">ValueError: Element locator 'icon-cc-petrol' did not match any elements.</msg>
+<status status="FAIL" endtime="20150430 07:59:15.893" starttime="20150430 07:59:15.118"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 07:59:15.893" critical="yes" starttime="20150430 07:59:14.919">ValueError: Element locator 'icon-cc-petrol' did not match any elements.</status>
+</test>
+<test id="s1-t9" name="Verify Cashback Deals">
+<kw type="kw" name="Selenium2Library.Page Should Not Contain">
+<doc>Verifies the current page does not contain `text`.</doc>
+<arguments>
+<arg>css=div[class='progress-bar']</arg>
+</arguments>
+<msg timestamp="20150430 07:59:16.084" level="INFO">Current page does not contain text 'css=div[class='progress-bar']'.</msg>
+<status status="PASS" endtime="20150430 07:59:16.084" starttime="20150430 07:59:15.894"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>icon-cc-cashback</arg>
+</arguments>
+<msg timestamp="20150430 07:59:16.085" level="INFO">Clicking element 'icon-cc-cashback'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 07:59:16.741" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 07:59:16.741" starttime="20150430 07:59:16.092"></status>
+</kw>
+<msg timestamp="20150430 07:59:16.742" level="FAIL">ValueError: Element locator 'icon-cc-cashback' did not match any elements.</msg>
+<status status="FAIL" endtime="20150430 07:59:16.742" starttime="20150430 07:59:16.085"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 07:59:16.742" critical="yes" starttime="20150430 07:59:15.894">ValueError: Element locator 'icon-cc-cashback' did not match any elements.</status>
+</test>
+<test id="s1-t10" name="Verify Specialty Deals">
+<kw type="kw" name="Selenium2Library.Page Should Not Contain">
+<doc>Verifies the current page does not contain `text`.</doc>
+<arguments>
+<arg>css=div[class='progress-bar']</arg>
+</arguments>
+<msg timestamp="20150430 07:59:16.941" level="INFO">Current page does not contain text 'css=div[class='progress-bar']'.</msg>
+<status status="PASS" endtime="20150430 07:59:16.941" starttime="20150430 07:59:16.743"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>icon-cc-specialty</arg>
+</arguments>
+<msg timestamp="20150430 07:59:16.942" level="INFO">Clicking element 'icon-cc-specialty'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 07:59:17.616" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 07:59:17.616" starttime="20150430 07:59:16.948"></status>
+</kw>
+<msg timestamp="20150430 07:59:17.617" level="FAIL">ValueError: Element locator 'icon-cc-specialty' did not match any elements.</msg>
+<status status="FAIL" endtime="20150430 07:59:17.617" starttime="20150430 07:59:16.941"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 07:59:17.617" critical="yes" starttime="20150430 07:59:16.742">ValueError: Element locator 'icon-cc-specialty' did not match any elements.</status>
+</test>
+<test id="s1-t11" name="Verify Premium Deals">
+<kw type="kw" name="Selenium2Library.Page Should Not Contain">
+<doc>Verifies the current page does not contain `text`.</doc>
+<arguments>
+<arg>css=div[class='progress-bar']</arg>
+</arguments>
+<msg timestamp="20150430 07:59:17.826" level="INFO">Current page does not contain text 'css=div[class='progress-bar']'.</msg>
+<status status="PASS" endtime="20150430 07:59:17.826" starttime="20150430 07:59:17.619"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>icon-cc-premium</arg>
+</arguments>
+<msg timestamp="20150430 07:59:17.826" level="INFO">Clicking element 'icon-cc-premium'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 07:59:18.502" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 07:59:18.502" starttime="20150430 07:59:17.834"></status>
+</kw>
+<msg timestamp="20150430 07:59:18.503" level="FAIL">ValueError: Element locator 'icon-cc-premium' did not match any elements.</msg>
+<status status="FAIL" endtime="20150430 07:59:18.503" starttime="20150430 07:59:17.826"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 07:59:18.503" critical="yes" starttime="20150430 07:59:17.618">ValueError: Element locator 'icon-cc-premium' did not match any elements.</status>
+</test>
+<test id="s1-t12" name="Verify All Deals">
+<kw type="kw" name="Selenium2Library.Page Should Not Contain">
+<doc>Verifies the current page does not contain `text`.</doc>
+<arguments>
+<arg>css=div[class='progress-bar']</arg>
+</arguments>
+<msg timestamp="20150430 07:59:18.696" level="INFO">Current page does not contain text 'css=div[class='progress-bar']'.</msg>
+<status status="PASS" endtime="20150430 07:59:18.696" starttime="20150430 07:59:18.504"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>icon-cc-all</arg>
+</arguments>
+<msg timestamp="20150430 07:59:18.696" level="INFO">Clicking element 'icon-cc-all'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150430 07:59:19.452" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-9.png"&gt;&lt;img src="selenium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150430 07:59:19.452" starttime="20150430 07:59:18.702"></status>
+</kw>
+<msg timestamp="20150430 07:59:19.452" level="FAIL">ValueError: Element locator 'icon-cc-all' did not match any elements.</msg>
+<status status="FAIL" endtime="20150430 07:59:19.452" starttime="20150430 07:59:18.696"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150430 07:59:19.453" critical="yes" starttime="20150430 07:59:18.503">ValueError: Element locator 'icon-cc-all' did not match any elements.</status>
+</test>
+<test id="s1-t13" name="Go To Personal Loan Page">
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>link=Personal Loan</arg>
+</arguments>
+<msg timestamp="20150430 07:59:19.455" level="INFO">Clicking element 'link=Personal Loan'.</msg>
+<status status="PASS" endtime="20150430 07:59:23.217" starttime="20150430 07:59:19.454"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 07:59:23.217" critical="yes" starttime="20150430 07:59:19.453"></status>
+</test>
+<test id="s1-t14" name="Verify Personal Loan Page Is Loaded">
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h1.vertical_h1</arg>
+<arg>Best Interest Rates for Personal Loans in Thailand</arg>
+</arguments>
+<msg timestamp="20150430 07:59:23.219" level="INFO">Verifying element 'css=h1.vertical_h1' contains text 'Best Interest Rates for Personal Loans in Thailand'.</msg>
+<status status="PASS" endtime="20150430 07:59:23.242" starttime="20150430 07:59:23.219"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>loan-amount</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:59:23.261" starttime="20150430 07:59:23.243"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>tenure-amount</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:59:23.273" starttime="20150430 07:59:23.261"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>link=All Loan Providers</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:59:23.577" starttime="20150430 07:59:23.273"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>monthly-income</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:59:23.586" starttime="20150430 07:59:23.578"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=div.slider-track</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:59:23.594" starttime="20150430 07:59:23.586"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=label.salary-btn</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:59:23.602" starttime="20150430 07:59:23.594"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=input[id='employmentTypeSelfEmployed']</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:59:23.609" starttime="20150430 07:59:23.602"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>link=Hide Filters</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:59:23.857" starttime="20150430 07:59:23.609"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>icon_pl_installment_loans</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:59:23.866" starttime="20150430 07:59:23.858"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']</arg>
+</arguments>
+<status status="PASS" endtime="20150430 07:59:23.872" starttime="20150430 07:59:23.866"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']</arg>
+<arg>We found 10 deals</arg>
+</arguments>
+<msg timestamp="20150430 07:59:23.873" level="INFO">Verifying element 'css=div[class='hdr1 col-md-5 col-sm-5 col-xs-4']' contains text 'We found 10 deals'.</msg>
+<status status="PASS" endtime="20150430 07:59:23.904" starttime="20150430 07:59:23.872"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 07:59:23.904" critical="yes" starttime="20150430 07:59:23.218"></status>
+</test>
+<test id="s1-t15" name="Go To About Us Page">
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>link=About Us</arg>
+</arguments>
+<msg timestamp="20150430 07:59:23.905" level="INFO">Clicking element 'link=About Us'.</msg>
+<status status="PASS" endtime="20150430 07:59:24.270" starttime="20150430 07:59:23.905"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 07:59:24.270" critical="yes" starttime="20150430 07:59:23.904"></status>
+</test>
+<test id="s1-t16" name="Verify About Us Page Is Loaded">
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h1</arg>
+<arg>About Us</arg>
+</arguments>
+<msg timestamp="20150430 07:59:24.272" level="INFO">Verifying element 'css=h1' contains text 'About Us'.</msg>
+<status status="PASS" endtime="20150430 07:59:26.371" starttime="20150430 07:59:24.271"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h2</arg>
+<arg>What We Do</arg>
+</arguments>
+<msg timestamp="20150430 07:59:26.372" level="INFO">Verifying element 'css=h2' contains text 'What We Do'.</msg>
+<status status="PASS" endtime="20150430 07:59:26.508" starttime="20150430 07:59:26.372"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Element Should Contain">
+<doc>Verifies element identified by `locator` contains text `expected`.</doc>
+<arguments>
+<arg>css=h4</arg>
+<arg>Compare Asia Group</arg>
+</arguments>
+<msg timestamp="20150430 07:59:26.508" level="INFO">Verifying element 'css=h4' contains text 'Compare Asia Group'.</msg>
+<status status="PASS" endtime="20150430 07:59:26.527" starttime="20150430 07:59:26.508"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20150430 07:59:26.527" critical="yes" starttime="20150430 07:59:24.270"></status>
+</test>
+<kw type="teardown" name="Selenium2Library.Close All Browsers">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20150430 07:59:26.583" starttime="20150430 07:59:26.530"></status>
+</kw>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20150430 07:59:26.583" starttime="20150430 07:58:49.871"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="9" pass="7">Critical Tests</stat>
+<stat fail="9" pass="7">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="9" pass="7" id="s1" name="MoneyGuruE2ETest">MoneyGuruE2ETest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
